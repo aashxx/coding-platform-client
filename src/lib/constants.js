@@ -1,4 +1,5 @@
 export const ALL_PROBLEMS = [
+    // DEBUGGING
     // Question 1
     {
         category: "Debugging",
@@ -19,7 +20,7 @@ export const ALL_PROBLEMS = [
         testCases: [
             { input: "2 3", expectedOutput: "5" },
             { input: "10 20", expectedOutput: "30" },
-            { input: "-5 -5", expectedOutput: "-10" } // Negative case
+            { input: "-5 -5", expectedOutput: "-10" }
         ]
     },
     // Question 2
@@ -41,7 +42,7 @@ export const ALL_PROBLEMS = [
         `,
         testCases: [
             { input: "", expectedOutput: "10" },
-            { input: "", expectedOutput: "10" }, // Repeated to verify stability
+            { input: "", expectedOutput: "10" }, 
             { input: "", expectedOutput: "10" }
         ]
     },
@@ -69,7 +70,7 @@ export const ALL_PROBLEMS = [
         `,
         testCases: [
             { input: "", expectedOutput: "0\n1\n2\n3\n4\n" },
-            { input: "", expectedOutput: "0\n1\n2\n3\n4\n" }, // Recheck for repeatability
+            { input: "", expectedOutput: "0\n1\n2\n3\n4\n" }, 
             { input: "", expectedOutput: "0\n1\n2\n3\n4\n" }
         ]
     },

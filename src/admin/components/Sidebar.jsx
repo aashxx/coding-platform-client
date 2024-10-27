@@ -9,8 +9,15 @@ const Sidebar = () => {
     const isActive = (path) => location.pathname === path;
 
     return (
-        <div className="w-64 bg-[#080e24] font-poppins text-white h-screen p-6 flex flex-col shadow-lg fixed">
-            <img className='rounded-full h-[100px] w-[100px] mx-auto mb-20' src="https://i.postimg.cc/2yzNpf2r/coding-club.png" alt="AV" />
+        <div className="lg:w-64 2xl:w-[350px] bg-[#080e24] font-poppins text-gray-300 h-screen p-6 flex flex-col shadow-lg fixed">
+            {/* Profile image */}
+            <img
+                className="rounded-full h-[100px] w-[100px] mx-auto mb-10 border-4 border-indigo-500"
+                src="https://i.postimg.cc/2yzNpf2r/coding-club.png"
+                alt="Admin Avatar"
+            />
+
+            {/* Navigation Links */}
             <nav className="flex flex-col space-y-6">
                 <SidebarLink
                     to="/admin/dashboard"
@@ -19,10 +26,10 @@ const Sidebar = () => {
                     isActive={isActive('/admin/dashboard')}
                 />
                 <SidebarLink
-                    to="/admin/all-problems"
-                    label="All Problems"
+                    to="/admin/allot-problems"
+                    label="Allot Problems"
                     icon={<MdList />}
-                    isActive={isActive('/admin/all-problems')}
+                    isActive={isActive('/admin/allot-problems')}
                 />
                 <SidebarLink
                     to="/admin/leaderboard"
@@ -46,8 +53,8 @@ const SidebarLink = ({ to, label, icon, isActive }) => {
     return (
         <Link
             to={to}
-            className={`flex items-center px-4 py-3 rounded-md transition-colors 
-                        ${isActive ? 'bg-blue-700 text-white' : 'text-white hover:bg-blue-700 hover:text-white'}`}
+            className={`flex items-center px-4 py-3 rounded-md transition-colors duration-200
+                        ${isActive ? 'bg-indigo-500 text-white' : 'text-gray-300 hover:bg-indigo-500 hover:text-white'}`}
         >
             <span className="text-xl mr-3">{icon}</span>
             <span className="font-medium">{label}</span>
