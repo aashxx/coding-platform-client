@@ -12,7 +12,6 @@ const AllProblems = () => {
     const [selectedTeam, setSelectedTeam] = useState('');
     const [price, setPrice] = useState('');
 
-    // Filter problems based on search and category
     const filteredProblems = ALL_PROBLEMS.filter(problem => {
         const matchesCategory = selectedCategory === 'All' || problem.category === selectedCategory;
         const matchesSearch = problem.title.toLowerCase().includes(searchTerm.toLowerCase());
@@ -82,7 +81,7 @@ const AllProblems = () => {
             alert("Failed to allot problem.");
         }
     };
-    
+
     return (
         <div className="p-6 bg-gray-50 min-h-screen pl-64 font-poppins">
             <h2 className="text-2xl font-semibold mb-4 text-gray-700">All Problems</h2>
