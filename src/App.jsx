@@ -6,21 +6,26 @@ import Participants from './admin/pages/Participants';
 import Sidebar from './admin/components/Sidebar';
 import ProblemAllotment from './admin/pages/ProblemAllotment';
 import Problems from './client/pages/Problems';
+import ProblemsState from './client/contexts/ProblemsContext';
+import IDE from './client/pages/IDE';
 
 const App = () => {
     return (
         <Router>
-            <div className="flex min-h-screen">
-                <AdminLayout>
-                    <Routes>
-                        <Route path="/admin/dashboard" element={<Dashboard />} />
-                        <Route path="/admin/allot-problems" element={<ProblemAllotment />} />
-                        <Route path="/admin/leaderboard" element={<Leaderboard />} />
-                        <Route path="/admin/participants" element={<Participants />} />
-                        <Route path='/editor/:team' element={<Problems />} />
-                    </Routes>
-                </AdminLayout>
-            </div>
+            <ProblemsState>
+                <div className="flex min-h-screen">
+                    <AdminLayout>
+                        <Routes>
+                            <Route path="/admin/dashboard" element={<Dashboard />} />
+                            <Route path="/admin/allot-problems" element={<ProblemAllotment />} />
+                            <Route path="/admin/leaderboard" element={<Leaderboard />} />
+                            <Route path="/admin/participants" element={<Participants />} />
+                            <Route path='/editor/:team' element={<Problems />} />
+                            <Route path='/editor/:team/:problemTitle' element={<IDE />} />
+                        </Routes>
+                    </AdminLayout>
+                </div>
+            </ProblemsState>
         </Router>
     );
 };

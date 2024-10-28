@@ -111,8 +111,8 @@ const ProblemAllotment = () => {
 
             {/* Display Problems as Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
-                {filteredProblems.map(problem => (
-                    <div key={problem.id} className="bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-5 hover:shadow-xl transition-shadow">
+                {filteredProblems.map((problem, idx) => (
+                    <div key={idx} className="bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-5 hover:shadow-xl transition-shadow">
                         {/* Title */}
                         <h3 className="text-xl font-bold text-gray-100 mb-4">{problem.title}</h3>
                         
