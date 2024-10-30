@@ -2187,41 +2187,692 @@ export const ALL_PROBLEMS = [
         }
     },
     //==========================================SQL QUERIES=======================================================
-    // SQl Problem 1
+    // Problem 1
     {
-        id: "sql1a2b3c4d5e6f7g8",
+        id: "SQ1-9FJLS0KCLNXJ",
         category: "SQL",
-        title: "Find Top 3 Highest Salaries",
-        description: "Write a SQL query to retrieve the top 3 highest salaries from the employees table.",
-        time_limit: 5,
-        points: 20,
-        difficulty: "Medium",
-        base_price: 30,
+        difficulty: "Easy",
+        base_price: 20,
+        points: 10,
+        time_limit: 2,
+        title: "Retrieve all records",
+        description: "Retrieve all records from the employees table.",
+        existingCode: "// Query here",
         testCases: [
-            { input: "SELECT salary FROM employees ORDER BY salary DESC LIMIT 3", expectedOutput: "[100000, 90000, 80000]" },
-            { input: "SELECT salary FROM employees ORDER BY salary DESC LIMIT 2", expectedOutput: "[100000, 90000]" },
-            { input: "SELECT salary FROM employees ORDER BY salary DESC LIMIT 1", expectedOutput: "[100000]" }
-        ],
-        existingCode: {
-            sql: `// Query here`
-        }
+            { query: "SELECT * FROM employees;", expectedRowCount: 10 },
+        ]
     },
-    // SQL Problem 2
+    // Problem 2
     {
-        id: "sql9h0i1j2k3l4m5n6",
+        id: "SQ2-HSF9L3SKJL0P",
         category: "SQL",
-        title: "Count Employees by Department",
-        description: "Write a SQL query to count the number of employees in each department.",
-        time_limit: 5,
-        points: 25,
+        difficulty: "Easy",
+        base_price: 20,
+        points: 10,
+        time_limit: 2,
+        title: "Select Name Column",
+        description: "Select only the name column from the employees table.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name FROM employees;", expectedColumns: ["name"] },
+        ]
+    },
+    // Problem 3
+    {
+        id: "SQ3-KLS9FJSKDLW2",
+        category: "SQL",
         difficulty: "Easy",
         base_price: 25,
+        points: 12,
+        time_limit: 2,
+        title: "Count Employees",
+        description: "Find the total number of employees in the employees table.",
+        existingCode: "// Query here",
         testCases: [
-            { input: "SELECT department, COUNT(*) FROM employees GROUP BY department", expectedOutput: "[{ department: 'Sales', count: 10 }, { department: 'Engineering', count: 15 }]" },
-            { input: "SELECT department, COUNT(*) FROM employees WHERE department = 'Sales'", expectedOutput: "[{ department: 'Sales', count: 10 }]" }
-        ],
-        existingCode: {
-            sql: `// Query here`
-        }
+            { query: "SELECT COUNT(*) FROM employees;", expectedOutput: "10" },
+        ]
+    },
+    // Problem 4
+    {
+        id: "SQ4-MX9DLSJFK3WL",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 25,
+        points: 12,
+        time_limit: 2,
+        title: "Distinct Departments",
+        description: "Get all distinct values in the department column from employees.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT DISTINCT department FROM employees;", expectedValues: ["Sales", "Engineering", "HR", "Marketing"] },
+        ]
+    },
+    // Problem 5
+    {
+        id: "SQ5-J2NLS8DFJWLM",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 30,
+        points: 15,
+        time_limit: 3,
+        title: "Salary Above 50000",
+        description: "Retrieve all employees whose salary is greater than 50000.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT * FROM employees WHERE salary > 50000;", expectedRowCount: 6 },
+        ]
+    },
+    // Problem 6
+    {
+        id: "SQ6-XW8FJSK7DKLN",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 30,
+        points: 15,
+        time_limit: 3,
+        title: "Count by Department",
+        description: "Count the number of employees in each department.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT department, COUNT(*) FROM employees GROUP BY department;", expectedOutput: [
+                { department: "Sales", count: 3 },
+                { department: "Engineering", count: 3 },
+                { department: "HR", count: 2 },
+                { department: "Marketing", count: 2 }
+            ] }
+        ]
+    },
+    // Problem 7
+    {
+        id: "SQ7-W9DSL3K8FNLP",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 30,
+        points: 15,
+        time_limit: 3,
+        title: "Minimum Salary",
+        description: "Find the minimum salary from the employees table.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT MIN(salary) FROM employees;", expectedOutput: "45000.00" },
+        ]
+    },
+    // Problem 8
+    {
+        id: "SQ8-NFJLS0DK9S3W",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 35,
+        points: 17,
+        time_limit: 3,
+        title: "Names Starting with 'A'",
+        description: "Retrieve all employee names where the name starts with 'A'.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name FROM employees WHERE name LIKE 'A%';", expectedOutput: ["Alice Johnson"] },
+        ]
+    },
+    // Problem 9
+    {
+        id: "SQ9-XJ3KFL2KDJ9S",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 35,
+        points: 17,
+        time_limit: 3,
+        title: "Average Salary",
+        description: "Calculate the average salary of employees.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT AVG(salary) FROM employees;", expectedOutput: "58300.00" },
+        ]
+    },
+    // Problem 10
+    {
+        id: "SQ10-MKS8L3SKD9WL",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 35,
+        points: 17,
+        time_limit: 3,
+        title: "Sales Department Employees",
+        description: "Select all employees who work in the Sales department.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT * FROM employees WHERE department = 'Sales';", expectedRowCount: 3 },
+        ]
+    },
+    // Question 11
+    {
+        id: "SQ11-JS9KDLSFJ0KL",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 40,
+        points: 20,
+        time_limit: 4,
+        title: "Total Salary by Department",
+        description: "Calculate the total salary expense per department.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT department, SUM(salary) FROM employees GROUP BY department;", expectedOutput: [
+                { department: "Sales", sum_salary: 168000 },
+                { department: "Engineering", sum_salary: 195000 },
+                { department: "HR", sum_salary: 97000 },
+                { department: "Marketing", sum_salary: 114000 }
+            ] }
+        ]
+    },
+    // Question 12
+    {
+        id: "SQ12-KLSJD09F3S0P",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 40,
+        points: 20,
+        time_limit: 4,
+        title: "Employees with Age over 30",
+        description: "Retrieve the names of employees who are over 30 years old.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name FROM employees WHERE age > 30;", expectedOutput: ["Alice Johnson", "Charlie Brown", "Edward Davis", "George Harris", "Ivan Young", "Julia Thomas"] }
+        ]
+    },
+    // Question 13
+    {
+        id: "SQ13-FL0S3KJD9SW0",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 45,
+        points: 22,
+        time_limit: 4,
+        title: "Top 3 Highest Salaries",
+        description: "Find the names and salaries of the top 3 highest-paid employees.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name, salary FROM employees ORDER BY salary DESC LIMIT 3;", expectedOutput: [
+                { name: "Ivan Young", salary: 80000 },
+                { name: "Julia Thomas", salary: 65000 },
+                { name: "George Harris", salary: 62000 }
+            ] }
+        ]
+    },
+    // Question 14
+    {
+        id: "SQ14-JD0S3LFKS9P4",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 45,
+        points: 22,
+        time_limit: 4,
+        title: "Hire Date Before 2018",
+        description: "List all employees hired before the year 2018.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name, hire_date FROM employees WHERE hire_date < '2018-01-01';", expectedOutput: [
+                { name: "Charlie Brown", hire_date: "2015-09-15" },
+                { name: "George Harris", hire_date: "2016-01-25" },
+                { name: "Julia Thomas", hire_date: "2014-08-01" }
+            ] }
+        ]
+    },
+    // Question 15
+    {
+        id: "SQ15-LKJSD0F9S4MP",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 50,
+        points: 25,
+        time_limit: 5,
+        title: "Average Salary by Job Title",
+        description: "Calculate the average salary for each job title.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT job_title, AVG(salary) FROM employees GROUP BY job_title;", expectedOutput: [
+                { job_title: "Sales Associate", avg_salary: 51500.00 },
+                { job_title: "Software Engineer", avg_salary: 70000.00 },
+                { job_title: "HR Specialist", avg_salary: 50000.00 },
+                { job_title: "Marketing Manager", avg_salary: 62000.00 },
+                { job_title: "Sales Manager", avg_salary: 65000.00 },
+                { job_title: "Senior Engineer", avg_salary: 80000.00 }
+            ] }
+        ]
+    },
+    // Question 16
+    {
+        id: "SQ16-ML09SJDF3P0L",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 50,
+        points: 25,
+        time_limit: 5,
+        title: "Employee and Manager Names",
+        description: "List each employee's name along with their manager's name.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT e.name AS employee_name, m.name AS manager_name FROM employees e LEFT JOIN employees m ON e.manager_id = m.id;", expectedOutput: [
+                { employee_name: "Bob Smith", manager_name: "Alice Johnson" },
+                { employee_name: "Daisy Carter", manager_name: "Charlie Brown" },
+                { employee_name: "Fiona Green", manager_name: "Edward Davis" },
+                { employee_name: "Hannah Lee", manager_name: "George Harris" },
+                { employee_name: "Alice Johnson", manager_name: null }
+            ] }
+        ]
+    },
+    // Question 17
+    {
+        id: "SQ17-KS9LFJ3SLD0P",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 55,
+        points: 27,
+        time_limit: 5,
+        title: "Number of Managers",
+        description: "Count the number of employees who are managers.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT COUNT(DISTINCT manager_id) FROM employees WHERE manager_id IS NOT NULL;", expectedOutput: "5" }
+        ]
+    },
+    // Question 18
+    {
+        id: "SQ18-L0SJD9FK3S8M",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 55,
+        points: 27,
+        time_limit: 5,
+        title: "Employees with High Experience",
+        description: "List names of employees with more than 5 years of experience.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name FROM employees WHERE years_experience > 5;", expectedOutput: ["Alice Johnson", "Charlie Brown", "George Harris", "Ivan Young", "Julia Thomas"] }
+        ]
+    },
+    // Question 19
+    {
+        id: "SQ19-M0SKJDF3LS8W",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 60,
+        points: 30,
+        time_limit: 6,
+        title: "Employees Hired in 2021",
+        description: "Retrieve names of employees hired in the year 2021.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name FROM employees WHERE YEAR(hire_date) = 2021;", expectedOutput: ["Hannah Lee", "Fiona Green"] }
+        ]
+    },
+    // Question 20
+    {
+        id: "SQ20-N9SDJFKLS0L3",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 60,
+        points: 30,
+        time_limit: 6,
+        title: "Employees Without Manager",
+        description: "List all employees who do not have a manager.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name FROM employees WHERE manager_id IS NULL;", expectedOutput: ["Alice Johnson", "Charlie Brown", "Edward Davis", "George Harris", "Ivan Young", "Julia Thomas"] }
+        ]
+    },
+    // Question 21
+    {
+        id: "SQ21-0FLSKDJ93SKL",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 70,
+        points: 35,
+        time_limit: 7,
+        title: "Employees by Department and Count",
+        description: "List each department with the number of employees in it.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT department, COUNT(*) as employee_count FROM employees GROUP BY department;", expectedOutput: [
+                { department: "Sales", employee_count: 3 },
+                { department: "Engineering", employee_count: 3 },
+                { department: "HR", employee_count: 2 },
+                { department: "Marketing", employee_count: 2 }
+            ] }
+        ]
+    },
+    // Question 22
+    {
+        id: "SQ22-KLJ0S9DJF4LP",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 70,
+        points: 35,
+        time_limit: 7,
+        title: "Top Paid in Each Department",
+        description: "Find the highest-paid employee in each department.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT department, MAX(salary) as top_salary FROM employees GROUP BY department;", expectedOutput: [
+                { department: "Sales", top_salary: 65000 },
+                { department: "Engineering", top_salary: 80000 },
+                { department: "HR", top_salary: 50000 },
+                { department: "Marketing", top_salary: 62000 }
+            ] }
+        ]
+    },
+    // Question 23
+    {
+        id: "SQ23-MKLSDJF90P2L",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 75,
+        points: 38,
+        time_limit: 8,
+        title: "Average Experience by Job Title",
+        description: "Calculate the average years of experience for each job title.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT job_title, AVG(years_experience) as avg_experience FROM employees GROUP BY job_title;", expectedOutput: [
+                { job_title: "Sales Associate", avg_experience: 4 },
+                { job_title: "Software Engineer", avg_experience: 7 },
+                { job_title: "HR Specialist", avg_experience: 6 },
+                { job_title: "Marketing Manager", avg_experience: 5 },
+                { job_title: "Sales Manager", avg_experience: 8 },
+                { job_title: "Senior Engineer", avg_experience: 10 }
+            ] }
+        ]
+    },
+    // Question 24
+    {
+        id: "SQ24-JKL0FJ92S9L",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 75,
+        points: 38,
+        time_limit: 8,
+        title: "Employees with No Department",
+        description: "List all employees who do not belong to any department.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name FROM employees WHERE department IS NULL;", expectedOutput: [] } // Assuming no null values
+        ]
+    },
+    // Question 25
+    {
+        id: "SQ25-LD9FJ0SK3ML",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 80,
+        points: 40,
+        time_limit: 8,
+        title: "Average Salary over 5 Years Experience",
+        description: "Calculate the average salary of employees with more than 5 years of experience.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT AVG(salary) FROM employees WHERE years_experience > 5;", expectedOutput: "61000.00" }
+        ]
+    },
+    // Question 26
+    {
+        id: "SQ26-LKJFS0D9P4ML",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 80,
+        points: 40,
+        time_limit: 8,
+        title: "Employees and Their Managers",
+        description: "List all employees with their managers’ names (null if no manager).",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT e.name AS employee_name, m.name AS manager_name FROM employees e LEFT JOIN employees m ON e.manager_id = m.id;", expectedOutput: [
+                { employee_name: "Bob Smith", manager_name: "Alice Johnson" },
+                { employee_name: "Daisy Carter", manager_name: "Charlie Brown" },
+                { employee_name: "Fiona Green", manager_name: "Edward Davis" },
+                { employee_name: "Hannah Lee", manager_name: "George Harris" }
+            ] }
+        ]
+    },
+    // Question 27
+    {
+        id: "SQ27-KSJD09F3ML2P",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 85,
+        points: 42,
+        time_limit: 9,
+        title: "Departments with Salary Over 60K",
+        description: "Find departments where at least one employee earns over 60,000.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT DISTINCT department FROM employees WHERE salary > 60000;", expectedOutput: ["Engineering", "Sales", "Marketing"] }
+        ]
+    },
+    // Question 28
+    {
+        id: "SQ28-M3LKD9J0SP0L",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 85,
+        points: 42,
+        time_limit: 9,
+        title: "Unique Job Titles",
+        description: "List all unique job titles within the company.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT DISTINCT job_title FROM employees;", expectedOutput: ["Sales Associate", "Software Engineer", "HR Specialist", "Marketing Manager", "Sales Manager", "Senior Engineer"] }
+        ]
+    },
+    // Question 29
+    {
+        id: "SQ29-JS0L3KD9PML2",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 90,
+        points: 45,
+        time_limit: 10,
+        title: "Employee Ages in Descending Order",
+        description: "Display all employee names with their ages, sorted by age in descending order.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name, age FROM employees ORDER BY age DESC;", expectedOutput: [
+                { name: "Julia Thomas", age: 45 },
+                { name: "Ivan Young", age: 42 },
+                { name: "George Harris", age: 39 },
+                { name: "Charlie Brown", age: 35 }
+            ] }
+        ]
+    },
+    // Question 30
+    {
+        id: "SQ30-0LKJFS9DMLP3",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 90,
+        points: 45,
+        time_limit: 10,
+        title: "Employee Count by Job Title",
+        description: "Get a count of employees for each job title.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT job_title, COUNT(*) as count FROM employees GROUP BY job_title;", expectedOutput: [
+                { job_title: "Sales Associate", count: 3 },
+                { job_title: "Software Engineer", count: 3 },
+                { job_title: "HR Specialist", count: 2 },
+                { job_title: "Marketing Manager", count: 2 }
+            ] }
+        ]
+    },
+    // Question 31
+    {
+        id: "SQ31-AJDS09KSJ4LP",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 100,
+        points: 50,
+        time_limit: 12,
+        title: "Find Employees Without Projects",
+        description: "List all employees who are not assigned to any project.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name FROM employees WHERE id NOT IN (SELECT employee_id FROM projects);", expectedOutput: ["George Harris", "Daisy Carter", "Ivan Young"] }
+        ]
+    },
+    // Question 32
+    {
+        id: "SQ32-KSDLJ0DFL4P9",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 105,
+        points: 52,
+        time_limit: 13,
+        title: "Total Salary by Job Title",
+        description: "Calculate the total salary for each job title.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT job_title, SUM(salary) as total_salary FROM employees GROUP BY job_title;", expectedOutput: [
+                { job_title: "Sales Associate", total_salary: 180000 },
+                { job_title: "Software Engineer", total_salary: 240000 },
+                { job_title: "HR Specialist", total_salary: 95000 }
+            ] }
+        ]
+    },
+    // Question 33
+    {
+        id: "SQ33-LSDJFS0K9P4L",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 110,
+        points: 55,
+        time_limit: 13,
+        title: "List Employees in Multiple Departments",
+        description: "Find employees who work in more than one department.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name FROM employees GROUP BY name HAVING COUNT(DISTINCT department) > 1;", expectedOutput: ["Julia Thomas"] }
+        ]
+    },
+    // Question 34
+    {
+        id: "SQ34-KDFJS0L9PML2",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 110,
+        points: 55,
+        time_limit: 14,
+        title: "Top Earners by Department",
+        description: "Identify the highest salary earners in each department.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT department, name, MAX(salary) as salary FROM employees GROUP BY department, name ORDER BY salary DESC;", expectedOutput: [
+                { department: "Sales", name: "Alice Johnson", salary: 65000 },
+                { department: "Engineering", name: "Charlie Brown", salary: 80000 }
+            ] }
+        ]
+    },
+    // Question 35
+    {
+        id: "SQ35-MSKDJF09S4LP",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 115,
+        points: 57,
+        time_limit: 14,
+        title: "Find All Managers and Their Employees",
+        description: "List all managers along with the names of their direct reports.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT m.name AS manager_name, e.name AS employee_name FROM employees e LEFT JOIN employees m ON e.manager_id = m.id WHERE m.name IS NOT NULL;", expectedOutput: [
+                { manager_name: "Alice Johnson", employee_name: "Bob Smith" },
+                { manager_name: "Edward Davis", employee_name: "Fiona Green" }
+            ] }
+        ]
+    },
+    // Question 36
+    {
+        id: "SQ36-KLSJD09FPL2",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 120,
+        points: 60,
+        time_limit: 15,
+        title: "Department Budget Allocation",
+        description: "Calculate the total budget required to cover all salaries by department.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT department, SUM(salary) as total_salary FROM employees GROUP BY department;", expectedOutput: [
+                { department: "Sales", total_salary: 130000 },
+                { department: "Engineering", total_salary: 180000 },
+                { department: "HR", total_salary: 100000 }
+            ] }
+        ]
+    },
+    // Question 37
+    {
+        id: "SQ37-ALSKDJF09ML2",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 125,
+        points: 62,
+        time_limit: 15,
+        title: "Rank Employees by Salary in Each Department",
+        description: "Rank employees in each department by salary.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name, department, salary, RANK() OVER (PARTITION BY department ORDER BY salary DESC) as salary_rank FROM employees;", expectedOutput: [
+                { name: "Alice Johnson", department: "Sales", salary: 65000, salary_rank: 1 },
+                { name: "Daisy Carter", department: "Sales", salary: 45000, salary_rank: 2 },
+                { name: "Charlie Brown", department: "Engineering", salary: 80000, salary_rank: 1 }
+            ] }
+        ]
+    },
+    // Question 38
+    {
+        id: "SQ38-LKJFD09SPL4",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 130,
+        points: 65,
+        time_limit: 16,
+        title: "Cumulative Salary Sum by Department",
+        description: "Calculate the cumulative sum of salaries in each department.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name, department, salary, SUM(salary) OVER (PARTITION BY department ORDER BY salary) as cumulative_salary FROM employees;", expectedOutput: [
+                { name: "Daisy Carter", department: "Sales", salary: 45000, cumulative_salary: 45000 },
+                { name: "Alice Johnson", department: "Sales", salary: 65000, cumulative_salary: 110000 }
+            ] }
+        ]
+    },
+    // Question 39
+    {
+        id: "SQ39-KJSDF09L4PM",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 130,
+        points: 65,
+        time_limit: 16,
+        title: "Employees with Above Average Salary",
+        description: "List employees whose salary is above the company average.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT name FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);", expectedOutput: ["Alice Johnson", "Charlie Brown", "Edward Davis"] }
+        ]
+    },
+    // Question 40
+    {
+        id: "SQ40-ALKJDF0SL9P",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 135,
+        points: 67,
+        time_limit: 17,
+        title: "Employee Tenure and Salary Correlation",
+        description: "Analyze the correlation between tenure and salary among employees.",
+        existingCode: "// Query here",
+        testCases: [
+            { query: "SELECT years_experience, salary FROM employees ORDER BY years_experience;", expectedOutput: [
+                { years_experience: 1, salary: 35000 },
+                { years_experience: 3, salary: 45000 },
+                { years_experience: 8, salary: 65000 }
+            ] }
+        ]
     }
-];
+]
