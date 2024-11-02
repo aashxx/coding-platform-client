@@ -7,25 +7,47 @@ export const ProblemsContext = createContext();
 
 const ProblemsState = ({ children }) => {
 
-  const [biddedProblems, setBiddedProblems] = useState([]);
+  const [allotments, setAllotments] = useState({
+    teamName: "",
+    balance: "",
+    biddedProblems: []
+  });
 
   const fetchBiddedQuestions = (team) => {
-    const teamRef = ref(realDb, `allotments/${team}/biddedQuestions`);
+    const teamRef = ref(realDb, `allotments/${team}`);
     
     onValue(teamRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        const biddedTitles = Object.values(data).map(item => item.title);
-        const problemsForTeam = ALL_PROBLEMS.filter(problem => biddedTitles.includes(problem.title));
-        setBiddedProblems(problemsForTeam);
+        const biddedQuestions = data.biddedQuestions || {};
+        const balance = data.balance || "";
+
+        const biddedProblems = Object.values(biddedQuestions).map(biddedItem => {
+          const problemDetails = ALL_PROBLEMS.find(problem => problem.id === biddedItem.id);
+          return {
+            ...problemDetails,
+            biddingPrice: biddedItem.biddingPrice,
+            status: biddedItem.status
+          };
+        });
+
+        setAllotments({
+          teamName: data.teamName,
+          balance,
+          biddedProblems
+        });
       } else {
-        setBiddedProblems([]); 
+        setAllotments({
+          teamName: "",
+          balance: "",
+          biddedProblems: []
+        }); 
       }
     });
   };
 
   return (
-    <ProblemsContext.Provider value={{ biddedProblems, fetchBiddedQuestions }}>
+    <ProblemsContext.Provider value={{ allotments, fetchBiddedQuestions }}>
       {children}
     </ProblemsContext.Provider>
   );

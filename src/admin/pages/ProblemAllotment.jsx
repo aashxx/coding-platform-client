@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ALL_PROBLEMS } from '@/lib/constants';
-import { push, ref, get, update } from 'firebase/database';
+import { ref, get, update, set } from 'firebase/database';
 import { realDb } from '@/lib/firebase';
 import { MdCategory, MdAccessTime, MdBarChart } from 'react-icons/md'
 
@@ -37,9 +37,9 @@ const ProblemAllotment = () => {
             alert("Please select a team and enter a price.");
             return;
         }
-
-        const priceValue = parseFloat(price); // Convert price to a number for calculations
-
+    
+        const priceValue = parseFloat(price);
+    
         try {
             const balanceRef = ref(realDb, `allotments/${selectedTeam}/balance`);
             const balanceSnapshot = await get(balanceRef);
@@ -47,38 +47,40 @@ const ProblemAllotment = () => {
                 alert("Balance data not found for the selected team.");
                 return;
             }
-
+    
             let currentBalance = balanceSnapshot.val();
-
+    
             if (currentBalance < priceValue) {
                 alert("Insufficient balance for this team.");
                 return;
             }
-
+    
             const newBalance = currentBalance - priceValue;
             if (newBalance < 0) {
                 alert("Transaction would result in a negative balance. Operation stopped.");
                 return;
             }
-
+    
             await update(ref(realDb, `allotments/${selectedTeam}`), {
                 balance: newBalance,
             });
-
-            const allotmentRef = ref(realDb, `allotments/${selectedTeam}/biddedQuestions`);
-            await push(allotmentRef, {
-                title: selectedProblem.title,
+    
+            const problemRef = ref(realDb, `allotments/${selectedTeam}/biddedQuestions/${selectedProblem.id}`);
+            await set(problemRef, {
+                id: selectedProblem.id,
                 biddingPrice: priceValue,
+                status: "unsolved"
             });
-
+    
             alert(`Problem allotted to ${selectedTeam}. Remaining balance: ${newBalance}`);
             closeModal();
-
+    
         } catch (error) {
             console.error("Error allotting problem:", error);
             alert("Failed to allot problem.");
         }
     };
+    
 
     return (
         <div className="p-6 bg-gray-900 min-h-screen lg:pl-64 2xl:pl-[350px] font-poppins text-gray-100">
@@ -160,11 +162,18 @@ const ProblemAllotment = () => {
                             className="w-full p-2 bg-gray-700 text-gray-100 border border-gray-600 rounded mb-4"
                         >
                             <option value="">Select a team</option>
-                            {Array.from({ length: 12 }, (_, i) => (
-                                <option key={i + 1} value={`team${i + 1}`}>
-                                    Team {i + 1}
-                                </option>
-                            ))}
+                            <option value="H4_n7Zb2">Microsoft</option>
+                            <option value="K6m_8B7q">Google</option>
+                            <option value="L7z_9Xq3">Apple</option>
+                            <option value="P9k_2Z8j">Amazon</option>
+                            <option value="Q9_L5y7n">Meta</option>
+                            <option value="R1y_4P8q">OpenAI</option>
+                            <option value="T5x_J9m2">Oracle</option>
+                            <option value="Z4_xj7N8">Intel</option>
+                            <option value="j2_N4xq5">Nvidia</option>
+                            <option value="m8_B6z9X">Netflix</option>
+                            <option value="q2_K8z9N">Atlassian</option>
+                            <option value="x5_L9n7z">Adobe</option>
                         </select>
 
                         {/* Price Input */}

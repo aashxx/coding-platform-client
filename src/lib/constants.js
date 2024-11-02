@@ -2,534 +2,382 @@ export const ALL_PROBLEMS = [
     // ===============================================DEBUGGING===========================================================
     // Question 1
     {
-        id: "a1b2c3d4e5f6g7h8",
-        category: "Debugging",
-        language: "python",
-        time_limit: 4,
-        points: 20,
-        difficulty: "Easy",
-        base_price: 30,
-        title: "Fix the Arithmetic Operator",
-        description: "The code is supposed to add two numbers, but it’s subtracting instead.",
-        buggedCode: `
-            def add(a, b):
-                return a - b
-        `,
-        solutionCode: `
-            def add(a, b):
-                return a + b
-        `,
-        testCases: [
-            { input: "2 3", expectedOutput: "5" },
-            { input: "10 20", expectedOutput: "30" },
-            { input: "-5 -5", expectedOutput: "-10" }
+        "id": "rb45bx7yi80m1dup",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 4,
+        "points": 20,
+        "difficulty": "Easy",
+        "base_price": 30,
+        "title": "Fix the Arithmetic Operator",
+        "description": "The code is supposed to add two numbers, but it’s subtracting instead.",
+        "buggedCode": "def add(a, b):\n    return a - b\n\n#Do not change the following code\nif __name__ == '__main__':\n    a, b = map(int, input().split())\n    print(add(a, b))",
+        "solutionCode": "def add(a, b):\n    return a + b\n\n#Do not change the following codeif __name__ == '__main__':\n    a, b = map(int, input().split())\n    print(add(a, b))",
+        "testCases": [
+            { "input": "2 3", "expectedOutput": "5\n" },
+            { "input": "10 20", "expectedOutput": "30\n" },
+            { "input": "-5 -5", "expectedOutput": "-10\n" }
         ]
     },
     // Question 2
     {
-        id: "h8g7f6e5d4c3b2a1",
-        category: "Debugging",
-        language: "javascript",
-        time_limit: 3,
-        points: 15,
-        difficulty: "Easy",
-        base_price: 25,
-        title: "Correct the Variable Name",
-        description: "A variable is incorrectly named, causing a NameError.",
-        buggedCode: `
-            let x = 10;
-            console.log(y);
-        `,
-        solutionCode: `
-            let x = 10;
-            console.log(x);
-        `,
-        testCases: [
-            { input: "", expectedOutput: "10" },
-            { input: "", expectedOutput: "10" }, 
-            { input: "", expectedOutput: "10" }
+        "id": "if74reyqfu7a8lb2",
+        "category": "Debugging",
+        "language": "javascript",
+        "time_limit": 3,
+        "points": 15,
+        "difficulty": "Easy",
+        "base_price": 25,
+        "title": "Correct the Variable Name",
+        "description": "A variable is incorrectly named, causing a NameError.",
+        "buggedCode": "let x = 10;\nconsole.log(y);",
+        "solutionCode": "let x = 10;\nconsole.log(x);",
+        "testCases": [
+            { "input": "", "expectedOutput": "10\n" },
+            { "input": "", "expectedOutput": "10\n" },
+            { "input": "", "expectedOutput": "10\n" }
         ]
     },
     // Question 3
     {
-        id: "1a2b3c4d5e6f7g8h",
-        category: "Debugging",
-        language: "cpp",
-        time_limit: 5,
-        points: 25,
-        difficulty: "Easy",
-        base_price: 35,
-        title: "Change the Loop Condition",
-        description: "A while loop runs infinitely due to an incorrect condition.",
-        buggedCode: `
-            int i = 0;
-            while (i < 5) {
-                cout << i << endl;
-            }
-        `,
-        solutionCode: `
-            int i = 0;
-            while (i < 5) {
-                cout << i << endl;
-                i++;
-            }
-        `,
-        testCases: [
-            { input: "", expectedOutput: "0\n1\n2\n3\n4\n" },
-            { input: "", expectedOutput: "0\n1\n2\n3\n4\n" }, 
-            { input: "", expectedOutput: "0\n1\n2\n3\n4\n" }
+        "id": "rxd196y0pd2ktcay",
+        "category": "Debugging",
+        "language": "cpp",
+        "time_limit": 5,
+        "points": 25,
+        "difficulty": "Easy",
+        "base_price": 35,
+        "title": "Change the Loop Condition",
+        "description": "A while loop runs infinitely due to an incorrect condition.",
+        "buggedCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int i = 0;\n    while (i < 5) {\n        cout << i << endl;\n    }\n    return 0;\n}",
+        "solutionCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int i = 0;\n    while (i < 5) {\n        cout << i << endl;\n        i++;\n    }\n    return 0;\n}",
+        "testCases": [
+            { "input": "", "expectedOutput": "0\n1\n2\n3\n4\n" },
+            { "input": "", "expectedOutput": "0\n1\n2\n3\n4\n" },
+            { "input": "", "expectedOutput": "0\n1\n2\n3\n4\n" }
         ]
     },
     // Question 4
     {
-        id: "8h7g6f5e4d3c2b1a",
-        category: "Debugging",
-        language: "python",
-        time_limit: 4,
-        points: 20,
-        difficulty: "Easy",
-        base_price: 30,
-        title: "Debug Array Index Error",
-        description: "Fix the array index to avoid an 'index out of range' error.",
-        buggedCode: `
-            arr = [1, 2, 3]
-            print(arr[3])
-        `,
-        solutionCode: `
-            arr = [1, 2, 3]
-            print(arr[2])
-        `,
-        testCases: [
-            { input: "", expectedOutput: "3" },
-            { input: "", expectedOutput: "3" },
-            { input: "", expectedOutput: "3" }
+        "id": "hrzuyjpgedgwpcmt",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 4,
+        "points": 20,
+        "difficulty": "Easy",
+        "base_price": 30,
+        "title": "Debug Array Index Error",
+        "description": "Fix the array index to avoid an 'index out of range' error.",
+        "buggedCode": "if __name__ == '__main__':\n    arr = list(map(int, input().split()))\n    #Do not change the above code\n    print(arr[3])",
+        "solutionCode": "if __name__ == '__main__':\n    arr = list(map(int, input().split()))\n    #Do not change the above code\n    print(arr[2])",
+        "testCases": [
+            { "input": "21 10 5 14", "expectedOutput": "5\n" },
+            { "input": "1 2 3 4", "expectedOutput": "3\n" },
+            { "input": "5 6 7 8", "expectedOutput": "7\n" }
         ]
     },
     // Question 5
     {
-        id: "2b1a3d4c5e6f7g8h",
-        category: "Debugging",
-        language: "python",
-        time_limit: 5,
-        points: 25,
-        difficulty: "Easy",
-        base_price: 35,
-        title: "Adjust Function Return Type",
-        description: "The function returns None instead of a value due to missing return statement.",
-        buggedCode: `
-            def greet(name):
-                print("Hello, " + name)
-        `,
-        solutionCode: `
-            def greet(name):
-                return "Hello, " + name
-        `,
-        testCases: [
-            { input: "Alice", expectedOutput: "Hello, Alice" },
-            { input: "Bob", expectedOutput: "Hello, Bob" },
-            { input: "World", expectedOutput: "Hello, World" }
+        "id": "8x61la6yiw3gy4xv",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 5,
+        "points": 20,
+        "difficulty": "Easy",
+        "base_price": 30,
+        "title": "Adjust Function Return Type",
+        "description": "The function returns None instead of a value due to missing return statement.",
+        "buggedCode": "def greet(name):\n    print(\"Hello, \" + name)\n\n#Do not change the following code\nif __name__ == '__main__':\n    name = input()\n    print(greet(name))",
+        "solutionCode": "def greet(name):\n    return \"Hello, \" + name\n\n#Do not change the following code\nif __name__ == '__main__':\n    name = input()\n    print(greet(name))",
+        "testCases": [
+            { "input": "Alice", "expectedOutput": "Hello, Alice\n" },
+            { "input": "Bob", "expectedOutput": "Hello, Bob\n" },
+            { "input": "World", "expectedOutput": "Hello, World\n" }
         ]
     },
     // Question 6
     {
-        id: "g8f7e6d5c4b3a2h1",
-        category: "Debugging",
-        language: "javascript",
-        time_limit: 5,
-        points: 30,
-        difficulty: "Easy",
-        base_price: 40,
-        title: "Modify String Concatenation",
-        description: "Fix the string concatenation error where integers are used directly in join.",
-        buggedCode: `
-            const nums = [1, 2, 3];
-            console.log(nums.join(","));
-        `,
-        solutionCode: `
-            const nums = [1, 2, 3];
-            console.log(nums.map(String).join(","));
-        `,
-        testCases: [
-            { input: "", expectedOutput: "1,2,3" },
-            { input: "", expectedOutput: "1,2,3" },
-            { input: "", expectedOutput: "1,2,3" }
+        "id": "iq4w7fdibfqpk0cd",
+        "category": "Debugging",
+        "language": "javascript",
+        "time_limit": 5,
+        "points": 25,
+        "difficulty": "Easy",
+        "base_price": 35,
+        "title": "Modify String Concatenation",
+        "description": "Fix the string concatenation error where integers are used directly in join.",
+        "buggedCode": "const nums = [1, 2, 3];\nconsole.log(nums.join(\",\"));",
+        "solutionCode": "const nums = [1, 2, 3];\nconsole.log(nums.map(String).join(\",\"));",
+        "testCases": [
+            { "input": "", "expectedOutput": "1,2,3\n" },
+            { "input": "", "expectedOutput": "1,2,3\n" },
+            { "input": "", "expectedOutput": "1,2,3\n" }
         ]
     },
     // Question 7
     {
-        id: "4c3d2e1f5g6h7b8a",
-        category: "Debugging",
-        language: "python",
-        time_limit: 5,
-        points: 20,
-        difficulty: "Easy",
-        base_price: 30,
-        title: "Correct the Loop Range",
-        description: "Loop is missing elements due to incorrect range.",
-        buggedCode: `
-            for i in range(1, 10):
-                print(i)
-        `,
-        solutionCode: `
-            for i in range(10):
-                print(i)
-        `,
-        testCases: [
-            { input: "", expectedOutput: "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n" },
-            { input: "", expectedOutput: "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n" },
-            { input: "", expectedOutput: "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n" }
+        "id": "ated6fxdn1s252pu",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 5,
+        "points": 20,
+        "difficulty": "Easy",
+        "base_price": 30,
+        "title": "Correct the Loop Range",
+        "description": "Loop is missing elements due to incorrect range.",
+        "buggedCode": "if __name__ == '__main__':\n    n = int(input())\n    #Do not change the above code\n    for i in range(1, n):\n        print(i)",
+        "solutionCode": "if __name__ == '__main__':\n    n = int(input())\n    #Do not change the above code\n    for i in range(n):\n        print(i)",
+        "testCases": [
+            { "input": "10", "expectedOutput": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n" },
+            { "input": "5", "expectedOutput": "0\n1\n2\n3\n4\n" },
+            { "input": "3", "expectedOutput": "0\n1\n2\n" }
         ]
     },
     // Question 8
     {
-        id: "7h6g5f4e3d2c1a8b",
-        category: "Debugging",
-        language: "python",
-        time_limit: 4,
-        points: 20,
-        difficulty: "Easy",
-        base_price: 30,
-        title: "Rectify the Division Operation",
-        description: "The division operation is causing unexpected results (int vs float).",
-        buggedCode: `
-            result = 5 / 2
-        `,
-        solutionCode: `
-            result = 5 // 2
-        `,
-        testCases: [
-            { input: "", expectedOutput: "2" },
-            { input: "", expectedOutput: "2" },
-            { input: "", expectedOutput: "2" }
+        "id": "a8ke43c9az2az8h1",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 4,
+        "points": 20,
+        "difficulty": "Easy",
+        "base_price": 30,
+        "title": "Rectify the Division Operation",
+        "description": "The division operation is causing unexpected results (int vs float).",
+        "buggedCode": "if __name__ == '__main__':\n    a, b = map(int, input().split())\n    #Do not change the above code\n    result = a / b\n    print(result)",
+        "solutionCode": "if __name__ == '__main__':\n    a, b = map(int, input().split())\n    #Do not change the above code\n    result = a // b\n    print(result)",
+        "testCases": [
+            { "input": "5 2", "expectedOutput": "2\n" },
+            { "input": "10 3", "expectedOutput": "3\n" },
+            { "input": "9 4", "expectedOutput": "2\n" }
         ]
     },
     // Question 9
     {
-        id: "5d4c3b2a1e6f7h8g",
-        category: "Debugging",
-        language: "java",
-        time_limit: 3,
-        points: 15,
-        difficulty: "Easy",
-        base_price: 25,
-        title: "Fix the Boolean Comparison",
-        description: "The code uses = instead of == in a boolean comparison.",
-        buggedCode: `
-            int x = 5;
-            if (x = 5) {
-                System.out.println("Yes");
-            }
-        `,
-        solutionCode: `
-            int x = 5;
-            if (x == 5) {
-                System.out.println("Yes");
-            }
-        `,
-        testCases: [
-            { input: "", expectedOutput: "Yes" },
-            { input: "", expectedOutput: "Yes" },
-            { input: "", expectedOutput: "Yes" }
+        "id": "zg6vzxvr8bun5ezo",
+        "category": "Debugging",
+        "language": "java",
+        "time_limit": 3,
+        "points": 15,
+        "difficulty": "Easy",
+        "base_price": 25,
+        "title": "Fix the Boolean Comparison",
+        "description": "The code the wrong operator in a boolean comparison.",
+        "buggedCode": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int x = scanner.nextInt();\n        if (x = 5) {\n            System.out.println(\"Yes\");\n        }\n        scanner.close();\n    }\n}",
+        "solutionCode": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int x = scanner.nextInt();\n        if (x == 5) {\n            System.out.println(\"Yes\");\n        }\n        scanner.close();\n    }\n}",
+        "testCases": [
+            { "input": "5", "expectedOutput": "Yes\n" },
+            { "input": "10", "expectedOutput": "" },
+            { "input": "3", "expectedOutput": "" }
         ]
     },
     // Question 10
     {
-        id: "3e2d1f5c6b7h8g4a",
-        category: "Debugging",
-        language: "javascript",
-        time_limit: 5,
-        points: 25,
-        difficulty: "Easy",
-        base_price: 35,
-        title: "Correct the Function Call Order",
-        description: "Incorrect function call order is causing undefined variables.",
-        buggedCode: `
-            function foo() {
-                console.log(bar());
-            }
-
-            function bar() {
-                return "Hello";
-            }
-        `,
-        solutionCode: `
-            function bar() {
-                return "Hello";
-            }
-
-            function foo() {
-                console.log(bar());
-            }
-        `,
-        testCases: [
-            { input: "", expectedOutput: "Hello" },
-            { input: "", expectedOutput: "Hello" },
-            { input: "", expectedOutput: "Hello" }
+        "id": "7rfcnnqnjfo8bhzn",
+        "category": "Debugging",
+        "language": "javascript",
+        "time_limit": 5,
+        "points": 25,
+        "difficulty": "Easy",
+        "base_price": 35,
+        "title": "Correct the Function Call Order",
+        "description": "Incorrect function call order is causing undefined variables.",
+        "buggedCode": "const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nrl.question('', (answer) => {\n//Do not change the above code\n    function foo() {\n        console.log(bar());\n    }\n\n    function bar() {\n        return \"Hello \" + answer;\n    }\n\n    foo();\n//Do not change the below code\n    rl.close();\n});",
+        "solutionCode": "const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nrl.question('', (answer) => {\n//Do not change the above code\n    function bar() {\n        return \"Hello \" + answer;\n    }\n\n    function foo() {\n        console.log(bar());\n    }\n\n    foo();\n//Do not change the below code\n    rl.close();\n});",
+        "testCases": [
+            { "input": "42", "expectedOutput": "Hello 42\n" },
+            { "input": "5", "expectedOutput": "Hello 5\n" },
+            { "input": "100", "expectedOutput": "Hello 100\n" }
         ]
-    },
+    },  
     // Question 11
     {
-        id: "d4f5g6h7a8b2c1e3",
-        category: "Debugging",
-        language: "python",
-        time_limit: 6,
-        points: 30,
-        difficulty: "Easy",
-        base_price: 40,
-        title: "Remove Unnecessary Recursion",
-        description: "Recursion is being used unnecessarily, causing performance issues.",
-        buggedCode: `
-            def count(n):
-                if n == 0:
-                    return
-                return count(n - 1) + 1
-        `,
-        solutionCode: `
-            def count(n):
-                return n
-        `,
-        testCases: [
-            { input: "5", expectedOutput: "5" },
-            { input: "10", expectedOutput: "10" },
-            { input: "1", expectedOutput: "1" }
+        "id": "jtze2lai7phb7l7c",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 6,
+        "points": 30,
+        "difficulty": "Easy",
+        "base_price": 40,
+        "title": "Remove Unnecessary Recursion",
+        "description": "Recursion is being used unnecessarily, causing performance issues.",
+        "buggedCode": "def count(n):\n    if n == 0:\n        return\n    return count(n - 1) + 1\n\n#Do not change the following code\nif __name__ == '__main__':\n    n = int(input())\n    print(count(n))",
+        "solutionCode": "def count(n):\n    return n\n\n#Do not change the following code\nif __name__ == '__main__':\n    n = int(input())\n    print(count(n))",
+        "testCases": [
+            { "input": "5", "expectedOutput": "5\n" },
+            { "input": "10", "expectedOutput": "10\n" },
+            { "input": "1", "expectedOutput": "1\n" }
         ]
     },
     // Question 12
     {
-        id: "f6g7h8a9b1c2d3e4",
-        category: "Debugging",
-        language: "python",
-        time_limit: 6,
-        points: 30,
-        difficulty: "Easy",
-        base_price: 40,
-        title: "Replace Mutable Default Argument",
-        description: "A list as a default argument is causing unexpected behavior.",
-        buggedCode: `
-            def add_item(item, items=[]):
-                items.append(item)
-                return items
-        `,
-        solutionCode: `
-            def add_item(item, items=None):
-                if items is None:
-                    items = []
-                items.append(item)
-                return items
-        `,
-        testCases: [
-            { input: "1", expectedOutput: "[1]" },
-            { input: "2", expectedOutput: "[2]" },
-            { input: "3", expectedOutput: "[3]" }
+        "id": "elny4xy1qs5l8gtr",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 6,
+        "points": 30,
+        "difficulty": "Easy",
+        "base_price": 40,
+        "title": "Replace The Argument",
+        "description": "An argument is causing unexpected behavior.",
+        "buggedCode": "def add_item(item, items):\n    items.append(item)\n    return items\n\n#Do not change the following code\nif __name__ == '__main__':\n    item = int(input())\n    print(add_item(item))",
+        "solutionCode": "def add_item(item, items=[]):\n    items.append(item)\n    return items\n\n#Do not change the following code\nif __name__ == '__main__':\n    item = int(input())\n    print(add_item(item))",
+        "testCases": [
+            { "input": "1", "expectedOutput": "[1]\n" },
+            { "input": "2", "expectedOutput": "[2]\n" },
+            { "input": "3", "expectedOutput": "[3]\n" }
         ]
     },
     // Question 13
     {
-        id: "b8a7c9d6f5e3h1g4",
-        category: "Debugging",
-        language: "python",
-        time_limit: 5,
-        points: 25,
-        difficulty: "Easy",
-        base_price: 35,
-        title: "Adjust the String Split Logic",
-        description: "A split function isn’t working as expected on multiple delimiters.",
-        buggedCode: `
-            sentence = "Hello, world!"
-            words = sentence.split(", ")
-        `,
-        solutionCode: `
-            import re
-            sentence = "Hello, world!"
-            words = re.split(r',| ', sentence)
-        `,
-        testCases: [
-            { input: "", expectedOutput: "['Hello', 'world!']" },
-            { input: "", expectedOutput: "['Hello', 'world!']" },
-            { input: "", expectedOutput: "['Hello', 'world!']" }
+        "id": "fd5h1oevamrlrmpa",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 5,
+        "points": 25,
+        "difficulty": "Easy",
+        "base_price": 35,
+        "title": "Adjust the String Split Logic",
+        "description": "A split function isn’t working as expected on multiple delimiters.",
+        "buggedCode": "sentence = input()\nwords = sentence.split(\",\")\n\n#Do not change the following code\nif __name__ == '__main__':\n    print(words)",
+        "solutionCode": "sentence = input()\nwords = sentence.split(\", \")\n\n#Do not change the following code\nif __name__ == '__main__':\n    print(words)",
+        "testCases": [
+            { "input": "Hello, world!", "expectedOutput": "['Hello', 'world!']\n" },
+            { "input": "Python, programming", "expectedOutput": "['Python', 'programming']\n" },
+            { "input": "Debugging, issue", "expectedOutput": "['Debugging', 'issue']\n" }
         ]
     },
     // Question 14
     {
-        id: "c2b1d4e5f7h6g8a9",
-        category: "Debugging",
-        language: "python",
-        time_limit: 6,
-        points: 30,
-        difficulty: "Easy",
-        base_price: 40,
-        title: "Fix Logic in Nested Loops",
-        description: "Nested loops are leading to incorrect output due to misplaced conditionals.",
-        buggedCode: `
-            for i in range(5):
-                for j in range(5):
-                    if i == j:
-                        continue
-                print(i, j)
-        `,
-        solutionCode: `
-            for i in range(5):
-                for j in range(5):
-                    if i == j:
-                        continue
-                    print(i, j)
-        `,
-        testCases: [
-            { input: "", expectedOutput: "0 1\n0 2\n0 3\n0 4\n1 0\n1 2\n1 3\n1 4\n2 0\n2 1\n2 3\n2 4\n3 0\n3 1\n3 2\n3 4\n4 0\n4 1\n4 2\n4 3\n" },
-            { input: "", expectedOutput: "0 1\n0 2\n0 3\n0 4\n1 0\n1 2\n1 3\n1 4\n2 0\n2 1\n2 3\n2 4\n3 0\n3 1\n3 2\n3 4\n4 0\n4 1\n4 2\n4 3\n" },
-            { input: "", expectedOutput: "0 1\n0 2\n0 3\n0 4\n1 0\n1 2\n1 3\n1 4\n2 0\n2 1\n2 3\n2 4\n3 0\n3 1\n3 2\n3 4\n4 0\n4 1\n4 2\n4 3\n" }
+        "id": "1garqic4fj64elwg",
+        "category": "Debugging",
+        "language": "java",
+        "time_limit": 6,
+        "points": 30,
+        "difficulty": "Easy",
+        "base_price": 40,
+        "title": "Fix Logic in Nested Loops",
+        "description": "Nested loops are leading to incorrect output due to misplaced conditionals.",
+        "buggedCode": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int n = scanner.nextInt();\n        for(int i = 0; i < n; i++) {\n            for(int j = i; j < n; j++) {\n                if(i == j) {\n                    break;\n                }\n                System.out.println(i + \",\" + i);\n            }\n        }\n        scanner.close();\n    }\n}",
+        "solutionCode": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int n = scanner.nextInt();\n        for (int i = 0; i < n; i++) {\n            for (int j = 0; j < n; j++) {\n                if (i == j) {\n                    continue;\n                }\n                System.out.println(i + \",\" + j);\n            }\n        }\n        scanner.close();\n    }\n}",
+        "testCases": [
+            { "input": "3", "expectedOutput": "0,1\n0,2\n1,0\n1,2\n2,0\n2,1\n" },
+            { "input": "4", "expectedOutput": "0,1\n0,2\n0,3\n1,0\n1,2\n1,3\n2,0\n2,1\n2,3\n3,0\n3,1\n3,2\n" },
+            { "input": "5", "expectedOutput": "0,1\n0,2\n0,3\n0,4\n1,0\n1,2\n1,3\n1,4\n2,0\n2,1\n2,3\n2,4\n3,0\n3,1\n3,2\n3,4\n4,0\n4,1\n4,2\n4,3\n" }
         ]
     },
     // Question 15
     {
-        id: "h3g2f1e4d7c6b8a9",
-        category: "Debugging",
-        language: "python",
-        time_limit: 6,
-        points: 35,
-        difficulty: "Easy",
-        base_price: 45,
-        title: "Resolve Infinite Recursion",
-        description: "Recursive function doesn’t have a base case, leading to infinite recursion.",
-        buggedCode: `
-            def recurse(n):
-                return recurse(n - 1)
-        `,
-        solutionCode: `
-            def recurse(n):
-                if n <= 0:
-                    return n
-                return recurse(n - 1)
-        `,
-        testCases: [
-            { input: "5", expectedOutput: "0" },
-            { input: "10", expectedOutput: "0" },
-            { input: "1", expectedOutput: "0" }
+        "id": "fvuxtgdn1tem6v5u",
+        "category": "Debugging",
+        "language": "C",
+        "time_limit": 6,
+        "points": 35,
+        "difficulty": "Easy",
+        "base_price": 45,
+        "title": "Resolve Infinite Recursion",
+        "description": "Recursive function doesn’t have a base case, leading to infinite recursion.",
+        "buggedCode": "#include <stdio.h>\n\nint recurse(int n){\n    return recurse(n - 1);\n}\n\n//Do not change the following code\nint main(){\n    int n;\n    scanf(\"%d\", &n);\n    printf(\"%d\\n\", recurse(n));\n    return 0;\n}",
+        "solutionCode": "#include <stdio.h>\n\nint recurse(int n){\n    if (n <= 0) return n;\n    return recurse(n - 1);\n}\n\n//Do not change the following code\nint main(){\n    int n;\n    scanf(\"%d\", &n);\n    printf(\"%d\\n\", recurse(n));\n    return 0;\n}",
+        "testCases": [
+            { "input": "5", "expectedOutput": "0\n" },
+            { "input": "10", "expectedOutput": "0\n" },
+            { "input": "1", "expectedOutput": "0\n" }
         ]
     },
     // Question 16
     {
-        id: "g5f6e2h3c8a1b4d7",
-        category: "Debugging",
-        language: "python",
-        time_limit: 4,
-        points: 20,
-        difficulty: "Easy",
-        base_price: 30,
-        title: "Correct the Case Sensitivity Issue",
-        description: "Code comparison fails because it doesn’t account for case sensitivity.",
-        buggedCode: `
-            word = "Hello"
-            if word == "hello":
-                print("Match")
-        `,
-        solutionCode: `
-            word = "Hello"
-            if word.lower() == "hello":
-                print("Match")
-        `,
-        testCases: [
-            { input: "", expectedOutput: "Match" },
-            { input: "", expectedOutput: "Match" },
-            { input: "", expectedOutput: "Match" }
+        "id": "c2722b57b31hbvbl",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 4,
+        "points": 20,
+        "difficulty": "Easy",
+        "base_price": 30,
+        "title": "Correct the Case Sensitivity Issue",
+        "description": "Code comparison fails because it doesn’t account for case sensitivity.",
+        "buggedCode": "word = input()\nif word == \"hello\":\n    print(\"Match\")\n",
+        "solutionCode": "word = input()\nif word.lower() == \"hello\":\n    print(\"Match\")\n",
+        "testCases": [
+            { "input": "Hello", "expectedOutput": "Match\n" },
+            { "input": "HELLO", "expectedOutput": "Match\n" },
+            { "input": "hElLo", "expectedOutput": "Match\n" }
         ]
     },
     // Question 17
     {
-        id: "e3d4c5a6b7h1g8f2",
-        category: "Debugging",
-        language: "python",
-        time_limit: 5,
-        points: 25,
-        difficulty: "Easy",
-        base_price: 35,
-        title: "Fix Floating Point Precision Issue",
-        description: "A calculation is off due to floating-point precision issues.",
-        buggedCode: `
-            result = 0.1 + 0.2
-        `,
-        solutionCode: `
-            result = round(0.1 + 0.2, 1)
-        `,
-        testCases: [
-            { input: "", expectedOutput: "0.3" },
-            { input: "", expectedOutput: "0.3" },
-            { input: "", expectedOutput: "0.3" }
+        "id": "5dunnrmk0ocojwi7",
+        "category": "Debugging",
+        "language": "javascript",
+        "time_limit": 5,
+        "points": 25,
+        "difficulty": "Easy",
+        "base_price": 35,
+        "title": "Fix Floating Point Precision Issue",
+        "description": "A calculation is off due to floating-point precision issues.",
+        "buggedCode": "const readline = require('readline').createInterface({ input: process.stdin, output: process.stdout });\nreadline.question('', a => {\n    readline.question('', b => {\n        let result = parseFloat(a) + parseFloat(b);\n        console.log(result);\n        readline.close();\n    });\n});",
+        "solutionCode": "const readline = require('readline').createInterface({ input: process.stdin, output: process.stdout });\nreadline.question('', a => {\n    readline.question('', b => {\n        let result = (parseFloat(a) + parseFloat(b)).toFixed(1);\n        console.log(result);\n        readline.close();\n    });\n});",
+        "testCases": [
+            { "input": "0.1\n0.2", "expectedOutput": "0.3\n" },
+            { "input": "0.3\n0.6", "expectedOutput": "0.9\n" },
+            { "input": "0.25\n0.15", "expectedOutput": "0.4\n" }
         ]
     },
     // Question 18
     {
-        id: "a7c1e3b4f5g6h2d8",
-        category: "Debugging",
-        language: "python",
-        time_limit: 4,
-        points: 20,
-        difficulty: "Easy",
-        base_price: 30,
-        title: "Adjust Incorrect List Initialization",
-        description: "A list is initialized incorrectly, causing unexpected results.",
-        buggedCode: `
-            lst = [0] * 5
-            lst[0] = 10
-        `,
-        solutionCode: `
-            lst = [0 for _ in range(5)]
-            lst[0] = 10
-        `,
-        testCases: [
-            { input: "", expectedOutput: "[10, 0, 0, 0, 0]" },
-            { input: "", expectedOutput: "[10, 0, 0, 0, 0]" },
-            { input: "", expectedOutput: "[10, 0, 0, 0, 0]" }
+        "id": "2dd4kqbpvvhe3ygp",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 4,
+        "points": 20,
+        "difficulty": "Easy",
+        "base_price": 30,
+        "title": "Adjust Incorrect List Initialization",
+        "description": "A list is initialized incorrectly, causing unexpected results.",
+        "buggedCode": "n = int(input())\nlst = [0] * n\nlst[0] = 10\nprint(lst)\n",
+        "solutionCode": "n = int(input())\nlst = [0 for _ in range(n)]\nlst[0] = 10\nprint(lst)\n",
+        "testCases": [
+            { "input": "5", "expectedOutput": "[10, 0, 0, 0, 0]\n" },
+            { "input": "3", "expectedOutput": "[10, 0, 0]\n" },
+            { "input": "4", "expectedOutput": "[10, 0, 0, 0]\n" }
         ]
     },
     // Question 19
     {
-        id: "f6g4e5d7h3b8a1c2",
-        category: "Debugging",
-        language: "python",
-        time_limit: 4,
-        points: 20,
-        difficulty: "Easy",
-        base_price: 30,
-        title: "Modify the Dictionary Key Access",
-        description: "A dictionary key is accessed incorrectly, causing a KeyError.",
-        buggedCode: `
-            data = {"name": "Alice"}
-            print(data["age"])
-        `,
-        solutionCode: `
-            data = {"name": "Alice"}
-            print(data.get("age", "Key not found"))
-        `,
-        testCases: [
-            { input: "", expectedOutput: "Key not found" },
-            { input: "", expectedOutput: "Key not found" },
-            { input: "", expectedOutput: "Key not found" }
+        "id": "6wze97y89lpbpcwt",
+        "category": "Debugging",
+        "language": "javascript",
+        "time_limit": 4,
+        "points": 20,
+        "difficulty": "Easy",
+        "base_price": 30,
+        "title": "Modify the Dictionary Key Access",
+        "description": "A dictionary key is accessed incorrectly, causing a KeyError.",
+        "buggedCode": "const data = { name: \"Alice\" };\nconsole.log(data[\"age\"]);\n",
+        "solutionCode": "const data = { name: \"Alice\" };\nconsole.log(data[\"name\"]);\n",
+        "testCases": [
+            { "input": "", "expectedOutput": "Alice\n" },
+            { "input": "", "expectedOutput": "Alice\n" },
+            { "input": "", "expectedOutput": "Alice\n" }
         ]
     },
     // Question 20
     {
-        id: "d4c2b1f5e6h7g8a3",
-        category: "Debugging",
-        language: "python",
-        time_limit: 3,
-        points: 15,
-        difficulty: "Easy",
-        base_price: 25,
-        title: "Fix the Type Casting Issue",
-        description: "Type casting is not handled properly, causing a TypeError.",
-        buggedCode: `
-            age = "25"
-            total = 5 + age
-        `,
-        solutionCode: `
-            age = "25"
-            total = 5 + int(age)
-        `,
-        testCases: [
-            { input: "", expectedOutput: "30" },
-            { input: "", expectedOutput: "30" },
-            { input: "", expectedOutput: "30" }
+        "id": "smwmdjodgbnfpmhr",
+        "category": "Debugging",
+        "language": "java",
+        "time_limit": 3,
+        "points": 15,
+        "difficulty": "Easy",
+        "base_price": 25,
+        "title": "Fix the Type Casting Issue",
+        "description": "Type casting is not handled properly, causing a TypeError.",
+        "buggedCode": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        String age = scanner.next();\n        int total = 5 + age;\n        System.out.println(total);\n        scanner.close();\n    }\n}",
+        "solutionCode": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        String age = scanner.next();\n        int total = 5 + Integer.parseInt(age);\n        System.out.println(total);\n        scanner.close();\n    }\n}",
+        "testCases": [
+            { "input": "25", "expectedOutput": "30\n" },
+            { "input": "10", "expectedOutput": "15\n" },
+            { "input": "20", "expectedOutput": "25\n" }
         ]
     },
     // Question 21
@@ -745,12 +593,12 @@ export const ALL_PROBLEMS = [
         solutionCode: `
             import json
             data = json.loads('{"name": "Alice", "age": 25}')
-            print(data.get("gender", "Key not found"))
+            print(data.get("gender", "Alice"))
         `,
         testCases: [
-            { input: "", expectedOutput: "Key not found" },
-            { input: "", expectedOutput: "Key not found" },
-            { input: "", expectedOutput: "Key not found" }
+            { input: "", expectedOutput: "Alice" },
+            { input: "", expectedOutput: "Alice" },
+            { input: "", expectedOutput: "Alice" }
         ]
     },
     // Question 28
@@ -2873,6 +2721,1840 @@ export const ALL_PROBLEMS = [
                 { years_experience: 3, salary: 45000 },
                 { years_experience: 8, salary: 65000 }
             ] }
+        ]
+    },
+    // ===================================== WEB PROGRAMMING ========================================================
+    // Question 1
+    {
+        id: "wprb1as8dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 10,
+        base_price: 20,
+        time_limit: 5,
+        title: "Create a basic HTML structure",
+        description: "Write HTML code to create a page with an <h1> heading that says 'Welcome!' and a paragraph below it that says 'This is my first webpage.'",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Basic HTML Structure</title>
+                </head>
+                <body>
+                    <!-- Your code here -->
+                </body>
+                </html>
+            `,
+            css: `
+                /* No additional styles needed */
+            `,
+            js: `
+                // No JavaScript required for this task
+            `
+        },
+        testCases: [
+            { description: "Page contains an <h1> tag with 'Welcome!'", expectedOutput: true },
+            { description: "Page contains a <p> tag with 'This is my first webpage.'", expectedOutput: true }
+        ]
+    },
+    // Question 2
+    {
+        id: "wprb2as8dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 15,
+        base_price: 25,
+        time_limit: 7,
+        title: "Style a Button",
+        description: "Write CSS to make the button have rounded corners and change its background color when hovered.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Styled Button</title>
+                    <link rel="stylesheet" href="styles.css">
+                </head>
+                <body>
+                    <button id="styledButton">Click Me</button>
+                </body>
+                </html>
+            `,
+            css: `
+                #styledButton {
+                    /* Add styles here */
+                }
+            `,
+            js: `
+                // No JavaScript required for this task
+            `
+        },
+        testCases: [
+            { description: "Button has rounded corners", expectedOutput: true },
+            { description: "Button background color changes on hover", expectedOutput: true }
+        ]
+    },
+    // Question 3
+    {
+        id: "wprb3as8dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 15,
+        base_price: 25,
+        time_limit: 5,
+        title: "JavaScript Alert on Click",
+        description: "Write JavaScript to display an alert with the message 'Button Clicked!' when the button is clicked.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Alert Button</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <button id="alertButton">Click Me</button>
+                </body>
+                </html>
+            `,
+            css: `
+                /* No additional styles needed */
+            `,
+            js: `
+                document.getElementById("alertButton").addEventListener("click", function() {
+                    // Add alert code here
+                });
+            `
+        },
+        testCases: [
+            { description: "Alert displays 'Button Clicked!' when button is clicked", expectedOutput: true }
+        ]
+    },
+    // Question 4
+    {
+        id: "wprb4as8dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 15,
+        base_price: 25,
+        time_limit: 6,
+        title: "Create a Horizontal List",
+        description: "Use CSS to style the list items horizontally in a row.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Horizontal List</title>
+                    <link rel="stylesheet" href="styles.css">
+                </head>
+                <body>
+                    <ul id="horizontalList">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                </body>
+                </html>
+            `,
+            css: `
+                #horizontalList {
+                    /* Add CSS to display list items in a row */
+                }
+            `,
+            js: `
+                // No JavaScript required for this task
+            `
+        },
+        testCases: [
+            { description: "List items are displayed in a row", expectedOutput: true }
+        ]
+    },
+    // Question 5
+    {
+        id: "wprb5as8dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 20,
+        base_price: 30,
+        time_limit: 8,
+        title: "Sum Two Numbers",
+        description: "Write JavaScript to add two numbers from input fields and display the sum in a <div> element.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Sum Calculator</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <input type="number" id="num1" placeholder="Enter first number">
+                    <input type="number" id="num2" placeholder="Enter second number">
+                    <button id="calculateSum">Calculate Sum</button>
+                    <div id="result"></div>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for inputs and result div */
+            `,
+            js: `
+                document.getElementById("calculateSum").addEventListener("click", function() {
+                    // Add code to calculate and display the sum
+                });
+            `
+        },
+        testCases: [
+            { description: "Calculates sum of 3 and 5 as 8", expectedOutput: 8 },
+            { description: "Calculates sum of -5 and 10 as 5", expectedOutput: 5 }
+        ]
+    },
+    // Question 6
+    {
+        id: "wprb6as8dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 20,
+        base_price: 30,
+        time_limit: 7,
+        title: "Change Text Color on Hover",
+        description: "Write CSS to change the color of a paragraph's text when hovered.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Hover Text Color</title>
+                    <link rel="stylesheet" href="styles.css">
+                </head>
+                <body>
+                    <p id="hoverText">Hover over this text to change its color.</p>
+                </body>
+                </html>
+            `,
+            css: `
+                #hoverText {
+                    /* Add CSS to change text color on hover */
+                }
+            `,
+            js: `
+                // No JavaScript required for this task
+            `
+        },
+        testCases: [
+            { description: "Text color changes on hover", expectedOutput: true }
+        ]
+    },
+    // Question 7
+    {
+        id: "wprb7as8dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 20,
+        base_price: 30,
+        time_limit: 10,
+        title: "Display Alert with Input Value",
+        description: "Write JavaScript to display an alert with the value entered in an input field when the button is clicked.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Alert with Input Value</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <input type="text" id="userInput" placeholder="Enter some text">
+                    <button id="showAlert">Show Alert</button>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for input and button */
+            `,
+            js: `
+                document.getElementById("showAlert").addEventListener("click", function() {
+                    // Add code to display alert with input value
+                });
+            `
+        },
+        testCases: [
+            { description: "Displays alert with entered text 'Hello'", expectedOutput: "Hello" },
+            { description: "Displays alert with entered text 'World'", expectedOutput: "World" }
+        ]
+    },
+    // Question 8
+    {
+        id: "wprb8as8dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 25,
+        base_price: 35,
+        time_limit: 10,
+        title: "Toggle Paragraph Visibility",
+        description: "Write JavaScript to toggle the visibility of a paragraph when a button is clicked.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Toggle Visibility</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <button id="toggleButton">Toggle Paragraph</button>
+                    <p id="toggleText">This text will be shown or hidden when the button is clicked.</p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for button and paragraph */
+            `,
+            js: `
+                document.getElementById("toggleButton").addEventListener("click", function() {
+                    // Add code to toggle visibility of paragraph
+                });
+            `
+        },
+        testCases: [
+            { description: "Paragraph is visible after one button click", expectedOutput: true },
+            { description: "Paragraph is hidden after two button clicks", expectedOutput: false }
+        ]
+    },
+    // Question 9
+    {
+        id: "wprb9as8dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 25,
+        base_price: 35,
+        time_limit: 8,
+        title: "Add Item to List",
+        description: "Write JavaScript to add an item to a list when a button is clicked.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Add to List</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <ul id="itemList">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                    </ul>
+                    <button id="addItemButton">Add Item</button>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for list and button */
+            `,
+            js: `
+                document.getElementById("addItemButton").addEventListener("click", function() {
+                    // Add code to append new item to list
+                });
+            `
+        },
+        testCases: [
+            { description: "Adds a new item to the list on button click", expectedOutput: true }
+        ]
+    },
+    // Question 10
+    {
+        id: "wprb10as8dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 25,
+        base_price: 35,
+        time_limit: 8,
+        title: "Change Background Color",
+        description: "Write JavaScript to change the background color of the body when a button is clicked.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Change Background</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <button id="changeColorButton">Change Background Color</button>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for button */
+            `,
+            js: `
+                document.getElementById("changeColorButton").addEventListener("click", function() {
+                    // Add code to change background color
+                });
+            `
+        },
+        testCases: [
+            { description: "Background color changes on button click", expectedOutput: true }
+        ]
+    },
+    // Question 11
+    {
+        id: "wprb11zx9dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 30,
+        base_price: 40,
+        time_limit: 10,
+        title: "Hide Element on Button Click",
+        description: "Write JavaScript to hide a specific element when a button is clicked.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Hide Element</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <button id="hideButton">Hide Text</button>
+                    <p id="textToHide">This text will disappear on button click.</p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for button and text */
+            `,
+            js: `
+                document.getElementById("hideButton").addEventListener("click", function() {
+                    // Add code to hide the paragraph with id 'textToHide'
+                });
+            `
+        },
+        testCases: [
+            { description: "Paragraph is hidden on button click", expectedOutput: true }
+        ]
+    },
+    // Question 12
+    {
+        id: "wprb12zx9dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 30,
+        base_price: 40,
+        time_limit: 10,
+        title: "Create Hover Effect for Button",
+        description: "Write CSS to increase the button's font size on hover.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Button Hover Effect</title>
+                    <link rel="stylesheet" href="styles.css">
+                </head>
+                <body>
+                    <button id="hoverButton">Hover over me!</button>
+                </body>
+                </html>
+            `,
+            css: `
+                #hoverButton {
+                    /* Add CSS to increase font size on hover */
+                }
+            `,
+            js: `
+                // No JavaScript required for this task
+            `
+        },
+        testCases: [
+            { description: "Button font size increases on hover", expectedOutput: true }
+        ]
+    },
+    // Question 13
+    {
+        id: "wprb13zx9dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 35,
+        base_price: 45,
+        time_limit: 8,
+        title: "Show Alert on Page Load",
+        description: "Write JavaScript to display an alert message when the page loads.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Page Load Alert</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <p>Page content goes here.</p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for page content */
+            `,
+            js: `
+                // Add code to display an alert with a welcome message when the page loads
+                window.addEventListener('load', function() {
+                    // Alert message here
+                });
+            `
+        },
+        testCases: [
+            { description: "Displays alert with 'Welcome!' on page load", expectedOutput: "Welcome!" }
+        ]
+    },
+    // Question 14
+    {
+        id: "wprb14zx9dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 30,
+        base_price: 40,
+        time_limit: 10,
+        title: "Append Text to Paragraph on Click",
+        description: "Write JavaScript to append a new line of text to an existing paragraph when a button is clicked.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Append Text</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <p id="paragraph">Original text.</p>
+                    <button id="appendButton">Add Text</button>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for button and paragraph */
+            `,
+            js: `
+                document.getElementById("appendButton").addEventListener("click", function() {
+                    // Add code to append new text to the paragraph
+                });
+            `
+        },
+        testCases: [
+            { description: "Paragraph text changes to 'Original text. New text added.'", expectedOutput: "Original text. New text added." }
+        ]
+    },
+    // Question 15
+    {
+        id: "wprb15zx9dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 35,
+        base_price: 45,
+        time_limit: 8,
+        title: "Display Date on Button Click",
+        description: "Write JavaScript to display the current date below a button when clicked.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Display Date</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <button id="displayDateButton">Show Date</button>
+                    <p id="dateParagraph"></p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for button and date display */
+            `,
+            js: `
+                document.getElementById("displayDateButton").addEventListener("click", function() {
+                    // Add code to display the current date in the paragraph with id 'dateParagraph'
+                });
+            `
+        },
+        testCases: [
+            { description: "Displays the current date in the format 'YYYY-MM-DD'", expectedOutput: true }
+        ]
+    },
+    // Question 16
+    {
+        id: "wprb16zx9dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 35,
+        base_price: 45,
+        time_limit: 8,
+        title: "Toggle Background Color",
+        description: "Write JavaScript to toggle the background color of a div between two colors when a button is clicked.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Toggle Background Color</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <button id="toggleButton">Toggle Color</button>
+                    <div id="colorBox" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for button and div */
+                #colorBox {
+                    transition: background-color 0.3s ease;
+                }
+            `,
+            js: `
+                document.getElementById("toggleButton").addEventListener("click", function() {
+                    // Add code to toggle the background color of 'colorBox'
+                });
+            `
+        },
+        testCases: [
+            { description: "Div color toggles between lightblue and lightgreen on each click", expectedOutput: true }
+        ]
+    },
+    // Question 17
+    {
+        id: "wprb17zx9dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 30,
+        base_price: 40,
+        time_limit: 8,
+        title: "Change Text Color on Hover",
+        description: "Write CSS to change the text color of a paragraph when it is hovered over.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Hover Text Color</title>
+                    <link rel="stylesheet" href="styles.css">
+                </head>
+                <body>
+                    <p id="hoverText">Hover over this text to change its color.</p>
+                </body>
+                </html>
+            `,
+            css: `
+                #hoverText {
+                    /* Add CSS to change color on hover */
+                }
+            `,
+            js: `
+                // No JavaScript needed for this task
+            `
+        },
+        testCases: [
+            { description: "Text color changes on hover", expectedOutput: true }
+        ]
+    },
+    // Question 18
+    {
+        id: "wprb18zx9dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 35,
+        base_price: 45,
+        time_limit: 9,
+        title: "Update Text on Input",
+        description: "Write JavaScript to update a paragraph with the text entered in an input field in real-time.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Real-Time Text Update</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <input type="text" id="textInput" placeholder="Type here">
+                    <p id="displayText">This text will change.</p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for input and paragraph */
+            `,
+            js: `
+                document.getElementById("textInput").addEventListener("input", function() {
+                    // Add code to update 'displayText' with input text
+                });
+            `
+        },
+        testCases: [
+            { description: "Paragraph updates with input field content in real-time", expectedOutput: true }
+        ]
+    },
+    // Question 19
+    {
+        id: "wprb19zx9dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 30,
+        base_price: 40,
+        time_limit: 8,
+        title: "Display Length of Input Text",
+        description: "Write JavaScript to display the length of the text entered in an input field below it.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Text Length Display</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <input type="text" id="textInput" placeholder="Type something">
+                    <p id="textLength">Length: 0</p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for input and text length display */
+            `,
+            js: `
+                document.getElementById("textInput").addEventListener("input", function() {
+                    // Add code to update 'textLength' with length of input
+                });
+            `
+        },
+        testCases: [
+            { description: "Displays correct character count of input field text", expectedOutput: true }
+        ]
+    },
+    // Question 20
+    {
+        id: "wprb20zx9dfghjklm",
+        category: "Web Programming",
+        difficulty: "Easy",
+        points: 35,
+        base_price: 45,
+        time_limit: 9,
+        title: "Calculate and Display Sum",
+        description: "Write JavaScript to calculate and display the sum of two numbers entered in two input fields when a button is clicked.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Sum Calculator</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <input type="number" id="num1" placeholder="Enter first number">
+                    <input type="number" id="num2" placeholder="Enter second number">
+                    <button id="calculateButton">Calculate Sum</button>
+                    <p id="sumResult">Sum: </p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Optional styling for inputs and button */
+            `,
+            js: `
+                document.getElementById("calculateButton").addEventListener("click", function() {
+                    // Add code to calculate and display sum of 'num1' and 'num2'
+                });
+            `
+        },
+        testCases: [
+            { description: "Displays correct sum of two input numbers", expectedOutput: true }
+        ]
+    },
+    // Question 21
+    {
+        id: "wprb21dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Medium",
+        points: 45,
+        base_price: 60,
+        time_limit: 12,
+        title: "Expand/Collapse Text",
+        description: "Write JavaScript to toggle the visibility of a paragraph's full content when a button is clicked.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Expand/Collapse Text</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <p id="textContent" style="display: none;">This is the full content of the text.</p>
+                    <button id="toggleButton">Show More</button>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for the button and hidden text */
+                #toggleButton {
+                    cursor: pointer;
+                }
+            `,
+            js: `
+                document.getElementById("toggleButton").addEventListener("click", function() {
+                    // Add code to toggle visibility of 'textContent'
+                });
+            `
+        },
+        testCases: [
+            { description: "Text content displays when button clicked", expectedOutput: true },
+            { description: "Text content hides when button clicked again", expectedOutput: true }
+        ]
+    },
+    // Question 22
+    {
+        id: "wprb22dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Medium",
+        points: 50,
+        base_price: 65,
+        time_limit: 15,
+        title: "Simple Calculator",
+        description: "Create a simple calculator that adds, subtracts, multiplies, or divides two numbers based on user selection.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Simple Calculator</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <input type="number" id="num1" placeholder="Enter first number">
+                    <input type="number" id="num2" placeholder="Enter second number">
+                    <select id="operation">
+                        <option value="add">Add</option>
+                        <option value="subtract">Subtract</option>
+                        <option value="multiply">Multiply</option>
+                        <option value="divide">Divide</option>
+                    </select>
+                    <button id="calculateButton">Calculate</button>
+                    <p id="result">Result: </p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for inputs, button, and dropdown */
+            `,
+            js: `
+                document.getElementById("calculateButton").addEventListener("click", function() {
+                    // Add code to perform selected operation and display the result
+                });
+            `
+        },
+        testCases: [
+            { description: "Addition works correctly", expectedOutput: true },
+            { description: "Subtraction works correctly", expectedOutput: true },
+            { description: "Multiplication works correctly", expectedOutput: true },
+            { description: "Division works correctly", expectedOutput: true }
+        ]
+    },
+    // Question 23
+    {
+        id: "wprb23dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Medium",
+        points: 55,
+        base_price: 70,
+        time_limit: 14,
+        title: "Character Counter",
+        description: "Write JavaScript to count characters in a textarea and display the count below it.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Character Counter</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <textarea id="inputText" placeholder="Type something..."></textarea>
+                    <p id="charCount">Character Count: 0</p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for textarea and character count display */
+                #inputText {
+                    width: 100%;
+                    height: 100px;
+                }
+            `,
+            js: `
+                document.getElementById("inputText").addEventListener("input", function() {
+                    // Add code to update 'charCount' with the number of characters typed
+                });
+            `
+        },
+        testCases: [
+            { description: "Displays correct character count as user types", expectedOutput: true },
+            { description: "Character count updates correctly on deletion", expectedOutput: true }
+        ]
+    },
+    // Question 24
+    {
+        id: "wprb24dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Medium",
+        points: 50,
+        base_price: 65,
+        time_limit: 12,
+        title: "Light/Dark Theme Toggle",
+        description: "Implement a toggle button to switch between light and dark themes for the webpage.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Theme Toggle</title>
+                    <script src="script.js" defer></script>
+                    <link rel="stylesheet" href="styles.css">
+                </head>
+                <body>
+                    <button id="themeToggleButton">Toggle Theme</button>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Initial light theme and dark theme styles */
+                body.light-theme {
+                    background-color: white;
+                    color: black;
+                }
+                body.dark-theme {
+                    background-color: black;
+                    color: white;
+                }
+            `,
+            js: `
+                document.getElementById("themeToggleButton").addEventListener("click", function() {
+                    // Add code to toggle between 'light-theme' and 'dark-theme' classes on the body
+                });
+            `
+        },
+        testCases: [
+            { description: "Switches to dark theme on first toggle", expectedOutput: true },
+            { description: "Switches back to light theme on second toggle", expectedOutput: true }
+        ]
+    },
+    // Question 25
+    {
+        id: "wprb25dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Medium",
+        points: 55,
+        base_price: 70,
+        time_limit: 15,
+        title: "Display Live Clock",
+        description: "Write JavaScript to display the current time and update it every second.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Live Clock</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <p id="liveClock">Current Time: </p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for the clock display */
+                #liveClock {
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+            `,
+            js: `
+                function updateClock() {
+                    // Add code to update 'liveClock' with the current time every second
+                }
+                setInterval(updateClock, 1000);
+            `
+        },
+        testCases: [
+            { description: "Displays current time in correct format", expectedOutput: true },
+            { description: "Updates time every second", expectedOutput: true }
+        ]
+    },
+    // Question 26
+    {
+        id: "wprb26dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Medium",
+        points: 55,
+        base_price: 70,
+        time_limit: 14,
+        title: "Dynamic List Filter",
+        description: "Create a search bar that filters a list of items based on user input.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Dynamic List Filter</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <input type="text" id="searchBar" placeholder="Search items...">
+                    <ul id="itemList">
+                        <li>Apple</li>
+                        <li>Banana</li>
+                        <li>Orange</li>
+                        <li>Grape</li>
+                        <li>Mango</li>
+                    </ul>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Basic styling for the search bar and list */
+                #searchBar {
+                    width: 100%;
+                    padding: 10px;
+                    margin-bottom: 10px;
+                }
+                #itemList li {
+                    list-style: none;
+                }
+            `,
+            js: `
+                document.getElementById("searchBar").addEventListener("input", function() {
+                    // Add code to filter 'itemList' based on 'searchBar' value
+                });
+            `
+        },
+        testCases: [
+            { description: "Filters items based on partial match", expectedOutput: true },
+            { description: "Shows all items if search input is empty", expectedOutput: true }
+        ]
+    },
+    // Question 27
+    {
+        id: "wprb27dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Medium",
+        points: 50,
+        base_price: 65,
+        time_limit: 13,
+        title: "Random Quote Generator",
+        description: "Display a random quote each time a button is clicked.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Random Quote Generator</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <button id="quoteButton">Generate Quote</button>
+                    <p id="quoteDisplay">Click the button for a quote.</p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for the button and quote display */
+                #quoteButton {
+                    padding: 10px 20px;
+                    cursor: pointer;
+                }
+                #quoteDisplay {
+                    font-style: italic;
+                    margin-top: 20px;
+                }
+            `,
+            js: `
+                const quotes = ["Stay positive!", "Work hard, dream big.", "Be kind to yourself.", "Every day is a new beginning."];
+
+                document.getElementById("quoteButton").addEventListener("click", function() {
+                    // Add code to display a random quote in 'quoteDisplay'
+                });
+            `
+        },
+        testCases: [
+            { description: "Displays a random quote each time", expectedOutput: true },
+            { description: "Quote changes on each button click", expectedOutput: true }
+        ]
+    },
+    // Question 28
+    {
+        id: "wprb28dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Medium",
+        points: 55,
+        base_price: 70,
+        time_limit: 15,
+        title: "Word Count in Textarea",
+        description: "Write JavaScript to display the word count in a textarea.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Word Counter</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <textarea id="textInput" placeholder="Type your text here..."></textarea>
+                    <p id="wordCount">Words: 0</p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for textarea and word count */
+                #textInput {
+                    width: 100%;
+                    height: 100px;
+                }
+                #wordCount {
+                    margin-top: 10px;
+                }
+            `,
+            js: `
+                document.getElementById("textInput").addEventListener("input", function() {
+                    // Add code to update 'wordCount' with the number of words
+                });
+            `
+        },
+        testCases: [
+            { description: "Word count updates as user types", expectedOutput: true },
+            { description: "Word count is accurate", expectedOutput: true }
+        ]
+    },
+    // Question 29
+    {
+        id: "wprb29dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Medium",
+        points: 60,
+        base_price: 75,
+        time_limit: 18,
+        title: "Image Carousel",
+        description: "Create an image carousel that rotates images every 3 seconds.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Image Carousel</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <div id="carousel">
+                        <img id="carouselImage" src="image1.jpg" alt="Image 1">
+                    </div>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Basic styling for carousel */
+                #carousel {
+                    width: 300px;
+                    height: 200px;
+                    overflow: hidden;
+                }
+                #carousel img {
+                    width: 100%;
+                    height: auto;
+                }
+            `,
+            js: `
+                // Array of image sources for the carousel
+                const images = ["image1.jpg", "image2.jpg", "image3.jpg"];
+                let currentIndex = 0;
+
+                function changeImage() {
+                    // Add code to change the 'src' of 'carouselImage' every 3 seconds
+                }
+
+                setInterval(changeImage, 3000);
+            `
+        },
+        testCases: [
+            { description: "Image changes every 3 seconds", expectedOutput: true },
+            { description: "Cycles through all images", expectedOutput: true }
+        ]
+    },
+    // Question 30
+    {
+        id: "wprb30dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Medium",
+        points: 60,
+        base_price: 75,
+        time_limit: 16,
+        title: "Show/Hide Password",
+        description: "Create a button that toggles the visibility of a password field.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Show/Hide Password</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <input type="password" id="passwordField" placeholder="Enter password">
+                    <button id="togglePassword">Show</button>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for password field and toggle button */
+                #passwordField, #togglePassword {
+                    margin-top: 10px;
+                }
+            `,
+            js: `
+                document.getElementById("togglePassword").addEventListener("click", function() {
+                    // Add code to toggle the type of 'passwordField' between 'password' and 'text'
+                });
+            `
+        },
+        testCases: [
+            { description: "Displays password as text when toggled", expectedOutput: true },
+            { description: "Hides password when toggled again", expectedOutput: true }
+        ]
+    },
+    // Question 31
+    {
+        id: "wprb31dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Hard",
+        points: 75,
+        base_price: 90,
+        time_limit: 20,
+        title: "Custom Countdown Timer",
+        description: "Create a countdown timer that starts from a user-defined number of seconds and displays time remaining.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Countdown Timer</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <input type="number" id="timeInput" placeholder="Enter seconds">
+                    <button id="startButton">Start</button>
+                    <p id="countdownDisplay">Time Remaining: 0</p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for input, button, and countdown display */
+                #timeInput, #startButton {
+                    margin-top: 10px;
+                    padding: 8px;
+                }
+                #countdownDisplay {
+                    margin-top: 20px;
+                    font-weight: bold;
+                }
+            `,
+            js: `
+                document.getElementById("startButton").addEventListener("click", function() {
+                    // Add code to start countdown from timeInput and update countdownDisplay
+                });
+            `
+        },
+        testCases: [
+            { description: "Counts down from input seconds correctly", expectedOutput: true },
+            { description: "Displays 'Time's up!' when countdown reaches zero", expectedOutput: true }
+        ]
+    },
+    // Question 32
+    {
+        id: "wprb32dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Hard",
+        points: 80,
+        base_price: 95,
+        time_limit: 22,
+        title: "To-Do List with Add and Delete",
+        description: "Create a to-do list that allows users to add tasks and delete individual tasks.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>To-Do List</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <input type="text" id="taskInput" placeholder="Enter task">
+                    <button id="addTaskButton">Add Task</button>
+                    <ul id="taskList"></ul>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for input, button, and task list */
+                #taskInput {
+                    width: 70%;
+                    padding: 8px;
+                }
+                #addTaskButton {
+                    padding: 8px;
+                    cursor: pointer;
+                }
+                #taskList li {
+                    list-style: none;
+                    margin-top: 5px;
+                }
+            `,
+            js: `
+                document.getElementById("addTaskButton").addEventListener("click", function() {
+                    // Add code to append new task to taskList and allow deletion
+                });
+            `
+        },
+        testCases: [
+            { description: "Adds new task to the list", expectedOutput: true },
+            { description: "Allows deletion of individual tasks", expectedOutput: true }
+        ]
+    },
+    // Question 33
+    {
+        id: "wprb33dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Hard",
+        points: 85,
+        base_price: 100,
+        time_limit: 25,
+        title: "Responsive Navigation Menu",
+        description: "Create a responsive navigation menu that toggles visibility on smaller screens.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Responsive Nav Menu</title>
+                    <link rel="stylesheet" href="styles.css">
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <nav>
+                        <button id="menuToggle">☰ Menu</button>
+                        <ul id="navMenu">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </nav>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for navigation and toggle button */
+                #menuToggle {
+                    display: none;
+                }
+                #navMenu {
+                    display: flex;
+                }
+                @media (max-width: 600px) {
+                    #menuToggle {
+                        display: block;
+                    }
+                    #navMenu {
+                        display: none;
+                    }
+                }
+            `,
+            js: `
+                document.getElementById("menuToggle").addEventListener("click", function() {
+                    // Add code to toggle visibility of navMenu on small screens
+                });
+            `
+        },
+        testCases: [
+            { description: "Menu toggles visibility on button click", expectedOutput: true },
+            { description: "Menu is hidden on small screens by default", expectedOutput: true }
+        ]
+    },
+    // Question 34
+    {
+        id: "wprb34dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Hard",
+        points: 90,
+        base_price: 105,
+        time_limit: 28,
+        title: "Temperature Converter (Celsius to Fahrenheit)",
+        description: "Write JavaScript to convert temperature from Celsius to Fahrenheit and display the result.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Temperature Converter</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <input type="number" id="celsiusInput" placeholder="Enter Celsius">
+                    <button id="convertButton">Convert</button>
+                    <p id="resultDisplay">Fahrenheit: 0</p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for input and result display */
+                #celsiusInput {
+                    margin-top: 10px;
+                    padding: 8px;
+                }
+                #convertButton {
+                    padding: 8px;
+                }
+                #resultDisplay {
+                    font-weight: bold;
+                    margin-top: 10px;
+                }
+            `,
+            js: `
+                document.getElementById("convertButton").addEventListener("click", function() {
+                    // Add code to convert Celsius to Fahrenheit and display in resultDisplay
+                });
+            `
+        },
+        testCases: [
+            { description: "Correctly converts Celsius to Fahrenheit", expectedOutput: true },
+            { description: "Displays result in Fahrenheit", expectedOutput: true }
+        ]
+    },
+    // Question 35
+    {
+        id: "wprb35dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Hard",
+        points: 85,
+        base_price: 100,
+        time_limit: 24,
+        title: "Simple Quiz Application",
+        description: "Create a quiz with 3 questions and display the score based on correct answers.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Simple Quiz</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <div id="quizContainer">
+                        <p>1. What is 2 + 2?</p>
+                        <input type="text" id="q1">
+                        <p>2. What is the capital of France?</p>
+                        <input type="text" id="q2">
+                        <p>3. What is the boiling point of water (in °C)?</p>
+                        <input type="text" id="q3">
+                    </div>
+                    <button id="submitQuiz">Submit Quiz</button>
+                    <p id="scoreDisplay">Score: 0</p>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for quiz container and score display */
+                #quizContainer p {
+                    margin-top: 10px;
+                }
+                #scoreDisplay {
+                    font-weight: bold;
+                    margin-top: 20px;
+                }
+            `,
+            js: `
+                document.getElementById("submitQuiz").addEventListener("click", function() {
+                    // Add code to calculate score based on correct answers and display in scoreDisplay
+                });
+            `
+        },
+        testCases: [
+            { description: "Calculates score correctly", expectedOutput: true },
+            { description: "Displays correct score in scoreDisplay", expectedOutput: true }
+        ]
+    },
+    // Question 36
+    {
+        id: "wprb36dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Hard",
+        points: 90,
+        base_price: 110,
+        time_limit: 25,
+        title: "Form Validation with Error Messages",
+        description: "Create a form that validates input fields and shows error messages if they are empty on submission.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Form Validation</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <form id="userForm">
+                        <input type="text" id="name" placeholder="Enter your name">
+                        <span id="nameError" class="error">Name is required</span>
+                        <input type="email" id="email" placeholder="Enter your email">
+                        <span id="emailError" class="error">Email is required</span>
+                        <button type="button" id="submitButton">Submit</button>
+                    </form>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for error messages */
+                .error {
+                    color: red;
+                    display: none;
+                    font-size: 0.9em;
+                }
+            `,
+            js: `
+                document.getElementById("submitButton").addEventListener("click", function() {
+                    // Add code to validate form and display error messages if fields are empty
+                });
+            `
+        },
+        testCases: [
+            { description: "Displays error for empty name", expectedOutput: true },
+            { description: "Displays error for empty email", expectedOutput: true },
+            { description: "No errors when fields are filled", expectedOutput: true }
+        ]
+    },
+    // Question 37
+    {
+        id: "wprb37dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Hard",
+        points: 95,
+        base_price: 115,
+        time_limit: 28,
+        title: "Carousel with Next and Previous Buttons",
+        description: "Create an image carousel with 'Next' and 'Previous' buttons to navigate through images.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Image Carousel</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <div id="carousel">
+                        <img id="carouselImage" src="image1.jpg" alt="Carousel Image">
+                    </div>
+                    <button id="prevButton">Previous</button>
+                    <button id="nextButton">Next</button>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for carousel and buttons */
+                #carousel {
+                    width: 100%;
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                button {
+                    margin: 10px;
+                    padding: 8px;
+                }
+            `,
+            js: `
+                document.getElementById("nextButton").addEventListener("click", function() {
+                    // Add code to show the next image in the carousel
+                });
+                document.getElementById("prevButton").addEventListener("click", function() {
+                    // Add code to show the previous image in the carousel
+                });
+            `
+        },
+        testCases: [
+            { description: "Shows the next image", expectedOutput: true },
+            { description: "Shows the previous image", expectedOutput: true }
+        ]
+    },
+    // Question 38
+    {
+        id: "wprb38dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Hard",
+        points: 100,
+        base_price: 120,
+        time_limit: 30,
+        title: "Modal Popup with Close Button",
+        description: "Create a modal popup that appears when a button is clicked and disappears when closed.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Modal Popup</title>
+                    <link rel="stylesheet" href="styles.css">
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <button id="openModalButton">Open Modal</button>
+                    <div id="modal" class="modal">
+                        <div class="modal-content">
+                            <span id="closeModalButton">&times;</span>
+                            <p>This is a modal popup!</p>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for modal */
+                .modal {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+                .modal-content {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: white;
+                    padding: 20px;
+                    border-radius: 8px;
+                }
+                #closeModalButton {
+                    cursor: pointer;
+                    color: red;
+                    font-size: 1.5em;
+                }
+            `,
+            js: `
+                document.getElementById("openModalButton").addEventListener("click", function() {
+                    // Add code to display the modal
+                });
+                document.getElementById("closeModalButton").addEventListener("click", function() {
+                    // Add code to close the modal
+                });
+            `
+        },
+        testCases: [
+            { description: "Modal opens when button is clicked", expectedOutput: true },
+            { description: "Modal closes when close button is clicked", expectedOutput: true }
+        ]
+    },
+    // Question 39
+    {
+        id: "wprb39dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Hard",
+        points: 100,
+        base_price: 125,
+        time_limit: 35,
+        title: "Dynamic Table Filter",
+        description: "Create a table with a filter option to search for specific values in a table column.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Table Filter</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <input type="text" id="searchInput" placeholder="Search by name...">
+                    <table id="dataTable">
+                        <thead>
+                            <tr><th>Name</th><th>Age</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>John</td><td>25</td></tr>
+                            <tr><td>Jane</td><td>30</td></tr>
+                            <tr><td>Mike</td><td>35</td></tr>
+                        </tbody>
+                    </table>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for input and table */
+                #searchInput {
+                    margin: 10px;
+                    padding: 8px;
+                }
+                table {
+                    width: 100%;
+                    margin-top: 10px;
+                    border-collapse: collapse;
+                }
+                th, td {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                }
+            `,
+            js: `
+                document.getElementById("searchInput").addEventListener("input", function() {
+                    // Add code to filter table rows based on search input
+                });
+            `
+        },
+        testCases: [
+            { description: "Filters table based on input", expectedOutput: true },
+            { description: "Shows all rows when input is empty", expectedOutput: true }
+        ]
+    },
+    // Question 40
+    {
+        id: "wprb40dfghijklmnop",
+        category: "Web Programming",
+        difficulty: "Hard",
+        points: 100,
+        base_price: 125,
+        time_limit: 32,
+        title: "Product Card with Quantity Selector",
+        description: "Create a product card with an image, title, and quantity selector that updates total price.",
+        existingCode: {
+            html: `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Product Card</title>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                    <div class="product-card">
+                        <img src="product.jpg" alt="Product Image">
+                        <p class="product-title">Product Name</p>
+                        <p class="product-price">Price: $20</p>
+                        <input type="number" id="quantityInput" min="1" value="1">
+                        <p id="totalPrice">Total: $20</p>
+                    </div>
+                </body>
+                </html>
+            `,
+            css: `
+                /* Styling for product card */
+                .product-card {
+                    text-align: center;
+                    margin: 20px;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                }
+                .product-title, .product-price, #totalPrice {
+                    margin-top: 10px;
+                }
+            `,
+            js: `
+                document.getElementById("quantityInput").addEventListener("input", function() {
+                    // Add code to update total price based on quantity input
+                });
+            `
+        },
+        testCases: [
+            { description: "Updates total price based on quantity", expectedOutput: true },
+            { description: "Displays correct total when quantity changes", expectedOutput: true }
         ]
     }
 ]

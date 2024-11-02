@@ -8,11 +8,11 @@ import { ALL_PROBLEMS } from '@/lib/constants';
 
 const IDE = () => {
 
-  const { team, problemTitle } = useParams();
+  const { team, problemId } = useParams();
   const navigate = useNavigate();
 
   // Find the problem by title
-  const problem = ALL_PROBLEMS.find((p) => p.title === problemTitle);
+  const problem = ALL_PROBLEMS.find((p) => p.id === problemId);
 
   const [timeLeft, setTimeLeft] = useState(problem.time_limit * 60); // Convert minutes to seconds
   const [language, setLanguage] = useState(problem.category === 'DSA & Problem Solving' ? 'python' : problem.language);
@@ -37,10 +37,10 @@ const IDE = () => {
   useEffect(() => {
     if (timeLeft === 0) {
       alert('Time is up!');
-      remove(ref(realDb, `allotments/${team}/biddedQuestions/${problemTitle}`)); // Remove problem from Firebase
+      remove(ref(realDb, `allotments/${team}/biddedQuestions/${problemId}`)); // Remove problem from Firebase
       navigate('/problems'); // Redirect to problems page
     }
-  }, [timeLeft, navigate, problemTitle, team]);
+  }, [timeLeft, navigate, problemId, team]);
 
   // Format time for display
   const formatTime = (seconds) => {

@@ -1,41 +1,76 @@
 import React, { useState, useEffect } from 'react';
-import { MdCategory, MdAccessTime, MdBarChart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { MdCategory, MdAccessTime, MdBarChart } from 'react-icons/md';
+import { ref, update } from 'firebase/database';
+import { realDb } from '@/lib/firebase';
 
 const ProblemCard = ({ problem, team }) => {
-    
-  const [timeLeft, setTimeLeft] = useState(problem.time_limit * 60); // Convert minutes to seconds
+  // Ensure a valid time limit for the timer
+  const defaultTimeLimit = problem.time_limit ? problem.time_limit * 60 : 0;
+  const initialTime = localStorage.getItem(`timer-${problem.id}`) || defaultTimeLimit;
+  const [timeLeft, setTimeLeft] = useState(parseInt(initialTime, 10) || defaultTimeLimit);
 
-  // Timer countdown effect
   useEffect(() => {
-    if (timeLeft <= 0) return;
+    // Stop the timer if the problem is solved or time is up
+    if (problem.status === 'solved' || problem.status === 'time up') {
+      localStorage.removeItem(`timer-${problem.id}`);
+      return;
+    }
 
+    // Continue countdown if not solved or timed up
     const timer = setInterval(() => {
-      setTimeLeft((prevTime) => prevTime - 1);
+      setTimeLeft((prevTime) => {
+        const newTime = prevTime - 1;
+        localStorage.setItem(`timer-${problem.id}`, newTime);
+        return newTime;
+      });
     }, 1000);
 
-    return () => clearInterval(timer); // Cleanup on component unmount
-  }, [timeLeft]);
+    // Clear the timer on unmount or when status changes
+    return () => clearInterval(timer);
+  }, [problem.status, problem.id]);
 
-  // Format time in minutes and seconds
+  useEffect(() => {
+    if (timeLeft <= 0) {
+      // Update the status to "time up" if the timer runs out
+      update(ref(realDb, `allotments/${team}/biddedQuestions/${problem.id}`), {
+        status: "time up",
+      });
+    }
+  }, [timeLeft, problem.id, team]);
+
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
-  return (
-    <div className="bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-5 hover:shadow-xl transition-shadow relative">
-      
-      {/* Timer Pill */}
-      <div className="absolute -top-4 -right-4 bg-indigo-500 text-gray-100 font-semibold px-4 py-1 rounded-full text-sm">
-        {formatTime(timeLeft)}
-      </div>
+  const getCategoryPath = () => {
+    switch (problem.category) {
+      case 'DSA & Problem Solving':
+        return '/editor/:team/dsa';
+      case 'Debugging':
+        return '/editor/:team/debugging';
+      case 'SQL':
+        return '/editor/:team/sql';
+      case 'Web Programming':
+        return '/editor/:team/web';
+      default:
+        return `/editor/:team`;
+    }
+  };
 
-      {/* Title */}
+  return (
+    <div className="problem-card bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-5 hover:shadow-xl transition-shadow relative">
+      {/* Timer or Status Indicator */}
+      {problem.status === 'unsolved' && (
+        <div className="absolute -top-4 -right-4 bg-indigo-500 text-gray-100 font-semibold px-4 py-1 rounded-full text-sm">
+          {formatTime(timeLeft)}
+        </div>
+      )}
+
+      {/* Problem Details */}
       <h3 className="text-xl font-bold text-gray-100 mb-4">{problem.title}</h3>
-      
-      {/* Details */}
       <div className="space-y-3">
         <div className="flex items-center text-gray-400 text-sm">
           <MdCategory className="text-indigo-500 mr-2" />
@@ -50,16 +85,25 @@ const ProblemCard = ({ problem, team }) => {
           <span><strong>Time Limit:</strong> {problem.time_limit} minutes</span>
         </div>
       </div>
-      
-      {/* Divider */}
+
       <hr className="border-gray-700 my-4" />
-    
-      {/* Solve Button */}
-      <Link to={`/editor/${team}/${problem.title}`}>
-        <button className="mt-2 w-full bg-indigo-600 text-gray-100 font-semibold py-2 px-4 rounded hover:bg-indigo-700 transition-colors">
-            Solve
+
+      {/* Action Button */}
+      {problem.status === 'solved' ? (
+        <button className="mt-4 w-full bg-green-600 text-gray-100 font-semibold py-2 px-4 rounded cursor-not-allowed" disabled>
+          Solved
         </button>
-      </Link>
+      ) : problem.status === 'time up' ? (
+        <button className="mt-4 w-full bg-red-600 text-gray-100 font-semibold py-2 px-4 rounded cursor-not-allowed" disabled>
+          Time Up
+        </button>
+      ) : (
+        <Link to={`${getCategoryPath().replace(':team', team)}/${problem.id}`} className="mt-2 w-full block">
+          <button className="w-full bg-indigo-600 text-gray-100 font-semibold py-2 px-4 rounded hover:bg-indigo-700 transition-colors">
+            Solve
+          </button>
+        </Link>
+      )}
     </div>
   );
 };

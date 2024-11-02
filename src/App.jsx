@@ -1,3 +1,4 @@
+// File: App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Dashboard from './admin/pages/Dashboard';
@@ -7,7 +8,10 @@ import Sidebar from './admin/components/Sidebar';
 import ProblemAllotment from './admin/pages/ProblemAllotment';
 import Problems from './client/pages/Problems';
 import ProblemsState from './client/contexts/ProblemsContext';
-import IDE from './client/pages/IDE';
+import DSAIDE from './client/pages/ide/DSAIDE';
+import DebuggingIDE from './client/pages/ide/DebuggingIDE';
+import SQLIDE from './client/pages/ide/SQLIDE';
+import WebProgrammingIDE from './client/pages/ide/WebProgrammingIDE';
 
 const App = () => {
     return (
@@ -16,12 +20,20 @@ const App = () => {
                 <div className="flex min-h-screen">
                     <AdminLayout>
                         <Routes>
+                            {/* Admin Routes */}
                             <Route path="/admin/dashboard" element={<Dashboard />} />
                             <Route path="/admin/allot-problems" element={<ProblemAllotment />} />
                             <Route path="/admin/leaderboard" element={<Leaderboard />} />
                             <Route path="/admin/participants" element={<Participants />} />
-                            <Route path='/editor/:team' element={<Problems />} />
-                            <Route path='/editor/:team/:problemTitle' element={<IDE />} />
+
+                            {/* Client Routes */}
+                            <Route path="/editor/:team" element={<Problems />} />
+
+                            {/* Dynamic IDE Routes */}
+                            <Route path="/editor/:team/dsa/:problemId" element={<DSAIDE />} />
+                            <Route path="/editor/:team/debugging/:problemId" element={<DebuggingIDE />} />
+                            <Route path="/editor/:team/sql/:problemId" element={<SQLIDE />} />
+                            <Route path="/editor/:team/web/:problemId" element={<WebProgrammingIDE />} />
                         </Routes>
                     </AdminLayout>
                 </div>
@@ -31,7 +43,6 @@ const App = () => {
 };
 
 const AdminLayout = ({ children }) => {
-
     const location = useLocation();
     const isAdminRoute = location.pathname.startsWith('/admin');
 
