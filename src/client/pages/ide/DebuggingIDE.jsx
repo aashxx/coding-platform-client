@@ -7,7 +7,6 @@ import { ALL_PROBLEMS } from '@/lib/constants';
 import { realDb } from '@/lib/firebase';
 
 const DebuggingIDE = () => {
-
   const { team, problemId } = useParams();
   const navigate = useNavigate();
   const problem = ALL_PROBLEMS.find((p) => p.id === problemId);
@@ -20,6 +19,7 @@ const DebuggingIDE = () => {
   const [testCaseResults, setTestCaseResults] = useState([]);
   const [selectedTestCase, setSelectedTestCase] = useState(null);
   const [testCasesPassed, setTestCasesPassed] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (timeLeft <= 0) return;
@@ -38,7 +38,7 @@ const DebuggingIDE = () => {
   useEffect(() => {
     if (timeLeft === 0) {
       update(ref(realDb, `allotments/${team}/biddedQuestions/${problemId}`), {
-        status: "time up"
+        status: 'time up'
       });
       navigate(`/editor/${team}`);
     }
@@ -51,13 +51,15 @@ const DebuggingIDE = () => {
   };
 
   const handleRun = async () => {
+    setLoading(true);
     const response = await runDebuggingProblem(code, problem.language, problem.testCases);
+    setLoading(false);
     if (Array.isArray(response)) {
       setTestCaseResults(response);
       setTestCasesPassed(response.every((result) => result.passed));
-      setSelectedTestCase(response[0]); 
+      setSelectedTestCase(response[0]);
     } else {
-      console.error("Error in test case execution:", response.error || "Unknown error");
+      console.error('Error in test case execution:', response.error || 'Unknown error');
       setTestCaseResults([]);
       setTestCasesPassed(false);
     }
@@ -68,28 +70,27 @@ const DebuggingIDE = () => {
       alert('Please ensure all test cases pass before submitting.');
       return;
     }
-  
+
     const timeTaken = problem.time_limit * 60 - timeLeft;
-  
+
     try {
       await set(ref(realDb, `allotments/${team}/solved/${problem.id}`), {
         problemId: problem.id,
         points: problem.points,
-        timeTaken,
+        timeTaken
       });
-  
+
       await update(ref(realDb, `allotments/${team}/biddedQuestions/${problem.id}`), {
-        status: "solved"
+        status: 'solved'
       });
-  
+
       alert('Problem solved and recorded!');
       navigate(`/editor/${team}`);
     } catch (error) {
-      console.error("Error updating solved problem:", error);
-      alert("Failed to record the solved problem.");
+      console.error('Error updating solved problem:', error);
+      alert('Failed to record the solved problem.');
     }
   };
-  
 
   return (
     <div className="debugging-ide-container bg-gray-900 min-h-screen text-gray-100 font-poppins flex">
@@ -97,19 +98,32 @@ const DebuggingIDE = () => {
       <div className="w-1/3 p-6 bg-gray-800 border-r border-gray-700 space-y-4">
         <h2 className="text-2xl font-bold mb-2">{problem.title}</h2>
         <p className="text-gray-300 mb-4">{problem.description}</p>
-
-        <div className="flex justify-between items-center mb-4">
-          <div className="bg-indigo-600 text-gray-100 px-4 py-2 rounded-full font-semibold">
-            Time Remaining: {formatTime(timeLeft)}
-          </div>
-          <div className="bg-gray-700 text-gray-100 p-2 rounded">
-            Language: {problem.language}
-          </div>
+        <div className="p-2 bg-gray-700 text-gray-100 rounded">
+          <strong>Bugged Code:</strong>
+          <pre className="mt-2 text-sm whitespace-pre-wrap bg-gray-800 p-2 rounded-lg">
+            {problem.buggedCode}
+          </pre>
         </div>
+
       </div>
 
       {/* Right Pane - Code Editor and Test Case Results */}
       <div className="w-2/3 p-6 flex flex-col space-y-4">
+        {/* Language Display */}
+        <div className="flex justify-between items-center">
+          <div className="bg-gray-700 text-gray-100 px-4 py-2 rounded">
+            Language: {problem.language}
+          </div>
+          <div className="flex space-x-4">
+            <div className="bg-indigo-600 text-gray-100 px-4 py-2 rounded-lg">
+              Time Remaining: {formatTime(timeLeft)}
+            </div>
+            <div className="bg-gray-700 text-gray-100 px-4 py-2 rounded-lg">
+              Points: {problem.points}
+            </div>
+          </div>
+        </div>
+
         {/* Code Editor */}
         <div className="flex-1 border border-gray-700 rounded-lg overflow-hidden" style={{ height: '50%' }}>
           <Editor
@@ -119,27 +133,34 @@ const DebuggingIDE = () => {
             value={code}
             onChange={(value) => setCode(value)}
             theme="vs-dark"
+            options={{ fontSize: 16 }} // Increased font size
           />
         </div>
 
-        {/* Test Case Tabs and Details */}
+        {/* Test Case Results with Loader */}
         <div className="flex-1 border border-gray-700 rounded-lg p-4 space-y-4 overflow-auto">
           <h3 className="text-lg font-semibold">Test Case Results:</h3>
-          <div className="flex space-x-4 overflow-x-auto">
-            {testCaseResults.map((result, idx) => (
-              <button
-                key={idx}
-                onClick={() => setSelectedTestCase(result)}
-                className={`px-4 py-2 rounded-lg font-semibold transition ${
-                  selectedTestCase === result ? 'bg-green-500 text-white' : 'bg-gray-600 text-gray-100'
-                }`}
-              >
-                {result.passed ? `✅ Test Case ${idx + 1}` : `❌ Test Case ${idx + 1}`}
-              </button>
-            ))}
-          </div>
+          {loading ? (
+            <div className="text-center py-4">
+              <span className="loader" /> {/* Placeholder for loader styling */}
+            </div>
+          ) : (
+            <div className="flex space-x-4 overflow-x-auto">
+              {testCaseResults.map((result, idx) => (
+                <button
+                  key={idx}
+                  disabled={idx !== 0} // Only allow Test Case 1 selection
+                  className={`px-4 py-2 rounded-lg font-semibold transition ${
+                    idx === 0 ? 'bg-green-500 text-white' : 'bg-gray-600 text-gray-100 opacity-50'
+                  }`}
+                >
+                  {result.passed ? `✅ Test Case ${idx + 1}` : `❌ Test Case ${idx + 1}`}
+                </button>
+              ))}
+            </div>
+          )}
 
-          {selectedTestCase ? (
+          {!loading && selectedTestCase ? (
             <div className="mt-4 p-4 bg-gray-700 rounded-lg space-y-2">
               <h4 className="font-semibold">Test Case Details:</h4>
               <div><strong>Input:</strong> {selectedTestCase.input}</div>
@@ -147,7 +168,7 @@ const DebuggingIDE = () => {
               <div><strong>Actual Output:</strong> {selectedTestCase.output}</div>
               <div><strong>Passed:</strong> {selectedTestCase.passed ? 'Yes' : 'No'}</div>
             </div>
-          ) : (
+          ) : !loading && (
             <div className="mt-4 p-4 bg-gray-700 rounded-lg text-gray-300">
               Run the code to view test case results.
             </div>

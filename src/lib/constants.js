@@ -1,5 +1,5 @@
 export const ALL_PROBLEMS = [
-    // ===============================================DEBUGGING======================================================
+    //=============================================DEBUGGING======================================================
     // Question 1
     {
         "id": "rb45bx7yi80m1dup",
@@ -767,7 +767,7 @@ export const ALL_PROBLEMS = [
     // =========================================DSA & Problem Solving============================================
     // Problem 1
     {
-        id: "a1b2c3d4e5f6g7h8",
+        id: "uiB78BUILN99D_ADUIBuibd",
         category: "DSA & Problem Solving",
         title: "Find the Largest Number",
         description: "Given a list of numbers, find the largest number in the list.",
@@ -783,16 +783,21 @@ export const ALL_PROBLEMS = [
             { input: "[1, 1, 1, 1]", expectedOutput: "1" }
         ],
         existingCode: {
-            python: `def find_largest(arr):\n    return max(arr)  # Code from here`,
-            cpp: `#include <vector>\n#include <algorithm>\nint findLargest(std::vector<int> arr) {\n    return *std::max_element(arr.begin(), arr.end());  // Code from here\n}`,
-            java: `import java.util.Collections;\nimport java.util.List;\npublic int findLargest(List<Integer> arr) {\n    return Collections.max(arr);  // Code from here\n}`,
-            javascript: `function findLargest(arr) {\n    return Math.max(...arr);  // Code from here\n}`,
-            c: `#include <stdio.h>\nint findLargest(int arr[], int n) {\n    int max = arr[0];\n    for (int i = 1; i < n; i++)\n        if (arr[i] > max)\n            max = arr[i];\n    return max;  // Code from here\n}`
+            python: `def find_largest(arr):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(", ")))\nprint(find_largest(arr))`,
+            
+            cpp: `#include <iostream>\n#include <vector>\nint findLargest(const std::vector<int>& arr) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr;\n    int num;\n    while (std::cin >> num) arr.push_back(num);\n    std::cout << findLargest(arr) << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.*;\npublic class Main {\n    public static int findLargest(List<Integer> arr) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        List<Integer> arr = new ArrayList<>();\n        while (sc.hasNextInt()) arr.add(sc.nextInt());\n        System.out.println(findLargest(arr));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction findLargest(arr) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const arr = JSON.parse(input);\n    console.log(findLargest(arr));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\nint findLargest(int arr[], int n) {\n    // Code from here\n}\n\nint main() {\n    int arr[100], n = 0;\n    while (scanf("%d", &arr[n]) != EOF) n++;\n    printf("%d\\n", findLargest(arr, n));\n    return 0;\n}`
         }
     },
+
     // Problem 2
     {
-        id: "g7h8a1b2c3d4e5f6",
+        id: "sdanUYbdjalo8oh",
         category: "DSA & Problem Solving",
         title: "Count Vowels in String",
         description: "Write a function to count the number of vowels in a given string.",
@@ -808,16 +813,21 @@ export const ALL_PROBLEMS = [
             { input: '"Programming"', expectedOutput: "3" }
         ],
         existingCode: {
-            python: `def count_vowels(s):\n    return sum(1 for char in s if char.lower() in 'aeiou')  # Code from here`,
-            cpp: `#include <string>\nint countVowels(std::string s) {\n    int count = 0;\n    for (char c : s) if (strchr("aeiouAEIOU", c)) count++;\n    return count;  // Code from here\n}`,
-            java: `public int countVowels(String s) {\n    int count = 0;\n    for (char c : s.toCharArray()) if ("aeiouAEIOU".indexOf(c) != -1) count++;\n    return count;  // Code from here\n}`,
-            javascript: `function countVowels(s) {\n    return s.split('').filter(c => 'aeiouAEIOU'.includes(c)).length;  // Code from here\n}`,
-            c: `#include <string.h>\nint countVowels(char s[]) {\n    int count = 0;\n    for (int i = 0; s[i] != '\\0'; i++) if (strchr("aeiouAEIOU", s[i])) count++;\n    return count;  // Code from here\n}`
+            python: `def count_vowels(s):\n    # Code from here\n\ns = input().strip()\nprint(count_vowels(s))`,
+            
+            cpp: `#include <iostream>\n#include <string>\nint countVowels(const std::string& s) {\n    // Code from here\n}\n\nint main() {\n    std::string s;\n    std::getline(std::cin, s);\n    std::cout << countVowels(s) << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.Scanner;\npublic class Main {\n    public static int countVowels(String s) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.nextLine();\n        System.out.println(countVowels(s));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction countVowels(s) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(countVowels(input));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\n#include <string.h>\nint countVowels(char s[]) {\n    // Code from here\n}\n\nint main() {\n    char s[100];\n    scanf("%[^\n]", s);\n    printf("%d\\n", countVowels(s));\n    return 0;\n}`
         }
     },
+
     // Problem 3
     {
-        id: "d5e6f7g8a1b2c3h4",
+        id: "adsniu8gwkbo8921JKds",
         category: "DSA & Problem Solving",
         title: "Sum of Array Elements",
         description: "Given an array of integers, calculate the sum of all the elements.",
@@ -833,16 +843,21 @@ export const ALL_PROBLEMS = [
             { input: "[5, 10, 15]", expectedOutput: "30" }
         ],
         existingCode: {
-            python: `def sum_elements(arr):\n    return sum(arr)  // Code from here`,
-            cpp: `#include <vector>\nint sumElements(std::vector<int> arr) {\n    int sum = 0;\n    for (int n : arr) sum += n;\n    return sum;  // Code from here\n}`,
-            java: `public int sumElements(int[] arr) {\n    int sum = 0;\n    for (int n : arr) sum += n;\n    return sum;  // Code from here\n}`,
-            javascript: `function sumElements(arr) {\n    return arr.reduce((a, b) => a + b, 0);  // Code from here\n}`,
-            c: `int sumElements(int arr[], int n) {\n    int sum = 0;\n    for (int i = 0; i < n; i++) sum += arr[i];\n    return sum;  // Code from here\n}`
+            python: `def sum_elements(arr):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(", ")))\nprint(sum_elements(arr))`,
+            
+            cpp: `#include <iostream>\n#include <vector>\nint sumElements(const std::vector<int>& arr) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr;\n    int num;\n    while (std::cin >> num) arr.push_back(num);\n    std::cout << sumElements(arr) << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.*;\npublic class Main {\n    public static int sumElements(List<Integer> arr) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        List<Integer> arr = new ArrayList<>();\n        while (sc.hasNextInt()) arr.add(sc.nextInt());\n        System.out.println(sumElements(arr));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction sumElements(arr) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const arr = JSON.parse(input);\n    console.log(sumElements(arr));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\nint sumElements(int arr[], int n) {\n    // Code from here\n}\n\nint main() {\n    int arr[100], n = 0;\n    while (scanf("%d", &arr[n]) != EOF) n++;\n    printf("%d\\n", sumElements(arr, n));\n    return 0;\n}`
         }
     },
+
     // Problem 4
     {
-        id: "f5g6h7a8b1c2d3e4",
+        id: "dqwooUIBmMioew42kldK",
         category: "DSA & Problem Solving",
         title: "Reverse a String",
         description: "Write a function to reverse a given string.",
@@ -858,16 +873,21 @@ export const ALL_PROBLEMS = [
             { input: '"12345"', expectedOutput: '"54321"' }
         ],
         existingCode: {
-            python: `def reverse_string(s):\n    return s[::-1]  // Code from here`,
-            cpp: `#include <string>\nstd::string reverseString(std::string s) {\n    return std::string(s.rbegin(), s.rend());  // Code from here\n}`,
-            java: `public String reverseString(String s) {\n    return new StringBuilder(s).reverse().toString();  // Code from here\n}`,
-            javascript: `function reverseString(s) {\n    return s.split('').reverse().join('');  // Code from here\n}`,
-            c: `void reverseString(char* s) {\n    int len = strlen(s);\n    for (int i = 0; i < len / 2; i++) {\n        char temp = s[i];\n        s[i] = s[len - i - 1];\n        s[len - i - 1] = temp;\n    }  // Code from here\n}`
+            python: `def reverse_string(s):\n    # Code from here\n\ns = input().strip()\nprint(reverse_string(s))`,
+            
+            cpp: `#include <iostream>\n#include <string>\nstd::string reverseString(const std::string& s) {\n    // Code from here\n}\n\nint main() {\n    std::string s;\n    std::getline(std::cin, s);\n    std::cout << reverseString(s) << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.Scanner;\npublic class Main {\n    public static String reverseString(String s) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.nextLine();\n        System.out.println(reverseString(s));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction reverseString(s) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(reverseString(input));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\n#include <string.h>\nvoid reverseString(char* s) {\n    // Code from here\n}\n\nint main() {\n    char s[100];\n    scanf("%[^\n]", s);\n    reverseString(s);\n    printf("%s\\n", s);\n    return 0;\n}`
         }
     },
+
     // Problem 5
     {
-        id: "a7b8c1d2e3f4g5h6",
+        id: "UBIkwm8hUI8efnkAP90",
         category: "DSA & Problem Solving",
         title: "Check Even or Odd",
         description: "Write a program to check if a given number is even or odd.",
@@ -883,20 +903,24 @@ export const ALL_PROBLEMS = [
             { input: "0", expectedOutput: "Even" }
         ],
         existingCode: {
-            python: `def check_even_odd(n):\n    return "Even" if n % 2 == 0 else "Odd"  // Code from here`,
-            cpp: `#include <string>\nstd::string checkEvenOdd(int n) {\n    return (n % 2 == 0) ? "Even" : "Odd";  // Code from here\n}`,
-            java: `public String checkEvenOdd(int n) {\n    return (n % 2 == 0) ? "Even" : "Odd";  // Code from here\n}`,
-            javascript: `function checkEvenOdd(n) {\n    return n % 2 === 0 ? "Even" : "Odd";  // Code from here\n}`,
-            c: `const char* checkEvenOdd(int n) {\n    return (n % 2 == 0) ? "Even" : "Odd";  // Code from here\n}`
+            python: `def check_even_odd(n):\n    # Code from here\n\nn = int(input())\nprint(check_even_odd(n))`,
+            
+            cpp: `#include <iostream>\n#include <string>\nstd::string checkEvenOdd(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    std::cin >> n;\n    std::cout << checkEvenOdd(n) << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.Scanner;\npublic class Main {\n    public static String checkEvenOdd(int n) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(checkEvenOdd(n));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction checkEvenOdd(n) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(checkEvenOdd(parseInt(input)));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\nconst char* checkEvenOdd(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    scanf("%d", &n);\n    printf("%s\\n", checkEvenOdd(n));\n    return 0;\n}`
         }
     },
     // Problem 6
     {
-        id: "c3d4e5f6a7b8g1h2",
+        id: "asibIUbir3y2jnsuiiuxIUU",
         category: "DSA & Problem Solving",
         title: "Nth Fibonacci Number",
         description: "Find the Nth number in the Fibonacci sequence.",
-        time_limit: 8,
+        time_limit: 5,
         points: 15,
         difficulty: "Easy",
         base_price: 25,
@@ -908,16 +932,21 @@ export const ALL_PROBLEMS = [
             { input: "1", expectedOutput: "1" }
         ],
         existingCode: {
-            python: `def fibonacci(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a  // Code from here`,
-            cpp: `int fibonacci(int n) {\n    int a = 0, b = 1;\n    for (int i = 0; i < n; i++) {\n        int temp = a;\n        a = b;\n        b += temp;\n    }\n    return a;  // Code from here\n}`,
-            java: `public int fibonacci(int n) {\n    int a = 0, b = 1;\n    for (int i = 0; i < n; i++) {\n        int temp = a;\n        a = b;\n        b += temp;\n    }\n    return a;  // Code from here\n}`,
-            javascript: `function fibonacci(n) {\n    let a = 0, b = 1;\n    for (let i = 0; i < n; i++) {\n        [a, b] = [b, a + b];\n    }\n    return a;  // Code from here\n}`,
-            c: `int fibonacci(int n) {\n    int a = 0, b = 1;\n    for (int i = 0; i < n; i++) {\n        int temp = a;\n        a = b;\n        b += temp;\n    }\n    return a;  // Code from here\n}`
+            python: `def fibonacci(n):\n    # Code from here\n\nn = int(input())\nprint(fibonacci(n))`,
+            
+            cpp: `#include <iostream>\nint fibonacci(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    std::cin >> n;\n    std::cout << fibonacci(n) << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.Scanner;\npublic class Main {\n    public static int fibonacci(int n) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(fibonacci(n));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction fibonacci(n) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(fibonacci(parseInt(input)));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\nint fibonacci(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    scanf("%d", &n);\n    printf("%d\\n", fibonacci(n));\n    return 0;\n}`
         }
     },
+
     // Problem 7
     {
-        id: "g1h2a3b4c5d6e7f8",
+        id: "YUBi4neiuBUbfewb89riub",
         category: "DSA & Problem Solving",
         title: "Find the Smallest Number",
         description: "Given a list of numbers, find the smallest number in the list.",
@@ -933,16 +962,21 @@ export const ALL_PROBLEMS = [
             { input: "[10, 20, 5]", expectedOutput: "5" }
         ],
         existingCode: {
-            python: `def find_smallest(arr):\n    return min(arr)  // Code from here`,
-            cpp: `#include <vector>\n#include <algorithm>\nint findSmallest(std::vector<int> arr) {\n    return *std::min_element(arr.begin(), arr.end());  // Code from here\n}`,
-            java: `import java.util.Collections;\nimport java.util.List;\npublic int findSmallest(List<Integer> arr) {\n    return Collections.min(arr);  // Code from here\n}`,
-            javascript: `function findSmallest(arr) {\n    return Math.min(...arr);  // Code from here\n}`,
-            c: `int findSmallest(int arr[], int n) {\n    int min = arr[0];\n    for (int i = 1; i < n; i++)\n        if (arr[i] < min)\n            min = arr[i];\n    return min;  // Code from here\n}`
+            python: `def find_smallest(arr):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(", ")))\nprint(find_smallest(arr))`,
+            
+            cpp: `#include <iostream>\n#include <vector>\nint findSmallest(const std::vector<int>& arr) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr;\n    int num;\n    while (std::cin >> num) arr.push_back(num);\n    std::cout << findSmallest(arr) << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.*;\npublic class Main {\n    public static int findSmallest(List<Integer> arr) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        List<Integer> arr = new ArrayList<>();\n        while (sc.hasNextInt()) arr.add(sc.nextInt());\n        System.out.println(findSmallest(arr));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction findSmallest(arr) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const arr = JSON.parse(input);\n    console.log(findSmallest(arr));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\nint findSmallest(int arr[], int n) {\n    // Code from here\n}\n\nint main() {\n    int arr[100], n = 0;\n    while (scanf("%d", &arr[n]) != EOF) n++;\n    printf("%d\\n", findSmallest(arr, n));\n    return 0;\n}`
         }
     },
+
     // Problem 8
     {
-        id: "f1g2h3a4b5c6d7e8",
+        id: "paoinn44eiOnfeno48ns",
         category: "DSA & Problem Solving",
         title: "Check Palindrome",
         description: "Determine if a given word is a palindrome (reads the same backward as forward).",
@@ -958,16 +992,21 @@ export const ALL_PROBLEMS = [
             { input: '"madam"', expectedOutput: "True" }
         ],
         existingCode: {
-            python: `def is_palindrome(word):\n    return word == word[::-1]  // Code from here`,
-            cpp: `#include <string>\nbool isPalindrome(std::string word) {\n    return word == std::string(word.rbegin(), word.rend());  // Code from here\n}`,
-            java: `public boolean isPalindrome(String word) {\n    return new StringBuilder(word).reverse().toString().equals(word);  // Code from here\n}`,
-            javascript: `function isPalindrome(word) {\n    return word === word.split('').reverse().join('');  // Code from here\n}`,
-            c: `#include <string.h>\nbool isPalindrome(char word[]) {\n    int len = strlen(word);\n    for (int i = 0; i < len / 2; i++)\n        if (word[i] != word[len - i - 1])\n            return false;\n    return true;  // Code from here\n}`
+            python: `def is_palindrome(word):\n    # Code from here\n\nword = input().strip()\nprint(is_palindrome(word))`,
+            
+            cpp: `#include <iostream>\n#include <string>\nbool isPalindrome(const std::string& word) {\n    // Code from here\n}\n\nint main() {\n    std::string word;\n    std::getline(std::cin, word);\n    std::cout << (isPalindrome(word) ? "True" : "False") << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.Scanner;\npublic class Main {\n    public static boolean isPalindrome(String word) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String word = sc.nextLine();\n        System.out.println(isPalindrome(word));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction isPalindrome(word) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(isPalindrome(input) ? "True" : "False");\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\n#include <string.h>\nint isPalindrome(char word[]) {\n    // Code from here\n}\n\nint main() {\n    char word[100];\n    scanf("%s", word);\n    printf("%s\\n", isPalindrome(word) ? "True" : "False");\n    return 0;\n}`
         }
     },
+
     // Problem 9
     {
-        id: "e7f8g1a2b3c4d5h6",
+        id: "Iijjbwe7bcUIUeknois90_dab",
         category: "DSA & Problem Solving",
         title: "Count Digits in Integer",
         description: "Write a function to count the number of digits in a given integer.",
@@ -983,16 +1022,21 @@ export const ALL_PROBLEMS = [
             { input: "1000", expectedOutput: "4" }
         ],
         existingCode: {
-            python: `def count_digits(n):\n    return len(str(n))  // Code from here`,
-            cpp: `int countDigits(int n) {\n    int count = 0;\n    while (n != 0) {\n        count++;\n        n /= 10;\n    }\n    return count;  // Code from here\n}`,
-            java: `public int countDigits(int n) {\n    return String.valueOf(n).length();  // Code from here\n}`,
-            javascript: `function countDigits(n) {\n    return String(n).length;  // Code from here\n}`,
-            c: `int countDigits(int n) {\n    int count = 0;\n    do {\n        count++;\n        n /= 10;\n    } while (n != 0);\n    return count;  // Code from here\n}`
+            python: `def count_digits(n):\n    # Code from here\n\nn = int(input())\nprint(count_digits(n))`,
+            
+            cpp: `#include <iostream>\nint countDigits(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    std::cin >> n;\n    std::cout << countDigits(n) << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.Scanner;\npublic class Main {\n    public static int countDigits(int n) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(countDigits(n));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction countDigits(n) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(countDigits(parseInt(input)));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\nint countDigits(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    scanf("%d", &n);\n    printf("%d\\n", countDigits(n));\n    return 0;\n}`
         }
     },
+
     // Problem 10
     {
-        id: "d4e5f6g7a8b1c2h3",
+        id: "Iuieubuib23uibsuUIUIU",
         category: "DSA & Problem Solving",
         title: "Find Duplicates in List",
         description: "Given a list of numbers, identify any duplicates in the list.",
@@ -1008,16 +1052,20 @@ export const ALL_PROBLEMS = [
             { input: "[1, 2, 3]", expectedOutput: "[]" }
         ],
         existingCode: {
-            python: `def find_duplicates(arr):\n    return [x for x in set(arr) if arr.count(x) > 1]  // Code from here`,
-            cpp: `#include <vector>\n#include <unordered_set>\nstd::vector<int> findDuplicates(std::vector<int> arr) {\n    std::unordered_set<int> seen, duplicates;\n    for (int n : arr) {\n        if (seen.count(n)) duplicates.insert(n);\n        else seen.insert(n);\n    }\n    return std::vector<int>(duplicates.begin(), duplicates.end());  // Code from here\n}`,
-            java: `import java.util.*;\npublic List<Integer> findDuplicates(List<Integer> arr) {\n    Set<Integer> seen = new HashSet<>(), duplicates = new HashSet<>();\n    for (int n : arr) if (!seen.add(n)) duplicates.add(n);\n    return new ArrayList<>(duplicates);  // Code from here\n}`,
-            javascript: `function findDuplicates(arr) {\n    let seen = new Set(), duplicates = new Set();\n    arr.forEach(n => seen.has(n) ? duplicates.add(n) : seen.add(n));\n    return Array.from(duplicates);  // Code from here\n}`,
-            c: `#include <stdio.h>\n#include <stdlib.h>\nvoid findDuplicates(int arr[], int n) {\n    int *seen = (int*)calloc(1000, sizeof(int));  // assuming max 1000 values\n    for (int i = 0; i < n; i++) {\n        if (seen[arr[i]]) printf("%d ", arr[i]);\n        else seen[arr[i]] = 1;\n    }\n    free(seen);  // Code from here\n}`
+            python: `def find_duplicates(arr):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(", ")))\nprint(find_duplicates(arr))`,
+            
+            cpp: `#include <iostream>\n#include <vector>\n#include <unordered_set>\nstd::vector<int> findDuplicates(const std::vector<int>& arr) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr;\n    int num;\n    while (std::cin >> num) arr.push_back(num);\n    std::vector<int> duplicates = findDuplicates(arr);\n    for (int d : duplicates) std::cout << d << " ";\n    return 0;\n}`,
+            
+            java: `import java.util.*;\npublic class Main {\n    public static List<Integer> findDuplicates(List<Integer> arr) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        List<Integer> arr = new ArrayList<>();\n        while (sc.hasNextInt()) arr.add(sc.nextInt());\n        System.out.println(findDuplicates(arr));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction findDuplicates(arr) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const arr = JSON.parse(input);\n    console.log(findDuplicates(arr));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\n#include <stdlib.h>\nvoid findDuplicates(int arr[], int n) {\n    // Code from here\n}\n\nint main() {\n    int arr[100], n = 0;\n    while (scanf("%d", &arr[n]) != EOF) n++;\n    findDuplicates(arr, n);\n    return 0;\n}`
         }
     },
     // Problem 11
     {
-        id: "dsa11e8f7g6h5i4j3",
+        id: "iebHUHsYeuybkanhudi3_ib48d",
         category: "DSA & Problem Solving",
         title: "Calculate Average of Numbers",
         description: "Given a list of numbers, calculate the average (mean) of the numbers.",
@@ -1033,16 +1081,21 @@ export const ALL_PROBLEMS = [
             { input: "[10, 20, 30, 40]", expectedOutput: "25.0" }
         ],
         existingCode: {
-            python: `def calculate_average(arr):\n    return sum(arr) / len(arr)  # Code from here`,
-            cpp: `#include <vector>\ndouble calculateAverage(std::vector<int> arr) {\n    int sum = 0;\n    for (int n : arr) sum += n;\n    return sum / static_cast<double>(arr.size());  // Code from here\n}`,
-            java: `public double calculateAverage(int[] arr) {\n    int sum = 0;\n    for (int n : arr) sum += n;\n    return (double)sum / arr.length;  // Code from here\n}`,
-            javascript: `function calculateAverage(arr) {\n    return arr.reduce((a, b) => a + b, 0) / arr.length;  // Code from here\n}`,
-            c: `double calculateAverage(int arr[], int n) {\n    int sum = 0;\n    for (int i = 0; i < n; i++) sum += arr[i];\n    return sum / (double)n;  // Code from here\n}`
+            python: `def calculate_average(arr):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(", ")))\nprint(calculate_average(arr))`,
+            
+            cpp: `#include <iostream>\n#include <vector>\ndouble calculateAverage(const std::vector<int>& arr) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr;\n    int num;\n    while (std::cin >> num) arr.push_back(num);\n    std::cout << calculateAverage(arr) << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.*;\npublic class Main {\n    public static double calculateAverage(int[] arr) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int[] arr = new int[n];\n        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();\n        System.out.println(calculateAverage(arr));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction calculateAverage(arr) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const arr = JSON.parse(input);\n    console.log(calculateAverage(arr));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\ndouble calculateAverage(int arr[], int n) {\n    // Code from here\n}\n\nint main() {\n    int n, arr[100];\n    scanf("%d", &n);\n    for (int i = 0; i < n; i++) scanf("%d", &arr[i]);\n    printf("%.1f\\n", calculateAverage(arr, n));\n    return 0;\n}`
         }
     },
+
     // Problem 12
     {
-        id: "dsa12a3b4c5d6e7f8",
+        id: "nuifjinY398dniusipaO",
         category: "DSA & Problem Solving",
         title: "Check Prime Number",
         description: "Write a function to check if a given number is prime.",
@@ -1058,16 +1111,21 @@ export const ALL_PROBLEMS = [
             { input: "11", expectedOutput: "True" }
         ],
         existingCode: {
-            python: `def is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True  # Code from here`,
-            cpp: `bool isPrime(int n) {\n    if (n <= 1) return false;\n    for (int i = 2; i * i <= n; i++) if (n % i == 0) return false;\n    return true;  // Code from here\n}`,
-            java: `public boolean isPrime(int n) {\n    if (n <= 1) return false;\n    for (int i = 2; i * i <= n; i++) if (n % i == 0) return false;\n    return true;  // Code from here\n}`,
-            javascript: `function isPrime(n) {\n    if (n <= 1) return false;\n    for (let i = 2; i * i <= n; i++) if (n % i === 0) return false;\n    return true;  // Code from here\n}`,
-            c: `int isPrime(int n) {\n    if (n <= 1) return 0;\n    for (int i = 2; i * i <= n; i++) if (n % i == 0) return 0;\n    return 1;  // Code from here\n}`
+            python: `def is_prime(n):\n    # Code from here\n\nn = int(input())\nprint(is_prime(n))`,
+            
+            cpp: `#include <iostream>\nbool isPrime(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    std::cin >> n;\n    std::cout << (isPrime(n) ? "True" : "False") << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.Scanner;\npublic class Main {\n    public static boolean isPrime(int n) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(isPrime(n));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction isPrime(n) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(isPrime(parseInt(input)));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\nint isPrime(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    scanf("%d", &n);\n    printf("%s\\n", isPrime(n) ? "True" : "False");\n    return 0;\n}`
         }
     },
+
     // Problem 13
     {
-        id: "dsa13g8h7i6j5k4l3",
+        id: "jdjbIdaib9032dkjab398d_di",
         category: "DSA & Problem Solving",
         title: "Count Words in Sentence",
         description: "Given a sentence, count the number of words in it.",
@@ -1083,20 +1141,25 @@ export const ALL_PROBLEMS = [
             { input: '"Hello"', expectedOutput: "1" }
         ],
         existingCode: {
-            python: `def count_words(sentence):\n    return len(sentence.split())  # Code from here`,
-            cpp: `#include <string>\n#include <sstream>\nint countWords(std::string sentence) {\n    std::istringstream iss(sentence);\n    return std::distance(std::istream_iterator<std::string>(iss), std::istream_iterator<std::string>());  // Code from here\n}`,
-            java: `public int countWords(String sentence) {\n    return sentence.trim().split("\\\\s+").length;  // Code from here\n}`,
-            javascript: `function countWords(sentence) {\n    return sentence.trim().split(/\\s+/).length;  // Code from here\n}`,
-            c: `int countWords(char sentence[]) {\n    int count = 0;\n    char *token = strtok(sentence, " ");\n    while (token) {\n        count++;\n        token = strtok(NULL, " ");\n    }\n    return count;  // Code from here\n}`
+            python: `def count_words(sentence):\n    # Code from here\n\nsentence = input().strip()\nprint(count_words(sentence))`,
+            
+            cpp: `#include <iostream>\n#include <string>\nint countWords(const std::string& sentence) {\n    // Code from here\n}\n\nint main() {\n    std::string sentence;\n    std::getline(std::cin, sentence);\n    std::cout << countWords(sentence) << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.Scanner;\npublic class Main {\n    public static int countWords(String sentence) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String sentence = sc.nextLine();\n        System.out.println(countWords(sentence));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction countWords(sentence) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(countWords(input));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\nint countWords(char sentence[]) {\n    // Code from here\n}\n\nint main() {\n    char sentence[100];\n    fgets(sentence, 100, stdin);\n    printf("%d\\n", countWords(sentence));\n    return 0;\n}`
         }
     },
+
     // Problem 14
     {
-        id: "dsa14k5l6m7n8o9p1q",
+        id: "adbByu9848ndaubyua03q34",
         category: "DSA & Problem Solving",
         title: "Find Second Largest Number",
         description: "Given a list of numbers, find the second largest number.",
-        time_limit: 7,
+        time_limit: 4,
         points: 20,
         difficulty: "Easy",
         base_price: 25,
@@ -1108,16 +1171,21 @@ export const ALL_PROBLEMS = [
             { input: "[1, 1, 2]", expectedOutput: "1" }
         ],
         existingCode: {
-            python: `def second_largest(arr):\n    arr = list(set(arr))\n    arr.sort(reverse=True)\n    return arr[1] if len(arr) > 1 else None  # Code from here`,
-            cpp: `#include <vector>\n#include <algorithm>\nint secondLargest(std::vector<int> arr) {\n    std::sort(arr.rbegin(), arr.rend());\n    return (arr.size() > 1) ? arr[1] : -1;  // Code from here\n}`,
-            java: `public int secondLargest(int[] arr) {\n    Arrays.sort(arr);\n    return arr[arr.length - 2];  // Code from here\n}`,
-            javascript: `function secondLargest(arr) {\n    let unique = [...new Set(arr)];\n    unique.sort((a, b) => b - a);\n    return unique[1];  // Code from here\n}`,
-            c: `int secondLargest(int arr[], int n) {\n    int max = arr[0], second_max = -1;\n    for (int i = 1; i < n; i++) if (arr[i] > max) { second_max = max; max = arr[i]; }\n    return second_max;  // Code from here\n}`
+            python: `def second_largest(arr):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(", ")))\nprint(second_largest(arr))`,
+            
+            cpp: `#include <iostream>\n#include <vector>\nint secondLargest(const std::vector<int>& arr) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr;\n    int num;\n    while (std::cin >> num) arr.push_back(num);\n    std::cout << secondLargest(arr) << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.Scanner;\npublic class Main {\n    public static int secondLargest(int[] arr) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int[] arr = new int[n];\n        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();\n        System.out.println(secondLargest(arr));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction secondLargest(arr) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const arr = JSON.parse(input);\n    console.log(secondLargest(arr));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\nint secondLargest(int arr[], int n) {\n    // Code from here\n}\n\nint main() {\n    int arr[100], n;\n    scanf("%d", &n);\n    for (int i = 0; i < n; i++) scanf("%d", &arr[i]);\n    printf("%d\\n", secondLargest(arr, n));\n    return 0;\n}`
         }
     },
+
     // Problem 15
     {
-        id: "dsa15r2s3t4u5v6w7x",
+        id: "oiwerUGrwbHIUdwklakoie",
         category: "DSA & Problem Solving",
         title: "Convert Celsius to Fahrenheit",
         description: "Write a function to convert a temperature from Celsius to Fahrenheit.",
@@ -1133,16 +1201,20 @@ export const ALL_PROBLEMS = [
             { input: "-10", expectedOutput: "14" }
         ],
         existingCode: {
-            python: `def celsius_to_fahrenheit(c):\n    return c * 9/5 + 32  # Code from here`,
-            cpp: `double celsiusToFahrenheit(double c) {\n    return c * 9.0 / 5.0 + 32;  // Code from here\n}`,
-            java: `public double celsiusToFahrenheit(double c) {\n    return c * 9.0 / 5.0 + 32;  // Code from here\n}`,
-            javascript: `function celsiusToFahrenheit(c) {\n    return c * 9 / 5 + 32;  // Code from here\n}`,
-            c: `double celsiusToFahrenheit(double c) {\n    return c * 9.0 / 5.0 + 32;  // Code from here\n}`
+            python: `def celsius_to_fahrenheit(c):\n    # Code from here\n\nc = int(input())\nprint(celsius_to_fahrenheit(c))`,
+            
+            cpp: `#include <iostream>\ndouble celsiusToFahrenheit(double c) {\n    // Code from here\n}\n\nint main() {\n    double c;\n    std::cin >> c;\n    std::cout << celsiusToFahrenheit(c) << std::endl;\n    return 0;\n}`,
+            
+            java: `import java.util.Scanner;\npublic class Main {\n    public static double celsiusToFahrenheit(double c) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        double c = sc.nextDouble();\n        System.out.println(celsiusToFahrenheit(c));\n    }\n}`,
+            
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction celsiusToFahrenheit(c) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(celsiusToFahrenheit(parseFloat(input)));\n    rl.close();\n});`,
+            
+            c: `#include <stdio.h>\ndouble celsiusToFahrenheit(double c) {\n    // Code from here\n}\n\nint main() {\n    double c;\n    scanf("%lf", &c);\n    printf("%.1f\\n", celsiusToFahrenheit(c));\n    return 0;\n}`
         }
     },
     // Problem 16
     {
-        id: "dsa16y7z8a1b2c3d4e",
+        id: "jixYUGybfeOIJden88923k",
         category: "DSA & Problem Solving",
         title: "Remove Duplicates from List",
         description: "Given a list of numbers, remove any duplicates and return the unique numbers.",
@@ -1158,16 +1230,21 @@ export const ALL_PROBLEMS = [
             { input: "[7, 8, 7, 9]", expectedOutput: "[7, 8, 9]" }
         ],
         existingCode: {
-            python: `def remove_duplicates(arr):\n    return list(set(arr))  # Code from here`,
-            cpp: `#include <vector>\n#include <unordered_set>\nstd::vector<int> removeDuplicates(std::vector<int> arr) {\n    std::unordered_set<int> unique(arr.begin(), arr.end());\n    return std::vector<int>(unique.begin(), unique.end());  // Code from here\n}`,
-            java: `import java.util.*;\npublic List<Integer> removeDuplicates(List<Integer> arr) {\n    return new ArrayList<>(new HashSet<>(arr));  // Code from here\n}`,
-            javascript: `function removeDuplicates(arr) {\n    return [...new Set(arr)];  // Code from here\n}`,
-            c: `#include <stdlib.h>\nvoid removeDuplicates(int arr[], int n) {\n    int *unique = (int*)malloc(n * sizeof(int));\n    int idx = 0;\n    for (int i = 0; i < n; i++) if (!exists(unique, arr[i], idx)) unique[idx++] = arr[i];  // Code from here\n}`
+            python: `def remove_duplicates(arr):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(", ")))\nprint(remove_duplicates(arr))`,
+            
+            cpp: `#include <iostream>\n#include <vector>\n#include <unordered_set>\nstd::vector<int> removeDuplicates(const std::vector<int>& arr) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr = {1, 2, 2, 3, 4, 4}; // Modify as per input\n    std::vector<int> unique = removeDuplicates(arr);\n    for (int num : unique) std::cout << num << " ";\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public static List<Integer> removeDuplicates(List<Integer> arr) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        List<Integer> arr = Arrays.asList(1, 2, 2, 3, 4, 4);\n        System.out.println(removeDuplicates(arr));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction removeDuplicates(arr) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const arr = JSON.parse(input);\n    console.log(removeDuplicates(arr));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nvoid removeDuplicates(int arr[], int n) {\n    // Code from here\n}\n\nint main() {\n    int arr[] = {1, 2, 2, 3, 4, 4};\n    removeDuplicates(arr, 6);\n    return 0;\n}`
         }
     },
+
     // Problem 17
     {
-        id: "dsa17f3g4h5i6j7k8l",
+        id: "asdjhbUG2322d_djnui2",
         category: "DSA & Problem Solving",
         title: "Count Consonants in String",
         description: "Write a function to count the number of consonants in a given string.",
@@ -1183,16 +1260,21 @@ export const ALL_PROBLEMS = [
             { input: '"OpenAI"', expectedOutput: "2" }
         ],
         existingCode: {
-            python: `def count_consonants(s):\n    return sum(1 for c in s if c.lower() in 'bcdfghjklmnpqrstvwxyz')  # Code from here`,
-            cpp: `int countConsonants(std::string s) {\n    int count = 0;\n    for (char c : s) if (!strchr("aeiouAEIOU", c)) count++;\n    return count;  // Code from here\n}`,
-            java: `public int countConsonants(String s) {\n    return (int) s.chars().filter(c -> !"aeiouAEIOU".contains(Character.toString((char) c))).count();  // Code from here\n}`,
-            javascript: `function countConsonants(s) {\n    return s.split('').filter(c => !'aeiouAEIOU'.includes(c)).length;  // Code from here\n}`,
-            c: `int countConsonants(char s[]) {\n    int count = 0;\n    for (int i = 0; s[i] != '\\0'; i++) if (!strchr("aeiouAEIOU", s[i])) count++;\n    return count;  // Code from here\n}`
+            python: `def count_consonants(s):\n    # Code from here\n\ns = input().strip()\nprint(count_consonants(s))`,
+            
+            cpp: `#include <iostream>\n#include <string>\nint countConsonants(const std::string& s) {\n    // Code from here\n}\n\nint main() {\n    std::string s;\n    std::getline(std::cin, s);\n    std::cout << countConsonants(s) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.Scanner;\npublic class Main {\n    public static int countConsonants(String s) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.nextLine();\n        System.out.println(countConsonants(s));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction countConsonants(s) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(countConsonants(input));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint countConsonants(char s[]) {\n    // Code from here\n}\n\nint main() {\n    char s[100];\n    fgets(s, 100, stdin);\n    printf("%d\\n", countConsonants(s));\n    return 0;\n}`
         }
     },
+
     // Problem 18
     {
-        id: "dsa18k2l3m4n5o6p7q",
+        id: "HYe32uiaidankKJdeb",
         category: "DSA & Problem Solving",
         title: "Calculate Simple Interest",
         description: "Calculate the simple interest given principal, rate, and time.",
@@ -1208,16 +1290,21 @@ export const ALL_PROBLEMS = [
             { input: "2000, 5, 3", expectedOutput: "300" }
         ],
         existingCode: {
-            python: `def calculate_interest(p, r, t):\n    return (p * r * t) / 100  // Code from here`,
-            cpp: `double calculateInterest(double p, double r, double t) {\n    return (p * r * t) / 100.0;  // Code from here\n}`,
-            java: `public double calculateInterest(double p, double r, double t) {\n    return (p * r * t) / 100.0;  // Code from here\n}`,
-            javascript: `function calculateInterest(p, r, t) {\n    return (p * r * t) / 100;  // Code from here\n}`,
-            c: `double calculateInterest(double p, double r, double t) {\n    return (p * r * t) / 100.0;  // Code from here\n}`
+            python: `def calculate_interest(p, r, t):\n    # Code from here\n\np, r, t = map(int, input().split(','))\nprint(calculate_interest(p, r, t))`,
+            
+            cpp: `#include <iostream>\ndouble calculateInterest(double p, double r, double t) {\n    // Code from here\n}\n\nint main() {\n    double p, r, t;\n    std::cin >> p >> r >> t;\n    std::cout << calculateInterest(p, r, t) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.Scanner;\npublic class Main {\n    public static double calculateInterest(double p, double r, double t) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        double p = sc.nextDouble(), r = sc.nextDouble(), t = sc.nextDouble();\n        System.out.println(calculateInterest(p, r, t));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction calculateInterest(p, r, t) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const [p, r, t] = input.split(',').map(Number);\n    console.log(calculateInterest(p, r, t));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\ndouble calculateInterest(double p, double r, double t) {\n    // Code from here\n}\n\nint main() {\n    double p, r, t;\n    scanf("%lf %lf %lf", &p, &r, &t);\n    printf("%.2f\\n", calculateInterest(p, r, t));\n    return 0;\n}`
         }
     },
+
     // Problem 19
     {
-        id: "dsa19r7s8t9u0v1w2x",
+        id: "dhYUUGhjaknaioooaienUIHr3222",
         category: "DSA & Problem Solving",
         title: "Find Factorial of Number",
         description: "Write a function to find the factorial of a given non-negative integer.",
@@ -1233,16 +1320,21 @@ export const ALL_PROBLEMS = [
             { input: "0", expectedOutput: "1" }
         ],
         existingCode: {
-            python: `def factorial(n):\n    return 1 if n == 0 else n * factorial(n - 1)  // Code from here`,
-            cpp: `int factorial(int n) {\n    return (n == 0) ? 1 : n * factorial(n - 1);  // Code from here\n}`,
-            java: `public int factorial(int n) {\n    return (n == 0) ? 1 : n * factorial(n - 1);  // Code from here\n}`,
-            javascript: `function factorial(n) {\n    return (n === 0) ? 1 : n * factorial(n - 1);  // Code from here\n}`,
-            c: `int factorial(int n) {\n    return (n == 0) ? 1 : n * factorial(n - 1);  // Code from here\n}`
+            python: `def factorial(n):\n    # Code from here\n\nn = int(input())\nprint(factorial(n))`,
+            
+            cpp: `#include <iostream>\nint factorial(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    std::cin >> n;\n    std::cout << factorial(n) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.Scanner;\npublic class Main {\n    public static int factorial(int n) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(factorial(n));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction factorial(n) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const n = parseInt(input);\n    console.log(factorial(n));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint factorial(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    scanf("%d", &n);\n    printf("%d\\n", factorial(n));\n    return 0;\n}`
         }
     },
+
     // Problem 20
     {
-        id: "dsa20y3z4a5b6c7d8e",
+        id: "djUBurmao9342nandinwqP_dqi",
         category: "DSA & Problem Solving",
         title: "First Character of String",
         description: "Given a string, return the first character of the string.",
@@ -1258,23 +1350,27 @@ export const ALL_PROBLEMS = [
             { input: '"Test"', expectedOutput: '"T"' }
         ],
         existingCode: {
-            python: `def first_character(s):\n    return s[0] if s else ''  // Code from here`,
-            cpp: `char firstCharacter(std::string s) {\n    return (s.empty()) ? '\\0' : s[0];  // Code from here\n}`,
-            java: `public char firstCharacter(String s) {\n    return s.isEmpty() ? '\\0' : s.charAt(0);  // Code from here\n}`,
-            javascript: `function firstCharacter(s) {\n    return s.length ? s[0] : '';  // Code from here\n}`,
-            c: `char firstCharacter(char s[]) {\n    return s[0];  // Code from here\n}`
+            python: `def first_character(s):\n    # Code from here\n\ns = input().strip()\nprint(first_character(s))`,
+            
+            cpp: `#include <iostream>\nchar firstCharacter(const std::string& s) {\n    // Code from here\n}\n\nint main() {\n    std::string s;\n    std::cin >> s;\n    std::cout << firstCharacter(s) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.Scanner;\npublic class Main {\n    public static char firstCharacter(String s) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.nextLine();\n        System.out.println(firstCharacter(s));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction firstCharacter(s) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(firstCharacter(input));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nchar firstCharacter(char s[]) {\n    // Code from here\n}\n\nint main() {\n    char s[100];\n    scanf("%s", s);\n    printf("%c\\n", firstCharacter(s));\n    return 0;\n}`
         }
     },
     // Problem 21
     {
-        id: "dsa21z9y8x7w6v5u4t",
+        id: "iduiUIgbka8ih8989Buieoiaoi",
         category: "DSA & Problem Solving",
         title: "Count Letters in String",
         description: "Given a string, count the total number of letters (ignore spaces and punctuation).",
-        time_limit: 6,
-        points: 15,
+        time_limit: 7,
+        points: 25,
         difficulty: "Easy",
-        base_price: 20,
+        base_price: 30,
         exampleInput: '"Why are you Gay!?"',
         exampleOutput: "12",
         testCases: [
@@ -1283,20 +1379,25 @@ export const ALL_PROBLEMS = [
             { input: '"Hello, World!"', expectedOutput: "10" }
         ],
         existingCode: {
-            python: `def count_letters(s):\n    return sum(1 for c in s if c.isalpha())  # Code from here`,
-            cpp: `int countLetters(std::string s) {\n    int count = 0;\n    for (char c : s) if (isalpha(c)) count++;\n    return count;  // Code from here\n}`,
-            java: `public int countLetters(String s) {\n    return (int) s.chars().filter(Character::isLetter).count();  // Code from here\n}`,
-            javascript: `function countLetters(s) {\n    return s.replace(/[^a-zA-Z]/g, "").length;  // Code from here\n}`,
-            c: `int countLetters(char s[]) {\n    int count = 0;\n    for (int i = 0; s[i]; i++) if (isalpha(s[i])) count++;\n    return count;  // Code from here\n}`
+            python: `def count_letters(s):\n    # Code from here\n\ns = input().strip()\nprint(count_letters(s))`,
+
+            cpp: `#include <iostream>\n#include <cctype>\nint countLetters(std::string s) {\n    // Code from here\n}\n\nint main() {\n    std::string s;\n    std::getline(std::cin, s);\n    std::cout << countLetters(s) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.Scanner;\npublic class Main {\n    public static int countLetters(String s) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.nextLine();\n        System.out.println(countLetters(s));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction countLetters(s) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(countLetters(input));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\n#include <ctype.h>\nint countLetters(char s[]) {\n    // Code from here\n}\n\nint main() {\n    char s[100];\n    fgets(s, sizeof(s), stdin);\n    printf("%d\\n", countLetters(s));\n    return 0;\n}`
         }
     },
+
     // Problem 22
     {
-        id: "dsa22t5u4v3w2x1y9z",
+        id: "djbuiejnani8y4389u832jkdjb",
         category: "DSA & Problem Solving",
         title: "Merge Two Sorted Arrays",
         description: "Given two sorted arrays, merge them into a single sorted array.",
-        time_limit: 8,
+        time_limit: 5,
         points: 20,
         difficulty: "Medium",
         base_price: 25,
@@ -1308,20 +1409,25 @@ export const ALL_PROBLEMS = [
             { input: "[], [1, 2, 3]", expectedOutput: "[1, 2, 3]" }
         ],
         existingCode: {
-            python: `def merge_sorted(arr1, arr2):\n    return sorted(arr1 + arr2)  # Code from here`,
-            cpp: `#include <vector>\n#include <algorithm>\nstd::vector<int> mergeSorted(std::vector<int> arr1, std::vector<int> arr2) {\n    arr1.insert(arr1.end(), arr2.begin(), arr2.end());\n    std::sort(arr1.begin(), arr1.end());\n    return arr1;  // Code from here\n}`,
-            java: `import java.util.*;\npublic int[] mergeSorted(int[] arr1, int[] arr2) {\n    int[] result = new int[arr1.length + arr2.length];\n    System.arraycopy(arr1, 0, result, 0, arr1.length);\n    System.arraycopy(arr2, 0, result, arr1.length, arr2.length);\n    Arrays.sort(result);\n    return result;  // Code from here\n}`,
-            javascript: `function mergeSorted(arr1, arr2) {\n    return [...arr1, ...arr2].sort((a, b) => a - b);  // Code from here\n}`,
-            c: `void mergeSorted(int arr1[], int n1, int arr2[], int n2, int result[]) {\n    int i = 0, j = 0, k = 0;\n    while (i < n1 && j < n2) result[k++] = (arr1[i] < arr2[j]) ? arr1[i++] : arr2[j++];\n    while (i < n1) result[k++] = arr1[i++];\n    while (j < n2) result[k++] = arr2[j++];  // Code from here\n}`
+            python: `def merge_sorted(arr1, arr2):\n    # Code from here\n\narr1 = list(map(int, input().strip("[]").split(",")))\narr2 = list(map(int, input().strip("[]").split(",")))\nprint(merge_sorted(arr1, arr2))`,
+
+            cpp: `#include <iostream>\n#include <vector>\nstd::vector<int> mergeSorted(std::vector<int>& arr1, std::vector<int>& arr2) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr1 = {1, 3, 5};\n    std::vector<int> arr2 = {2, 4, 6};\n    std::vector<int> result = mergeSorted(arr1, arr2);\n    for (int n : result) std::cout << n << " "; std::cout << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public static int[] mergeSorted(int[] arr1, int[] arr2) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        int[] arr1 = {1, 3, 5};\n        int[] arr2 = {2, 4, 6};\n        System.out.println(Arrays.toString(mergeSorted(arr1, arr2)));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction mergeSorted(arr1, arr2) {\n    // Code from here\n}\n\nrl.question('', (input1) => {\n    rl.question('', (input2) => {\n        const arr1 = JSON.parse(input1);\n        const arr2 = JSON.parse(input2);\n        console.log(mergeSorted(arr1, arr2));\n        rl.close();\n    });\n});`,
+
+            c: `#include <stdio.h>\nvoid mergeSorted(int arr1[], int n1, int arr2[], int n2, int result[]) {\n    // Code from here\n}\n\nint main() {\n    int arr1[] = {1, 3, 5}, arr2[] = {2, 4, 6};\n    int result[6];\n    mergeSorted(arr1, 3, arr2, 3, result);\n    for (int i = 0; i < 6; i++) printf("%d ", result[i]);\n    printf("\\n");\n    return 0;\n}`
         }
     },
+
     // Problem 23
     {
-        id: "dsa23x4y5z6a7b8c9d",
+        id: "diuiruihhn23ui3u9u329ndiuhuihknliojoisjn",
         category: "DSA & Problem Solving",
         title: "Check Anagram",
         description: "Determine if two strings are anagrams of each other.",
-        time_limit: 6,
+        time_limit: 7,
         points: 15,
         difficulty: "Medium",
         base_price: 20,
@@ -1333,20 +1439,25 @@ export const ALL_PROBLEMS = [
             { input: '"race", "care"', expectedOutput: "True" }
         ],
         existingCode: {
-            python: `def is_anagram(s1, s2):\n    return sorted(s1) == sorted(s2)  # Code from here`,
-            cpp: `#include <algorithm>\nbool isAnagram(std::string s1, std::string s2) {\n    std::sort(s1.begin(), s1.end());\n    std::sort(s2.begin(), s2.end());\n    return s1 == s2;  // Code from here\n}`,
-            java: `import java.util.Arrays;\npublic boolean isAnagram(String s1, String s2) {\n    char[] arr1 = s1.toCharArray(), arr2 = s2.toCharArray();\n    Arrays.sort(arr1);\n    Arrays.sort(arr2);\n    return Arrays.equals(arr1, arr2);  // Code from here\n}`,
-            javascript: `function isAnagram(s1, s2) {\n    return s1.split('').sort().join('') === s2.split('').sort().join('');  // Code from here\n}`,
-            c: `int isAnagram(char s1[], char s2[]) {\n    int count[256] = {0};\n    for (int i = 0; s1[i] && s2[i]; i++) { count[s1[i]]++; count[s2[i]]--; }\n    for (int i = 0; i < 256; i++) if (count[i]) return 0;\n    return 1;  // Code from here\n}`
+            python: `def is_anagram(s1, s2):\n    # Code from here\n\ns1, s2 = input().split(", ")\nprint(is_anagram(s1.strip('"'), s2.strip('"')))`,
+
+            cpp: `#include <iostream>\n#include <string>\nbool isAnagram(std::string s1, std::string s2) {\n    // Code from here\n}\n\nint main() {\n    std::string s1 = "listen", s2 = "silent";\n    std::cout << (isAnagram(s1, s2) ? "True" : "False") << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public static boolean isAnagram(String s1, String s2) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        String s1 = "listen", s2 = "silent";\n        System.out.println(isAnagram(s1, s2));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction isAnagram(s1, s2) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const [s1, s2] = input.split(', ');\n    console.log(isAnagram(s1, s2));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint isAnagram(char s1[], char s2[]) {\n    // Code from here\n}\n\nint main() {\n    char s1[] = "listen", s2[] = "silent";\n    printf("%s\\n", isAnagram(s1, s2) ? "True" : "False");\n    return 0;\n}`
         }
     },
+
     // Problem 24
     {
-        id: "dsa24d5e6f7g8h9i0j",
+        id: "anui4nui48jwh84u34930kjfsnjihi4347238702",
         category: "DSA & Problem Solving",
         title: "Find Missing Number",
         description: "Given an array of integers from 1 to N with one number missing, find the missing number.",
-        time_limit: 7,
+        time_limit: 8,
         points: 20,
         difficulty: "Medium",
         base_price: 25,
@@ -1358,22 +1469,26 @@ export const ALL_PROBLEMS = [
             { input: "[1, 3, 4, 5]", expectedOutput: "2" }
         ],
         existingCode: {
-            python: `def find_missing(arr, N):\n    return sum(range(1, N+1)) - sum(arr)  # Code from here`,
-            cpp: `int findMissing(int arr[], int N) {\n    int total = N * (N + 1) / 2;\n    for (int i = 0; i < N - 1; i++) total -= arr[i];\n    return total;  // Code from here\n}`,
-            java: `public int findMissing(int[] arr, int N) {\n    int total = N * (N + 1) / 2;\n    for (int n : arr) total -= n;\n    return total;  // Code from here\n}`,
-            javascript: `function findMissing(arr, N) {\n    return (N * (N + 1)) / 2 - arr.reduce((a, b) => a + b, 0);  // Code from here\n}`,
-            c: `int findMissing(int arr[], int N) {\n    int total = N * (N + 1) / 2;\n    for (int i = 0; i < N - 1; i++) total -= arr[i];\n    return total;  // Code from here\n}`
+            python: `def find_missing(arr, N):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(",")))\nN = int(input())\nprint(find_missing(arr, N))`,
+
+            cpp: `#include <iostream>\nint findMissing(int arr[], int N) {\n    // Code from here\n}\n\nint main() {\n    int arr[] = {1, 2, 4, 5};\n    int N = 5;\n    std::cout << findMissing(arr, N) << std::endl;\n    return 0;\n}`,
+
+            java: `public class Main {\n    public static int findMissing(int[] arr, int N) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        int[] arr = {1, 2, 4, 5};\n        int N = 5;\n        System.out.println(findMissing(arr, N));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction findMissing(arr, N) {\n    // Code from here\n}\n\nrl.question('', (input1) => {\n    const arr = JSON.parse(input1);\n    rl.question('', (input2) => {\n        const N = parseInt(input2);\n        console.log(findMissing(arr, N));\n        rl.close();\n    });\n});`,
+
+            c: `#include <stdio.h>\nint findMissing(int arr[], int N) {\n    // Code from here\n}\n\nint main() {\n    int arr[] = {1, 2, 4, 5};\n    int N = 5;\n    printf("%d\\n", findMissing(arr, N));\n    return 0;\n}`
         }
     },
     // Problem 25
     {
-        id: "dsa25k6l7m8n9o0p1q",
+        id: "_324iwh8hknfknsfh_3ui4hiwnei",
         category: "DSA & Problem Solving",
         title: "Reverse an Array",
         description: "Write a function to reverse the elements of an array.",
-        time_limit: 5,
+        time_limit: 4,
         points: 15,
-        difficulty: "Easy",
+        difficulty: "Medium",
         base_price: 20,
         exampleInput: "[1, 2, 3, 4, 5]",
         exampleOutput: "[5, 4, 3, 2, 1]",
@@ -1383,23 +1498,27 @@ export const ALL_PROBLEMS = [
             { input: "[4, 3, 2, 1]", expectedOutput: "[1, 2, 3, 4]" }
         ],
         existingCode: {
-            python: `def reverse_array(arr):\n    return arr[::-1]  # Code from here`,
-            cpp: `#include <algorithm>\nvoid reverseArray(std::vector<int>& arr) {\n    std::reverse(arr.begin(), arr.end());  // Code from here\n}`,
-            java: `public int[] reverseArray(int[] arr) {\n    for (int i = 0; i < arr.length / 2; i++) {\n        int temp = arr[i];\n        arr[i] = arr[arr.length - i - 1];\n        arr[arr.length - i - 1] = temp;\n    }\n    return arr;  // Code from here\n}`,
-            javascript: `function reverseArray(arr) {\n    return arr.reverse();  // Code from here\n}`,
-            c: `void reverseArray(int arr[], int n) {\n    for (int i = 0; i < n / 2; i++) {\n        int temp = arr[i];\n        arr[i] = arr[n - i - 1];\n        arr[n - i - 1] = temp;\n    }  // Code from here\n}`
+            python: `def reverse_array(arr):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(",")))\nprint(reverse_array(arr))`,
+
+            cpp: `#include <iostream>\n#include <vector>\nvoid reverseArray(std::vector<int>& arr) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr = {1, 2, 3, 4, 5};\n    reverseArray(arr);\n    for (int n : arr) std::cout << n << " "; std::cout << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.Arrays;\npublic class Main {\n    public static int[] reverseArray(int[] arr) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        int[] arr = {1, 2, 3, 4, 5};\n        System.out.println(Arrays.toString(reverseArray(arr)));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction reverseArray(arr) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const arr = JSON.parse(input);\n    console.log(reverseArray(arr));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nvoid reverseArray(int arr[], int n) {\n    // Code from here\n}\n\nint main() {\n    int arr[] = {1, 2, 3, 4, 5};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    reverseArray(arr, n);\n    for (int i = 0; i < n; i++) printf("%d ", arr[i]);\n    printf("\\n");\n    return 0;\n}`
         }
     },
     // Problem 26
     {
-        id: "dsa26y8z9a1b2c3d4e",
+        id: "IUio28nL_jfbuibLIDB",
         category: "DSA & Problem Solving",
         title: "Count Unique Elements",
         description: "Given an array of integers, count the number of unique elements.",
         time_limit: 5,
-        points: 15,
+        points: 20,
         difficulty: "Easy",
-        base_price: 20,
+        base_price: 25,
         exampleInput: "[1, 2, 3, 4, 4, 4]",
         exampleOutput: "4",
         testCases: [
@@ -1408,23 +1527,28 @@ export const ALL_PROBLEMS = [
             { input: "[10, 20, 20, 30]", expectedOutput: "3" }
         ],
         existingCode: {
-            python: `def count_unique(arr):\n    return len(set(arr))  # Code from here`,
-            cpp: `#include <unordered_set>\nint countUnique(std::vector<int> arr) {\n    std::unordered_set<int> unique(arr.begin(), arr.end());\n    return unique.size();  // Code from here\n}`,
-            java: `public int countUnique(int[] arr) {\n    return (int) Arrays.stream(arr).distinct().count();  // Code from here\n}`,
-            javascript: `function countUnique(arr) {\n    return new Set(arr).size;  // Code from here\n}`,
-            c: `int countUnique(int arr[], int n) {\n    int count = 0;\n    int seen[1000] = {0};\n    for (int i = 0; i < n; i++) if (!seen[arr[i]]++) count++;\n    return count;  // Code from here\n}`
+            python: `def count_unique(arr):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(",")))\nprint(count_unique(arr))`,
+
+            cpp: `#include <iostream>\n#include <unordered_set>\nint countUnique(std::vector<int> arr) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr = {1, 2, 3, 4, 4, 4};\n    std::cout << countUnique(arr) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public static int countUnique(int[] arr) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        int[] arr = {1, 2, 3, 4, 4, 4};\n        System.out.println(countUnique(arr));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction countUnique(arr) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const arr = JSON.parse(input);\n    console.log(countUnique(arr));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\n#include <stdbool.h>\nint countUnique(int arr[], int n) {\n    // Code from here\n}\n\nint main() {\n    int arr[] = {1, 2, 3, 4, 4, 4};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    printf("%d\\n", countUnique(arr, n));\n    return 0;\n}`
         }
     },
+
     // Problem 27
     {
-        id: "dsa27j3k4l5m6n7o8p",
+        id: "_eknfui4bnkjs_3hbsuibfknnaof",
         category: "DSA & Problem Solving",
         title: "Sum of Digits",
         description: "Given a non-negative integer, calculate the sum of its digits.",
-        time_limit: 5,
-        points: 10,
-        difficulty: "Easy",
-        base_price: 15,
+        time_limit: 4,
+        points: 20,
+        difficulty: "Medium",
+        base_price: 25,
         exampleInput: "143",
         exampleOutput: "8",
         testCases: [
@@ -1433,23 +1557,28 @@ export const ALL_PROBLEMS = [
             { input: "12345", expectedOutput: "15" }
         ],
         existingCode: {
-            python: `def sum_of_digits(n):\n    return sum(int(d) for d in str(n))  # Code from here`,
-            cpp: `int sumOfDigits(int n) {\n    int sum = 0;\n    while (n) { sum += n % 10; n /= 10; }\n    return sum;  // Code from here\n}`,
-            java: `public int sumOfDigits(int n) {\n    int sum = 0;\n    while (n > 0) { sum += n % 10; n /= 10; }\n    return sum;  // Code from here\n}`,
-            javascript: `function sumOfDigits(n) {\n    return String(n).split('').reduce((sum, d) => sum + Number(d), 0);  // Code from here\n}`,
-            c: `int sumOfDigits(int n) {\n    int sum = 0;\n    while (n) { sum += n % 10; n /= 10; }\n    return sum;  // Code from here\n}`
+            python: `def sum_of_digits(n):\n    # Code from here\n\nn = int(input().strip())\nprint(sum_of_digits(n))`,
+
+            cpp: `#include <iostream>\nint sumOfDigits(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    std::cin >> n;\n    std::cout << sumOfDigits(n) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.Scanner;\npublic class Main {\n    public static int sumOfDigits(int n) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(sumOfDigits(n));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction sumOfDigits(n) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(sumOfDigits(parseInt(input)));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint sumOfDigits(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    scanf("%d", &n);\n    printf("%d\\n", sumOfDigits(n));\n    return 0;\n}`
         }
     },
+
     // Problem 28
     {
-        id: "dsa28q7r8s9t0u1v2w",
+        id: "8932jdiah823hinuhodifihsidfifhfujfk",
         category: "DSA & Problem Solving",
         title: "Find GCD of Two Numbers",
         description: "Write a function to find the GCD of two numbers.",
-        time_limit: 6,
-        points: 15,
+        time_limit: 5,
+        points: 30,
         difficulty: "Medium",
-        base_price: 20,
+        base_price: 35,
         exampleInput: "8, 12",
         exampleOutput: "4",
         testCases: [
@@ -1458,23 +1587,28 @@ export const ALL_PROBLEMS = [
             { input: "24, 36", expectedOutput: "12" }
         ],
         existingCode: {
-            python: `def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a  # Code from here`,
-            cpp: `int gcd(int a, int b) {\n    return (b == 0) ? a : gcd(b, a % b);  // Code from here\n}`,
-            java: `public int gcd(int a, int b) {\n    return (b == 0) ? a : gcd(b, a % b);  // Code from here\n}`,
-            javascript: `function gcd(a, b) {\n    return b === 0 ? a : gcd(b, a % b);  // Code from here\n}`,
-            c: `int gcd(int a, int b) {\n    return (b == 0) ? a : gcd(b, a % b);  // Code from here\n}`
+            python: `def gcd(a, b):\n    # Code from here\n\na, b = map(int, input().split(","))\nprint(gcd(a, b))`,
+
+            cpp: `#include <iostream>\nint gcd(int a, int b) {\n    // Code from here\n}\n\nint main() {\n    int a, b;\n    std::cin >> a >> b;\n    std::cout << gcd(a, b) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.Scanner;\npublic class Main {\n    public static int gcd(int a, int b) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt();\n        int b = sc.nextInt();\n        System.out.println(gcd(a, b));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction gcd(a, b) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const [a, b] = input.split(',').map(Number);\n    console.log(gcd(a, b));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint gcd(int a, int b) {\n    // Code from here\n}\n\nint main() {\n    int a, b;\n    scanf("%d %d", &a, &b);\n    printf("%d\\n", gcd(a, b));\n    return 0;\n}`
         }
     },
+
     // Problem 29
     {
-        id: "dsa29a1b2c3d4e5f6g",
+        id: "oadudakjojmiof832u90239uu3kfnu38",
         category: "DSA & Problem Solving",
         title: "Check Integer Palindrome",
         description: "Determine if a given integer is a palindrome.",
-        time_limit: 5,
-        points: 15,
-        difficulty: "Easy",
-        base_price: 20,
+        time_limit: 4,
+        points: 25,
+        difficulty: "Medium",
+        base_price: 30,
         exampleInput: "121",
         exampleOutput: "True",
         testCases: [
@@ -1483,20 +1617,25 @@ export const ALL_PROBLEMS = [
             { input: "1331", expectedOutput: "True" }
         ],
         existingCode: {
-            python: `def is_palindrome(n):\n    s = str(n)\n    return s == s[::-1]  # Code from here`,
-            cpp: `bool isPalindrome(int n) {\n    int rev = 0, num = n;\n    while (num) { rev = rev * 10 + num % 10; num /= 10; }\n    return n == rev;  // Code from here\n}`,
-            java: `public boolean isPalindrome(int n) {\n    int rev = 0, num = n;\n    while (num > 0) { rev = rev * 10 + num % 10; num /= 10; }\n    return n == rev;  // Code from here\n}`,
-            javascript: `function isPalindrome(n) {\n    let s = String(n);\n    return s === s.split('').reverse().join('');  // Code from here\n}`,
-            c: `int isPalindrome(int n) {\n    int rev = 0, num = n;\n    while (num) { rev = rev * 10 + num % 10; num /= 10; }\n    return n == rev;  // Code from here\n}`
+            python: `def is_palindrome(n):\n    # Code from here\n\nn = int(input())\nprint(is_palindrome(n))`,
+
+            cpp: `#include <iostream>\nbool isPalindrome(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    std::cin >> n;\n    std::cout << (isPalindrome(n) ? "True" : "False") << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.Scanner;\npublic class Main {\n    public static boolean isPalindrome(int n) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(isPalindrome(n));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction isPalindrome(n) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(isPalindrome(parseInt(input)));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint isPalindrome(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    scanf("%d", &n);\n    printf("%s\\n", isPalindrome(n) ? "True" : "False");\n    return 0;\n}`
         }
     },
+
     // Problem 30
     {
-        id: "dsa30h7i8j9k0l1m2n",
+        id: "efjU2398497894dsnsibub_ndin",
         category: "DSA & Problem Solving",
         title: "Rotate Array to Right",
         description: "Rotate an array to the right by a given number of steps.",
-        time_limit: 7,
+        time_limit: 8,
         points: 20,
         difficulty: "Medium",
         base_price: 25,
@@ -1508,23 +1647,27 @@ export const ALL_PROBLEMS = [
             { input: "[5, 3, 8, 6], steps = 3", expectedOutput: "[3, 8, 6, 5]" }
         ],
         existingCode: {
-            python: `def rotate_array(arr, k):\n    k %= len(arr)\n    return arr[-k:] + arr[:-k]  # Code from here`,
-            cpp: `#include <vector>\nvoid rotateArray(std::vector<int>& arr, int k) {\n    k %= arr.size();\n    std::rotate(arr.begin(), arr.end() - k, arr.end());  // Code from here\n}`,
-            java: `public int[] rotateArray(int[] arr, int k) {\n    k %= arr.length;\n    int[] rotated = new int[arr.length];\n    System.arraycopy(arr, arr.length - k, rotated, 0, k);\n    System.arraycopy(arr, 0, rotated, k, arr.length - k);\n    return rotated;  // Code from here\n}`,
-            javascript: `function rotateArray(arr, k) {\n    k %= arr.length;\n    return [...arr.slice(-k), ...arr.slice(0, -k)];  // Code from here\n}`,
-            c: `void rotateArray(int arr[], int n, int k) {\n    k %= n;\n    reverse(arr, n - k);\n    reverse(arr, n);\n}  // Code from here\n}`
+            python: `def rotate_array(arr, k):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(",")))\nk = int(input().strip("steps = "))\nprint(rotate_array(arr, k))`,
+
+            cpp: `#include <iostream>\n#include <vector>\nvoid rotateArray(std::vector<int>& arr, int k) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr = {1, 2, 3, 4, 5};\n    int k = 2;\n    rotateArray(arr, k);\n    for (int n : arr) std::cout << n << " "; std::cout << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public static int[] rotateArray(int[] arr, int k) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        int[] arr = {1, 2, 3, 4, 5};\n        int k = 2;\n        System.out.println(Arrays.toString(rotateArray(arr, k)));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction rotateArray(arr, k) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const arr = JSON.parse(input);\n    rl.question('', (steps) => {\n        console.log(rotateArray(arr, parseInt(steps)));\n        rl.close();\n    });\n});`,
+
+            c: `#include <stdio.h>\nvoid rotateArray(int arr[], int n, int k) {\n    // Code from here\n}\n\nint main() {\n    int arr[] = {1, 2, 3, 4, 5};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int k = 2;\n    rotateArray(arr, n, k);\n    for (int i = 0; i < n; i++) printf("%d ", arr[i]);\n    printf("\\n");\n    return 0;\n}`
         }
     },
     // Problem 31
     {
-        id: "dsa31p0q1r2s3t4u5v",
+        id: "halakfubuifenuibuKJBUIbfnuiweui23u8923",
         category: "DSA & Problem Solving",
         title: "Nth Fibonacci Term (Iterative)",
         description: "Write a function to return the Nth term of the Fibonacci sequence using iteration.",
-        time_limit: 7,
-        points: 20,
+        time_limit: 5,
+        points: 30,
         difficulty: "Medium",
-        base_price: 30,
+        base_price: 35,
         exampleInput: "N = 6",
         exampleOutput: "8",
         testCases: [
@@ -1533,23 +1676,28 @@ export const ALL_PROBLEMS = [
             { input: "15", expectedOutput: "610" }
         ],
         existingCode: {
-            python: `def fibonacci(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a  # Code from here`,
-            cpp: `int fibonacci(int n) {\n    int a = 0, b = 1;\n    for (int i = 1; i < n; i++) {\n        int temp = a + b;\n        a = b;\n        b = temp;\n    }\n    return b;  // Code from here\n}`,
-            java: `public int fibonacci(int n) {\n    int a = 0, b = 1;\n    for (int i = 1; i < n; i++) {\n        int temp = a + b;\n        a = b;\n        b = temp;\n    }\n    return b;  // Code from here\n}`,
-            javascript: `function fibonacci(n) {\n    let a = 0, b = 1;\n    for (let i = 1; i < n; i++) {\n        [a, b] = [b, a + b];\n    }\n    return b;  // Code from here\n}`,
-            c: `int fibonacci(int n) {\n    int a = 0, b = 1;\n    for (int i = 1; i < n; i++) {\n        int temp = a + b;\n        a = b;\n        b = temp;\n    }\n    return b;  // Code from here\n}`
+            python: `def fibonacci(n):\n    # Code from here\n\nn = int(input())\nprint(fibonacci(n))`,
+
+            cpp: `#include <iostream>\nint fibonacci(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    std::cin >> n;\n    std::cout << fibonacci(n) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.Scanner;\npublic class Main {\n    public static int fibonacci(int n) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(fibonacci(n));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction fibonacci(n) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    console.log(fibonacci(parseInt(input)));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint fibonacci(int n) {\n    // Code from here\n}\n\nint main() {\n    int n;\n    scanf("%d", &n);\n    printf("%d\\n", fibonacci(n));\n    return 0;\n}`
         }
     },
+
     // Problem 32
     {
-        id: "dsa32w6x7y8z9a1b2c",
+        id: "mfioIruibuinui893u899unisbfufbkjn",
         category: "DSA & Problem Solving",
         title: "Find Duplicates in Array",
         description: "Given an array of integers, return a list of duplicate elements.",
-        time_limit: 8,
-        points: 25,
+        time_limit: 5,
+        points: 20,
         difficulty: "Medium",
-        base_price: 35,
+        base_price: 25,
         exampleInput: "[1, 2, 3, 2, 4, 4]",
         exampleOutput: "[2, 4]",
         testCases: [
@@ -1558,23 +1706,28 @@ export const ALL_PROBLEMS = [
             { input: "[10, 20, 30]", expectedOutput: "[]" }
         ],
         existingCode: {
-            python: `def find_duplicates(arr):\n    return [x for x in set(arr) if arr.count(x) > 1]  # Code from here`,
-            cpp: `#include <vector>\n#include <unordered_map>\nstd::vector<int> findDuplicates(std::vector<int> arr) {\n    std::unordered_map<int, int> count;\n    std::vector<int> result;\n    for (int n : arr) count[n]++;\n    for (auto p : count) if (p.second > 1) result.push_back(p.first);\n    return result;  // Code from here\n}`,
-            java: `import java.util.*;\npublic List<Integer> findDuplicates(List<Integer> arr) {\n    Set<Integer> seen = new HashSet<>(), duplicates = new HashSet<>();\n    for (int num : arr) if (!seen.add(num)) duplicates.add(num);\n    return new ArrayList<>(duplicates);  // Code from here\n}`,
-            javascript: `function findDuplicates(arr) {\n    const seen = new Set(), duplicates = new Set();\n    arr.forEach(num => seen.has(num) ? duplicates.add(num) : seen.add(num));\n    return [...duplicates];  // Code from here\n}`,
-            c: `int* findDuplicates(int arr[], int n, int* resSize) {\n    int freq[1000] = {0};\n    for (int i = 0; i < n; i++) freq[arr[i]]++;\n    int* result = malloc(n * sizeof(int));\n    int count = 0;\n    for (int i = 0; i < n; i++) if (freq[arr[i]] > 1) result[count++] = arr[i];\n    *resSize = count;\n    return result;  // Code from here\n}`
+            python: `def find_duplicates(arr):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(",")))\nprint(find_duplicates(arr))`,
+
+            cpp: `#include <iostream>\n#include <vector>\nstd::vector<int> findDuplicates(std::vector<int> arr) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr = {1, 2, 3, 2, 4, 4};\n    std::vector<int> result = findDuplicates(arr);\n    for (int n : result) std::cout << n << " "; std::cout << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public static List<Integer> findDuplicates(List<Integer> arr) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        List<Integer> arr = Arrays.asList(1, 2, 3, 2, 4, 4);\n        System.out.println(findDuplicates(arr));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction findDuplicates(arr) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const arr = JSON.parse(input);\n    console.log(findDuplicates(arr));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint* findDuplicates(int arr[], int n, int* resSize) {\n    // Code from here\n}\n\nint main() {\n    int arr[] = {1, 2, 3, 2, 4, 4};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int resSize = 0;\n    int* result = findDuplicates(arr, n, &resSize);\n    for (int i = 0; i < resSize; i++) printf("%d ", result[i]);\n    printf("\\n");\n    return 0;\n}`
         }
     },
+
     // Problem 33
     {
-        id: "dsa33c5d6e7f8g9h0i",
+        id: "nuin4ku329uknui89rh2hrionsmoqjrh8322",
         category: "DSA & Problem Solving",
         title: "Find Target in Array",
         description: "Given an array of integers and a target number, check if the target number exists in the array.",
-        time_limit: 5,
-        points: 15,
+        time_limit: 4,
+        points: 25,
         difficulty: "Medium",
-        base_price: 25,
+        base_price: 30,
         exampleInput: "Array: [5, 3, 8, 1, 2], Target: 3",
         exampleOutput: "True",
         testCases: [
@@ -1583,21 +1736,26 @@ export const ALL_PROBLEMS = [
             { input: "[12, 15, 18], 18", expectedOutput: "True" }
         ],
         existingCode: {
-            python: `def find_target(arr, target):\n    return target in arr  # Code from here`,
-            cpp: `bool findTarget(std::vector<int> arr, int target) {\n    return std::find(arr.begin(), arr.end(), target) != arr.end();  // Code from here\n}`,
-            java: `public boolean findTarget(int[] arr, int target) {\n    for (int num : arr) if (num == target) return true;\n    return false;  // Code from here\n}`,
-            javascript: `function findTarget(arr, target) {\n    return arr.includes(target);  // Code from here\n}`,
-            c: `int findTarget(int arr[], int n, int target) {\n    for (int i = 0; i < n; i++) if (arr[i] == target) return 1;\n    return 0;  // Code from here\n}`
+            python: `def find_target(arr, target):\n    # Code from here\n\narr = list(map(int, input().strip("[]").split(",")))\ntarget = int(input())\nprint(find_target(arr, target))`,
+
+            cpp: `#include <iostream>\n#include <vector>\nbool findTarget(std::vector<int> arr, int target) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> arr = {5, 3, 8, 1, 2};\n    int target = 3;\n    std::cout << (findTarget(arr, target) ? "True" : "False") << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public static boolean findTarget(int[] arr, int target) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        int[] arr = {5, 3, 8, 1, 2};\n        int target = 3;\n        System.out.println(findTarget(arr, target));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction findTarget(arr, target) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const [arr, target] = input.split(',').map(JSON.parse);\n    console.log(findTarget(arr, target));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint findTarget(int arr[], int n, int target) {\n    // Code from here\n}\n\nint main() {\n    int arr[] = {5, 3, 8, 1, 2};\n    int target = 3;\n    printf("%s\\n", findTarget(arr, 5, target) ? "True" : "False");\n    return 0;\n}`
         }
     },
+
     // Problem 34
     {
-        id: "dsa34j8k9l0m1n2o3p",
+        id: "UIWODIONOior49nfweionOIEION",
         category: "DSA & Problem Solving",
         title: "Longest Increasing Subsequence",
         description: "Given an array of integers, find the length of the longest increasing subsequence.",
-        time_limit: 12,
-        points: 35,
+        time_limit: 9,
+        points: 40,
         difficulty: "Hard",
         base_price: 50,
         exampleInput: "[10, 9, 2, 5, 3, 7, 101, 18]",
@@ -1608,23 +1766,28 @@ export const ALL_PROBLEMS = [
             { input: "[7, 7, 7, 7, 7]", expectedOutput: "1" }
         ],
         existingCode: {
-            python: `def length_of_lis(nums):\n    dp = [1] * len(nums)\n    for i in range(1, len(nums)):\n        for j in range(i):\n            if nums[i] > nums[j]:\n                dp[i] = max(dp[i], dp[j] + 1)\n    return max(dp)  # Code from here`,
-            cpp: `int lengthOfLIS(vector<int>& nums) {\n    vector<int> dp(nums.size(), 1);\n    for (int i = 1; i < nums.size(); i++)\n        for (int j = 0; j < i; j++)\n            if (nums[i] > nums[j]) dp[i] = max(dp[i], dp[j] + 1);\n    return *max_element(dp.begin(), dp.end());  // Code from here\n}`,
-            java: `public int lengthOfLIS(int[] nums) {\n    int[] dp = new int[nums.length];\n    Arrays.fill(dp, 1);\n    for (int i = 1; i < nums.length; i++)\n        for (int j = 0; j < i; j++)\n            if (nums[i] > nums[j]) dp[i] = Math.max(dp[i], dp[j] + 1);\n    return Arrays.stream(dp).max().getAsInt();  // Code from here\n}`,
-            javascript: `function lengthOfLIS(nums) {\n    const dp = Array(nums.length).fill(1);\n    for (let i = 1; i < nums.length; i++)\n        for (let j = 0; j < i; j++)\n            if (nums[i] > nums[j]) dp[i] = Math.max(dp[i], dp[j] + 1);\n    return Math.max(...dp);  // Code from here\n}`,
-            c: `int lengthOfLIS(int* nums, int n) {\n    int dp[n], max_len = 1;\n    for (int i = 0; i < n; i++) dp[i] = 1;\n    for (int i = 1; i < n; i++)\n        for (int j = 0; j < i; j++)\n            if (nums[i] > nums[j]) dp[i] = (dp[i] > dp[j] + 1) ? dp[i] : dp[j] + 1;\n    for (int i = 0; i < n; i++) max_len = (dp[i] > max_len) ? dp[i] : max_len;\n    return max_len;  // Code from here\n}`
+            python: `def length_of_lis(nums):\n    # Code from here\n\nnums = list(map(int, input().strip("[]").split(",")))\nprint(length_of_lis(nums))`,
+
+            cpp: `#include <iostream>\n#include <vector>\nint lengthOfLIS(std::vector<int>& nums) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> nums = {10, 9, 2, 5, 3, 7, 101, 18};\n    std::cout << lengthOfLIS(nums) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public static int lengthOfLIS(int[] nums) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};\n        System.out.println(lengthOfLIS(nums));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction lengthOfLIS(nums) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const nums = JSON.parse(input);\n    console.log(lengthOfLIS(nums));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint lengthOfLIS(int nums[], int n) {\n    // Code from here\n}\n\nint main() {\n    int nums[] = {10, 9, 2, 5, 3, 7, 101, 18};\n    int n = sizeof(nums) / sizeof(nums[0]);\n    printf("%d\\n", lengthOfLIS(nums, n));\n    return 0;\n}`
         }
     },
+
     // Problem 35
     {
-        id: "dsa35s3t4u5v6w7x8y",
+        id: "dwjib_UBDUIEB3892u3r",
         category: "DSA & Problem Solving",
         title: "Knapsack Problem",
         description: "Given weights and values of N items, determine the maximum value that can be obtained with a knapsack of capacity W.",
         time_limit: 15,
-        points: 40,
+        points: 50,
         difficulty: "Hard",
-        base_price: 55,
+        base_price: 60,
         exampleInput: "Weights: [1, 2, 3], Values: [10, 15, 40], W = 6",
         exampleOutput: "55",
         testCases: [
@@ -1633,23 +1796,27 @@ export const ALL_PROBLEMS = [
             { input: "[10, 20], [30, 40], 10", expectedOutput: "30" }
         ],
         existingCode: {
-            python: `def knapsack(weights, values, W):\n    n = len(weights)\n    dp = [[0] * (W + 1) for _ in range(n + 1)]\n    for i in range(1, n + 1):\n        for w in range(W + 1):\n            if weights[i - 1] <= w:\n                dp[i][w] = max(dp[i - 1][w], values[i - 1] + dp[i - 1][w - weights[i - 1]])\n            else:\n                dp[i][w] = dp[i - 1][w]\n    return dp[n][W]  # Code from here`,
-            cpp: `int knapsack(int weights[], int values[], int W, int n) {\n    int dp[n + 1][W + 1];\n    for (int i = 0; i <= n; i++) {\n        for (int w = 0; w <= W; w++) {\n            if (i == 0 || w == 0) dp[i][w] = 0;\n            else if (weights[i - 1] <= w) dp[i][w] = max(values[i - 1] + dp[i - 1][w - weights[i - 1]], dp[i - 1][w]);\n            else dp[i][w] = dp[i - 1][w];\n        }\n    }\n    return dp[n][W];  // Code from here\n}`,
-            java: `public int knapsack(int[] weights, int[] values, int W) {\n    int n = weights.length;\n    int[][] dp = new int[n + 1][W + 1];\n    for (int i = 1; i <= n; i++) {\n        for (int w = 1; w <= W; w++) {\n            if (weights[i - 1] <= w) dp[i][w] = Math.max(dp[i - 1][w], values[i - 1] + dp[i - 1][w - weights[i - 1]]);\n            else dp[i][w] = dp[i - 1][w];\n        }\n    }\n    return dp[n][W];  // Code from here\n}`,
-            javascript: `function knapsack(weights, values, W) {\n    const n = weights.length, dp = Array(n + 1).fill().map(() => Array(W + 1).fill(0));\n    for (let i = 1; i <= n; i++) {\n        for (let w = 0; w <= W; w++) {\n            dp[i][w] = weights[i - 1] <= w ? Math.max(dp[i - 1][w], values[i - 1] + dp[i - 1][w - weights[i - 1]]) : dp[i - 1][w];\n        }\n    }\n    return dp[n][W];  // Code from here\n}`,
-            c: `int knapsack(int weights[], int values[], int W, int n) {\n    int dp[n + 1][W + 1];\n    for (int i = 0; i <= n; i++) {\n        for (int w = 0; w <= W; w++) {\n            if (i == 0 || w == 0) dp[i][w] = 0;\n            else if (weights[i - 1] <= w) dp[i][w] = (values[i - 1] + dp[i - 1][w - weights[i - 1]] > dp[i - 1][w]) ? values[i - 1] + dp[i - 1][w - weights[i - 1]] : dp[i - 1][w];\n            else dp[i][w] = dp[i - 1][w];\n        }\n    }\n    return dp[n][W];  // Code from here\n}`
+            python: `def knapsack(weights, values, W):\n    # Code from here\n\nweights = list(map(int, input().strip("[]").split(",")))\nvalues = list(map(int, input().strip("[]").split(",")))\nW = int(input().strip("W = "))\nprint(knapsack(weights, values, W))`,
+
+            cpp: `#include <iostream>\nint knapsack(int weights[], int values[], int W, int n) {\n    // Code from here\n}\n\nint main() {\n    int weights[] = {1, 2, 3};\n    int values[] = {10, 15, 40};\n    int W = 6;\n    int n = sizeof(weights) / sizeof(weights[0]);\n    std::cout << knapsack(weights, values, W, n) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public static int knapsack(int[] weights, int[] values, int W) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        int[] weights = {1, 2, 3};\n        int[] values = {10, 15, 40};\n        int W = 6;\n        System.out.println(knapsack(weights, values, W));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction knapsack(weights, values, W) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const [weights, values, W] = input.split(',').map(JSON.parse);\n    console.log(knapsack(weights, values, W));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint knapsack(int weights[], int values[], int W, int n) {\n    // Code from here\n}\n\nint main() {\n    int weights[] = {1, 2, 3};\n    int values[] = {10, 15, 40};\n    int W = 6;\n    int n = sizeof(weights) / sizeof(weights[0]);\n    printf("%d\\n", knapsack(weights, values, W, n));\n    return 0;\n}`
         }
     },
     // Problem 36
     {
-        id: "dsa36q3r4s5t6u7v8w",
+        id: "uibejn32984uibuibewjdsiun_dwuiui23823",
         category: "DSA & Problem Solving",
         title: "Kth Largest Element in Array",
         description: "Given an array, find the Kth largest element in the array.",
-        time_limit: 10,
-        points: 30,
+        time_limit: 9,
+        points: 45,
         difficulty: "Hard",
-        base_price: 50,
+        base_price: 55,
         exampleInput: "Array: [3, 2, 1, 5, 6, 4], K = 2",
         exampleOutput: "5",
         testCases: [
@@ -1658,23 +1825,28 @@ export const ALL_PROBLEMS = [
             { input: "[1, 2, 3, 4, 5], 1", expectedOutput: "5" }
         ],
         existingCode: {
-            python: `import heapq\ndef find_kth_largest(nums, k):\n    return heapq.nlargest(k, nums)[-1]  # Code from here`,
-            cpp: `#include <queue>\nint findKthLargest(std::vector<int>& nums, int k) {\n    std::priority_queue<int, std::vector<int>, std::greater<int>> minHeap;\n    for (int num : nums) {\n        minHeap.push(num);\n        if (minHeap.size() > k) minHeap.pop();\n    }\n    return minHeap.top();  // Code from here\n}`,
-            java: `import java.util.PriorityQueue;\npublic int findKthLargest(int[] nums, int k) {\n    PriorityQueue<Integer> minHeap = new PriorityQueue<>();\n    for (int num : nums) {\n        minHeap.add(num);\n        if (minHeap.size() > k) minHeap.poll();\n    }\n    return minHeap.peek();  // Code from here\n}`,
-            javascript: `function findKthLargest(nums, k) {\n    nums.sort((a, b) => b - a);\n    return nums[k - 1];  // Code from here\n}`,
-            c: `int findKthLargest(int arr[], int n, int k) {\n    qsort(arr, n, sizeof(int), compare);\n    return arr[n - k];  // Code from here\n}`
+            python: `def find_kth_largest(nums, k):\n    # Code from here\n\nnums = list(map(int, input().strip("[]").split(",")))\nk = int(input())\nprint(find_kth_largest(nums, k))`,
+
+            cpp: `#include <iostream>\n#include <vector>\nint findKthLargest(std::vector<int>& nums, int k) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> nums = {3, 2, 1, 5, 6, 4};\n    int k = 2;\n    std::cout << findKthLargest(nums, k) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public static int findKthLargest(int[] nums, int k) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {3, 2, 1, 5, 6, 4};\n        int k = 2;\n        System.out.println(findKthLargest(nums, k));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction findKthLargest(nums, k) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const [nums, k] = input.split(',').map(JSON.parse);\n    console.log(findKthLargest(nums, k));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint findKthLargest(int arr[], int n, int k) {\n    // Code from here\n}\n\nint main() {\n    int arr[] = {3, 2, 1, 5, 6, 4};\n    int k = 2;\n    printf("%d\\n", findKthLargest(arr, 6, k));\n    return 0;\n}`
         }
     },
+
     // Problem 37
     {
-        id: "dsa37x1y2z3a4b5c6d",
+        id: "waiuib489237489iubjbKJBYUBJBYr4uhewu8",
         category: "DSA & Problem Solving",
         title: "Coin Change Combinations",
         description: "Given a set of coins and a total amount, determine the number of ways to make the amount using the coins.",
-        time_limit: 12,
-        points: 35,
+        time_limit: 10,
+        points: 50,
         difficulty: "Hard",
-        base_price: 55,
+        base_price: 60,
         exampleInput: "Coins: [1, 2, 5], Amount: 5",
         exampleOutput: "4",
         testCases: [
@@ -1683,23 +1855,28 @@ export const ALL_PROBLEMS = [
             { input: "[1, 2], 4", expectedOutput: "3" }
         ],
         existingCode: {
-            python: `def coin_change_combinations(coins, amount):\n    dp = [0] * (amount + 1)\n    dp[0] = 1\n    for coin in coins:\n        for x in range(coin, amount + 1):\n            dp[x] += dp[x - coin]\n    return dp[amount]  # Code from here`,
-            cpp: `int coinChangeCombinations(std::vector<int>& coins, int amount) {\n    std::vector<int> dp(amount + 1, 0);\n    dp[0] = 1;\n    for (int coin : coins)\n        for (int x = coin; x <= amount; x++)\n            dp[x] += dp[x - coin];\n    return dp[amount];  // Code from here\n}`,
-            java: `public int coinChangeCombinations(int[] coins, int amount) {\n    int[] dp = new int[amount + 1];\n    dp[0] = 1;\n    for (int coin : coins)\n        for (int x = coin; x <= amount; x++)\n            dp[x] += dp[x - coin];\n    return dp[amount];  // Code from here\n}`,
-            javascript: `function coinChangeCombinations(coins, amount) {\n    const dp = Array(amount + 1).fill(0);\n    dp[0] = 1;\n    coins.forEach(coin => {\n        for (let x = coin; x <= amount; x++) dp[x] += dp[x - coin];\n    });\n    return dp[amount];  // Code from here\n}`,
-            c: `int coinChangeCombinations(int coins[], int n, int amount) {\n    int dp[amount + 1];\n    memset(dp, 0, sizeof(dp));\n    dp[0] = 1;\n    for (int i = 0; i < n; i++)\n        for (int x = coins[i]; x <= amount; x++)\n            dp[x] += dp[x - coins[i]];\n    return dp[amount];  // Code from here\n}`
+            python: `def coin_change_combinations(coins, amount):\n    # Code from here\n\ncoins = list(map(int, input().strip("[]").split(",")))\namount = int(input())\nprint(coin_change_combinations(coins, amount))`,
+
+            cpp: `#include <iostream>\n#include <vector>\nint coinChangeCombinations(std::vector<int>& coins, int amount) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> coins = {1, 2, 5};\n    int amount = 5;\n    std::cout << coinChangeCombinations(coins, amount) << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public static int coinChangeCombinations(int[] coins, int amount) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        int[] coins = {1, 2, 5};\n        int amount = 5;\n        System.out.println(coinChangeCombinations(coins, amount));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction coinChangeCombinations(coins, amount) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const [coins, amount] = input.split(',').map(JSON.parse);\n    console.log(coinChangeCombinations(coins, amount));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint coinChangeCombinations(int coins[], int n, int amount) {\n    // Code from here\n}\n\nint main() {\n    int coins[] = {1, 2, 5};\n    int amount = 5;\n    printf("%d\\n", coinChangeCombinations(coins, 3, amount));\n    return 0;\n}`
         }
     },
+
     // Problem 38
     {
-        id: "dsa38e6f7g8h9i0j1k2",
+        id: "momoimoxxwedmiowefijr2827DAFG",
         category: "DSA & Problem Solving",
         title: "Generate Parentheses Combinations",
         description: "Given n pairs of parentheses, generate all combinations of well-formed parentheses.",
-        time_limit: 10,
-        points: 30,
+        time_limit: 20,
+        points: 50,
         difficulty: "Hard",
-        base_price: 50,
+        base_price: 60,
         exampleInput: "n = 3",
         exampleOutput: '["((()))","(()())","(())()","()(())","()()()"]',
         testCases: [
@@ -1708,23 +1885,28 @@ export const ALL_PROBLEMS = [
             { input: "1", expectedOutput: '["()"]' }
         ],
         existingCode: {
-            python: `def generate_parentheses(n):\n    def backtrack(s, left, right):\n        if len(s) == 2 * n:\n            res.append(s)\n            return\n        if left < n: backtrack(s + '(', left + 1, right)\n        if right < left: backtrack(s + ')', left, right + 1)\n    res = []\n    backtrack("", 0, 0)\n    return res  # Code from here`,
-            cpp: `void generateParentheses(int n, std::string s, int left, int right, std::vector<std::string>& result) {\n    if (s.length() == 2 * n) { result.push_back(s); return; }\n    if (left < n) generateParentheses(n, s + "(", left + 1, right, result);\n    if (right < left) generateParentheses(n, s + ")", left, right + 1, result);  // Code from here\n}`,
-            java: `public List<String> generateParentheses(int n) {\n    List<String> result = new ArrayList<>();\n    backtrack(result, "", 0, 0, n);\n    return result;\n}\nprivate void backtrack(List<String> res, String s, int left, int right, int max) {\n    if (s.length() == max * 2) { res.add(s); return; }\n    if (left < max) backtrack(res, s + "(", left + 1, right, max);\n    if (right < left) backtrack(res, s + ")", left, right + 1, max);  // Code from here\n}`,
-            javascript: `function generateParentheses(n) {\n    const res = [];\n    function backtrack(s, left, right) {\n        if (s.length === 2 * n) { res.push(s); return; }\n        if (left < n) backtrack(s + "(", left + 1, right);\n        if (right < left) backtrack(s + ")", left, right + 1);\n    }\n    backtrack("", 0, 0);\n    return res;  // Code from here\n}`,
-            c: `void generateParentheses(int n, char* s, int pos, int left, int right, char** res, int* count) {\n    if (pos == 2 * n) { res[*count] = strdup(s); (*count)++; return; }\n    if (left < n) { s[pos] = '('; generateParentheses(n, s, pos + 1, left + 1, right, res, count); }\n    if (right < left) { s[pos] = ')'; generateParentheses(n, s, pos + 1, left, right + 1, res, count); }\n}`
+            python: `def generate_parentheses(n):\n    # Code from here\n\nn = int(input())\nprint(generate_parentheses(n))`,
+
+            cpp: `#include <iostream>\n#include <vector>\nvoid generateParentheses(int n, std::string s, int left, int right, std::vector<std::string>& result) {\n    // Code from here\n}\n\nint main() {\n    int n = 3;\n    std::vector<std::string> result;\n    generateParentheses(n, "", 0, 0, result);\n    for (const auto& comb : result) std::cout << comb << " "; std::cout << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public List<String> generateParentheses(int n) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        int n = 3;\n        System.out.println(new Main().generateParentheses(n));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction generateParentheses(n) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const n = parseInt(input);\n    console.log(generateParentheses(n));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nvoid generateParentheses(int n, char* s, int pos, int left, int right, char** res, int* count) {\n    // Code from here\n}\n\nint main() {\n    int n = 3;\n    char* res[1000];\n    int count = 0;\n    generateParentheses(n, "", 0, 0, res, &count);\n    for (int i = 0; i < count; i++) printf("%s ", res[i]); printf("\\n");\n    return 0;\n}`
         }
     },
+
     // Problem 39
     {
-        id: "dsa39l3m4n5o6p7q8r",
+        id: "MOIIONwbuasbduwebn902349jsu",
         category: "DSA & Problem Solving",
         title: "K Most Frequent Elements",
         description: "Given a non-empty array of integers, return the k most frequent elements.",
-        time_limit: 10,
-        points: 30,
+        time_limit: 14,
+        points: 45,
         difficulty: "Hard",
-        base_price: 50,
+        base_price: 55,
         exampleInput: "Array: [1,1,1,2,2,3], k = 2",
         exampleOutput: "[1,2]",
         testCases: [
@@ -1733,23 +1915,28 @@ export const ALL_PROBLEMS = [
             { input: "[3,3,3,1,1,1,2,2], 3", expectedOutput: "[1,2,3]" }
         ],
         existingCode: {
-            python: `from collections import Counter\nimport heapq\ndef k_most_frequent(nums, k):\n    return [item[0] for item in Counter(nums).most_common(k)]  # Code from here`,
-            cpp: `#include <unordered_map>\n#include <queue>\nstd::vector<int> kMostFrequent(std::vector<int>& nums, int k) {\n    std::unordered_map<int, int> freq;\n    for (int num : nums) freq[num]++;\n    std::priority_queue<std::pair<int, int>> maxHeap;\n    for (auto it : freq) maxHeap.push({it.second, it.first});\n    std::vector<int> result;\n    while (k--) {\n        result.push_back(maxHeap.top().second);\n        maxHeap.pop();\n    }\n    return result;  // Code from here\n}`,
-            java: `import java.util.*;\npublic List<Integer> kMostFrequent(int[] nums, int k) {\n    Map<Integer, Integer> freq = new HashMap<>();\n    for (int num : nums) freq.put(num, freq.getOrDefault(num, 0) + 1);\n    PriorityQueue<Integer> heap = new PriorityQueue<>(Comparator.comparingInt(freq::get));\n    freq.keySet().forEach(n -> { heap.add(n); if (heap.size() > k) heap.poll(); });\n    return new ArrayList<>(heap);  // Code from here\n}`,
-            javascript: `function kMostFrequent(nums, k) {\n    const freq = {};\n    nums.forEach(n => freq[n] = (freq[n] || 0) + 1);\n    return Object.entries(freq).sort((a, b) => b[1] - a[1]).slice(0, k).map(item => +item[0]);  // Code from here\n}`,
-            c: `typedef struct { int val; int freq; } Pair;\nint compare(const void* a, const void* b) { return ((Pair*)b)->freq - ((Pair*)a)->freq; }\nint* kMostFrequent(int arr[], int n, int k, int* returnSize) {\n    Pair freq[1000] = {0};\n    for (int i = 0; i < n; i++) freq[arr[i]].val = arr[i], freq[arr[i]].freq++;\n    qsort(freq, 1000, sizeof(Pair), compare);\n    int* result = malloc(k * sizeof(int));\n    for (int i = 0; i < k; i++) result[i] = freq[i].val;\n    *returnSize = k;\n    return result;  // Code from here\n}`
+            python: `def k_most_frequent(nums, k):\n    # Code from here\n\nnums = list(map(int, input().strip("[]").split(",")))\nk = int(input())\nprint(k_most_frequent(nums, k))`,
+
+            cpp: `#include <iostream>\n#include <vector>\nstd::vector<int> kMostFrequent(std::vector<int>& nums, int k) {\n    // Code from here\n}\n\nint main() {\n    std::vector<int> nums = {1,1,1,2,2,3};\n    int k = 2;\n    for (int n : kMostFrequent(nums, k)) std::cout << n << " "; std::cout << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public List<Integer> kMostFrequent(int[] nums, int k) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {1,1,1,2,2,3};\n        int k = 2;\n        System.out.println(new Main().kMostFrequent(nums, k));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction kMostFrequent(nums, k) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const [nums, k] = input.split(',').map(JSON.parse);\n    console.log(kMostFrequent(nums, k));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nint* kMostFrequent(int arr[], int n, int k, int* returnSize) {\n    // Code from here\n}\n\nint main() {\n    int arr[] = {1,1,1,2,2,3};\n    int k = 2;\n    int returnSize;\n    int* res = kMostFrequent(arr, 6, k, &returnSize);\n    for (int i = 0; i < returnSize; i++) printf("%d ", res[i]); printf("\\n");\n    return 0;\n}`
         }
     },
+
     // Problem 40
     {
-        id: "dsa40s5t6u7v8w9x0y",
+        id: "weubewfnhin34ihfurieo8h34uiou904",
         category: "DSA & Problem Solving",
         title: "Sort Names Alphabetically",
         description: "Given a list of names, sort them in alphabetical order.",
-        time_limit: 5,
-        points: 10,
+        time_limit: 9,
+        points: 30,
         difficulty: "Easy",
-        base_price: 20,
+        base_price: 40,
         exampleInput: '["Johnny", "Virat", "Dhoni"]',
         exampleOutput: '["Dhoni", "Johnny", "Virat"]',
         testCases: [
@@ -1758,11 +1945,15 @@ export const ALL_PROBLEMS = [
             { input: '["Alice", "Bob", "Charlie"]', expectedOutput: '["Alice", "Bob", "Charlie"]' }
         ],
         existingCode: {
-            python: `def sort_names(names):\n    return sorted(names)  # Code from here`,
-            cpp: `#include <algorithm>\n#include <string>\nstd::vector<std::string> sortNames(std::vector<std::string>& names) {\n    std::sort(names.begin(), names.end());\n    return names;  // Code from here\n}`,
-            java: `import java.util.*;\npublic List<String> sortNames(List<String> names) {\n    Collections.sort(names);\n    return names;  // Code from here\n}`,
-            javascript: `function sortNames(names) {\n    return names.sort();  // Code from here\n}`,
-            c: `void sortNames(char* names[], int n) {\n    qsort(names, n, sizeof(char*), (int (*)(const void*, const void*)) strcmp);  // Code from here\n}`
+            python: `def sort_names(names):\n    # Code from here\n\nnames = input().strip("[]").replace("\\"", "").split(", ")\nprint(sort_names(names))`,
+
+            cpp: `#include <iostream>\n#include <vector>\nstd::vector<std::string> sortNames(std::vector<std::string>& names) {\n    // Code from here\n}\n\nint main() {\n    std::vector<std::string> names = {"Johnny", "Virat", "Dhoni"};\n    for (const auto& name : sortNames(names)) std::cout << name << " "; std::cout << std::endl;\n    return 0;\n}`,
+
+            java: `import java.util.*;\npublic class Main {\n    public List<String> sortNames(List<String> names) {\n        // Code from here\n    }\n\n    public static void main(String[] args) {\n        List<String> names = Arrays.asList("Johnny", "Virat", "Dhoni");\n        System.out.println(new Main().sortNames(names));\n    }\n}`,
+
+            javascript: `const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n\nfunction sortNames(names) {\n    // Code from here\n}\n\nrl.question('', (input) => {\n    const names = JSON.parse(input);\n    console.log(sortNames(names));\n    rl.close();\n});`,
+
+            c: `#include <stdio.h>\nvoid sortNames(char* names[], int n) {\n    // Code from here\n}\n\nint main() {\n    char* names[] = {"Johnny", "Virat", "Dhoni"};\n    int n = sizeof(names) / sizeof(names[0]);\n    sortNames(names, n);\n    for (int i = 0; i < n; i++) printf("%s ", names[i]); printf("\\n");\n    return 0;\n}`
         }
     },
     //==========================================SQL QUERIES=======================================================
@@ -1776,682 +1967,990 @@ export const ALL_PROBLEMS = [
         time_limit: 2,
         title: "Retrieve all records",
         description: "Retrieve all records from the employees table.",
-        existingCode: "// Query here",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT * FROM employees;", expectedRowCount: 10 },
+            {
+                query: "SELECT * FROM employees;",
+                expectedRowCount: 10,
+                expectedData: [
+                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
+                    { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 },
+                    { id: 3, name: 'Charlie Brown', department: 'HR', salary: 55000, hire_date: '2012-11-03', job_title: 'Analyst', manager_id: 1, years_experience: 8 },
+                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
+                    { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 },
+                    { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 },
+                    { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
+                    { id: 8, name: 'Hannah Lee', department: 'HR', salary: 45000, hire_date: '2019-05-23', job_title: 'Consultant', manager_id: 3, years_experience: 4 },
+                    { id: 9, name: 'Ivan Young', department: 'Finance', salary: 70000, hire_date: '2016-09-29', job_title: 'Manager', manager_id: 4, years_experience: 10 },
+                    { id: 10, name: 'Julia Thomas', department: 'Marketing', salary: 54000, hire_date: '2014-04-05', job_title: 'Executive', manager_id: 5, years_experience: 6 }
+                ]
+            }
         ]
     },
+
     // Problem 2
     {
-        id: "SQ2-HSF9L3SKJL0P",
+        id: "SQ2-2ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 20,
         points: 10,
         time_limit: 2,
-        title: "Select Name Column",
+        title: "Select only name column",
         description: "Select only the name column from the employees table.",
-        existingCode: "// Query here",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT name FROM employees;", expectedColumns: ["name"] },
+            {
+                query: "SELECT name FROM employees;",
+                expectedRowCount: 10,
+                expectedData: [
+                    { name: 'Alice Johnson' },
+                    { name: 'Adam Smith' },
+                    { name: 'Charlie Brown' },
+                    { name: 'Daisy Carter' },
+                    { name: 'Edward Davis' },
+                    { name: 'Fiona Green' },
+                    { name: 'George Harris' },
+                    { name: 'Hannah Lee' },
+                    { name: 'Ivan Young' },
+                    { name: 'Julia Thomas' }
+                ]
+            }
         ]
     },
+
     // Problem 3
     {
-        id: "SQ3-KLS9FJSKDLW2",
+        id: "SQ3-3ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 25,
-        points: 12,
+        points: 10,
         time_limit: 2,
-        title: "Count Employees",
-        description: "Find the total number of employees in the employees table.",
-        existingCode: "// Query here",
+        title: "Count employees",
+        description: "Find the number of employees in the employees table.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT COUNT(*) FROM employees;", expectedOutput: "10" },
+            {
+                query: "SELECT COUNT(*) AS employee_count FROM employees;",
+                expectedRowCount: 1,
+                expectedData: [
+                    { employee_count: 10 }
+                ]
+            }
         ]
     },
+
     // Problem 4
     {
-        id: "SQ4-MX9DLSJFK3WL",
+        id: "SQ4-4ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 25,
-        points: 12,
+        points: 15,
         time_limit: 2,
-        title: "Distinct Departments",
+        title: "Get distinct departments",
         description: "Get all distinct values in the department column from employees.",
-        existingCode: "// Query here",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT DISTINCT department FROM employees;", expectedValues: ["Sales", "Engineering", "HR", "Marketing"] },
+            {
+                query: "SELECT DISTINCT department FROM employees;",
+                expectedRowCount: 5,
+                expectedData: [
+                    { department: 'Sales' },
+                    { department: 'IT' },
+                    { department: 'HR' },
+                    { department: 'Finance' },
+                    { department: 'Marketing' }
+                ]
+            }
         ]
     },
+
     // Problem 5
     {
-        id: "SQ5-J2NLS8DFJWLM",
+        id: "SQ5-5ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 30,
         points: 15,
-        time_limit: 3,
-        title: "Salary Above 50000",
+        time_limit: 2,
+        title: "Salary greater than 50000",
         description: "Retrieve all employees whose salary is greater than 50000.",
-        existingCode: "// Query here",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT * FROM employees WHERE salary > 50000;", expectedRowCount: 6 },
+            {
+                query: "SELECT * FROM employees WHERE salary > 50000;",
+                expectedRowCount: 7,
+                expectedData: [
+                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
+                    { id: 3, name: 'Charlie Brown', department: 'HR', salary: 55000, hire_date: '2012-11-03', job_title: 'Analyst', manager_id: 1, years_experience: 8 },
+                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
+                    { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 },
+                    { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
+                    { id: 9, name: 'Ivan Young', department: 'Finance', salary: 70000, hire_date: '2016-09-29', job_title: 'Manager', manager_id: 4, years_experience: 10 },
+                    { id: 10, name: 'Julia Thomas', department: 'Marketing', salary: 54000, hire_date: '2014-04-05', job_title: 'Executive', manager_id: 5, years_experience: 6 }
+                ]
+            }
         ]
     },
     // Problem 6
     {
-        id: "SQ6-XW8FJSK7DKLN",
+        id: "SQ6-6ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 30,
         points: 15,
         time_limit: 3,
-        title: "Count by Department",
+        title: "Count employees per department",
         description: "Count the number of employees in each department.",
-        existingCode: "// Query here",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT department, COUNT(*) FROM employees GROUP BY department;", expectedOutput: [
-                { department: "Sales", count: 3 },
-                { department: "Engineering", count: 3 },
-                { department: "HR", count: 2 },
-                { department: "Marketing", count: 2 }
-            ] }
+            {
+                query: "SELECT department, COUNT(*) AS employee_count FROM employees GROUP BY department;",
+                expectedRowCount: 5,
+                expectedData: [
+                    { department: 'Sales', employee_count: 2 },
+                    { department: 'IT', employee_count: 2 },
+                    { department: 'HR', employee_count: 2 },
+                    { department: 'Finance', employee_count: 2 },
+                    { department: 'Marketing', employee_count: 2 }
+                ]
+            }
         ]
     },
+
     // Problem 7
     {
-        id: "SQ7-W9DSL3K8FNLP",
+        id: "SQ7-7ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 30,
         points: 15,
-        time_limit: 3,
-        title: "Minimum Salary",
+        time_limit: 2,
+        title: "Find minimum salary",
         description: "Find the minimum salary from the employees table.",
-        existingCode: "// Query here",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT MIN(salary) FROM employees;", expectedOutput: "45000.00" },
+            {
+                query: "SELECT MIN(salary) AS min_salary FROM employees;",
+                expectedRowCount: 1,
+                expectedData: [
+                    { min_salary: 40000 }
+                ]
+            }
         ]
     },
+
     // Problem 8
     {
-        id: "SQ8-NFJLS0DK9S3W",
+        id: "SQ8-8ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 35,
-        points: 17,
+        points: 20,
         time_limit: 3,
-        title: "Names Starting with 'A'",
-        description: "Retrieve all employee names where the name starts with 'A'.",
-        existingCode: "// Query here",
+        title: "Name starts with 'A'",
+        description: "Retrieve employee records where the name starts with 'A'.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT name FROM employees WHERE name LIKE 'A%';", expectedOutput: ["Alice Johnson"] },
+            {
+                query: "SELECT * FROM employees WHERE name LIKE 'A%';",
+                expectedRowCount: 2,
+                expectedData: [
+                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
+                    { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 }
+                ]
+            }
         ]
     },
+
     // Problem 9
     {
-        id: "SQ9-XJ3KFL2KDJ9S",
+        id: "SQ9-9ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 35,
-        points: 17,
-        time_limit: 3,
-        title: "Average Salary",
-        description: "Calculate the average salary of employees.",
-        existingCode: "// Query here",
+        points: 15,
+        time_limit: 2,
+        title: "Average salary",
+        description: "Find the average salary of employees.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT AVG(salary) FROM employees;", expectedOutput: "58300.00" },
+            {
+                query: "SELECT AVG(salary) AS avg_salary FROM employees;",
+                expectedRowCount: 1,
+                expectedData: [
+                    { avg_salary: 59600 }
+                ]
+            }
         ]
     },
+
     // Problem 10
     {
-        id: "SQ10-MKS8L3SKD9WL",
+        id: "SQ10-0ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
-        base_price: 35,
-        points: 17,
-        time_limit: 3,
-        title: "Sales Department Employees",
+        base_price: 40,
+        points: 15,
+        time_limit: 2,
+        title: "Employees in Sales department",
         description: "Select all employees who work in the Sales department.",
-        existingCode: "// Query here",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT * FROM employees WHERE department = 'Sales';", expectedRowCount: 3 },
+            {
+                query: "SELECT * FROM employees WHERE department = 'Sales';",
+                expectedRowCount: 2,
+                expectedData: [
+                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
+                    { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 }
+                ]
+            }
         ]
     },
-    // Question 11
+
+    // Problem 11
     {
-        id: "SQ11-JS9KDLSFJ0KL",
+        id: "SQ11-1ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 40,
         points: 20,
-        time_limit: 4,
-        title: "Total Salary by Department",
-        description: "Calculate the total salary expense per department.",
-        existingCode: "// Query here",
+        time_limit: 2,
+        title: "Employees hired before 2010",
+        description: "Retrieve all employees who were hired before 2010.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT department, SUM(salary) FROM employees GROUP BY department;", expectedOutput: [
-                { department: "Sales", sum_salary: 168000 },
-                { department: "Engineering", sum_salary: 195000 },
-                { department: "HR", sum_salary: 97000 },
-                { department: "Marketing", sum_salary: 114000 }
-            ] }
+            {
+                query: "SELECT * FROM employees WHERE hire_date < '2010-01-01';",
+                expectedRowCount: 1,
+                expectedData: [
+                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 }
+                ]
+            }
         ]
     },
-    // Question 12
+
+    // Problem 12
     {
-        id: "SQ12-KLSJD09F3S0P",
+        id: "SQ12-2ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 40,
         points: 20,
-        time_limit: 4,
-        title: "Employees with Age over 30",
-        description: "Retrieve the names of employees who are over 30 years old.",
-        existingCode: "// Query here",
+        time_limit: 2,
+        title: "Departments with more than 5 employees",
+        description: "List all departments with more than 5 employees.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT name FROM employees WHERE age > 30;", expectedOutput: ["Alice Johnson", "Charlie Brown", "Edward Davis", "George Harris", "Ivan Young", "Julia Thomas"] }
+            {
+                query: "SELECT department FROM employees GROUP BY department HAVING COUNT(*) > 5;",
+                expectedRowCount: 0,
+                expectedData: [] // No department has more than 5 employees in the mock data
+            }
         ]
     },
-    // Question 13
+
+    // Problem 13
     {
-        id: "SQ13-FL0S3KJD9SW0",
+        id: "SQ13-3ASFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 40,
+        points: 20,
+        time_limit: 3,
+        title: "Maximum salary per department",
+        description: "Display the maximum salary in each department.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: "SELECT department, MAX(salary) AS max_salary FROM employees GROUP BY department;",
+                expectedRowCount: 5,
+                expectedData: [
+                    { department: 'Sales', max_salary: 60000 },
+                    { department: 'IT', max_salary: 80000 },
+                    { department: 'HR', max_salary: 55000 },
+                    { department: 'Finance', max_salary: 75000 },
+                    { department: 'Marketing', max_salary: 62000 }
+                ]
+            }
+        ]
+    },
+
+    // Problem 14
+    {
+        id: "SQ14-4ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 45,
-        points: 22,
+        points: 25,
         time_limit: 4,
-        title: "Top 3 Highest Salaries",
-        description: "Find the names and salaries of the top 3 highest-paid employees.",
-        existingCode: "// Query here",
+        title: "Employees with name containing 'John'",
+        description: "Find employees whose name contains the substring 'John'.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT name, salary FROM employees ORDER BY salary DESC LIMIT 3;", expectedOutput: [
-                { name: "Ivan Young", salary: 80000 },
-                { name: "Julia Thomas", salary: 65000 },
-                { name: "George Harris", salary: 62000 }
-            ] }
+            {
+                query: "SELECT * FROM employees WHERE name LIKE '%John%';",
+                expectedRowCount: 1,
+                expectedData: [
+                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 }
+                ]
+            }
         ]
     },
-    // Question 14
+
+    // Problem 15
     {
-        id: "SQ14-JD0S3LFKS9P4",
+        id: "SQ15-5ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 45,
-        points: 22,
+        points: 20,
         time_limit: 4,
-        title: "Hire Date Before 2018",
-        description: "List all employees hired before the year 2018.",
-        existingCode: "// Query here",
+        title: "Employees sorted by salary (desc)",
+        description: "Retrieve records sorted by the salary column in descending order.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT name, hire_date FROM employees WHERE hire_date < '2018-01-01';", expectedOutput: [
-                { name: "Charlie Brown", hire_date: "2015-09-15" },
-                { name: "George Harris", hire_date: "2016-01-25" },
-                { name: "Julia Thomas", hire_date: "2014-08-01" }
-            ] }
+            {
+                query: "SELECT * FROM employees ORDER BY salary DESC;",
+                expectedRowCount: 10,
+                expectedData: [
+                    { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
+                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
+                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
+                    { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 },
+                    { id: 9, name: 'Ivan Young', department: 'Finance', salary: 70000, hire_date: '2016-09-29', job_title: 'Manager', manager_id: 4, years_experience: 10 },
+                    { id: 10, name: 'Julia Thomas', department: 'Marketing', salary: 54000, hire_date: '2014-04-05', job_title: 'Executive', manager_id: 5, years_experience: 6 },
+                    { id: 3, name: 'Charlie Brown', department: 'HR', salary: 55000, hire_date: '2012-11-03', job_title: 'Analyst', manager_id: 1, years_experience: 8 },
+                    { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 },
+                    { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 },
+                    { id: 8, name: 'Hannah Lee', department: 'HR', salary: 45000, hire_date: '2019-05-23', job_title: 'Consultant', manager_id: 3, years_experience: 4 }
+                ]
+            }
         ]
     },
-    // Question 15
+    
+    // Problem 16
     {
-        id: "SQ15-LKJSD0F9S4MP",
+        id: "SQ16-6ASFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 45,
+        points: 25,
+        time_limit: 4,
+        title: "Top 10 highest-paid employees",
+        description: "Get the top 10 highest-paid employees.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: "SELECT * FROM employees ORDER BY salary DESC LIMIT 10;",
+                expectedRowCount: 10,
+                expectedData: [
+                    { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
+                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
+                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
+                    { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 },
+                    { id: 9, name: 'Ivan Young', department: 'Finance', salary: 70000, hire_date: '2016-09-29', job_title: 'Manager', manager_id: 4, years_experience: 10 },
+                    { id: 10, name: 'Julia Thomas', department: 'Marketing', salary: 54000, hire_date: '2014-04-05', job_title: 'Executive', manager_id: 5, years_experience: 6 },
+                    { id: 3, name: 'Charlie Brown', department: 'HR', salary: 55000, hire_date: '2012-11-03', job_title: 'Analyst', manager_id: 1, years_experience: 8 },
+                    { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 },
+                    { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 },
+                    { id: 8, name: 'Hannah Lee', department: 'HR', salary: 45000, hire_date: '2019-05-23', job_title: 'Consultant', manager_id: 3, years_experience: 4 }
+                ]
+            }
+        ]
+    },
+
+    // Problem 17
+    {
+        id: "SQ17-7ASFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 45,
+        points: 25,
+        time_limit: 4,
+        title: "Employees with salaries between 40000 and 60000",
+        description: "Count the number of employees with salaries between 40000 and 60000.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: "SELECT COUNT(*) AS count FROM employees WHERE salary BETWEEN 40000 AND 60000;",
+                expectedRowCount: 1,
+                expectedData: [
+                    { count: 7 }
+                ]
+            }
+        ]
+    },
+
+    // Problem 18
+    {
+        id: "SQ18-8ASFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Easy",
+        base_price: 45,
+        points: 25,
+        time_limit: 5,
+        title: "Employees without a department",
+        description: "Retrieve employee records without a department value.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: "SELECT * FROM employees WHERE department IS NULL;",
+                expectedRowCount: 0,
+                expectedData: [] // All employees in mock data have a department value
+            }
+        ]
+    },
+
+    // Problem 19
+    {
+        id: "SQ19-9ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 50,
         points: 25,
         time_limit: 5,
-        title: "Average Salary by Job Title",
-        description: "Calculate the average salary for each job title.",
-        existingCode: "// Query here",
+        title: "Employees and department names",
+        description: "Display employees and their department names, ordered by department.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT job_title, AVG(salary) FROM employees GROUP BY job_title;", expectedOutput: [
-                { job_title: "Sales Associate", avg_salary: 51500.00 },
-                { job_title: "Software Engineer", avg_salary: 70000.00 },
-                { job_title: "HR Specialist", avg_salary: 50000.00 },
-                { job_title: "Marketing Manager", avg_salary: 62000.00 },
-                { job_title: "Sales Manager", avg_salary: 65000.00 },
-                { job_title: "Senior Engineer", avg_salary: 80000.00 }
-            ] }
+            {
+                query: "SELECT * FROM employees ORDER BY department;",
+                expectedRowCount: 10,
+                expectedData: [
+                    { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 },
+                    { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
+                    { id: 3, name: 'Charlie Brown', department: 'HR', salary: 55000, hire_date: '2012-11-03', job_title: 'Analyst', manager_id: 1, years_experience: 8 },
+                    { id: 8, name: 'Hannah Lee', department: 'HR', salary: 45000, hire_date: '2019-05-23', job_title: 'Consultant', manager_id: 3, years_experience: 4 },
+                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
+                    { id: 9, name: 'Ivan Young', department: 'Finance', salary: 70000, hire_date: '2016-09-29', job_title: 'Manager', manager_id: 4, years_experience: 10 },
+                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
+                    { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 },
+                    { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 },
+                    { id: 10, name: 'Julia Thomas', department: 'Marketing', salary: 54000, hire_date: '2014-04-05', job_title: 'Executive', manager_id: 5, years_experience: 6 }
+                ]
+            }
         ]
     },
-    // Question 16
+
+    // Problem 20
     {
-        id: "SQ16-ML09SJDF3P0L",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 50,
-        points: 25,
-        time_limit: 5,
-        title: "Employee and Manager Names",
-        description: "List each employee's name along with their manager's name.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT e.name AS employee_name, m.name AS manager_name FROM employees e LEFT JOIN employees m ON e.manager_id = m.id;", expectedOutput: [
-                { employee_name: "Bob Smith", manager_name: "Alice Johnson" },
-                { employee_name: "Daisy Carter", manager_name: "Charlie Brown" },
-                { employee_name: "Fiona Green", manager_name: "Edward Davis" },
-                { employee_name: "Hannah Lee", manager_name: "George Harris" },
-                { employee_name: "Alice Johnson", manager_name: null }
-            ] }
-        ]
-    },
-    // Question 17
-    {
-        id: "SQ17-KS9LFJ3SLD0P",
+        id: "SQ20-0ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Easy",
         base_price: 55,
-        points: 27,
+        points: 30,
         time_limit: 5,
-        title: "Number of Managers",
-        description: "Count the number of employees who are managers.",
-        existingCode: "// Query here",
+        title: "Employees who joined in the last 5 years",
+        description: "Find all employees who joined in the last 5 years.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT COUNT(DISTINCT manager_id) FROM employees WHERE manager_id IS NOT NULL;", expectedOutput: "5" }
+            {
+                query: "SELECT * FROM employees WHERE hire_date >= DATE_SUB(CURDATE(), INTERVAL 5 YEAR);",
+                expectedRowCount: 4,
+                expectedData: [
+                    { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 },
+                    { id: 8, name: 'Hannah Lee', department: 'HR', salary: 45000, hire_date: '2019-05-23', job_title: 'Consultant', manager_id: 3, years_experience: 4 },
+                    { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 },
+                    { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 }
+                ]
+            }
         ]
     },
-    // Question 18
+
+    // Problem 21
     {
-        id: "SQ18-L0SJD9FK3S8M",
+        id: "SQ21-1ASFJLS0KCLNXJ",
         category: "SQL",
-        difficulty: "Easy",
-        base_price: 55,
-        points: 27,
-        time_limit: 5,
-        title: "Employees with High Experience",
-        description: "List names of employees with more than 5 years of experience.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT name FROM employees WHERE years_experience > 5;", expectedOutput: ["Alice Johnson", "Charlie Brown", "George Harris", "Ivan Young", "Julia Thomas"] }
-        ]
-    },
-    // Question 19
-    {
-        id: "SQ19-M0SKJDF3LS8W",
-        category: "SQL",
-        difficulty: "Easy",
+        difficulty: "Medium",
         base_price: 60,
         points: 30,
-        time_limit: 6,
-        title: "Employees Hired in 2021",
-        description: "Retrieve names of employees hired in the year 2021.",
-        existingCode: "// Query here",
+        time_limit: 5,
+        title: "Highest salary in each department",
+        description: "Find the employee with the highest salary in each department.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT name FROM employees WHERE YEAR(hire_date) = 2021;", expectedOutput: ["Hannah Lee", "Fiona Green"] }
+            {
+                query: "SELECT department, name, salary FROM employees WHERE (department, salary) IN (SELECT department, MAX(salary) FROM employees GROUP BY department);",
+                expectedRowCount: 5,
+                expectedData: [
+                    { department: 'IT', name: 'George Harris', salary: 80000 },
+                    { department: 'Finance', name: 'Daisy Carter', salary: 75000 },
+                    { department: 'Marketing', name: 'Edward Davis', salary: 62000 },
+                    { department: 'Sales', name: 'Alice Johnson', salary: 60000 },
+                    { department: 'HR', name: 'Charlie Brown', salary: 55000 }
+                ]
+            }
         ]
     },
-    // Question 20
+
+    // Problem 22
     {
-        id: "SQ20-N9SDJFKLS0L3",
+        id: "SQ22-2ASFJLS0KCLNXJ",
         category: "SQL",
-        difficulty: "Easy",
+        difficulty: "Medium",
         base_price: 60,
         points: 30,
-        time_limit: 6,
-        title: "Employees Without Manager",
-        description: "List all employees who do not have a manager.",
-        existingCode: "// Query here",
+        time_limit: 5,
+        title: "Departments with average salary above 50000",
+        description: "Retrieve departments with an average salary above 50000.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT name FROM employees WHERE manager_id IS NULL;", expectedOutput: ["Alice Johnson", "Charlie Brown", "Edward Davis", "George Harris", "Ivan Young", "Julia Thomas"] }
+            {
+                query: "SELECT department FROM employees GROUP BY department HAVING AVG(salary) > 50000;",
+                expectedRowCount: 4,
+                expectedData: [
+                    { department: 'Sales' },
+                    { department: 'Finance' },
+                    { department: 'Marketing' },
+                    { department: 'IT' }
+                ]
+            }
         ]
     },
-    // Question 21
+
+    // Problem 23
     {
-        id: "SQ21-0FLSKDJ93SKL",
+        id: "SQ23-3ASFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 65,
+        points: 30,
+        time_limit: 6,
+        title: "Employees with more than 10 years experience",
+        description: "Find employees who have worked for more than 10 years.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: "SELECT * FROM employees WHERE years_experience > 10;",
+                expectedRowCount: 3,
+                expectedData: [
+                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
+                    { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
+                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 }
+                ]
+            }
+        ]
+    },
+
+    // Problem 24
+    {
+        id: "SQ24-4ASFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 65,
+        points: 30,
+        time_limit: 6,
+        title: "Employees with same job title in multiple departments",
+        description: "List employees with the same job title in multiple departments.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: "SELECT job_title FROM employees GROUP BY job_title HAVING COUNT(DISTINCT department) > 1;",
+                expectedRowCount: 1,
+                expectedData: [
+                    { job_title: 'Consultant' }
+                ]
+            }
+        ]
+    },
+
+    // Problem 25
+    {
+        id: "SQ25-5ASFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 65,
+        points: 35,
+        time_limit: 6,
+        title: "Total salary expense for each department",
+        description: "Calculate the total salary expense for each department.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: "SELECT department, SUM(salary) AS total_salary FROM employees GROUP BY department;",
+                expectedRowCount: 5,
+                expectedData: [
+                    { department: 'Sales', total_salary: 100000 },
+                    { department: 'Finance', total_salary: 145000 },
+                    { department: 'Marketing', total_salary: 116000 },
+                    { department: 'IT', total_salary: 130000 },
+                    { department: 'HR', total_salary: 100000 }
+                ]
+            }
+        ]
+    },
+
+    // Problem 26
+    {
+        id: "SQ26-6ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Medium",
         base_price: 70,
         points: 35,
         time_limit: 7,
-        title: "Employees by Department and Count",
-        description: "List each department with the number of employees in it.",
-        existingCode: "// Query here",
+        title: "Employees with more than 2 subordinates",
+        description: "Retrieve employees with more than 2 subordinates.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT department, COUNT(*) as employee_count FROM employees GROUP BY department;", expectedOutput: [
-                { department: "Sales", employee_count: 3 },
-                { department: "Engineering", employee_count: 3 },
-                { department: "HR", employee_count: 2 },
-                { department: "Marketing", employee_count: 2 }
-            ] }
+            {
+                query: "SELECT manager_id, COUNT(*) AS subordinate_count FROM employees GROUP BY manager_id HAVING subordinate_count > 2;",
+                expectedRowCount: 1,
+                expectedData: [
+                    { manager_id: 1, subordinate_count: 3 }
+                ]
+            }
         ]
     },
-    // Question 22
+
+    // Problem 27
     {
-        id: "SQ22-KLJ0S9DJF4LP",
+        id: "SQ27-7ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Medium",
         base_price: 70,
         points: 35,
         time_limit: 7,
-        title: "Top Paid in Each Department",
-        description: "Find the highest-paid employee in each department.",
-        existingCode: "// Query here",
+        title: "Departments with employee earning above 70000",
+        description: "Find departments with at least one employee earning above 70000.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT department, MAX(salary) as top_salary FROM employees GROUP BY department;", expectedOutput: [
-                { department: "Sales", top_salary: 65000 },
-                { department: "Engineering", top_salary: 80000 },
-                { department: "HR", top_salary: 50000 },
-                { department: "Marketing", top_salary: 62000 }
-            ] }
+            {
+                query: "SELECT DISTINCT department FROM employees WHERE salary > 70000;",
+                expectedRowCount: 2,
+                expectedData: [
+                    { department: 'Finance' },
+                    { department: 'IT' }
+                ]
+            }
         ]
     },
-    // Question 23
+
+    // Problem 28
     {
-        id: "SQ23-MKLSDJF90P2L",
+        id: "SQ28-8ASFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 70,
+        points: 35,
+        time_limit: 7,
+        title: "Employees in multiple departments",
+        description: "Retrieve employees who work in multiple departments.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: "SELECT name FROM employees WHERE department IN (SELECT DISTINCT department FROM employees GROUP BY name HAVING COUNT(DISTINCT department) > 1);",
+                expectedRowCount: 0,
+                expectedData: [] // In this mock data, no employee works in multiple departments
+            }
+        ]
+    },
+
+    // Problem 29
+    {
+        id: "SQ29-9ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Medium",
         base_price: 75,
-        points: 38,
-        time_limit: 8,
-        title: "Average Experience by Job Title",
-        description: "Calculate the average years of experience for each job title.",
-        existingCode: "// Query here",
+        points: 35,
+        time_limit: 7,
+        title: "Managers and their employee counts",
+        description: "Show all managers and the number of employees they manage.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT job_title, AVG(years_experience) as avg_experience FROM employees GROUP BY job_title;", expectedOutput: [
-                { job_title: "Sales Associate", avg_experience: 4 },
-                { job_title: "Software Engineer", avg_experience: 7 },
-                { job_title: "HR Specialist", avg_experience: 6 },
-                { job_title: "Marketing Manager", avg_experience: 5 },
-                { job_title: "Sales Manager", avg_experience: 8 },
-                { job_title: "Senior Engineer", avg_experience: 10 }
-            ] }
+            {
+                query: "SELECT manager_id, COUNT(*) AS num_employees FROM employees WHERE manager_id IS NOT NULL GROUP BY manager_id;",
+                expectedRowCount: 3,
+                expectedData: [
+                    { manager_id: 1, num_employees: 3 },
+                    { manager_id: 3, num_employees: 1 },
+                    { manager_id: 4, num_employees: 1 }
+                ]
+            }
         ]
     },
-    // Question 24
+
+    // Problem 30
     {
-        id: "SQ24-JKL0FJ92S9L",
+        id: "SQ30-0ASFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Medium",
         base_price: 75,
-        points: 38,
-        time_limit: 8,
-        title: "Employees with No Department",
-        description: "List all employees who do not belong to any department.",
-        existingCode: "// Query here",
+        points: 40,
+        time_limit: 7,
+        title: "Average salary by years of experience",
+        description: "Find the average salary of employees grouped by years of experience.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT name FROM employees WHERE department IS NULL;", expectedOutput: [] } // Assuming no null values
+            {
+                query: "SELECT years_experience, AVG(salary) AS avg_salary FROM employees GROUP BY years_experience;",
+                expectedRowCount: 7,
+                expectedData: [
+                    { years_experience: 3, avg_salary: 40000 },
+                    { years_experience: 4, avg_salary: 45000 },
+                    { years_experience: 5, avg_salary: 50000 },
+                    { years_experience: 6, avg_salary: 54000 },
+                    { years_experience: 7, avg_salary: 62000 },
+                    { years_experience: 8, avg_salary: 55000 },
+                    { years_experience: 10, avg_salary: 65000 }
+                ]
+            }
         ]
     },
-    // Question 25
+    // Problem 31
     {
-        id: "SQ25-LD9FJ0SK3ML",
+        id: "SQ31-1BSFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 75,
+        points: 40,
+        time_limit: 7,
+        title: "Employees with NULL address",
+        description: "Retrieve all employee records with missing or NULL values in the address column.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: "SELECT * FROM employees WHERE address IS NULL;",
+                expectedRowCount: 0,
+                expectedData: [] // No NULL values in the address column in the mock data
+            }
+        ]
+    },
+
+    // Problem 32
+    {
+        id: "SQ32-2BSFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Medium",
+        base_price: 75,
+        points: 35,
+        time_limit: 7,
+        title: "Alphabetical order by department",
+        description: "List all employees in alphabetical order with their department names.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: "SELECT name, department FROM employees ORDER BY department, name;",
+                expectedRowCount: 10,
+                expectedData: [
+                    { name: 'Adam Smith', department: 'IT' },
+                    { name: 'George Harris', department: 'IT' },
+                    { name: 'Ivan Young', department: 'Finance' },
+                    { name: 'Daisy Carter', department: 'Finance' },
+                    { name: 'Alice Johnson', department: 'Sales' },
+                    { name: 'Fiona Green', department: 'Sales' },
+                    { name: 'Charlie Brown', department: 'HR' },
+                    { name: 'Hannah Lee', department: 'HR' },
+                    { name: 'Edward Davis', department: 'Marketing' },
+                    { name: 'Julia Thomas', department: 'Marketing' }
+                ]
+            }
+        ]
+    },
+
+    // Problem 33
+    {
+        id: "SQ33-3BSFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Medium",
         base_price: 80,
         points: 40,
         time_limit: 8,
-        title: "Average Salary over 5 Years Experience",
-        description: "Calculate the average salary of employees with more than 5 years of experience.",
-        existingCode: "// Query here",
+        title: "Employees and their managers",
+        description: "Show employees and their manager names.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT AVG(salary) FROM employees WHERE years_experience > 5;", expectedOutput: "61000.00" }
+            {
+                query: `SELECT e.name AS employee_name, m.name AS manager_name
+                        FROM employees e
+                        LEFT JOIN employees m ON e.manager_id = m.id;`,
+                expectedRowCount: 10,
+                expectedData: [
+                    { employee_name: 'Alice Johnson', manager_name: null },
+                    { employee_name: 'Adam Smith', manager_name: 'Alice Johnson' },
+                    { employee_name: 'Charlie Brown', manager_name: 'Alice Johnson' },
+                    { employee_name: 'Daisy Carter', manager_name: null },
+                    { employee_name: 'Edward Davis', manager_name: 'Adam Smith' },
+                    { employee_name: 'Fiona Green', manager_name: 'Alice Johnson' },
+                    { employee_name: 'George Harris', manager_name: null },
+                    { employee_name: 'Hannah Lee', manager_name: 'Charlie Brown' },
+                    { employee_name: 'Ivan Young', manager_name: 'Daisy Carter' },
+                    { employee_name: 'Julia Thomas', manager_name: 'Edward Davis' }
+                ]
+            }
         ]
     },
-    // Question 26
+
+    // Problem 34
     {
-        id: "SQ26-LKJFS0D9P4ML",
+        id: "SQ34-4BSFJLS0KCLNXJ",
         category: "SQL",
-        difficulty: "Medium",
+        difficulty: "Hard",
         base_price: 80,
-        points: 40,
-        time_limit: 8,
-        title: "Employees and Their Managers",
-        description: "List all employees with their managers’ names (null if no manager).",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT e.name AS employee_name, m.name AS manager_name FROM employees e LEFT JOIN employees m ON e.manager_id = m.id;", expectedOutput: [
-                { employee_name: "Bob Smith", manager_name: "Alice Johnson" },
-                { employee_name: "Daisy Carter", manager_name: "Charlie Brown" },
-                { employee_name: "Fiona Green", manager_name: "Edward Davis" },
-                { employee_name: "Hannah Lee", manager_name: "George Harris" }
-            ] }
-        ]
-    },
-    // Question 27
-    {
-        id: "SQ27-KSJD09F3ML2P",
-        category: "SQL",
-        difficulty: "Medium",
-        base_price: 85,
-        points: 42,
-        time_limit: 9,
-        title: "Departments with Salary Over 60K",
-        description: "Find departments where at least one employee earns over 60,000.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT DISTINCT department FROM employees WHERE salary > 60000;", expectedOutput: ["Engineering", "Sales", "Marketing"] }
-        ]
-    },
-    // Question 28
-    {
-        id: "SQ28-M3LKD9J0SP0L",
-        category: "SQL",
-        difficulty: "Medium",
-        base_price: 85,
-        points: 42,
-        time_limit: 9,
-        title: "Unique Job Titles",
-        description: "List all unique job titles within the company.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT DISTINCT job_title FROM employees;", expectedOutput: ["Sales Associate", "Software Engineer", "HR Specialist", "Marketing Manager", "Sales Manager", "Senior Engineer"] }
-        ]
-    },
-    // Question 29
-    {
-        id: "SQ29-JS0L3KD9PML2",
-        category: "SQL",
-        difficulty: "Medium",
-        base_price: 90,
         points: 45,
-        time_limit: 10,
-        title: "Employee Ages in Descending Order",
-        description: "Display all employee names with their ages, sorted by age in descending order.",
-        existingCode: "// Query here",
+        time_limit: 9,
+        title: "Average salary by manager hierarchy",
+        description: "Find the average salary of employees reporting directly or indirectly to a specific manager.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT name, age FROM employees ORDER BY age DESC;", expectedOutput: [
-                { name: "Julia Thomas", age: 45 },
-                { name: "Ivan Young", age: 42 },
-                { name: "George Harris", age: 39 },
-                { name: "Charlie Brown", age: 35 }
-            ] }
+            {
+                query: "SELECT AVG(salary) AS avg_salary FROM employees WHERE manager_id = 1 OR id = 1;",
+                expectedRowCount: 1,
+                expectedData: [
+                    { avg_salary: 51250 }
+                ]
+            }
         ]
     },
-    // Question 30
+
+    // Problem 35
     {
-        id: "SQ30-0LKJFS9DMLP3",
+        id: "SQ35-5BSFJLS0KCLNXJ",
         category: "SQL",
-        difficulty: "Medium",
-        base_price: 90,
+        difficulty: "Hard",
+        base_price: 85,
         points: 45,
-        time_limit: 10,
-        title: "Employee Count by Job Title",
-        description: "Get a count of employees for each job title.",
-        existingCode: "// Query here",
+        time_limit: 9,
+        title: "Employees with same last name in different departments",
+        description: "Retrieve employees who have the same last name but work in different departments.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT job_title, COUNT(*) as count FROM employees GROUP BY job_title;", expectedOutput: [
-                { job_title: "Sales Associate", count: 3 },
-                { job_title: "Software Engineer", count: 3 },
-                { job_title: "HR Specialist", count: 2 },
-                { job_title: "Marketing Manager", count: 2 }
-            ] }
+            {
+                query: "SELECT name FROM employees WHERE name LIKE '%Smith%' GROUP BY name HAVING COUNT(DISTINCT department) > 1;",
+                expectedRowCount: 0,
+                expectedData: [] 
+            }
         ]
     },
-    // Question 31
+
+    // Problem 36
     {
-        id: "SQ31-AJDS09KSJ4LP",
+        id: "SQ36-6BSFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 85,
+        points: 50,
+        time_limit: 9,
+        title: "Salary above average by department",
+        description: "List employees who have a salary higher than the average salary in their department.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: `SELECT name, salary, department FROM employees e 
+                        WHERE salary > (SELECT AVG(salary) FROM employees WHERE department = e.department);`,
+                expectedRowCount: 5,
+                expectedData: [
+                    { name: 'Alice Johnson', salary: 60000, department: 'Sales' },
+                    { name: 'Edward Davis', salary: 62000, department: 'Marketing' },
+                    { name: 'George Harris', salary: 80000, department: 'IT' },
+                    { name: 'Daisy Carter', salary: 75000, department: 'Finance' },
+                    { name: 'Charlie Brown', salary: 55000, department: 'HR' }
+                ]
+            }
+        ]
+    },
+
+    // Problem 37
+    {
+        id: "SQ37-7BSFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 90,
+        points: 60,
+        time_limit: 9,
+        title: "Maximum experience by department",
+        description: "Show employees with the maximum years of experience in each department.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: `SELECT department, name, years_experience FROM employees WHERE (department, years_experience) IN 
+                        (SELECT department, MAX(years_experience) FROM employees GROUP BY department);`,
+                expectedRowCount: 5,
+                expectedData: [
+                    { department: 'Sales', name: 'Alice Johnson', years_experience: 10 },
+                    { department: 'Finance', name: 'Daisy Carter', years_experience: 15 },
+                    { department: 'Marketing', name: 'Edward Davis', years_experience: 7 },
+                    { department: 'IT', name: 'George Harris', years_experience: 12 },
+                    { department: 'HR', name: 'Charlie Brown', years_experience: 8 }
+                ]
+            }
+        ]
+    },
+
+    // Problem 38
+    {
+        id: "SQ38-8BSFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 95,
+        points: 70,
+        time_limit: 10,
+        title: "Total salary in departments with more than 5 people",
+        description: "Retrieve the department name and total salary expenditure in departments with more than 5 people.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: "SELECT department, SUM(salary) AS total_salary FROM employees GROUP BY department HAVING COUNT(*) > 5;",
+                expectedRowCount: 0,
+                expectedData: [] // No departments with more than 5 people in mock data
+            }
+        ]
+    },
+
+    // Problem 39
+    {
+        id: "SQ39-9BSFJLS0KCLNXJ",
+        category: "SQL",
+        difficulty: "Hard",
+        base_price: 95,
+        points: 80,
+        time_limit: 10,
+        title: "Percentage of employees with salary above 50000",
+        description: "Find the percentage of employees in each department with a salary above 50000.",
+        existingCode: "-- Write your SQL query here",
+        testCases: [
+            {
+                query: `SELECT department, 
+                        ROUND((SUM(CASE WHEN salary > 50000 THEN 1 ELSE 0 END) * 100.0) / COUNT(*), 2) AS percentage_above_50000 
+                        FROM employees GROUP BY department;`,
+                expectedRowCount: 5,
+                expectedData: [
+                    { department: 'Sales', percentage_above_50000: 50.00 },
+                    { department: 'Finance', percentage_above_50000: 100.00 },
+                    { department: 'Marketing', percentage_above_50000: 100.00 },
+                    { department: 'IT', percentage_above_50000: 100.00 },
+                    { department: 'HR', percentage_above_50000: 50.00 }
+                ]
+            }
+        ]
+    },
+
+    // Problem 40
+    {
+        id: "SQ40-0BSFJLS0KCLNXJ",
         category: "SQL",
         difficulty: "Hard",
         base_price: 100,
-        points: 50,
-        time_limit: 12,
-        title: "Find Employees Without Projects",
-        description: "List all employees who are not assigned to any project.",
-        existingCode: "// Query here",
+        points: 90,
+        time_limit: 10,
+        title: "Top 10% salary within each department",
+        description: "Retrieve employees whose salaries are within the top 10% in their department.",
+        existingCode: "-- Write your SQL query here",
         testCases: [
-            { query: "SELECT name FROM employees WHERE id NOT IN (SELECT employee_id FROM projects);", expectedOutput: ["George Harris", "Daisy Carter", "Ivan Young"] }
-        ]
-    },
-    // Question 32
-    {
-        id: "SQ32-KSDLJ0DFL4P9",
-        category: "SQL",
-        difficulty: "Hard",
-        base_price: 105,
-        points: 52,
-        time_limit: 13,
-        title: "Total Salary by Job Title",
-        description: "Calculate the total salary for each job title.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT job_title, SUM(salary) as total_salary FROM employees GROUP BY job_title;", expectedOutput: [
-                { job_title: "Sales Associate", total_salary: 180000 },
-                { job_title: "Software Engineer", total_salary: 240000 },
-                { job_title: "HR Specialist", total_salary: 95000 }
-            ] }
-        ]
-    },
-    // Question 33
-    {
-        id: "SQ33-LSDJFS0K9P4L",
-        category: "SQL",
-        difficulty: "Hard",
-        base_price: 110,
-        points: 55,
-        time_limit: 13,
-        title: "List Employees in Multiple Departments",
-        description: "Find employees who work in more than one department.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT name FROM employees GROUP BY name HAVING COUNT(DISTINCT department) > 1;", expectedOutput: ["Julia Thomas"] }
-        ]
-    },
-    // Question 34
-    {
-        id: "SQ34-KDFJS0L9PML2",
-        category: "SQL",
-        difficulty: "Hard",
-        base_price: 110,
-        points: 55,
-        time_limit: 14,
-        title: "Top Earners by Department",
-        description: "Identify the highest salary earners in each department.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT department, name, MAX(salary) as salary FROM employees GROUP BY department, name ORDER BY salary DESC;", expectedOutput: [
-                { department: "Sales", name: "Alice Johnson", salary: 65000 },
-                { department: "Engineering", name: "Charlie Brown", salary: 80000 }
-            ] }
-        ]
-    },
-    // Question 35
-    {
-        id: "SQ35-MSKDJF09S4LP",
-        category: "SQL",
-        difficulty: "Hard",
-        base_price: 115,
-        points: 57,
-        time_limit: 14,
-        title: "Find All Managers and Their Employees",
-        description: "List all managers along with the names of their direct reports.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT m.name AS manager_name, e.name AS employee_name FROM employees e LEFT JOIN employees m ON e.manager_id = m.id WHERE m.name IS NOT NULL;", expectedOutput: [
-                { manager_name: "Alice Johnson", employee_name: "Bob Smith" },
-                { manager_name: "Edward Davis", employee_name: "Fiona Green" }
-            ] }
-        ]
-    },
-    // Question 36
-    {
-        id: "SQ36-KLSJD09FPL2",
-        category: "SQL",
-        difficulty: "Hard",
-        base_price: 120,
-        points: 60,
-        time_limit: 15,
-        title: "Department Budget Allocation",
-        description: "Calculate the total budget required to cover all salaries by department.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT department, SUM(salary) as total_salary FROM employees GROUP BY department;", expectedOutput: [
-                { department: "Sales", total_salary: 130000 },
-                { department: "Engineering", total_salary: 180000 },
-                { department: "HR", total_salary: 100000 }
-            ] }
-        ]
-    },
-    // Question 37
-    {
-        id: "SQ37-ALSKDJF09ML2",
-        category: "SQL",
-        difficulty: "Hard",
-        base_price: 125,
-        points: 62,
-        time_limit: 15,
-        title: "Rank Employees by Salary in Each Department",
-        description: "Rank employees in each department by salary.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT name, department, salary, RANK() OVER (PARTITION BY department ORDER BY salary DESC) as salary_rank FROM employees;", expectedOutput: [
-                { name: "Alice Johnson", department: "Sales", salary: 65000, salary_rank: 1 },
-                { name: "Daisy Carter", department: "Sales", salary: 45000, salary_rank: 2 },
-                { name: "Charlie Brown", department: "Engineering", salary: 80000, salary_rank: 1 }
-            ] }
-        ]
-    },
-    // Question 38
-    {
-        id: "SQ38-LKJFD09SPL4",
-        category: "SQL",
-        difficulty: "Hard",
-        base_price: 130,
-        points: 65,
-        time_limit: 16,
-        title: "Cumulative Salary Sum by Department",
-        description: "Calculate the cumulative sum of salaries in each department.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT name, department, salary, SUM(salary) OVER (PARTITION BY department ORDER BY salary) as cumulative_salary FROM employees;", expectedOutput: [
-                { name: "Daisy Carter", department: "Sales", salary: 45000, cumulative_salary: 45000 },
-                { name: "Alice Johnson", department: "Sales", salary: 65000, cumulative_salary: 110000 }
-            ] }
-        ]
-    },
-    // Question 39
-    {
-        id: "SQ39-KJSDF09L4PM",
-        category: "SQL",
-        difficulty: "Hard",
-        base_price: 130,
-        points: 65,
-        time_limit: 16,
-        title: "Employees with Above Average Salary",
-        description: "List employees whose salary is above the company average.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT name FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);", expectedOutput: ["Alice Johnson", "Charlie Brown", "Edward Davis"] }
-        ]
-    },
-    // Question 40
-    {
-        id: "SQ40-ALKJDF0SL9P",
-        category: "SQL",
-        difficulty: "Hard",
-        base_price: 135,
-        points: 67,
-        time_limit: 17,
-        title: "Employee Tenure and Salary Correlation",
-        description: "Analyze the correlation between tenure and salary among employees.",
-        existingCode: "// Query here",
-        testCases: [
-            { query: "SELECT years_experience, salary FROM employees ORDER BY years_experience;", expectedOutput: [
-                { years_experience: 1, salary: 35000 },
-                { years_experience: 3, salary: 45000 },
-                { years_experience: 8, salary: 65000 }
-            ] }
+            {
+                query: `SELECT department, name, salary FROM employees WHERE salary >= 
+                        (SELECT PERCENTILE_CONT(0.9) WITHIN GROUP (ORDER BY salary) FROM employees AS e2 WHERE e2.department = employees.department);`,
+                expectedRowCount: 5,
+                expectedData: [
+                    { department: 'Sales', name: 'Alice Johnson', salary: 60000 },
+                    { department: 'Finance', name: 'Daisy Carter', salary: 75000 },
+                    { department: 'Marketing', name: 'Edward Davis', salary: 62000 },
+                    { department: 'IT', name: 'George Harris', salary: 80000 },
+                    { department: 'HR', name: 'Charlie Brown', salary: 55000 }
+                ]
+            }
         ]
     },
     // ===================================== WEB PROGRAMMING ========================================================

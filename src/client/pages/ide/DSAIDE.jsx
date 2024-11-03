@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Editor from '@monaco-editor/react';
-import { push, ref, remove } from 'firebase/database';
+import { ref, set, update } from 'firebase/database';
 import { runDSAProblem } from '@/lib/codeRunner';
 import { ALL_PROBLEMS } from '@/lib/constants';
 import { realDb } from '@/lib/firebase';
@@ -20,8 +20,9 @@ const DSAIDE = () => {
   const [testCaseResults, setTestCaseResults] = useState([]);
   const [selectedTestCase, setSelectedTestCase] = useState(null);
   const [testCasesPassed, setTestCasesPassed] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  // Update code template when language changes
+  // Load boilerplate code when language changes
   useEffect(() => {
     setCode(problem.existingCode[language]);
   }, [language, problem]);
@@ -44,8 +45,9 @@ const DSAIDE = () => {
   // Handle timeout
   useEffect(() => {
     if (timeLeft === 0) {
-      alert('Time is up!');
-      remove(ref(realDb, `allotments/${team}/biddedQuestions/${problemId}`));
+      update(ref(realDb, `allotments/${team}/biddedQuestions/${problem.id}`), {
+        status: 'time up'
+      });
       navigate(`/editor/${team}`);
     }
   }, [timeLeft, navigate, problemId, team]);
@@ -56,30 +58,42 @@ const DSAIDE = () => {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
-  // Run the code to check if it passes all test cases
+  // Run code and evaluate test cases
   const handleRun = async () => {
-    const results = await runDSAProblem(code, problem.testCases, language);
+    setLoading(true); // Show loader
+    const results = await runDSAProblem(code, language, problem.testCases);
     setTestCaseResults(results);
     setTestCasesPassed(results.every((result) => result.passed));
-    setSelectedTestCase(results[0] || null); // Select the first test case by default
+    setSelectedTestCase(results[0] || null);
+    setLoading(false); // Hide loader
   };
 
-  // Submit the solution to Firebase if all test cases passed
-  const handleSubmit = () => {
+  // Submit solution if all test cases pass
+  const handleSubmit = async () => {
     if (!testCasesPassed) {
       alert('Please ensure all test cases pass before submitting.');
       return;
     }
 
     const timeTaken = problem.time_limit * 60 - timeLeft;
-    push(ref(realDb, `solved/${team}`), {
-      title: problem.title,
-      points: problem.points,
-      timeTaken,
-    });
 
-    alert('Problem solved and recorded!');
-    navigate(`/editor/${team}`);
+    try {
+      await set(ref(realDb, `allotments/${team}/solved/${problem.id}`), {
+        problemId: problem.id,
+        points: problem.points,
+        timeTaken
+      });
+
+      await update(ref(realDb, `allotments/${team}/biddedQuestions/${problem.id}`), {
+        status: 'solved'
+      });
+
+      alert('Problem solved and recorded!');
+      navigate(`/editor/${team}`);
+    } catch (error) {
+      console.error('Error updating solved problem:', error);
+      alert('Failed to record the solved problem.');
+    }
   };
 
   return (
@@ -88,11 +102,20 @@ const DSAIDE = () => {
       <div className="w-1/3 p-6 bg-gray-800 border-r border-gray-700 space-y-4">
         <h2 className="text-2xl font-bold mb-2">{problem.title}</h2>
         <p className="text-gray-300 mb-4">{problem.description}</p>
+        <div className="mb-4 flex flex-col">
+          <strong>Example Input:</strong> 
+          <code className='mt-2 text-md whitespace-pre-wrap bg-gray-900 p-2 rounded-lg'>{problem.exampleInput}</code>
+        </div>
+        <div className='flex flex-col'>
+          <strong>Example Output:</strong> 
+          <code className='mt-2 text-md whitespace-pre-wrap bg-gray-900 p-2 rounded-lg'>{problem.exampleOutput}</code>
+        </div>
+      </div>
 
-        <div className="flex justify-between items-center mb-4">
-          <div className="bg-indigo-600 text-gray-100 px-4 py-2 rounded-full font-semibold">
-            Time Remaining: {formatTime(timeLeft)}
-          </div>
+      {/* Right Pane - Code Editor and Test Case Results */}
+      <div className="w-2/3 p-6 flex flex-col space-y-4">
+        {/* Timer, Points, and Language Selector */}
+        <div className="flex justify-between items-center">
           <select
             className="bg-gray-700 text-gray-100 p-2 rounded"
             value={language}
@@ -104,11 +127,16 @@ const DSAIDE = () => {
             <option value="c">C</option>
             <option value="cpp">C++</option>
           </select>
+          <div className="flex space-x-4">
+            <div className="bg-indigo-600 text-gray-100 px-4 py-2 rounded-lg">
+              Time Remaining: {formatTime(timeLeft)}
+            </div>
+            <div className="bg-gray-700 text-gray-100 px-4 py-2 rounded-lg">
+              Points: {problem.points}
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* Right Pane - Code Editor and Test Case Results */}
-      <div className="w-2/3 p-6 flex flex-col space-y-4">
         {/* Code Editor */}
         <div className="border border-gray-700 rounded-lg overflow-hidden" style={{ height: '50%' }}>
           <Editor
@@ -118,33 +146,44 @@ const DSAIDE = () => {
             value={code}
             onChange={(value) => setCode(value)}
             theme="vs-dark"
+            options={{ fontSize: 17 }} // Increased font size
           />
         </div>
 
-        {/* Test Case Tabs and Details */}
+        {/* Test Case Results with Loader */}
         <div className="flex-1 border border-gray-700 rounded-lg p-4 space-y-4 overflow-auto">
           <h3 className="text-lg font-semibold">Test Case Results:</h3>
-          <div className="flex space-x-4 overflow-x-auto">
-            {testCaseResults.map((result, idx) => (
-              <button
-                key={idx}
-                onClick={() => setSelectedTestCase(result)}
-                className={`px-4 py-2 rounded-lg font-semibold transition ${
-                  selectedTestCase === result ? 'bg-green-500 text-white' : 'bg-gray-600 text-gray-100'
-                }`}
-              >
-                {result.passed ? `✅ Test Case ${idx + 1}` : `❌ Test Case ${idx + 1}`}
-              </button>
-            ))}
-          </div>
+          {loading ? (
+            <div className="text-center py-4">
+              <span className="loader" />
+            </div>
+          ) : (
+            <div className="flex space-x-4 overflow-x-auto">
+              {testCaseResults.map((result, idx) => (
+                <button
+                  key={idx}
+                  disabled={idx !== 0} // Disable all except the first test case
+                  className={`px-4 py-2 rounded-lg font-semibold transition ${
+                    idx === 0 ? 'bg-green-500 text-white' : 'bg-gray-600 text-gray-100 opacity-50'
+                  }`}
+                >
+                  {result.passed ? `✅ Test Case ${idx + 1}` : `❌ Test Case ${idx + 1}`}
+                </button>
+              ))}
+            </div>
+          )}
 
-          {selectedTestCase && (
+          {!loading && selectedTestCase ? (
             <div className="mt-4 p-4 bg-gray-700 rounded-lg space-y-2">
               <h4 className="font-semibold">Test Case Details:</h4>
               <div><strong>Input:</strong> {selectedTestCase.input}</div>
               <div><strong>Expected Output:</strong> {selectedTestCase.expectedOutput}</div>
               <div><strong>Actual Output:</strong> {selectedTestCase.output}</div>
               <div><strong>Passed:</strong> {selectedTestCase.passed ? 'Yes' : 'No'}</div>
+            </div>
+          ) : !loading && (
+            <div className="mt-4 p-4 bg-gray-700 rounded-lg text-gray-300">
+              Run the code to view test case results.
             </div>
           )}
         </div>

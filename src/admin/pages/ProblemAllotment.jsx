@@ -172,7 +172,7 @@ const ProblemAllotment = () => {
                             <option value="Z4_xj7N8">Intel</option>
                             <option value="j2_N4xq5">Nvidia</option>
                             <option value="m8_B6z9X">Netflix</option>
-                            <option value="q2_K8z9N">Atlassian</option>
+                            <option value="q2_K8z9N">AMD</option>
                             <option value="x5_L9n7z">Adobe</option>
                         </select>
 
