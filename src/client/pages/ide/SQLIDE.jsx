@@ -6,6 +6,19 @@ import { runSQLProblem } from '@/lib/codeRunner';
 import { ALL_PROBLEMS } from '@/lib/constants';
 import { realDb } from '@/lib/firebase';
 
+const mockDatabase = [
+  { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
+  { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 },
+  { id: 3, name: 'Charlie Brown', department: 'HR', salary: 55000, hire_date: '2012-11-03', job_title: 'Analyst', manager_id: 1, years_experience: 8 },
+  { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
+  { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 },
+  { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 },
+  { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
+  { id: 8, name: 'Hannah Lee', department: 'HR', salary: 45000, hire_date: '2019-05-23', job_title: 'Consultant', manager_id: 3, years_experience: 4 },
+  { id: 9, name: 'Ivan Young', department: 'Finance', salary: 70000, hire_date: '2016-09-29', job_title: 'Manager', manager_id: 4, years_experience: 10 },
+  { id: 10, name: 'Julia Thomas', department: 'Marketing', salary: 54000, hire_date: '2014-04-05', job_title: 'Executive', manager_id: 5, years_experience: 6 },
+];
+
 const SQLIDE = () => {
   const { team, problemId } = useParams();
   const navigate = useNavigate();
@@ -19,6 +32,7 @@ const SQLIDE = () => {
   const [testCaseResults, setTestCaseResults] = useState([]);
   const [testCasesPassed, setTestCasesPassed] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showDBModal, setShowDBModal] = useState(false);
 
   // Timer Countdown and Local Storage Synchronization
   useEffect(() => {
@@ -119,6 +133,12 @@ const SQLIDE = () => {
       <div className="w-1/3 p-6 bg-gray-800 border-r border-gray-700 space-y-4">
         <h2 className="text-2xl font-bold mb-2">{problem.title}</h2>
         <p className="text-gray-300 mb-4">{problem.description}</p>
+        <button
+          className="bg-gray-700 text-gray-100 px-4 py-2 rounded mt-4 hover:bg-gray-600"
+          onClick={() => setShowDBModal(true)}
+        >
+          View DB
+        </button>
       </div>
 
       {/* Right Pane - SQL Editor and Test Case Results */}
@@ -193,6 +213,8 @@ const SQLIDE = () => {
           )}
         </div>
 
+        
+
         {/* Action Buttons */}
         <div className="flex justify-end space-x-4">
           <button
@@ -218,6 +240,46 @@ const SQLIDE = () => {
           </button>
         </div>
       </div>
+      {showDBModal && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="bg-gray-900 p-4 rounded-lg w-full max-w-4xl max-h-[90vh] overflow-hidden relative">
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="text-xl font-semibold text-gray-100">SQL Database</h3>
+        <button
+          className="bg-red-600 text-gray-100 px-3 py-1 rounded hover:bg-red-700"
+          onClick={() => setShowDBModal(false)}
+        >
+          Close
+        </button>
+      </div>
+
+      {/* Scrollable Table Container */}
+      <div className="overflow-auto max-h-[75vh]">
+        <table className="min-w-full text-left text-gray-100 border border-gray-700">
+          <thead className="sticky top-0 bg-gray-800">
+            <tr>
+              {Object.keys(mockDatabase[0]).map((header) => (
+                <th key={header} className="border-b border-gray-700 p-2">
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {mockDatabase.map((row, idx) => (
+              <tr key={idx} className="border-b border-gray-700">
+                {Object.values(row).map((value, i) => (
+                  <td key={i} className="p-2 whitespace-nowrap">{value || 'NULL'}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
