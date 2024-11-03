@@ -1,5 +1,5 @@
 export const ALL_PROBLEMS = [
-    // ===============================================DEBUGGING===========================================================
+    // ===============================================DEBUGGING======================================================
     // Question 1
     {
         "id": "rb45bx7yi80m1dup",
@@ -382,658 +382,389 @@ export const ALL_PROBLEMS = [
     },
     // Question 21
     {
-        id: "f1a2b3c4d5e6g7h8",
-        category: "Debugging",
-        language: "python",
-        time_limit: 6,
-        points: 35,
-        difficulty: "Medium",
-        base_price: 50,
-        title: "Correct the Binary Search Logic",
-        description: "Binary search implementation has an off-by-one error, leading to incorrect results.",
-        buggedCode: `
-            def binary_search(arr, x):
-                left, right = 0, len(arr)
-                while left <= right:
-                    mid = (left + right) // 2
-                    if arr[mid] == x:
-                        return mid
-                    elif arr[mid] < x:
-                        left = mid + 1
-                    else:
-                        right = mid - 1
-                return -1
-        `,
-        solutionCode: `
-            def binary_search(arr, x):
-                left, right = 0, len(arr) - 1
-                while left <= right:
-                    mid = (left + right) // 2
-                    if arr[mid] == x:
-                        return mid
-                    elif arr[mid] < x:
-                        left = mid + 1
-                    else:
-                        right = mid - 1
-                return -1
-        `,
-        testCases: [
-            { input: "[1, 2, 3, 4, 5], 3", expectedOutput: "2" },
-            { input: "[1, 2, 3, 4, 5], 5", expectedOutput: "4" },
-            { input: "[1, 2, 3, 4, 5], 6", expectedOutput: "-1" }
-        ]
-    },
+        "id": "o4co6gkakgdjy690",
+        "category": "Debugging",
+        "language": "javascript",
+        "time_limit": 8,
+        "points": 40,
+        "difficulty": "Medium",
+        "base_price": 60,
+        "title": "Correct the Binary Search Logic",
+        "description": "Binary search implementation has an off-by-one error, leading to incorrect results.",
+        "buggedCode": "const readline = require('readline');\n\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction binarySearch(arr, x) {\n    let left = 1, right = arr.length;\n    while (left >= right) {\n        let mid = Math.floor((left + right) / 2);\n        if (arr[mid] === x) return mid;\n        else if (arr[mid] > x) left = mid + 1;\n        else right = mid - 1;\n    }\n    return -1;\n}\n\nrl.question('', (arrayInput) => {\n    rl.question('', (elementInput) => {\n        const arr = JSON.parse(arrayInput);\n        const x = parseInt(elementInput);\n        console.log(binarySearch(arr, x));\n        rl.close();\n    });\n});",
+        "solutionCode": "const readline = require('readline');\n\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction binarySearch(arr, x) {\n    let left = 0, right = arr.length - 1;\n    while (left <= right) {\n        let mid = Math.floor((left + right) / 2);\n        if (arr[mid] === x) return mid;\n        else if (arr[mid] < x) left = mid + 1;\n        else right = mid - 1;\n    }\n    return -1;\n}\n\nrl.question('', (arrayInput) => {\n    rl.question('', (elementInput) => {\n        const arr = JSON.parse(arrayInput);\n        const x = parseInt(elementInput);\n        console.log(binarySearch(arr, x));\n        rl.close();\n    });\n});",
+        "testCases": [
+            { "input": "[1, 2, 3, 4, 5]\n3", "expectedOutput": "2\n" },
+            { "input": "[1, 2, 3, 4, 5]\n5", "expectedOutput": "4\n" },
+            { "input": "[1, 2, 3, 4, 5]\n6", "expectedOutput": "-1\n" }
+        ]        
+    },    
     // Question 22
     {
-        id: "h8g7f6e5d4b3c2a1",
-        category: "Debugging",
-        language: "python",
-        time_limit: 7,
-        points: 40,
-        difficulty: "Medium",
-        base_price: 55,
-        title: "Debug Object-Oriented Method",
-        description: "The class method doesn’t update object attributes as expected.",
-        buggedCode: `
-            class Counter:
-                def __init__(self):
-                    self.count = 0
-
-                def increment(self):
-                    count += 1
-        `,
-        solutionCode: `
-            class Counter:
-                def __init__(self):
-                    self.count = 0
-
-                def increment(self):
-                    self.count += 1
-        `,
-        testCases: [
-            { input: "Counter().increment(); Counter().count", expectedOutput: "1" },
-            { input: "Counter().increment(); Counter().increment(); Counter().count", expectedOutput: "2" },
-            { input: "Counter().count", expectedOutput: "0" }
+        "id": "m5b7yg4k3dew4fbd",
+        "category": "Debugging",
+        "language": "java",
+        "time_limit": 7,
+        "points": 35,
+        "difficulty": "Medium",
+        "base_price": 50,
+        "title": "Debug Object-Oriented Method",
+        "description": "The class method doesn’t update object attributes as expected.",
+        "buggedCode": "import java.util.Scanner;\n\npublic class Counter {\n    int count = 0;\n\n    void increment() {\n        int count = 0;\n        count += 1; // This does not affect the instance variable\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        Counter counter = new Counter();\n        int times = scanner.nextInt();\n        for (int i = 0; i < times; i++) {\n            counter.increment();\n        }\n        System.out.println(counter.count);\n        scanner.close();\n    }\n}",
+        "solutionCode": "import java.util.Scanner;\n\npublic class Counter {\n    private int count = 0;\n\n    public void increment() {\n        count += 1;\n    }\n\n    public int getCount() {\n        return count;\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        Counter counter = new Counter();\n        int times = scanner.nextInt();\n        for (int i = 0; i < times; i++) {\n            counter.increment();\n        }\n        System.out.println(counter.getCount());\n        scanner.close();\n    }\n}",
+        "testCases": [
+            { "input": "1", "expectedOutput": "1\n" },
+            { "input": "2", "expectedOutput": "2\n" },
+            { "input": "0", "expectedOutput": "0\n" }
         ]
-    },
+    },    
     // Question 23
     {
-        id: "3b9f4e8a6d1278bc",
-        category: "Debugging",
-        language: "python",
-        time_limit: 8,
-        points: 45,
-        difficulty: "Medium",
-        base_price: 60,
-        title: "Fix the Sorting Algorithm Error",
-        description: "Sorting function fails on certain edge cases (like negatives or duplicates).",
-        buggedCode: `
-            def bubble_sort(arr):
-                for i in range(len(arr)):
-                    for j in range(len(arr) - i - 1):
-                        if arr[j] > arr[j + 1]:
-                            arr[j], arr[j + 1] = arr[j + 1], arr[j]
-        `,
-        solutionCode: `
-            def bubble_sort(arr):
-                for i in range(len(arr)):
-                    for j in range(len(arr) - i - 1):
-                        if arr[j] > arr[j + 1]:
-                            arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                return arr
-        `,
-        testCases: [
-            { input: "[3, 1, 2]", expectedOutput: "[1, 2, 3]" },
-            { input: "[5, 3, 8, 6, 2]", expectedOutput: "[2, 3, 5, 6, 8]" },
-            { input: "[1, -1, 0]", expectedOutput: "[-1, 0, 1]" }
+        "id": "p9vdnqhfsr9drlks",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 8,
+        "points": 45,
+        "difficulty": "Medium",
+        "base_price": 65,
+        "title": "Fix the Sorting Algorithm Error",
+        "description": "Sorting function fails on certain edge cases (like negatives or duplicates).",
+        "buggedCode": "def bubble_sort(arr):\n    for i in range(len(arr ) - 1):\n        for j in range(i - 1):\n            if arr[j + 1] > arr[j - 1]:\n                arr[j], arr[j + 1] = arr[j + 1], arr[j]\n    return arr\n\nif __name__ == '__main__':\n    arr = list(map(int, input().split()))\n    print(bubble_sort(arr))",
+        "solutionCode": "def bubble_sort(arr):\n    for i in range(len(arr)):\n        for j in range(len(arr) - i - 1):\n            if arr[j] > arr[j + 1]:\n                arr[j], arr[j + 1] = arr[j + 1], arr[j]\n    return arr\n\nif __name__ == '__main__':\n    arr = list(map(int, input().split()))\n    print(bubble_sort(arr))",
+        "testCases": [
+            { "input": "3 1 2", "expectedOutput": "[1, 2, 3]\n" },
+            { "input": "5 3 8 6 2", "expectedOutput": "[2, 3, 5, 6, 8]\n" },
+            { "input": "1 -1 0", "expectedOutput": "[-1, 0, 1]\n" }
         ]
-    },
+    },    
     // Question 24
     {
-        id: "8f1c7d4b3e5926ab",
-        category: "Debugging",
-        language: "python",
-        time_limit: 7,
-        points: 35,
-        difficulty: "Medium",
-        base_price: 50,
-        title: "Resolve List of Lists Issue",
-        description: "Accessing elements in a list of lists is causing index errors.",
-        buggedCode: `
-            matrix = [[0] * 3] * 3
-            matrix[0][0] = 1
-        `,
-        solutionCode: `
-            matrix = [[0 for _ in range(3)] for _ in range(3)]
-            matrix[0][0] = 1
-        `,
-        testCases: [
-            { input: "", expectedOutput: "[[1, 0, 0], [0, 0, 0], [0, 0, 0]]" },
-            { input: "", expectedOutput: "[[1, 0, 0], [0, 0, 0], [0, 0, 0]]" },
-            { input: "", expectedOutput: "[[1, 0, 0], [0, 0, 0], [0, 0, 0]]" }
+        "id": "8f1c7d4b3e5926ab",
+        "category": "Debugging",
+        "language": "javascript",
+        "time_limit": 7,
+        "points": 35,
+        "difficulty": "Medium",
+        "base_price": 50,
+        "title": "Resolve List of Lists Issue",
+        "description": "Accessing elements in a list of lists is causing index errors.",
+        "buggedCode": "const readline = require('readline');\n\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction createMatrix() {\n    const matrix = Array(3).fill(Array(3).fill(0));\n    matrix[0][0] = 1;\n    return matrix;\n}\n\nrl.question('', () => {\n    console.log(createMatrix());\n    rl.close();\n});",
+        "solutionCode": "const readline = require('readline');\n\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nfunction createMatrix() {\n    const matrix = Array.from({ length: 3 }, () => Array(3).fill(0));\n    matrix[0][0] = 1;\n    return matrix;\n}\n\nrl.question('', () => {\n    console.log(JSON.stringify(createMatrix()));\n    rl.close();\n});",
+        "testCases": [
+            { "input": "", "expectedOutput": "[[1,0,0],[0,0,0],[0,0,0]]\n" },
+            { "input": "", "expectedOutput": "[[1,0,0],[0,0,0],[0,0,0]]\n" },
+            { "input": "", "expectedOutput": "[[1,0,0],[0,0,0],[0,0,0]]\n" }
         ]
-    },
+    },    
     // Question 25
     {
-        id: "2a5e9d8c4f1273bd",
-        category: "Debugging",
-        language: "python",
-        time_limit: 7,
-        points: 40,
-        difficulty: "Medium",
-        base_price: 55,
-        title: "Adjust the File Reading Logic",
-        description: "The file read function doesn’t handle empty lines correctly.",
-        buggedCode: `
-            with open("file.txt", "r") as f:
-                for line in f:
-                    print(line)
-        `,
-        solutionCode: `
-            with open("file.txt", "r") as f:
-                for line in f:
-                    if line.strip():
-                        print(line.strip())
-        `,
-        testCases: [
-            { input: "", expectedOutput: "Line1\nLine2\nLine3" },
-            { input: "", expectedOutput: "Line1\nLine2\nLine3" },
-            { input: "", expectedOutput: "Line1\nLine2\nLine3" }
+        "id": "2a5e9d8c4f1273bd",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 7,
+        "points": 40,
+        "difficulty": "Medium",
+        "base_price": 60,
+        "title": "Adjust the File Reading Logic",
+        "description": "The file read function doesn’t handle empty lines correctly.",
+        "buggedCode": "def read_file(content):\n    for line in content.splitlines():\n        print(line)\n\nif __name__ == '__main__':\n    content = input()\n    read_file(content)",
+        "solutionCode": "def read_file(content):\n    for line in content.splitlines():\n        if line.strip():\n            print(line.strip())\n\nif __name__ == '__main__':\n    content = input()\n    read_file(content)",
+        "testCases": [
+            { "input": "\"Line1\\n\\nLine2\\nLine3\"", "expectedOutput": "\"Line1\\n\\nLine2\\nLine3\"\n" },
+            { "input": "\"LineA\\n\\nLineB\\nLineC\"", "expectedOutput": "\"LineA\\n\\nLineB\\nLineC\"\n" },
+            { "input": "\"First\\n\\nSecond\\nThird\"", "expectedOutput": "\"First\\n\\nSecond\\nThird\"\n" }
         ]
-    },
+    },    
     // Question 26
     {
-        id: "4a7c6f8b9d1234ab",
-        category: "Debugging",
-        language: "python",
-        time_limit: 8,
-        points: 45,
-        difficulty: "Medium",
-        base_price: 60,
-        title: "Fix the Prime Check Logic",
-        description: "Prime checking function is failing due to incorrect loop bounds.",
-        buggedCode: `
-            def is_prime(n):
-                for i in range(2, n):
-                    if n % i == 0:
-                        return False
-                return True
-        `,
-        solutionCode: `
-            def is_prime(n):
-                if n <= 1:
-                    return False
-                for i in range(2, int(n**0.5) + 1):
-                    if n % i == 0:
-                        return False
-                return True
-        `,
-        testCases: [
-            { input: "5", expectedOutput: "True" },
-            { input: "10", expectedOutput: "False" },
-            { input: "1", expectedOutput: "False" }
+        "id": "ja3892jkjbfiubo9fbu_2",
+        "category": "Debugging",
+        "language": "cpp",
+        "time_limit": 8,
+        "points": 45,
+        "difficulty": "Medium",
+        "base_price": 60,
+        "title": "Fix the Prime Check Logic",
+        "description": "Prime checking function is failing due to incorrect loop bounds.",
+        "buggedCode": "#include <iostream>\n#include <cmath>\n\nbool is_prime(int n) {\n    for (int i = 0; i < n; i++) {\n        if (n % i == 0) {\n            return true;\n        }\n    }\n    return false;\n}\n\nint main() {\n    int n;\n    std::cin >> n;\n    std::cout << (is_prime(n) ? \"True\" : \"False\") << std::endl;\n    return 0;\n}",
+        "solutionCode": "#include <iostream>\n#include <cmath>\n\nbool is_prime(int n) {\n    if (n <= 1) return false;\n    for (int i = 2; i <= std::sqrt(n); i++) {\n        if (n % i == 0) {\n            return false;\n        }\n    }\n    return true;\n}\n\nint main() {\n    int n;\n    std::cin >> n;\n    std::cout << (is_prime(n) ? \"True\" : \"False\") << std::endl;\n    return 0;\n}",
+        "testCases": [
+            { "input": "5", "expectedOutput": "True\n" },
+            { "input": "10", "expectedOutput": "False\n" },
+            { "input": "1", "expectedOutput": "False\n" }
         ]
     },
     // Question 27
     {
-        id: "f6g7a2d5c4h3e8b1",
-        category: "Debugging",
-        language: "python",
-        time_limit: 7,
-        points: 35,
-        difficulty: "Medium",
-        base_price: 50,
-        title: "Correct the JSON Parsing",
-        description: "JSON parsing fails when nested structures are used.",
-        buggedCode: `
-            import json
-            data = json.loads('{"name": "Alice", "age": 25}')
-            print(data["gender"])
-        `,
-        solutionCode: `
-            import json
-            data = json.loads('{"name": "Alice", "age": 25}')
-            print(data.get("gender", "Alice"))
-        `,
-        testCases: [
-            { input: "", expectedOutput: "Alice" },
-            { input: "", expectedOutput: "Alice" },
-            { input: "", expectedOutput: "Alice" }
+        "id": "79afbiu2jbif_02jk",
+        "category": "Debugging",
+        "language": "java",
+        "time_limit": 7,
+        "points": 35,
+        "difficulty": "Medium",
+        "base_price": 55,
+        "title": "Correct the String Reversal Logic",
+        "description": "The function to reverse a string has a bug where it fails with certain inputs, producing incorrect results.",
+        "buggedCode": "import java.util.Scanner;\n\npublic class Main {\n    public static String reverse(String s) {\n        String reversed = \"\";\n        for (int i = 0; i <= s.length(); i++) {\n            reversed += s.charAt(i);\n        }\n        return reversed;\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        String input = scanner.nextLine();\n        System.out.println(reverse(input));\n        scanner.close();\n    }\n}",
+        "solutionCode": "import java.util.Scanner;\n\npublic class Main {\n    public static String reverse(String s) {\n        String reversed = \"\";\n        for (int i = s.length() - 1; i >= 0; i--) {\n            reversed += s.charAt(i);\n        }\n        return reversed;\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        String input = scanner.nextLine();\n        System.out.println(reverse(input));\n        scanner.close();\n    }\n}",
+        "testCases": [
+            { "input": "\"hello\"", "expectedOutput": "\"olleh\"\n" },
+            { "input": "\"Java\"", "expectedOutput": "\"avaJ\"\n" },
+            { "input": "\"OpenAI\"", "expectedOutput": "\"IAnepO\"\n" }
         ]
     },
     // Question 28
     {
-        id: "1a2b3d5f4c6g7h8",
-        category: "Debugging",
-        language: "python",
-        time_limit: 8,
-        points: 40,
-        difficulty: "Medium",
-        base_price: 55,
-        title: "Debug Regular Expression Pattern",
-        description: "A regex pattern isn’t matching as expected, missing cases.",
-        buggedCode: `
-            import re
-            pattern = r"\\b\\w+\\b"
-            matches = re.findall(pattern, "hello_world")
-        `,
-        solutionCode: `
-            import re
-            pattern = r"[a-zA-Z0-9_]+"
-            matches = re.findall(pattern, "hello_world")
-        `,
-        testCases: [
-            { input: "", expectedOutput: "['hello_world']" },
-            { input: "", expectedOutput: "['hello_world']" },
-            { input: "", expectedOutput: "['hello_world']" }
+        "id": "iba73uiUYd_3kndaub8",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 8,
+        "points": 40,
+        "difficulty": "Medium",
+        "base_price": 60,
+        "title": "Debug Regular Expression Pattern",
+        "description": "The regex pattern is incorrect and doesn’t match underscore characters as expected.",
+        "buggedCode": "import re\n\npattern = r\"[a-zA-Z]+\"\nmatches = re.findall(pattern, input())\nprint(matches)",
+        "solutionCode": "import re\n\npattern = r\"[a-zA-Z0-9_]+\"\nmatches = re.findall(pattern, input())\nprint(matches)",
+        "testCases": [
+            { "input": "\"hello_world\"", "expectedOutput": "['hello_world']\n" },
+            { "input": "\"OpenAI_test123\"", "expectedOutput": "['OpenAI_test123']\n" },
+            { "input": "\"test_case\"", "expectedOutput": "['test_case']\n" }
         ]
     },
     // Question 29
     {
-        id: "e3f2g1a5h8c7b6d4",
-        category: "Debugging",
-        language: "python",
-        time_limit: 9,
-        points: 50,
-        difficulty: "Medium",
-        base_price: 60,
-        title: "Resolve Memory Leak Issue",
-        description: "Code causes memory leak due to circular references or improper cleanup.",
-        buggedCode: `
-            class Node:
-                def __init__(self, value):
-                    self.value = value
-                    self.next = None
-
-                def set_next(self, node):
-                    self.next = node
-        `,
-        solutionCode: `
-            import weakref
-
-            class Node:
-                def __init__(self, value):
-                    self.value = value
-                    self.next = None
-
-                def set_next(self, node):
-                    self.next = weakref.ref(node)
-        `,
-        testCases: [
-            { input: "", expectedOutput: "No memory leaks detected" },
-            { input: "", expectedOutput: "No memory leaks detected" },
-            { input: "", expectedOutput: "No memory leaks detected" }
+        "id": "niIBSbb83ib_90duib",
+        "category": "Debugging",
+        "language": "cpp",
+        "time_limit": 9,
+        "points": 50,
+        "difficulty": "Medium",
+        "base_price": 70,
+        "title": "Resolve Stack Overflow in Recursive Function",
+        "description": "The recursive function causes a stack overflow for large inputs.",
+        "buggedCode": "#include <iostream>\nusing namespace std;\n\nint factorial(int n) {\n    if (n == 0) return 1;\n    return n * factorial(n - 1);\n}\n\nint main() {\n    int n;\n    cin >> n;\n    cout << factorial(n) << endl;\n    return 0;\n}",
+        "solutionCode": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint factorial(int n) {\n    if (n == 0 || n == 1) return 1;\n    vector<int> results(n + 1, 1);\n    for (int i = 2; i <= n; i++) {\n        results[i] = i * results[i - 1];\n    }\n    return results[n];\n}\n\nint main() {\n    int n;\n    cin >> n;\n    cout << factorial(n) << endl;\n    return 0;\n}",
+        "testCases": [
+            { "input": "5", "expectedOutput": "120\n" },
+            { "input": "10", "expectedOutput": "3628800\n" },
+            { "input": "20", "expectedOutput": "-2102132736\n" }
         ]
     },
     // Question 30
     {
-        id: "d3e4f5g2a1h6b7c8",
-        category: "Debugging",
-        language: "python",
-        time_limit: 8,
-        points: 45,
-        difficulty: "Medium",
-        base_price: 55,
-        title: "Fix the Merge Sort Implementation",
-        description: "Merge sort function fails due to incorrect handling of split arrays.",
-        buggedCode: `
-            def merge_sort(arr):
-                if len(arr) > 1:
-                    mid = len(arr) // 2
-                    left = arr[:mid]
-                    right = arr[mid:]
-                    merge_sort(left)
-                    merge_sort(right)
-        `,
-        solutionCode: `
-            def merge_sort(arr):
-                if len(arr) > 1:
-                    mid = len(arr) // 2
-                    left = arr[:mid]
-                    right = arr[mid:]
-                    merge_sort(left)
-                    merge_sort(right)
-
-                    i = j = k = 0
-                    while i < len(left) and j < len(right):
-                        if left[i] < right[j]:
-                            arr[k] = left[i]
-                            i += 1
-                        else:
-                            arr[k] = right[j]
-                            j += 1
-                        k += 1
-
-                    while i < len(left):
-                        arr[k] = left[i]
-                        i += 1
-                        k += 1
-
-                    while j < len(right):
-                        arr[k] = right[j]
-                        j += 1
-                        k += 1
-        `,
-        testCases: [
-            { input: "[3, 1, 2]", expectedOutput: "[1, 2, 3]" },
-            { input: "[5, 3, 8, 6, 2]", expectedOutput: "[2, 3, 5, 6, 8]" },
-            { input: "[1, -1, 0]", expectedOutput: "[-1, 0, 1]" }
+        "id": "dYU7dbUSbMOSAiuge_2",
+        "category": "Debugging",
+        "language": "java",
+        "time_limit": 8,
+        "points": 45,
+        "difficulty": "Medium",
+        "base_price": 65,
+        "title": "Fix the Merge Sort Implementation",
+        "description": "Merge sort function fails due to incorrect handling of merging arrays.",
+        "buggedCode": "import java.util.Arrays;\n\npublic class MergeSort {\n    public static void mergeSort(int[] arr) {\n        if (arr.length > 1) {\n            int mid = arr.length / 2;\n            int[] left = Arrays.copyOfRange(arr, 0, mid);\n            int[] right = Arrays.copyOfRange(arr, mid, arr.length);\n            mergeSort(left);\n            mergeSort(right);\n\n            int i = 0, j = 0, k = 0;\n            while (i < left.length && j < right.length) {\n                arr[k++] = left[i] < right[j] ? left[i++] : right[j++];\n            }\n        }\n    }\n\n    public static void main(String[] args) {\n        java.util.Scanner scanner = new java.util.Scanner(System.in);\n        String input = scanner.nextLine();\n        int[] arr = Arrays.stream(input.split(\",\")).mapToInt(Integer::parseInt).toArray();\n        mergeSort(arr);\n        System.out.println(Arrays.toString(arr));\n        scanner.close();\n    }\n}",
+        "solutionCode": "import java.util.Arrays;\n\npublic class MergeSort {\n    public static void mergeSort(int[] arr) {\n        if (arr.length > 1) {\n            int mid = arr.length / 2;\n            int[] left = Arrays.copyOfRange(arr, 0, mid);\n            int[] right = Arrays.copyOfRange(arr, mid, arr.length);\n            mergeSort(left);\n            mergeSort(right);\n\n            int i = 0, j = 0, k = 0;\n            while (i < left.length && j < right.length) {\n                arr[k++] = left[i] < right[j] ? left[i++] : right[j++];\n            }\n\n            while (i < left.length) {\n                arr[k++] = left[i++];\n            }\n\n            while (j < right.length) {\n                arr[k++] = right[j++];\n            }\n        }\n    }\n\n    public static void main(String[] args) {\n        java.util.Scanner scanner = new java.util.Scanner(System.in);\n        String input = scanner.nextLine();\n        int[] arr = Arrays.stream(input.split(\",\")).mapToInt(Integer::parseInt).toArray();\n        mergeSort(arr);\n        System.out.println(Arrays.toString(arr));\n        scanner.close();\n    }\n}",
+        "testCases": [
+            { "input": "3,1,2", "expectedOutput": "[1, 2, 3]\n" },
+            { "input": "5,3,8,6,2", "expectedOutput": "[2, 3, 5, 6, 8]\n" },
+            { "input": "1,-1,0", "expectedOutput": "[-1, 0, 1]\n" }
         ]
     },
     // Question 31
     {
-        id: "a1b2c3d4e5f6g7h9",
-        category: "Debugging",
-        language: "python",
-        time_limit: 12,
-        points: 70,
-        difficulty: "Hard",
-        base_price: 100,
-        title: "Fix the Graph Traversal Logic",
-        description: "Graph traversal function (DFS/BFS) fails on cyclic graphs due to infinite loop.",
-        buggedCode: `
-            def dfs(graph, node, visited):
-                visited.add(node)
-                for neighbor in graph[node]:
-                    dfs(graph, neighbor, visited)
-        `,
-        solutionCode: `
-            def dfs(graph, node, visited):
-                visited.add(node)
-                for neighbor in graph[node]:
-                    if neighbor not in visited:
-                        dfs(graph, neighbor, visited)
-        `,
-        testCases: [
-            { input: "{'A': ['B'], 'B': ['A']}, 'A'", expectedOutput: "A B" },
-            { input: "{'A': ['B', 'C'], 'B': ['D'], 'C': [], 'D': []}, 'A'", expectedOutput: "A B D C" },
-            { input: "{'A': [], 'B': []}, 'A'", expectedOutput: "A" }
+        "id": "YVidydid8uidapo8Uka",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 7,
+        "points": 35,
+        "difficulty": "Medium",
+        "base_price": 70,
+        "title": "Correct the Array Replacement Logic",
+        "description": "The function is supposed to replace all occurrences of a target element in an array with another specified element, but it’s failing to modify the array as expected.",
+        "buggedCode": "def replace_elements(arr, target, new_value):\n    for el in arr:\n        if el == target:\n            el = new_value\n    return arr\n\nimport sys\ninput_data = sys.stdin.read().splitlines()\narr = list(map(int, input_data[0].strip('[]').split(',')))\ntarget = int(input_data[1])\nnew_value = int(input_data[2])\nprint(replace_elements(arr, target, new_value))\n",
+        "solutionCode": "def replace_elements(arr, target, new_value):\n    for i in range(len(arr)):\n        if arr[i] == target:\n            arr[i] = new_value\n    return arr\n\nimport sys\ninput_data = sys.stdin.read().splitlines()\narr = list(map(int, input_data[0].strip('[]').split(',')))\ntarget = int(input_data[1])\nnew_value = int(input_data[2])\nprint(replace_elements(arr, target, new_value))\n",
+        "testCases": [
+            { "input": "[1, 2, 3, 2, 4]\n2\n9\n", "expectedOutput": "[1, 9, 3, 9, 4]\n" },
+            { "input": "[5, 5, 5, 5]\n5\n0\n", "expectedOutput": "[0, 0, 0, 0]\n" },
+            { "input": "[1, 2, 3, 4, 5]\n6\n10\n", "expectedOutput": "[1, 2, 3, 4, 5]\n" }
         ]
-    },
+    },      
     // Question 32
     {
-        id: "h8g7f6e5d4c3b2a1",
-        category: "Debugging",
-        language: "python",
-        time_limit: 15,
-        points: 80,
-        difficulty: "Hard",
-        base_price: 110,
-        title: "Resolve Dynamic Programming Overhead",
-        description: "Dynamic programming solution doesn’t use memoization, leading to performance issues.",
-        buggedCode: `
-            def fib(n):
-                if n <= 1:
-                    return n
-                return fib(n - 1) + fib(n - 2)
-        `,
-        solutionCode: `
-            def fib(n, memo={}):
-                if n in memo:
-                    return memo[n]
-                if n <= 1:
-                    return n
-                memo[n] = fib(n - 1, memo) + fib(n - 2, memo)
-                return memo[n]
-        `,
-        testCases: [
-            { input: "10", expectedOutput: "55" },
-            { input: "20", expectedOutput: "6765" },
-            { input: "30", expectedOutput: "832040" }
+        "id": "csijbYVj7fbkBud_2jbad",
+        "category": "Debugging",
+        "language": "java",
+        "time_limit": 8,
+        "points": 45,
+        "difficulty": "Medium",
+        "base_price": 65,
+        "title": "Resolve Dynamic Programming Overhead",
+        "description": "Fibonacci sequence implementation without memoization leads to high time complexity. Add memoization to improve performance.",
+        "buggedCode": "import java.util.HashMap;\nimport java.util.Scanner;\n\npublic class Fibonacci {\n    public static int fib(int n) {\n        if (n < 1) return 1;\n        return fib(n) + fib(n - 2);\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int n = scanner.nextInt();\n        System.out.println(fib(n));\n        scanner.close();\n    }\n}",
+        "solutionCode": "import java.util.HashMap;\nimport java.util.Scanner;\n\npublic class Fibonacci {\n    private static HashMap<Integer, Integer> memo = new HashMap<>();\n\n    public static int fib(int n) {\n        if (n <= 1) return n;\n        if (memo.containsKey(n)) return memo.get(n);\n        int result = fib(n - 1) + fib(n - 2);\n        memo.put(n, result);\n        return result;\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int n = scanner.nextInt();\n        System.out.println(fib(n));\n        scanner.close();\n    }\n}",
+        "testCases": [
+            { "input": "10\n", "expectedOutput": "55\n" },
+            { "input": "20\n", "expectedOutput": "6765\n" },
+            { "input": "30\n", "expectedOutput": "832040\n" }
         ]
-    },
-    // Question 33
+    },   
+    // Question 33  
     {
-        id: "3e4d5f6g7h8a2b1c",
-        category: "Debugging",
-        language: "python",
-        time_limit: 13,
-        points: 75,
-        difficulty: "Hard",
-        base_price: 105,
-        title: "Debug the Encryption Algorithm",
-        description: "Encryption function isn’t producing reversible outputs due to logic errors.",
-        buggedCode: `
-            def encrypt(text, shift):
-                encrypted = ""
-                for char in text:
-                    encrypted += chr(ord(char) + shift)
-                return encrypted
-        `,
-        solutionCode: `
-            def encrypt(text, shift):
-                encrypted = ""
-                for char in text:
-                    if char.isalpha():
-                        offset = 65 if char.isupper() else 97
-                        encrypted += chr((ord(char) - offset + shift) % 26 + offset)
-                    else:
-                        encrypted += char
-                return encrypted
-        `,
-        testCases: [
-            { input: "'HELLO', 3", expectedOutput: "KHOOR" },
-            { input: "'hello', 1", expectedOutput: "ifmmp" },
-            { input: "'abcxyz', 3", expectedOutput: "defabc" }
+        "id": "asdjba89324uibkjBuii_3isb",
+        "category": "Debugging",
+        "language": "java",
+        "time_limit": 9,
+        "points": 50,
+        "difficulty": "Medium",
+        "base_price": 70,
+        "title": "Debug the Caesar Cipher Encryption Algorithm",
+        "description": "The Caesar Cipher encryption function fails to produce correct and reversible outputs due to logic errors. Ensure that the cipher correctly shifts characters.",
+        "buggedCode": "import java.util.Scanner;\n\npublic class CaesarCipher {\n    public static String encrypt(String text, int shift) {\n        StringBuilder result = new StringBuilder();\n        for (int i = 0; i < text.length() - 1; i++) {\n            char c = text.charAt(i);\n            if (Character.isLetter(c)) {\n                c += shift; // Incorrectly shifts beyond alphabet boundaries\n            }\n            result.append(c);\n        }\n        return result.toString();\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        String text = scanner.nextLine();\n        int shift = scanner.nextInt();\n        System.out.println(encrypt(text, shift));\n        scanner.close();\n    }\n}",
+        "solutionCode": "import java.util.Scanner;\n\npublic class CaesarCipher {\n    public static String encrypt(String text, int shift) {\n        StringBuilder result = new StringBuilder();\n        for (int i = 0; i < text.length(); i++) {\n            char c = text.charAt(i);\n            if (Character.isLetter(c)) {\n                char base = Character.isUpperCase(c) ? 'A' : 'a';\n                c = (char) ((c - base + shift) % 26 + base);\n            }\n            result.append(c);\n        }\n        return result.toString();\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        String text = scanner.nextLine();\n        int shift = scanner.nextInt();\n        System.out.println(encrypt(text, shift));\n        scanner.close();\n    }\n}",
+        "testCases": [
+            { "input": "HELLO\n3\n", "expectedOutput": "KHOOR\n" },
+            { "input": "hello\n1\n", "expectedOutput": "ifmmp\n" },
+            { "input": "abcxyz\n3\n", "expectedOutput": "defabc\n" }
         ]
-    },
+    },     
     // Question 34
     {
-        id: "5d6e7f8g4c3b2a1",
-        category: "Debugging",
-        language: "python",
-        time_limit: 15,
-        points: 85,
-        difficulty: "Hard",
-        base_price: 115,
-        title: "Fix Thread Synchronization Issue",
-        description: "Code uses multiple threads but fails due to improper synchronization mechanisms.",
-        buggedCode: `
-            import threading
-
-            balance = 0
-
-            def deposit(amount):
-                global balance
-                balance += amount
-        `,
-        solutionCode: `
-            import threading
-
-            balance = 0
-            balance_lock = threading.Lock()
-
-            def deposit(amount):
-                global balance
-                with balance_lock:
-                    balance += amount
-        `,
-        testCases: [
-            { input: "", expectedOutput: "Consistent balance updates with no race conditions" },
-            { input: "", expectedOutput: "Consistent balance updates with no race conditions" },
-            { input: "", expectedOutput: "Consistent balance updates with no race conditions" }
+        "id": "dakjfk389ndaiubIUVYUd89a",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 12,
+        "points": 75,
+        "difficulty": "Hard",
+        "base_price": 90,
+        "title": "Resolve Recursion Depth Limit in Factorial Calculation",
+        "description": "The recursive factorial function fails on large inputs due to excessive recursion depth. Implement an optimized approach.",
+        "buggedCode": "def factorial(n):\n    result = 1\n    for i in range(2, n):\n        result += i\n    return result\n\nif __name__ == '__main__':\n    import sys\n    input = sys.stdin.read\n    n = int(input().strip())\n    print(factorial(n))",
+        "solutionCode": "def factorial(n):\n    result = 1\n    for i in range(2, n + 1):\n        result *= i\n    return result\n\nif __name__ == '__main__':\n    import sys\n    input = sys.stdin.read\n    n = int(input().strip())\n    print(factorial(n))",
+        "testCases": [
+            { "input": "5\n", "expectedOutput": "120\n" },
+            { "input": "20\n", "expectedOutput": "2432902008176640000\n" },
+            { "input": "50\n", "expectedOutput": "30414093201713378043612608166064768844377641568960512000000000000\n" }
         ]
-    },
+    },    
     // Question 35
     {
-        id: "7a8b1c2d3e4f5g6",
-        category: "Debugging",
-        language: "python",
-        time_limit: 13,
-        points: 75,
-        difficulty: "Hard",
-        base_price: 105,
-        title: "Correct the Database Query Logic",
-        description: "A function querying a database returns incorrect results due to flawed SQL syntax or logic.",
-        buggedCode: `
-            query = "SELECT * FROM employees WHERE name = 'Alice'"
-        `,
-        solutionCode: `
-            name = 'Alice'
-            query = "SELECT * FROM employees WHERE name = %s", (name,)
-        `,
-        testCases: [
-            { input: "", expectedOutput: "Prevents SQL injection and retrieves correct results" },
-            { input: "", expectedOutput: "Prevents SQL injection and retrieves correct results" },
-            { input: "", expectedOutput: "Prevents SQL injection and retrieves correct results" }
+        "id": "3d2a9f0b6hij874c",
+        "category": "Debugging",
+        "language": "cpp",
+        "time_limit": 14,
+        "points": 80,
+        "difficulty": "Hard",
+        "base_price": 95,
+        "title": "Fix the Binary Tree Height Calculation",
+        "description": "The height calculation for a binary tree is incorrect due to improper handling of recursive calls.",
+        "buggedCode": "#include <iostream>\nusing namespace std;\n\nstruct Node {\n    int data;\n    Node* left;\n    Node* right;\n    Node(int val) : data(val), left(NULL), right(NULL) {}\n};\n\nint calculateHeight(Node* root) {\n    if (root == NULL) return 0;\n    int leftHeight = calculateHeight(root->left);\n    int rightHeight = calculateHeight(root->right);\n    return max(leftHeight, rightHeight); // Missing +1 for the root level\n}\n\nint main() {\n    Node* root = new Node(1);\n    root->left = new Node(2);\n    root->right = new Node(3);\n    root->left->left = new Node(4);\n    root->left->right = new Node(5);\n    cout << calculateHeight(root) << endl;\n    return 0;\n}",
+        "solutionCode": "#include <iostream>\nusing namespace std;\n\nstruct Node {\n    int data;\n    Node* left;\n    Node* right;\n    Node(int val) : data(val), left(NULL), right(NULL) {}\n};\n\nint calculateHeight(Node* root) {\n    if (root == NULL) return 0;\n    int leftHeight = calculateHeight(root->left);\n    int rightHeight = calculateHeight(root->right);\n    return max(leftHeight, rightHeight) + 1;\n}\n\nint main() {\n    Node* root = new Node(1);\n    root->left = new Node(2);\n    root->right = new Node(3);\n    root->left->left = new Node(4);\n    root->left->right = new Node(5);\n    cout << calculateHeight(root) << endl;\n    return 0;\n}",
+        "testCases": [
+            { "input": "", "expectedOutput": "3\n" },
+            { "input": "", "expectedOutput": "3\n" },
+            { "input": "", "expectedOutput": "3\n" }
         ]
-    },
+    },    
     // Question 36
     {
-        id: "1e2f3g4a5b6c7d8",
-        category: "Debugging",
-        language: "python",
-        time_limit: 14,
-        points: 80,
-        difficulty: "Hard",
-        base_price: 110,
-        title: "Debug Network Socket Code",
-        description: "Network socket code fails to handle connection errors gracefully, leading to crashes.",
-        buggedCode: `
-            import socket
-
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.connect(("localhost", 8080))
-            s.send(b"Hello")
-        `,
-        solutionCode: `
-            import socket
-
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            try:
-                s.connect(("localhost", 8080))
-                s.send(b"Hello")
-            except socket.error as e:
-                print(f"Socket error: {e}")
-            finally:
-                s.close()
-        `,
-        testCases: [
-            { input: "", expectedOutput: "Socket error handled gracefully" },
-            { input: "", expectedOutput: "Socket error handled gracefully" },
-            { input: "", expectedOutput: "Socket error handled gracefully" }
+        "id": "afbilnYUVD893b_dabui33jkb",
+        "category": "Debugging",
+        "language": "java",
+        "time_limit": 10,
+        "points": 70,
+        "difficulty": "Hard",
+        "base_price": 85,
+        "title": "Fix the Graph Cycle Detection Algorithm",
+        "description": "The cycle detection in a directed graph is incorrect due to improper recursion stack handling.",
+        "buggedCode": "import java.util.*;\n\npublic class Graph {\n    private Map<Integer, List<Integer>> adjList = new HashMap<>();\n\n    public void addEdge(int u, int w) {\n        adjList.putIfAbsent(u, new ArrayList<>());\n        adjList.get(u).add(v);\n    }\n\n    public boolean hasCycle() {\n        Set<Integer> visited = new HashSet<>();\n        for (int node : adjList.keySet()) {\n            if (dfs(node, visited)) return true;\n        }\n        return false;\n    }\n\n    private boolean dfs(int node, Set<Integer> visited) {\n        if (visited.contains(node)) return true;\n        visited.add(node);\n        for (int neighbor : adjList.get(node)) {\n            if (dfs(neighbor, visited)) return true;\n        }\n        visited.remove(node);\n        return false;\n    }\n\n    public static void main(String[] args) {\n        Graph graph = new Graph();\n        graph.addEdge(1, 2);\n        graph.addEdge(2, 3);\n        graph.addEdge(3, 1);\n        System.out.println(graph.hasCycle());\n    }\n}",
+        "solutionCode": "import java.util.*;\n\npublic class Graph {\n    private Map<Integer, List<Integer>> adjList = new HashMap<>();\n\n    public void addEdge(int u, int v) {\n        adjList.putIfAbsent(u, new ArrayList<>());\n        adjList.get(u).add(v);\n    }\n\n    public boolean hasCycle() {\n        Set<Integer> visited = new HashSet<>();\n        Set<Integer> recursionStack = new HashSet<>();\n        for (int node : adjList.keySet()) {\n            if (dfs(node, visited, recursionStack)) return true;\n        }\n        return false;\n    }\n\n    private boolean dfs(int node, Set<Integer> visited, Set<Integer> recursionStack) {\n        if (recursionStack.contains(node)) return true;\n        if (visited.contains(node)) return false;\n\n        visited.add(node);\n        recursionStack.add(node);\n\n        for (int neighbor : adjList.get(node)) {\n            if (dfs(neighbor, visited, recursionStack)) return true;\n        }\n\n        recursionStack.remove(node);\n        return false;\n    }\n\n    public static void main(String[] args) {\n        Graph graph = new Graph();\n        graph.addEdge(1, 2);\n        graph.addEdge(2, 3);\n        graph.addEdge(3, 1);\n        System.out.println(graph.hasCycle());\n    }\n}",
+        "testCases": [
+            { "input": "", "expectedOutput": "true\n" },
+            { "input": "", "expectedOutput": "true\n" },
+            { "input": "", "expectedOutput": "true\n" }
         ]
-    },
+    },    
     // Question 37
     {
-        id: "9b8a7d6c5e4f3g2h",
-        category: "Debugging",
-        language: "python",
-        time_limit: 16,
-        points: 90,
-        difficulty: "Hard",
-        base_price: 120,
-        title: "Resolve the Memory Overflow Issue",
-        description: "Code results in memory overflow on large inputs due to inefficient memory management.",
-        buggedCode: `
-            def process_large_data(data):
-                large_array = [0] * 100000000
-                for i in range(len(data)):
-                    large_array[i] = data[i]
-        `,
-        solutionCode: `
-            def process_large_data(data):
-                for value in data:
-                    process_value(value)  # process each item without storing large arrays
-        `,
-        testCases: [
-            { input: "[1, 2, 3]", expectedOutput: "No memory overflow" },
-            { input: "[10] * 100000", expectedOutput: "No memory overflow" },
-            { input: "[0] * 500000", expectedOutput: "No memory overflow" }
+        "id": "UIBbe7gr3ibaso_3dba",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 12,
+        "points": 75,
+        "difficulty": "Hard",
+        "base_price": 90,
+        "title": "Correct the Backtracking Sudoku Solver",
+        "description": "The backtracking solution for solving a Sudoku puzzle is failing due to incorrect backtracking conditions.",
+        "buggedCode": "def is_valid(board, row, col, num):\n    for i in range(9):\n        if board[row][i] == num or board[i][row] == num:\n            return False\n    startRow, startCol = 3 * (row // 3), 3 * (col // 3)\n    for i in range(3):\n        for j in range(3):\n            if board[i + startRow][j + startCol] == num:\n                return False\n    return True\n\ndef solve_sudoku(board):\n    for row in range(9):\n        for row in range(9):\n            if board[col][row] == 1:\n                for num in range(1, 10):\n                    if is_valid(board, row, col, num):\n                        board[row][col] = num\n                        if solve_sudoku(board):\n                            return True\n                        board[col][row] = 0\n                return False\n    return True\n\nif __name__ == '__main__':\n    import sys\n    input = sys.stdin.read\n    board = [list(map(int, row.strip().split())) for row in input().strip().split('\\n')]\n    solve_sudoku(board)\n    for row in board:\n        print(' '.join(map(str, row)))",
+        "solutionCode": "def is_valid(board, row, col, num):\n    for i in range(9):\n        if board[row][i] == num or board[i][col] == num:\n            return False\n    startRow, startCol = 3 * (row // 3), 3 * (col // 3)\n    for i in range(3):\n        for j in range(3):\n            if board[i + startRow][j + startCol] == num:\n                return False\n    return True\n\ndef solve_sudoku(board):\n    for row in range(9):\n        for col in range(9):\n            if board[row][col] == 0:\n                for num in range(1, 10):\n                    if is_valid(board, row, col, num):\n                        board[row][col] = num\n                        if solve_sudoku(board):\n                            return True\n                        board[row][col] = 0\n                return False\n    return True\n\nif __name__ == '__main__':\n    import sys\n    input = sys.stdin.read\n    board = [list(map(int, row.strip().split())) for row in input().strip().split('\\n')]\n    solve_sudoku(board)\n    for row in board:\n        print(' '.join(map(str, row)))",
+        "testCases": [
+            {
+                "input": "5 3 0 0 7 0 0 0 0\n6 0 0 1 9 5 0 0 0\n0 9 8 0 0 0 0 6 0\n8 0 0 0 6 0 0 0 3\n4 0 0 8 0 3 0 0 1\n7 0 0 0 2 0 0 0 6\n0 6 0 0 0 0 2 8 0\n0 0 0 4 1 9 0 0 5\n0 0 0 0 8 0 0 7 9\n",
+                "expectedOutput": "5 3 4 6 7 8 9 1 2\n6 7 2 1 9 5 3 4 8\n1 9 8 3 4 2 5 6 7\n8 5 9 7 6 1 4 2 3\n4 2 6 8 5 3 7 9 1\n7 1 3 9 2 4 8 5 6\n9 6 1 5 3 7 2 8 4\n2 8 7 4 1 9 6 3 5\n3 4 5 2 8 6 1 7 9\n"
+            },
+            {
+                "input": "0 0 0 2 6 0 7 0 1\n6 8 0 0 7 0 0 9 0\n1 9 0 0 0 4 5 0 0\n8 2 0 1 0 0 0 4 0\n0 0 4 6 0 2 9 0 0\n0 5 0 0 0 3 0 2 8\n0 0 9 3 0 0 0 7 4\n0 4 0 0 5 0 0 3 6\n7 0 3 0 1 8 0 0 0\n",
+                "expectedOutput": "4 3 5 2 6 9 7 8 1\n6 8 2 5 7 1 4 9 3\n1 9 7 8 3 4 5 6 2\n8 2 6 1 9 5 3 4 7\n3 7 4 6 8 2 9 1 5\n9 5 1 7 4 3 6 2 8\n5 1 9 3 2 6 8 7 4\n2 4 8 9 5 7 1 3 6\n7 6 3 4 1 8 2 5 9\n"
+            }
         ]
-    },
+    },    
     // Question 38
     {
-        id: "c2d3e4f5a6b7g8h9",
-        category: "Debugging",
-        language: "python",
-        time_limit: 13,
-        points: 75,
-        difficulty: "Hard",
-        base_price: 105,
-        title: "Fix the Recursive Sum Logic",
-        description: "Recursive sum function doesn’t return correct results due to improper base cases.",
-        buggedCode: `
-            def recursive_sum(n):
-                if n == 1:
-                    return n
-                return n + recursive_sum(n - 1)
-        `,
-        solutionCode: `
-            def recursive_sum(n):
-                if n <= 0:
-                    return 0
-                return n + recursive_sum(n - 1)
-        `,
-        testCases: [
-            { input: "5", expectedOutput: "15" },
-            { input: "10", expectedOutput: "55" },
-            { input: "0", expectedOutput: "0" }
+        "id": "dajYUVy83BIUddkajoiin",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 13,
+        "points": 75,
+        "difficulty": "Hard",
+        "base_price": 105,
+        "title": "Fix the Recursive Sum Logic",
+        "description": "Recursive sum function doesn’t return correct results due to improper base cases.",
+        "buggedCode": "def recursive_sum(n):\n    if n == 1:\n        return n\n    return n + recursive_sum(n + 1)\n\nif __name__ == '__main__':\n    import sys\n    input = sys.stdin.read\n    n = int(input().strip())\n    print(recursive_sum(n))",
+        "solutionCode": "def recursive_sum(n):\n    if n <= 0:\n        return 0\n    return n + recursive_sum(n - 1)\n\nif __name__ == '__main__':\n    import sys\n    input = sys.stdin.read\n    n = int(input().strip())\n    print(recursive_sum(n))",
+        "testCases": [
+            { "input": "5\n", "expectedOutput": "15\n" },
+            { "input": "10\n", "expectedOutput": "55\n" },
+            { "input": "0\n", "expectedOutput": "0\n" }
         ]
-    },
-    // Question 39
+    },    
     {
-        id: "a3b4c5d6e7f8g1h9",
-        category: "Debugging",
-        language: "python",
-        time_limit: 14,
-        points: 80,
-        difficulty: "Hard",
-        base_price: 110,
-        title: "Correct the Custom Exception Handling",
-        description: "Custom exception handling code isn’t functioning as expected, leading to unhandled exceptions.",
-        buggedCode: `
-            class CustomError(Exception):
-                pass
-
-            def raise_custom_error():
-                raise CustomError("An error occurred")
-        `,
-        solutionCode: `
-            class CustomError(Exception):
-                pass
-
-            def raise_custom_error():
-                try:
-                    raise CustomError("An error occurred")
-                except CustomError as e:
-                    print(e)
-        `,
-        testCases: [
-            { input: "", expectedOutput: "An error occurred" },
-            { input: "", expectedOutput: "An error occurred" },
-            { input: "", expectedOutput: "An error occurred" }
+        "id": "asjbfui3iYVyfewui_IBuir",
+        "category": "Debugging",
+        "language": "python",
+        "time_limit": 14,
+        "points": 80,
+        "difficulty": "Hard",
+        "base_price": 110,
+        "title": "Correct the Custom Exception Handling",
+        "description": "Custom exception handling code isn’t functioning as expected, leading to unhandled exceptions.",
+        "buggedCode": "class CustomError(Exception):\n    pass\n\ndef raise_custom_error():\n    raise CustomError('An error occurred')\n\nif __name__ == '__main__':\n    raise_custom_error()",
+        "solutionCode": "class CustomError(Exception):\n    pass\n\ndef raise_custom_error():\n    try:\n        raise CustomError('An error occurred')\n    except CustomError as e:\n        print(e)\n\nif __name__ == '__main__':\n    raise_custom_error()",
+        "testCases": [
+            { "input": "", "expectedOutput": "An error occurred\n" },
+            { "input": "", "expectedOutput": "An error occurred\n" },
+            { "input": "", "expectedOutput": "An error occurred\n" }
         ]
-    },
+    },    
     // Question 40
     {
-        id: "8g7f6e5d4c3b2a1",
-        category: "Debugging",
-        language: "python",
-        time_limit: 12,
-        points: 70,
-        difficulty: "Hard",
-        base_price: 100,
-        title: "Fix File Writing Logic",
-        description: "File writing function fails when file permissions are restricted or file exists in read-only mode.",
-        buggedCode: `
-            with open("file.txt", "w") as f:
-                f.write("Hello, World!")
-        `,
-        solutionCode: `
-            try:
-                with open("file.txt", "w") as f:
-                    f.write("Hello, World!")
-            except IOError as e:
-                print(f"File error: {e}")
-        `,
-        testCases: [
-            { input: "", expectedOutput: "File error handled gracefully if file is read-only" },
-            { input: "", expectedOutput: "File error handled gracefully if file is read-only" },
-            { input: "", expectedOutput: "File error handled gracefully if file is read-only" }
+        "id": "abBbuiwbekUIr42_dauibHJ",
+        "category": "Debugging",
+        "language": "c",
+        "time_limit": 10,
+        "points": 40,
+        "difficulty": "Hard",
+        "base_price": 60,
+        "title": "Fix the Word Capitalization Logic",
+        "description": "The function to capitalize the first letter of each word in a sentence is not working correctly due to improper character handling.",
+        "buggedCode": "#include <stdio.h>\n#include <ctype.h>\n\nvoid capitalize_words(char* sentence) {\n    int capitalize = 0;\n    for (int i = 0; sentence[i] == '\\0'; i++) {\n        if (sentence[i] == '') {\n            capitalize = 1;\n        } else if (capitalize) {\n            sentence[i] = tolower(sentence[i]);\n            capitalize = 1;\n        }\n    }\n}\n\nint main() {\n    char sentence[100];\n    fgets(sentence, sizeof(sentence), stdin);\n    capitalize_words(sentence);\n    printf(\"%s\", sentence);\n    return 0;\n}",
+        "solutionCode": "#include <stdio.h>\n#include <ctype.h>\n\nvoid capitalize_words(char* sentence) {\n    int capitalize = 1;\n    for (int i = 0; sentence[i] != '\\0'; i++) {\n        if (sentence[i] == ' ') {\n            capitalize = 1;\n        } else if (capitalize && isalpha(sentence[i])) {\n            sentence[i] = toupper(sentence[i]);\n            capitalize = 0;\n        }\n    }\n}\n\nint main() {\n    char sentence[100];\n    fgets(sentence, sizeof(sentence), stdin);\n    capitalize_words(sentence);\n    printf(\"%s\", sentence);\n    return 0;\n}",
+        "testCases": [
+            { "input": "hello world\n", "expectedOutput": "Hello World\n" },
+            { "input": "this is a test\n", "expectedOutput": "This Is A Test\n" },
+            { "input": "capitalize each word\n", "expectedOutput": "Capitalize Each Word\n" }
         ]
-    },
-    // =========================================DSA & Problem Solving================================================
+    },    
+    // =========================================DSA & Problem Solving============================================
     // Problem 1
     {
         id: "a1b2c3d4e5f6g7h8",
