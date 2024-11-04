@@ -137,8 +137,8 @@ const DebuggingIDE = () => {
           />
         </div>
 
-        {/* Test Case Results with Loader */}
-        <div className="flex-1 border border-gray-700 rounded-lg p-4 space-y-4 overflow-auto">
+       {/* Test Case Results with Loader */}
+       <div className="flex-1 border border-gray-700 rounded-lg p-4 space-y-4 overflow-auto">
           <h3 className="text-lg font-semibold">Test Case Results:</h3>
           {loading ? (
             <div className="text-center py-4">
@@ -149,9 +149,9 @@ const DebuggingIDE = () => {
               {testCaseResults.map((result, idx) => (
                 <button
                   key={idx}
-                  disabled={idx !== 0} // Only allow Test Case 1 selection
+                  onClick={() => setSelectedTestCase(result)}
                   className={`px-4 py-2 rounded-lg font-semibold transition ${
-                    idx === 0 ? 'bg-green-500 text-white' : 'bg-gray-600 text-gray-100 opacity-50'
+                    selectedTestCase === result ? 'bg-green-500 text-white' : 'bg-gray-600 text-gray-100'
                   }`}
                 >
                   {result.passed ? `✅ Test Case ${idx + 1}` : `❌ Test Case ${idx + 1}`}
@@ -160,12 +160,11 @@ const DebuggingIDE = () => {
             </div>
           )}
 
+          {/* Selected Test Case Details */}
           {!loading && selectedTestCase ? (
             <div className="mt-4 p-4 bg-gray-700 rounded-lg space-y-2">
               <h4 className="font-semibold">Test Case Details:</h4>
-              <div><strong>Input:</strong> {selectedTestCase.input}</div>
-              <div><strong>Expected Output:</strong> {selectedTestCase.expectedOutput}</div>
-              <div><strong>Actual Output:</strong> {selectedTestCase.output}</div>
+              <div><strong>Description:</strong> {selectedTestCase.description}</div>
               <div><strong>Passed:</strong> {selectedTestCase.passed ? 'Yes' : 'No'}</div>
             </div>
           ) : !loading && (

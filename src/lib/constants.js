@@ -2597,9 +2597,16 @@ export const ALL_PROBLEMS = [
         testCases: [
             {
                 query: "SELECT manager_id, COUNT(*) AS subordinate_count FROM employees GROUP BY manager_id HAVING subordinate_count > 2;",
-                expectedRowCount: 1,
+                expectedRowCount: 2,
                 expectedData: [
-                    { manager_id: 1, subordinate_count: 3 }
+                    {
+                        "manager_id": null,
+                        "subordinate_count": 3
+                      },
+                      {
+                        "manager_id": 1,
+                        "subordinate_count": 3
+                      }
                 ]
             }
         ]
@@ -2621,8 +2628,8 @@ export const ALL_PROBLEMS = [
                 query: "SELECT DISTINCT department FROM employees WHERE salary > 70000;",
                 expectedRowCount: 2,
                 expectedData: [
-                    { department: 'Finance' },
-                    { department: 'IT' }
+                    { "department": "Finance" },
+                    { "department": "IT" }
                 ]
             }
         ]
@@ -2662,11 +2669,13 @@ export const ALL_PROBLEMS = [
         testCases: [
             {
                 query: "SELECT manager_id, COUNT(*) AS num_employees FROM employees WHERE manager_id IS NOT NULL GROUP BY manager_id;",
-                expectedRowCount: 3,
+                expectedRowCount: 5,
                 expectedData: [
-                    { manager_id: 1, num_employees: 3 },
-                    { manager_id: 3, num_employees: 1 },
-                    { manager_id: 4, num_employees: 1 }
+                    { "manager_id": 1, "num_employees": 3 },
+                    { "manager_id": 2, "num_employees": 1 },
+                    { "manager_id": 3, "num_employees": 1 },
+                    { "manager_id": 4, "num_employees": 1 },
+                    { "manager_id": 5, "num_employees": 1 }
                 ]
             }
         ]
@@ -2686,15 +2695,17 @@ export const ALL_PROBLEMS = [
         testCases: [
             {
                 query: "SELECT years_experience, AVG(salary) AS avg_salary FROM employees GROUP BY years_experience;",
-                expectedRowCount: 7,
+                expectedRowCount: 9,
                 expectedData: [
-                    { years_experience: 3, avg_salary: 40000 },
-                    { years_experience: 4, avg_salary: 45000 },
-                    { years_experience: 5, avg_salary: 50000 },
-                    { years_experience: 6, avg_salary: 54000 },
-                    { years_experience: 7, avg_salary: 62000 },
-                    { years_experience: 8, avg_salary: 55000 },
-                    { years_experience: 10, avg_salary: 65000 }
+                    { "years_experience": 3, "avg_salary": 40000 },
+                    { "years_experience": 4, "avg_salary": 45000 },
+                    { "years_experience": 5, "avg_salary": 50000 },
+                    { "years_experience": 6, "avg_salary": 54000 },
+                    { "years_experience": 7, "avg_salary": 62000 },
+                    { "years_experience": 8, "avg_salary": 55000 },
+                    { "years_experience": 10, "avg_salary": 65000 },
+                    {"years_experience": 12,"avg_salary": 80000},
+                    {"years_experience": 15,"avg_salary": 75000}
                 ]
             }
         ]
@@ -2735,16 +2746,46 @@ export const ALL_PROBLEMS = [
                 query: "SELECT name, department FROM employees ORDER BY department, name;",
                 expectedRowCount: 10,
                 expectedData: [
-                    { name: 'Adam Smith', department: 'IT' },
-                    { name: 'George Harris', department: 'IT' },
-                    { name: 'Ivan Young', department: 'Finance' },
-                    { name: 'Daisy Carter', department: 'Finance' },
-                    { name: 'Alice Johnson', department: 'Sales' },
-                    { name: 'Fiona Green', department: 'Sales' },
-                    { name: 'Charlie Brown', department: 'HR' },
-                    { name: 'Hannah Lee', department: 'HR' },
-                    { name: 'Edward Davis', department: 'Marketing' },
-                    { name: 'Julia Thomas', department: 'Marketing' }
+                    {
+                        "name": "Daisy Carter",
+                        "department": "Finance"
+                      },
+                      {
+                        "name": "Ivan Young",
+                        "department": "Finance"
+                      },
+                      {
+                        "name": "Charlie Brown",
+                        "department": "HR"
+                      },
+                      {
+                        "name": "Hannah Lee",
+                        "department": "HR"
+                      },
+                      {
+                        "name": "Adam Smith",
+                        "department": "IT"
+                      },
+                      {
+                        "name": "George Harris",
+                        "department": "IT"
+                      },
+                      {
+                        "name": "Edward Davis",
+                        "department": "Marketing"
+                      },
+                      {
+                        "name": "Julia Thomas",
+                        "department": "Marketing"
+                      },
+                      {
+                        "name": "Alice Johnson",
+                        "department": "Sales"
+                      },
+                      {
+                        "name": "Fiona Green",
+                        "department": "Sales"
+                      }
                 ]
             }
         ]
@@ -2842,11 +2883,31 @@ export const ALL_PROBLEMS = [
                         WHERE salary > (SELECT AVG(salary) FROM employees WHERE department = e.department);`,
                 expectedRowCount: 5,
                 expectedData: [
-                    { name: 'Alice Johnson', salary: 60000, department: 'Sales' },
-                    { name: 'Edward Davis', salary: 62000, department: 'Marketing' },
-                    { name: 'George Harris', salary: 80000, department: 'IT' },
-                    { name: 'Daisy Carter', salary: 75000, department: 'Finance' },
-                    { name: 'Charlie Brown', salary: 55000, department: 'HR' }
+                    {
+                        "name": "Alice Johnson",
+                        "salary": 60000,
+                        "department": "Sales"
+                      },
+                      {
+                        "name": "Charlie Brown",
+                        "salary": 55000,
+                        "department": "HR"
+                      },
+                      {
+                        "name": "Daisy Carter",
+                        "salary": 75000,
+                        "department": "Finance"
+                      },
+                      {
+                        "name": "Edward Davis",
+                        "salary": 62000,
+                        "department": "Marketing"
+                      },
+                      {
+                        "name": "George Harris",
+                        "salary": 80000,
+                        "department": "IT"
+                      }
                 ]
             }
         ]
@@ -2869,11 +2930,31 @@ export const ALL_PROBLEMS = [
                         (SELECT department, MAX(years_experience) FROM employees GROUP BY department);`,
                 expectedRowCount: 5,
                 expectedData: [
-                    { department: 'Sales', name: 'Alice Johnson', years_experience: 10 },
-                    { department: 'Finance', name: 'Daisy Carter', years_experience: 15 },
-                    { department: 'Marketing', name: 'Edward Davis', years_experience: 7 },
-                    { department: 'IT', name: 'George Harris', years_experience: 12 },
-                    { department: 'HR', name: 'Charlie Brown', years_experience: 8 }
+                    {
+                        "department": "Sales",
+                        "name": "Alice Johnson",
+                        "years_experience": 10
+                      },
+                      {
+                        "department": "HR",
+                        "name": "Charlie Brown",
+                        "years_experience": 8
+                      },
+                      {
+                        "department": "Finance",
+                        "name": "Daisy Carter",
+                        "years_experience": 15
+                      },
+                      {
+                        "department": "Marketing",
+                        "name": "Edward Davis",
+                        "years_experience": 7
+                      },
+                      {
+                        "department": "IT",
+                        "name": "George Harris",
+                        "years_experience": 12
+                      }
                 ]
             }
         ]
@@ -2917,44 +2998,32 @@ export const ALL_PROBLEMS = [
                         FROM employees GROUP BY department;`,
                 expectedRowCount: 5,
                 expectedData: [
-                    { department: 'Sales', percentage_above_50000: 50.00 },
-                    { department: 'Finance', percentage_above_50000: 100.00 },
-                    { department: 'Marketing', percentage_above_50000: 100.00 },
-                    { department: 'IT', percentage_above_50000: 100.00 },
-                    { department: 'HR', percentage_above_50000: 50.00 }
-                ]
-            }
-        ]
-    },
-
-    // Problem 40
-    {
-        id: "SQ40-0BSFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Hard",
-        base_price: 100,
-        points: 90,
-        time_limit: 10,
-        title: "Top 10% salary within each department",
-        description: "Retrieve employees whose salaries are within the top 10% in their department.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: `SELECT department, name, salary FROM employees WHERE salary >= 
-                        (SELECT PERCENTILE_CONT(0.9) WITHIN GROUP (ORDER BY salary) FROM employees AS e2 WHERE e2.department = employees.department);`,
-                expectedRowCount: 5,
-                expectedData: [
-                    { department: 'Sales', name: 'Alice Johnson', salary: 60000 },
-                    { department: 'Finance', name: 'Daisy Carter', salary: 75000 },
-                    { department: 'Marketing', name: 'Edward Davis', salary: 62000 },
-                    { department: 'IT', name: 'George Harris', salary: 80000 },
-                    { department: 'HR', name: 'Charlie Brown', salary: 55000 }
+                    {
+                        "department": "Finance",
+                        "percentage_above_50000": 100
+                      },
+                      {
+                        "department": "HR",
+                        "percentage_above_50000": 50
+                      },
+                      {
+                        "department": "IT",
+                        "percentage_above_50000": 50
+                      },
+                      {
+                        "department": "Marketing",
+                        "percentage_above_50000": 100
+                      },
+                      {
+                        "department": "Sales",
+                        "percentage_above_50000": 50
+                      }
                 ]
             }
         ]
     },
     // ===================================== WEB PROGRAMMING ========================================================
-    // Question 1
+    // Problem 1
     {
         id: "wprb1as8dfghjklm",
         category: "Web Programming",
@@ -2965,71 +3034,30 @@ export const ALL_PROBLEMS = [
         title: "Create a basic HTML structure",
         description: "Write HTML code to create a page with an <h1> heading that says 'Welcome!' and a paragraph below it that says 'This is my first webpage.'",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Basic HTML Structure</title>
-                </head>
-                <body>
-                    <!-- Your code here -->
-                </body>
-                </html>
-            `,
-            css: `
-                /* No additional styles needed */
-            `,
-            js: `
-                // No JavaScript required for this task
-            `
-        },
-        testCases: [
-            { description: "Page contains an <h1> tag with 'Welcome!'", expectedOutput: true },
-            { description: "Page contains a <p> tag with 'This is my first webpage.'", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Basic HTML Structure</title>\n    </head>\n    <body>\n        <!-- Your code here -->\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "// No JavaScript required for this task"
+        }
     },
-    // Question 2
+
+    // Problem 2
     {
         id: "wprb2as8dfghjklm",
         category: "Web Programming",
         difficulty: "Easy",
         points: 15,
         base_price: 25,
-        time_limit: 7,
+        time_limit: 5,
         title: "Style a Button",
-        description: "Write CSS to make the button have rounded corners and change its background color when hovered.",
+        description: "Create a button with the id 'styledButton' that has rounded corners and changes background color when hovered.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Styled Button</title>
-                    <link rel="stylesheet" href="styles.css">
-                </head>
-                <body>
-                    <button id="styledButton">Click Me</button>
-                </body>
-                </html>
-            `,
-            css: `
-                #styledButton {
-                    /* Add styles here */
-                }
-            `,
-            js: `
-                // No JavaScript required for this task
-            `
-        },
-        testCases: [
-            { description: "Button has rounded corners", expectedOutput: true },
-            { description: "Button background color changes on hover", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Styled Button</title>\n        <link rel='stylesheet' href='styles.css'>\n    </head>\n    <body>\n        <button id='styledButton'>Click Me</button>\n    </body>\n</html>",
+            css: "#styledButton {\n    /* Your styles here */\n}",
+            js: "// No JavaScript required for this task"
+        }
     },
-    // Question 3
+
+    // Problem 3
     {
         id: "wprb3as8dfghjklm",
         category: "Web Programming",
@@ -3038,938 +3066,382 @@ export const ALL_PROBLEMS = [
         base_price: 25,
         time_limit: 5,
         title: "JavaScript Alert on Click",
-        description: "Write JavaScript to display an alert with the message 'Button Clicked!' when the button is clicked.",
+        description: "Create a button with id 'alertButton'. When clicked, it should display an alert saying 'Button Clicked!'.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Alert Button</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <button id="alertButton">Click Me</button>
-                </body>
-                </html>
-            `,
-            css: `
-                /* No additional styles needed */
-            `,
-            js: `
-                document.getElementById("alertButton").addEventListener("click", function() {
-                    // Add alert code here
-                });
-            `
-        },
-        testCases: [
-            { description: "Alert displays 'Button Clicked!' when button is clicked", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Alert Button</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <button id='alertButton'>Show Alert</button>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const alertBtn = document.getElementById('alertButton');\n// Your code here"
+        }
     },
-    // Question 4
+
+    // Problem 4
     {
         id: "wprb4as8dfghjklm",
         category: "Web Programming",
         difficulty: "Easy",
         points: 15,
         base_price: 25,
-        time_limit: 6,
+        time_limit: 5,
         title: "Create a Horizontal List",
-        description: "Use CSS to style the list items horizontally in a row.",
+        description: "Create an unordered list with id 'horizontalList' where all list items are displayed in a row.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Horizontal List</title>
-                    <link rel="stylesheet" href="styles.css">
-                </head>
-                <body>
-                    <ul id="horizontalList">
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                    </ul>
-                </body>
-                </html>
-            `,
-            css: `
-                #horizontalList {
-                    /* Add CSS to display list items in a row */
-                }
-            `,
-            js: `
-                // No JavaScript required for this task
-            `
-        },
-        testCases: [
-            { description: "List items are displayed in a row", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Horizontal List</title>\n        <link rel='stylesheet' href='styles.css'>\n    </head>\n    <body>\n        <ul id='horizontalList'>\n            <li>Item 1</li>\n            <li>Item 2</li>\n            <li>Item 3</li>\n        </ul>\n    </body>\n</html>",
+            css: "#horizontalList li {\n    display: inline-block;\n    margin-right: 10px;\n}",
+            js: "// No JavaScript required for this task"
+        }
     },
-    // Question 5
+
+    // Problem 5
     {
         id: "wprb5as8dfghjklm",
         category: "Web Programming",
         difficulty: "Easy",
         points: 20,
         base_price: 30,
-        time_limit: 8,
+        time_limit: 5,
         title: "Sum Two Numbers",
-        description: "Write JavaScript to add two numbers from input fields and display the sum in a <div> element.",
+        description: "Create a form with two input fields and a button. When the button is clicked, it should display the sum of the two numbers in a paragraph with id 'result'.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Sum Calculator</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <input type="number" id="num1" placeholder="Enter first number">
-                    <input type="number" id="num2" placeholder="Enter second number">
-                    <button id="calculateSum">Calculate Sum</button>
-                    <div id="result"></div>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for inputs and result div */
-            `,
-            js: `
-                document.getElementById("calculateSum").addEventListener("click", function() {
-                    // Add code to calculate and display the sum
-                });
-            `
-        },
-        testCases: [
-            { description: "Calculates sum of 3 and 5 as 8", expectedOutput: 8 },
-            { description: "Calculates sum of -5 and 10 as 5", expectedOutput: 5 }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Sum Two Numbers</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <input type='number' id='num1' placeholder='Enter first number'>\n        <input type='number' id='num2' placeholder='Enter second number'>\n        <button id='calculateSum'>Calculate Sum</button>\n        <p id='result'></p>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const calculateBtn = document.getElementById('calculateSum');\n// Your code here"
+        }
     },
-    // Question 6
+    // Problem 6
     {
         id: "wprb6as8dfghjklm",
         category: "Web Programming",
         difficulty: "Easy",
-        points: 20,
-        base_price: 30,
-        time_limit: 7,
+        points: 10,
+        base_price: 20,
+        time_limit: 5,
         title: "Change Text Color on Hover",
-        description: "Write CSS to change the color of a paragraph's text when hovered.",
+        description: "Create a paragraph with id 'hoverText' that changes color when hovered.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Hover Text Color</title>
-                    <link rel="stylesheet" href="styles.css">
-                </head>
-                <body>
-                    <p id="hoverText">Hover over this text to change its color.</p>
-                </body>
-                </html>
-            `,
-            css: `
-                #hoverText {
-                    /* Add CSS to change text color on hover */
-                }
-            `,
-            js: `
-                // No JavaScript required for this task
-            `
-        },
-        testCases: [
-            { description: "Text color changes on hover", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Hover Text Color</title>\n        <link rel='stylesheet' href='styles.css'>\n    </head>\n    <body>\n        <p id='hoverText'>Hover over this text</p>\n    </body>\n</html>",
+            css: "/* Your styles here */",
+            js: "// No JavaScript required for this task"
+        }
     },
-    // Question 7
+
+    // Problem 7
     {
         id: "wprb7as8dfghjklm",
         category: "Web Programming",
         difficulty: "Easy",
-        points: 20,
-        base_price: 30,
-        time_limit: 10,
+        points: 15,
+        base_price: 25,
+        time_limit: 5,
         title: "Display Alert with Input Value",
-        description: "Write JavaScript to display an alert with the value entered in an input field when the button is clicked.",
+        description: "Create an input field with id 'userInput' and a button with id 'showAlert'. When the button is clicked, it should display an alert with the input's value.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Alert with Input Value</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <input type="text" id="userInput" placeholder="Enter some text">
-                    <button id="showAlert">Show Alert</button>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for input and button */
-            `,
-            js: `
-                document.getElementById("showAlert").addEventListener("click", function() {
-                    // Add code to display alert with input value
-                });
-            `
-        },
-        testCases: [
-            { description: "Displays alert with entered text 'Hello'", expectedOutput: "Hello" },
-            { description: "Displays alert with entered text 'World'", expectedOutput: "World" }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Alert with Input Value</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <input type='text' id='userInput' placeholder='Enter text'>\n        <button id='showAlert'>Show Alert</button>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const showAlertBtn = document.getElementById('showAlert');\n// Code from here"
+        }
     },
-    // Question 8
+
+    // Problem 8
     {
         id: "wprb8as8dfghjklm",
         category: "Web Programming",
         difficulty: "Easy",
-        points: 25,
-        base_price: 35,
-        time_limit: 10,
+        points: 20,
+        base_price: 30,
+        time_limit: 5,
         title: "Toggle Paragraph Visibility",
-        description: "Write JavaScript to toggle the visibility of a paragraph when a button is clicked.",
+        description: "Create a paragraph with id 'toggleText' and a button with id 'toggleButton'. Clicking the button should toggle the paragraph's visibility.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Toggle Visibility</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <button id="toggleButton">Toggle Paragraph</button>
-                    <p id="toggleText">This text will be shown or hidden when the button is clicked.</p>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for button and paragraph */
-            `,
-            js: `
-                document.getElementById("toggleButton").addEventListener("click", function() {
-                    // Add code to toggle visibility of paragraph
-                });
-            `
-        },
-        testCases: [
-            { description: "Paragraph is visible after one button click", expectedOutput: true },
-            { description: "Paragraph is hidden after two button clicks", expectedOutput: false }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Toggle Paragraph</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <p id='toggleText'>This is a toggleable paragraph.</p>\n        <button id='toggleButton'>Toggle Visibility</button>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const toggleBtn = document.getElementById('toggleButton');\n// Code from here"
+        }
     },
-    // Question 9
+
+    // Problem 9
     {
         id: "wprb9as8dfghjklm",
         category: "Web Programming",
         difficulty: "Easy",
-        points: 25,
-        base_price: 35,
-        time_limit: 8,
+        points: 15,
+        base_price: 25,
+        time_limit: 5,
         title: "Add Item to List",
-        description: "Write JavaScript to add an item to a list when a button is clicked.",
+        description: "Create an unordered list with id 'itemList' and a button with id 'addItemButton'. When the button is clicked, a new list item should be added to the list.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Add to List</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <ul id="itemList">
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                    </ul>
-                    <button id="addItemButton">Add Item</button>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for list and button */
-            `,
-            js: `
-                document.getElementById("addItemButton").addEventListener("click", function() {
-                    // Add code to append new item to list
-                });
-            `
-        },
-        testCases: [
-            { description: "Adds a new item to the list on button click", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Add List Item</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <ul id='itemList'>\n            <li>Item 1</li>\n            <li>Item 2</li>\n        </ul>\n        <button id='addItemButton'>Add Item</button>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const addItemBtn = document.getElementById('addItemButton');\nconst itemList = document.getElementById('itemList');\n// Code from here"
+        }
     },
-    // Question 10
+
+    // Problem 10
     {
         id: "wprb10as8dfghjklm",
         category: "Web Programming",
         difficulty: "Easy",
-        points: 25,
-        base_price: 35,
-        time_limit: 8,
+        points: 20,
+        base_price: 30,
+        time_limit: 5,
         title: "Change Background Color",
-        description: "Write JavaScript to change the background color of the body when a button is clicked.",
+        description: "Create a button with id 'changeColorButton' that changes the background color of the page each time it's clicked.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Change Background</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <button id="changeColorButton">Change Background Color</button>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for button */
-            `,
-            js: `
-                document.getElementById("changeColorButton").addEventListener("click", function() {
-                    // Add code to change background color
-                });
-            `
-        },
-        testCases: [
-            { description: "Background color changes on button click", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Change Background Color</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <button id='changeColorButton'>Change Background Color</button>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const changeColorBtn = document.getElementById('changeColorButton');\n// Code from here"
+        }
     },
-    // Question 11
+    // Problem 11
     {
         id: "wprb11zx9dfghjklm",
         category: "Web Programming",
         difficulty: "Easy",
-        points: 30,
-        base_price: 40,
-        time_limit: 10,
+        points: 10,
+        base_price: 20,
+        time_limit: 5,
         title: "Hide Element on Button Click",
-        description: "Write JavaScript to hide a specific element when a button is clicked.",
+        description: "Create a button with id 'hideButton' that hides a paragraph with id 'textToHide' when clicked.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Hide Element</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <button id="hideButton">Hide Text</button>
-                    <p id="textToHide">This text will disappear on button click.</p>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for button and text */
-            `,
-            js: `
-                document.getElementById("hideButton").addEventListener("click", function() {
-                    // Add code to hide the paragraph with id 'textToHide'
-                });
-            `
-        },
-        testCases: [
-            { description: "Paragraph is hidden on button click", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Hide Text</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <p id='textToHide'>This text will be hidden when you click the button.</p>\n        <button id='hideButton'>Hide Text</button>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const hideBtn = document.getElementById('hideButton');\nconst textToHide = document.getElementById('textToHide');\n"
+        }
     },
-    // Question 12
+
+    // Problem 12
     {
         id: "wprb12zx9dfghjklm",
         category: "Web Programming",
         difficulty: "Easy",
-        points: 30,
-        base_price: 40,
-        time_limit: 10,
+        points: 15,
+        base_price: 25,
+        time_limit: 5,
         title: "Create Hover Effect for Button",
-        description: "Write CSS to increase the button's font size on hover.",
+        description: "Create a button with id 'hoverButton' that increases its font size when hovered.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Button Hover Effect</title>
-                    <link rel="stylesheet" href="styles.css">
-                </head>
-                <body>
-                    <button id="hoverButton">Hover over me!</button>
-                </body>
-                </html>
-            `,
-            css: `
-                #hoverButton {
-                    /* Add CSS to increase font size on hover */
-                }
-            `,
-            js: `
-                // No JavaScript required for this task
-            `
-        },
-        testCases: [
-            { description: "Button font size increases on hover", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Hover Button</title>\n        <link rel='stylesheet' href='styles.css'>\n    </head>\n    <body>\n        <button id='hoverButton'>Hover over me</button>\n    </body>\n</html>",
+            css: "/* Your styles go here */",
+            js: "// No JavaScript required for this task"
+        }
     },
-    // Question 13
+
+    // Problem 13
     {
         id: "wprb13zx9dfghjklm",
         category: "Web Programming",
         difficulty: "Easy",
-        points: 35,
-        base_price: 45,
-        time_limit: 8,
+        points: 20,
+        base_price: 30,
+        time_limit: 5,
         title: "Show Alert on Page Load",
-        description: "Write JavaScript to display an alert message when the page loads.",
+        description: "Create a JavaScript alert that says 'Welcome!' when the page loads.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Page Load Alert</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <p>Page content goes here.</p>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for page content */
-            `,
-            js: `
-                // Add code to display an alert with a welcome message when the page loads
-                window.addEventListener('load', function() {
-                    // Alert message here
-                });
-            `
-        },
-        testCases: [
-            { description: "Displays alert with 'Welcome!' on page load", expectedOutput: "Welcome!" }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Page Load Alert</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "// Your javascript goes here"
+        }
     },
-    // Question 14
+
+    // Problem 14
     {
         id: "wprb14zx9dfghjklm",
         category: "Web Programming",
         difficulty: "Easy",
-        points: 30,
-        base_price: 40,
-        time_limit: 10,
+        points: 15,
+        base_price: 25,
+        time_limit: 5,
         title: "Append Text to Paragraph on Click",
-        description: "Write JavaScript to append a new line of text to an existing paragraph when a button is clicked.",
+        description: "Create a button with id 'appendButton' that appends ' New text added.' to a paragraph with id 'paragraph' when clicked.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Append Text</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <p id="paragraph">Original text.</p>
-                    <button id="appendButton">Add Text</button>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for button and paragraph */
-            `,
-            js: `
-                document.getElementById("appendButton").addEventListener("click", function() {
-                    // Add code to append new text to the paragraph
-                });
-            `
-        },
-        testCases: [
-            { description: "Paragraph text changes to 'Original text. New text added.'", expectedOutput: "Original text. New text added." }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Append Text</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <p id='paragraph'>Original text.</p>\n        <button id='appendButton'>Add Text</button>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const appendBtn = document.getElementById('appendButton');\nconst paragraph = document.getElementById('paragraph');\n// Code from here"
+        }
     },
-    // Question 15
+
+    // Problem 15
     {
         id: "wprb15zx9dfghjklm",
         category: "Web Programming",
-        difficulty: "Easy",
-        points: 35,
-        base_price: 45,
-        time_limit: 8,
+        difficulty: "Medium",
+        points: 20,
+        base_price: 30,
+        time_limit: 5,
         title: "Display Date on Button Click",
-        description: "Write JavaScript to display the current date below a button when clicked.",
+        description: "Create a button with id 'displayDateButton' that displays the current date in a paragraph with id 'dateParagraph' when clicked.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Display Date</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <button id="displayDateButton">Show Date</button>
-                    <p id="dateParagraph"></p>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for button and date display */
-            `,
-            js: `
-                document.getElementById("displayDateButton").addEventListener("click", function() {
-                    // Add code to display the current date in the paragraph with id 'dateParagraph'
-                });
-            `
-        },
-        testCases: [
-            { description: "Displays the current date in the format 'YYYY-MM-DD'", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Display Date</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <button id='displayDateButton'>Show Date</button>\n        <p id='dateParagraph'></p>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const displayDateBtn = document.getElementById('displayDateButton');\nconst dateParagraph = document.getElementById('dateParagraph');\n// Code from here"
+        }
     },
-    // Question 16
+    // Problem 16
     {
         id: "wprb16zx9dfghjklm",
         category: "Web Programming",
-        difficulty: "Easy",
-        points: 35,
-        base_price: 45,
-        time_limit: 8,
+        difficulty: "Medium",
+        points: 25,
+        base_price: 35,
+        time_limit: 5,
         title: "Toggle Background Color",
-        description: "Write JavaScript to toggle the background color of a div between two colors when a button is clicked.",
+        description: "Create a button with id 'toggleButton' that toggles the background color of a div with id 'colorBox' between lightblue and lightgreen each time it is clicked.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Toggle Background Color</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <button id="toggleButton">Toggle Color</button>
-                    <div id="colorBox" style="width: 100px; height: 100px; background-color: lightblue;"></div>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for button and div */
-                #colorBox {
-                    transition: background-color 0.3s ease;
-                }
-            `,
-            js: `
-                document.getElementById("toggleButton").addEventListener("click", function() {
-                    // Add code to toggle the background color of 'colorBox'
-                });
-            `
-        },
-        testCases: [
-            { description: "Div color toggles between lightblue and lightgreen on each click", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Toggle Color</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <div id='colorBox' style='width: 100px; height: 100px;'></div>\n        <button id='toggleButton'>Toggle Color</button>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const toggleBtn = document.getElementById('toggleButton');\nconst colorBox = document.getElementById('colorBox');\n// Code from here"
+        }
     },
-    // Question 17
+
+    // Problem 17
     {
         id: "wprb17zx9dfghjklm",
         category: "Web Programming",
-        difficulty: "Easy",
-        points: 30,
-        base_price: 40,
-        time_limit: 8,
+        difficulty: "Medium",
+        points: 20,
+        base_price: 30,
+        time_limit: 5,
         title: "Change Text Color on Hover",
-        description: "Write CSS to change the text color of a paragraph when it is hovered over.",
+        description: "Create a paragraph with id 'hoverText' that changes its text color when hovered.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Hover Text Color</title>
-                    <link rel="stylesheet" href="styles.css">
-                </head>
-                <body>
-                    <p id="hoverText">Hover over this text to change its color.</p>
-                </body>
-                </html>
-            `,
-            css: `
-                #hoverText {
-                    /* Add CSS to change color on hover */
-                }
-            `,
-            js: `
-                // No JavaScript needed for this task
-            `
-        },
-        testCases: [
-            { description: "Text color changes on hover", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Hover Text Color</title>\n        <link rel='stylesheet' href='styles.css'>\n    </head>\n    <body>\n        <p id='hoverText'>Hover over this text to change its color.</p>\n    </body>\n</html>",
+            css: "/* Your styles go here */",
+            js: "// No JavaScript required for this task"
+        }
     },
-    // Question 18
+
+    // Problem 18
     {
         id: "wprb18zx9dfghjklm",
         category: "Web Programming",
-        difficulty: "Easy",
-        points: 35,
-        base_price: 45,
-        time_limit: 9,
+        difficulty: "Medium",
+        points: 25,
+        base_price: 35,
+        time_limit: 5,
         title: "Update Text on Input",
-        description: "Write JavaScript to update a paragraph with the text entered in an input field in real-time.",
+        description: "Create an input field with id 'textInput' and a paragraph with id 'displayText'. Display the text entered in the input field in the paragraph in real-time.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Real-Time Text Update</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <input type="text" id="textInput" placeholder="Type here">
-                    <p id="displayText">This text will change.</p>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for input and paragraph */
-            `,
-            js: `
-                document.getElementById("textInput").addEventListener("input", function() {
-                    // Add code to update 'displayText' with input text
-                });
-            `
-        },
-        testCases: [
-            { description: "Paragraph updates with input field content in real-time", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Real-time Text Update</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <input type='text' id='textInput' placeholder='Type here...'>\n        <p id='displayText'></p>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const textInput = document.getElementById('textInput');\nconst displayText = document.getElementById('displayText');\n// Code from here;"
+        }
     },
-    // Question 19
+
+    // Problem 19
     {
         id: "wprb19zx9dfghjklm",
         category: "Web Programming",
-        difficulty: "Easy",
-        points: 30,
-        base_price: 40,
-        time_limit: 8,
+        difficulty: "Medium",
+        points: 25,
+        base_price: 35,
+        time_limit: 5,
         title: "Display Length of Input Text",
-        description: "Write JavaScript to display the length of the text entered in an input field below it.",
+        description: "Create an input field with id 'textInput' and a paragraph with id 'textLength' that displays the number of characters entered in the input field in real-time.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Text Length Display</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <input type="text" id="textInput" placeholder="Type something">
-                    <p id="textLength">Length: 0</p>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for input and text length display */
-            `,
-            js: `
-                document.getElementById("textInput").addEventListener("input", function() {
-                    // Add code to update 'textLength' with length of input
-                });
-            `
-        },
-        testCases: [
-            { description: "Displays correct character count of input field text", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Text Length Counter</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <input type='text' id='textInput' placeholder='Type here...'>\n        <p id='textLength'>Length: 0</p>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const textInput = document.getElementById('textInput');\nconst textLength = document.getElementById('textLength');\n// Code from here"
+        }
     },
-    // Question 20
+
+    // Problem 20
     {
         id: "wprb20zx9dfghjklm",
         category: "Web Programming",
-        difficulty: "Easy",
-        points: 35,
-        base_price: 45,
-        time_limit: 9,
+        difficulty: "Medium",
+        points: 30,
+        base_price: 40,
+        time_limit: 5,
         title: "Calculate and Display Sum",
-        description: "Write JavaScript to calculate and display the sum of two numbers entered in two input fields when a button is clicked.",
+        description: "Create two input fields with ids 'num1' and 'num2', and a button with id 'calculateButton'. When clicked, display the sum of the two numbers in a paragraph with id 'sumResult'.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Sum Calculator</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <input type="number" id="num1" placeholder="Enter first number">
-                    <input type="number" id="num2" placeholder="Enter second number">
-                    <button id="calculateButton">Calculate Sum</button>
-                    <p id="sumResult">Sum: </p>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Optional styling for inputs and button */
-            `,
-            js: `
-                document.getElementById("calculateButton").addEventListener("click", function() {
-                    // Add code to calculate and display sum of 'num1' and 'num2'
-                });
-            `
-        },
-        testCases: [
-            { description: "Displays correct sum of two input numbers", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Calculate Sum</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <!-- Your code here -->\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "// Code from here"
+        }
     },
-    // Question 21
+    // Problem 21
     {
         id: "wprb21dfghijklmnop",
         category: "Web Programming",
         difficulty: "Medium",
-        points: 45,
-        base_price: 60,
-        time_limit: 12,
+        points: 30,
+        base_price: 40,
+        time_limit: 5,
         title: "Expand/Collapse Text",
-        description: "Write JavaScript to toggle the visibility of a paragraph's full content when a button is clicked.",
+        description: "Create a button with id 'toggleButton' that expands or collapses the visibility of a paragraph with id 'textContent' each time it is clicked.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Expand/Collapse Text</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <p id="textContent" style="display: none;">This is the full content of the text.</p>
-                    <button id="toggleButton">Show More</button>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Styling for the button and hidden text */
-                #toggleButton {
-                    cursor: pointer;
-                }
-            `,
-            js: `
-                document.getElementById("toggleButton").addEventListener("click", function() {
-                    // Add code to toggle visibility of 'textContent'
-                });
-            `
-        },
-        testCases: [
-            { description: "Text content displays when button clicked", expectedOutput: true },
-            { description: "Text content hides when button clicked again", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Expand/Collapse Text</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <button id='toggleButton'>Toggle Text</button>\n        <p id='textContent' style='display: none;'>This is the text content.</p>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const toggleBtn = document.getElementById('toggleButton');\nconst textContent = document.getElementById('textContent');\n// Code from here"
+        }
     },
-    // Question 22
+
+    // Problem 22
     {
         id: "wprb22dfghijklmnop",
         category: "Web Programming",
         difficulty: "Medium",
-        points: 50,
-        base_price: 65,
-        time_limit: 15,
+        points: 35,
+        base_price: 45,
+        time_limit: 5,
         title: "Simple Calculator",
-        description: "Create a simple calculator that adds, subtracts, multiplies, or divides two numbers based on user selection.",
+        description: "Create a simple calculator with two input fields (id 'num1' and 'num2') and a dropdown (id 'operation') to select the operation (add, subtract, multiply, divide). Display the result in a paragraph with id 'result' when the button with id 'calculateButton' is clicked.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Simple Calculator</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <input type="number" id="num1" placeholder="Enter first number">
-                    <input type="number" id="num2" placeholder="Enter second number">
-                    <select id="operation">
-                        <option value="add">Add</option>
-                        <option value="subtract">Subtract</option>
-                        <option value="multiply">Multiply</option>
-                        <option value="divide">Divide</option>
-                    </select>
-                    <button id="calculateButton">Calculate</button>
-                    <p id="result">Result: </p>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Styling for inputs, button, and dropdown */
-            `,
-            js: `
-                document.getElementById("calculateButton").addEventListener("click", function() {
-                    // Add code to perform selected operation and display the result
-                });
-            `
-        },
-        testCases: [
-            { description: "Addition works correctly", expectedOutput: true },
-            { description: "Subtraction works correctly", expectedOutput: true },
-            { description: "Multiplication works correctly", expectedOutput: true },
-            { description: "Division works correctly", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Simple Calculator</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <input type='number' id='num1' placeholder='Enter first number'>\n        <select id='operation'>\n            <option value='add'>Add</option>\n            <option value='subtract'>Subtract</option>\n            <option value='multiply'>Multiply</option>\n            <option value='divide'>Divide</option>\n        </select>\n        <input type='number' id='num2' placeholder='Enter second number'>\n        <button id='calculateButton'>Calculate</button>\n        <p id='result'></p>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const calculateBtn = document.getElementById('calculateButton');\ncalculateBtn.addEventListener('click', () => {\n    const num1 = parseFloat(document.getElementById('num1').value);\n    const num2 = parseFloat(document.getElementById('num2').value);\n    const operation = document.getElementById('operation').value;\n    let result;\n    switch (operation) {\n        case 'add': result = num1 + num2; break;\n        case 'subtract': result = num1 - num2; break;\n        case 'multiply': result = num1 * num2; break;\n        case 'divide': result = num1 / num2; break;\n    }\n    document.getElementById('result').textContent = `Result: ${result}`;\n});"
+        }
     },
-    // Question 23
+
+    // Problem 23
     {
         id: "wprb23dfghijklmnop",
         category: "Web Programming",
         difficulty: "Medium",
-        points: 55,
-        base_price: 70,
-        time_limit: 14,
+        points: 25,
+        base_price: 35,
+        time_limit: 5,
         title: "Character Counter",
-        description: "Write JavaScript to count characters in a textarea and display the count below it.",
+        description: "Create a text input field with id 'inputText' and a paragraph with id 'charCount' that displays the number of characters typed in real-time.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Character Counter</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <textarea id="inputText" placeholder="Type something..."></textarea>
-                    <p id="charCount">Character Count: 0</p>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Styling for textarea and character count display */
-                #inputText {
-                    width: 100%;
-                    height: 100px;
-                }
-            `,
-            js: `
-                document.getElementById("inputText").addEventListener("input", function() {
-                    // Add code to update 'charCount' with the number of characters typed
-                });
-            `
-        },
-        testCases: [
-            { description: "Displays correct character count as user types", expectedOutput: true },
-            { description: "Character count updates correctly on deletion", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Character Counter</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <input type='text' id='inputText' placeholder='Type something...'>\n        <p id='charCount'>Characters: 0</p>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "const inputText = document.getElementById('inputText');\nconst charCount = document.getElementById('charCount');\ninputText.addEventListener('input', () => {\n    charCount.textContent = `Characters: ${inputText.value.length}`;\n});"
+        }
     },
-    // Question 24
+
+    // Problem 24
     {
         id: "wprb24dfghijklmnop",
         category: "Web Programming",
         difficulty: "Medium",
-        points: 50,
-        base_price: 65,
-        time_limit: 12,
+        points: 30,
+        base_price: 40,
+        time_limit: 5,
         title: "Light/Dark Theme Toggle",
-        description: "Implement a toggle button to switch between light and dark themes for the webpage.",
+        description: "Create a button with id 'themeToggleButton' that toggles between light and dark themes for the page by adding/removing a 'dark-theme' class on the body element.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Theme Toggle</title>
-                    <script src="script.js" defer></script>
-                    <link rel="stylesheet" href="styles.css">
-                </head>
-                <body>
-                    <button id="themeToggleButton">Toggle Theme</button>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Initial light theme and dark theme styles */
-                body.light-theme {
-                    background-color: white;
-                    color: black;
-                }
-                body.dark-theme {
-                    background-color: black;
-                    color: white;
-                }
-            `,
-            js: `
-                document.getElementById("themeToggleButton").addEventListener("click", function() {
-                    // Add code to toggle between 'light-theme' and 'dark-theme' classes on the body
-                });
-            `
-        },
-        testCases: [
-            { description: "Switches to dark theme on first toggle", expectedOutput: true },
-            { description: "Switches back to light theme on second toggle", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Theme Toggle</title>\n        <link rel='stylesheet' href='styles.css'>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <button id='themeToggleButton'>Toggle Theme</button>\n    </body>\n</html>",
+            css: "body.dark-theme {\n    background-color: black;\n    color: white;\n}\nbody {\n    background-color: white;\n    color: black;\n}",
+            js: "const themeToggleBtn = document.getElementById('themeToggleButton');\nthemeToggleBtn.addEventListener('click', () => {\n    document.body.classList.toggle('dark-theme');\n});"
+        }
     },
-    // Question 25
+
+    // Problem 25
     {
         id: "wprb25dfghijklmnop",
         category: "Web Programming",
         difficulty: "Medium",
-        points: 55,
-        base_price: 70,
-        time_limit: 15,
+        points: 30,
+        base_price: 40,
+        time_limit: 5,
         title: "Display Live Clock",
-        description: "Write JavaScript to display the current time and update it every second.",
+        description: "Create a paragraph with id 'liveClock' that displays the current time in 'HH:MM:SS' format and updates every second.",
         existingCode: {
-            html: `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Live Clock</title>
-                    <script src="script.js" defer></script>
-                </head>
-                <body>
-                    <p id="liveClock">Current Time: </p>
-                </body>
-                </html>
-            `,
-            css: `
-                /* Styling for the clock display */
-                #liveClock {
-                    font-size: 24px;
-                    font-weight: bold;
-                }
-            `,
-            js: `
-                function updateClock() {
-                    // Add code to update 'liveClock' with the current time every second
-                }
-                setInterval(updateClock, 1000);
-            `
-        },
-        testCases: [
-            { description: "Displays current time in correct format", expectedOutput: true },
-            { description: "Updates time every second", expectedOutput: true }
-        ]
+            html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Live Clock</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <p id='liveClock'></p>\n    </body>\n</html>",
+            css: "/* No additional styles needed */",
+            js: "function updateClock() {\n    const now = new Date();\n    const hours = String(now.getHours()).padStart(2, '0');\n    const minutes = String(now.getMinutes()).padStart(2, '0');\n    const seconds = String(now.getSeconds()).padStart(2, '0');\n    document.getElementById('liveClock').textContent = `${hours}:${minutes}:${seconds}`;\n}\nsetInterval(updateClock, 1000);\nupdateClock();"
+        }
     },
     // Question 26
     {
