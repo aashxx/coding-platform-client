@@ -39,14 +39,14 @@ const WebProgrammingIDE = () => {
   }, [timeLeft, problemId]);
 
   // Handle timeout
-  useEffect(() => {
-    if (timeLeft === 0) {
-      update(ref(realDb, `allotments/${team}/biddedQuestions/${problemId}`), {
-        status: 'time up'
-      });
-      navigate(`/editor/${team}`);
-    }
-  }, [timeLeft, navigate, problemId, team]);
+  // useEffect(() => {
+  //   if (timeLeft === 0) {
+  //     update(ref(realDb, `allotments/${team}/biddedQuestions/${problemId}`), {
+  //       status: 'time up'
+  //     });
+  //     navigate(`/editor/${team}`);
+    // }
+  // }, [timeLeft, navigate, problemId, team]);
 
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
