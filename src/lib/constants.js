@@ -3913,7 +3913,7 @@ export const ALL_PROBLEMS = [
         base_price: 40,
         time_limit: 5,
         title: "Expand/Collapse Text",
-        description: "Create a button with id 'toggleButton' that expands or collapses the visibility of a paragraph with id 'textContent' each time it is clicked.",
+        description: "Create a button with id 'toggleButton that expands or collapses the visibility of a paragraph with id 'textContent' each time it is clicked.",
         existingCode: {
             html: "<!DOCTYPE html>\n<html lang='en'>\n    <head>\n        <meta charset='UTF-8'>\n        <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n        <title>Expand/Collapse Text</title>\n        <script src='script.js' defer></script>\n    </head>\n    <body>\n        <button id='toggleButton'>Toggle Text</button>\n        <p id='textContent' style='display: none;'>This is the text content.</p>\n    </body>\n</html>",
             css: "/* No additional styles needed */",
