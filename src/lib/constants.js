@@ -1958,630 +1958,1175 @@ export const ALL_PROBLEMS = [
     },
     //==========================================SQL QUERIES=======================================================
     // Problem 1
-    {
-        id: "SQ1-9FJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 20,
-        points: 10,
-        time_limit: 2,
-        title: "Retrieve all records",
-        description: "Retrieve all records from the employees table.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT * FROM employees;",
-                expectedRowCount: 10,
-                expectedData: [
-                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
-                    { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 },
-                    { id: 3, name: 'Charlie Brown', department: 'HR', salary: 55000, hire_date: '2012-11-03', job_title: 'Analyst', manager_id: 1, years_experience: 8 },
-                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
-                    { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 },
-                    { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 },
-                    { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
-                    { id: 8, name: 'Hannah Lee', department: 'HR', salary: 45000, hire_date: '2019-05-23', job_title: 'Consultant', manager_id: 3, years_experience: 4 },
-                    { id: 9, name: 'Ivan Young', department: 'Finance', salary: 70000, hire_date: '2016-09-29', job_title: 'Manager', manager_id: 4, years_experience: 10 },
-                    { id: 10, name: 'Julia Thomas', department: 'Marketing', salary: 54000, hire_date: '2014-04-05', job_title: 'Executive', manager_id: 5, years_experience: 6 }
-                ]
-            }
-        ]
-    },
+  {
+    id: "SQ1-9FJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 20,
+    points: 10,
+    time_limit: 2,
+    title: "Retrieve all records",
+    description: "Retrieve all records from the employees table.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT * FROM employees;",
+        expectedRowCount: 10,
+        expectedData: [
+          {
+            id: 1,
+            name: "Alice Johnson",
+            department: "Sales",
+            salary: 60000,
+            hire_date: "2015-06-20",
+            job_title: "Manager",
+            manager_id: null,
+            years_experience: 10,
+          },
+          {
+            id: 2,
+            name: "Adam Smith",
+            department: "IT",
+            salary: 50000,
+            hire_date: "2018-03-15",
+            job_title: "Developer",
+            manager_id: 1,
+            years_experience: 5,
+          },
+          {
+            id: 3,
+            name: "Charlie Brown",
+            department: "HR",
+            salary: 55000,
+            hire_date: "2012-11-03",
+            job_title: "Analyst",
+            manager_id: 1,
+            years_experience: 8,
+          },
+          {
+            id: 4,
+            name: "Daisy Carter",
+            department: "Finance",
+            salary: 75000,
+            hire_date: "2010-09-17",
+            job_title: "Executive",
+            manager_id: null,
+            years_experience: 15,
+          },
+          {
+            id: 5,
+            name: "Edward Davis",
+            department: "Marketing",
+            salary: 62000,
+            hire_date: "2017-12-11",
+            job_title: "Consultant",
+            manager_id: 2,
+            years_experience: 7,
+          },
+          {
+            id: 6,
+            name: "Fiona Green",
+            department: "Sales",
+            salary: 40000,
+            hire_date: "2020-01-10",
+            job_title: "Analyst",
+            manager_id: 1,
+            years_experience: 3,
+          },
+          {
+            id: 7,
+            name: "George Harris",
+            department: "IT",
+            salary: 80000,
+            hire_date: "2013-07-22",
+            job_title: "Developer",
+            manager_id: null,
+            years_experience: 12,
+          },
+          {
+            id: 8,
+            name: "Hannah Lee",
+            department: "HR",
+            salary: 45000,
+            hire_date: "2019-05-23",
+            job_title: "Consultant",
+            manager_id: 3,
+            years_experience: 4,
+          },
+          {
+            id: 9,
+            name: "Ivan Young",
+            department: "Finance",
+            salary: 70000,
+            hire_date: "2016-09-29",
+            job_title: "Manager",
+            manager_id: 4,
+            years_experience: 10,
+          },
+          {
+            id: 10,
+            name: "Julia Thomas",
+            department: "Marketing",
+            salary: 54000,
+            hire_date: "2014-04-05",
+            job_title: "Executive",
+            manager_id: 5,
+            years_experience: 6,
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 2
-    {
-        id: "SQ2-2ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 20,
-        points: 10,
-        time_limit: 2,
-        title: "Select only name column",
-        description: "Select only the name column from the employees table.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT name FROM employees;",
-                expectedRowCount: 10,
-                expectedData: [
-                    { name: 'Alice Johnson' },
-                    { name: 'Adam Smith' },
-                    { name: 'Charlie Brown' },
-                    { name: 'Daisy Carter' },
-                    { name: 'Edward Davis' },
-                    { name: 'Fiona Green' },
-                    { name: 'George Harris' },
-                    { name: 'Hannah Lee' },
-                    { name: 'Ivan Young' },
-                    { name: 'Julia Thomas' }
-                ]
-            }
-        ]
-    },
+  // Problem 2
+  {
+    id: "SQ2-2ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 20,
+    points: 10,
+    time_limit: 2,
+    title: "Select only name column",
+    description: "Select only the name column from the employees table.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT name FROM employees;",
+        expectedRowCount: 10,
+        expectedData: [
+          { name: "Alice Johnson" },
+          { name: "Adam Smith" },
+          { name: "Charlie Brown" },
+          { name: "Daisy Carter" },
+          { name: "Edward Davis" },
+          { name: "Fiona Green" },
+          { name: "George Harris" },
+          { name: "Hannah Lee" },
+          { name: "Ivan Young" },
+          { name: "Julia Thomas" },
+        ],
+      },
+    ],
+  },
 
-    // Problem 3
-    {
-        id: "SQ3-3ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 25,
-        points: 10,
-        time_limit: 2,
-        title: "Count employees",
-        description: "Find the number of employees in the employees table.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT COUNT(*) AS employee_count FROM employees;",
-                expectedRowCount: 1,
-                expectedData: [
-                    { employee_count: 10 }
-                ]
-            }
-        ]
-    },
+  // Problem 3
+  {
+    id: "SQ3-3ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 25,
+    points: 10,
+    time_limit: 2,
+    title: "Count employees",
+    description: "Find the number of employees in the employees table.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT COUNT(*) AS employee_count FROM employees;",
+        expectedRowCount: 1,
+        expectedData: [{ employee_count: 10 }],
+      },
+    ],
+  },
 
-    // Problem 4
-    {
-        id: "SQ4-4ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 25,
-        points: 15,
-        time_limit: 2,
-        title: "Get distinct departments",
-        description: "Get all distinct values in the department column from employees.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT DISTINCT department FROM employees;",
-                expectedRowCount: 5,
-                expectedData: [
-                    { department: 'Sales' },
-                    { department: 'IT' },
-                    { department: 'HR' },
-                    { department: 'Finance' },
-                    { department: 'Marketing' }
-                ]
-            }
-        ]
-    },
+  // Problem 4
+  {
+    id: "SQ4-4ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 25,
+    points: 15,
+    time_limit: 2,
+    title: "Get distinct departments",
+    description:
+      "Get all distinct values in the department column from employees.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT DISTINCT department FROM employees;",
+        expectedRowCount: 5,
+        expectedData: [
+          { department: "Sales" },
+          { department: "IT" },
+          { department: "HR" },
+          { department: "Finance" },
+          { department: "Marketing" },
+        ],
+      },
+    ],
+  },
 
-    // Problem 5
-    {
-        id: "SQ5-5ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 30,
-        points: 15,
-        time_limit: 2,
-        title: "Salary greater than 50000",
-        description: "Retrieve all employees whose salary is greater than 50000.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT * FROM employees WHERE salary > 50000;",
-                expectedRowCount: 7,
-                expectedData: [
-                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
-                    { id: 3, name: 'Charlie Brown', department: 'HR', salary: 55000, hire_date: '2012-11-03', job_title: 'Analyst', manager_id: 1, years_experience: 8 },
-                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
-                    { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 },
-                    { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
-                    { id: 9, name: 'Ivan Young', department: 'Finance', salary: 70000, hire_date: '2016-09-29', job_title: 'Manager', manager_id: 4, years_experience: 10 },
-                    { id: 10, name: 'Julia Thomas', department: 'Marketing', salary: 54000, hire_date: '2014-04-05', job_title: 'Executive', manager_id: 5, years_experience: 6 }
-                ]
-            }
-        ]
-    },
-    // Problem 6
-    {
-        id: "SQ6-6ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 30,
-        points: 15,
-        time_limit: 3,
-        title: "Count employees per department",
-        description: "Count the number of employees in each department.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT department, COUNT(*) AS employee_count FROM employees GROUP BY department;",
-                expectedRowCount: 5,
-                expectedData: [
-                    { department: 'Sales', employee_count: 2 },
-                    { department: 'IT', employee_count: 2 },
-                    { department: 'HR', employee_count: 2 },
-                    { department: 'Finance', employee_count: 2 },
-                    { department: 'Marketing', employee_count: 2 }
-                ]
-            }
-        ]
-    },
+  // Problem 5
+  {
+    id: "SQ5-5ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 30,
+    points: 15,
+    time_limit: 2,
+    title: "Salary greater than 50000",
+    description: "Retrieve all employees whose salary is greater than 50000.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT * FROM employees WHERE salary > 50000;",
+        expectedRowCount: 7,
+        expectedData: [
+          {
+            id: 1,
+            name: "Alice Johnson",
+            department: "Sales",
+            salary: 60000,
+            hire_date: "2015-06-20",
+            job_title: "Manager",
+            manager_id: null,
+            years_experience: 10,
+          },
+          {
+            id: 3,
+            name: "Charlie Brown",
+            department: "HR",
+            salary: 55000,
+            hire_date: "2012-11-03",
+            job_title: "Analyst",
+            manager_id: 1,
+            years_experience: 8,
+          },
+          {
+            id: 4,
+            name: "Daisy Carter",
+            department: "Finance",
+            salary: 75000,
+            hire_date: "2010-09-17",
+            job_title: "Executive",
+            manager_id: null,
+            years_experience: 15,
+          },
+          {
+            id: 5,
+            name: "Edward Davis",
+            department: "Marketing",
+            salary: 62000,
+            hire_date: "2017-12-11",
+            job_title: "Consultant",
+            manager_id: 2,
+            years_experience: 7,
+          },
+          {
+            id: 7,
+            name: "George Harris",
+            department: "IT",
+            salary: 80000,
+            hire_date: "2013-07-22",
+            job_title: "Developer",
+            manager_id: null,
+            years_experience: 12,
+          },
+          {
+            id: 9,
+            name: "Ivan Young",
+            department: "Finance",
+            salary: 70000,
+            hire_date: "2016-09-29",
+            job_title: "Manager",
+            manager_id: 4,
+            years_experience: 10,
+          },
+          {
+            id: 10,
+            name: "Julia Thomas",
+            department: "Marketing",
+            salary: 54000,
+            hire_date: "2014-04-05",
+            job_title: "Executive",
+            manager_id: 5,
+            years_experience: 6,
+          },
+        ],
+      },
+    ],
+  },
+  // Problem 6
+  {
+    id: "SQ6-6ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 30,
+    points: 15,
+    time_limit: 3,
+    title: "Count employees per department",
+    description: "Count the number of employees in each department.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query:
+          "SELECT department, COUNT(*) AS employee_count FROM employees GROUP BY department;",
+        expectedRowCount: 5,
+        expectedData: [
+          {
+            department: "Finance",
+            employee_count: 2,
+          },
+          {
+            department: "HR",
+            employee_count: 2,
+          },
+          {
+            department: "IT",
+            employee_count: 2,
+          },
+          {
+            department: "Marketing",
+            employee_count: 2,
+          },
+          {
+            department: "Sales",
+            employee_count: 2,
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 7
-    {
-        id: "SQ7-7ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 30,
-        points: 15,
-        time_limit: 2,
-        title: "Find minimum salary",
-        description: "Find the minimum salary from the employees table.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT MIN(salary) AS min_salary FROM employees;",
-                expectedRowCount: 1,
-                expectedData: [
-                    { min_salary: 40000 }
-                ]
-            }
-        ]
-    },
+  // Problem 7
+  {
+    id: "SQ7-7ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 30,
+    points: 15,
+    time_limit: 2,
+    title: "Find minimum salary",
+    description: "Find the minimum salary from the employees table.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT MIN(salary) AS min_salary FROM employees;",
+        expectedRowCount: 1,
+        expectedData: [{ min_salary: 40000 }],
+      },
+    ],
+  },
 
-    // Problem 8
-    {
-        id: "SQ8-8ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 35,
-        points: 20,
-        time_limit: 3,
-        title: "Name starts with 'A'",
-        description: "Retrieve employee records where the name starts with 'A'.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT * FROM employees WHERE name LIKE 'A%';",
-                expectedRowCount: 2,
-                expectedData: [
-                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
-                    { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 }
-                ]
-            }
-        ]
-    },
+  // Problem 8
+  {
+    id: "SQ8-8ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 35,
+    points: 20,
+    time_limit: 3,
+    title: "Name starts with 'A'",
+    description: "Retrieve employee records where the name starts with 'A'.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT * FROM employees WHERE name LIKE 'A%';",
+        expectedRowCount: 2,
+        expectedData: [
+          {
+            id: 1,
+            name: "Alice Johnson",
+            department: "Sales",
+            salary: 60000,
+            hire_date: "2015-06-20",
+            job_title: "Manager",
+            manager_id: null,
+            years_experience: 10,
+          },
+          {
+            id: 2,
+            name: "Adam Smith",
+            department: "IT",
+            salary: 50000,
+            hire_date: "2018-03-15",
+            job_title: "Developer",
+            manager_id: 1,
+            years_experience: 5,
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 9
-    {
-        id: "SQ9-9ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 35,
-        points: 15,
-        time_limit: 2,
-        title: "Average salary",
-        description: "Find the average salary of employees.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT AVG(salary) AS avg_salary FROM employees;",
-                expectedRowCount: 1,
-                expectedData: [
-                    { avg_salary: 59600 }
-                ]
-            }
-        ]
-    },
+  // Problem 9
+  {
+    id: "SQ9-9ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 35,
+    points: 15,
+    time_limit: 2,
+    title: "Average salary",
+    description: "Find the average salary of employees.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT AVG(salary) AS avg_salary FROM employees;",
+        expectedRowCount: 1,
+        expectedData: [{ avg_salary: 59100 }],
+      },
+    ],
+  },
 
-    // Problem 10
-    {
-        id: "SQ10-0ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 40,
-        points: 15,
-        time_limit: 2,
-        title: "Employees in Sales department",
-        description: "Select all employees who work in the Sales department.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT * FROM employees WHERE department = 'Sales';",
-                expectedRowCount: 2,
-                expectedData: [
-                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
-                    { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 }
-                ]
-            }
-        ]
-    },
+  // Problem 10
+  {
+    id: "SQ10-0ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 40,
+    points: 15,
+    time_limit: 2,
+    title: "Employees in Sales department",
+    description: "Select all employees who work in the Sales department.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT * FROM employees WHERE department = 'Sales';",
+        expectedRowCount: 2,
+        expectedData: [
+          {
+            id: 1,
+            name: "Alice Johnson",
+            department: "Sales",
+            salary: 60000,
+            hire_date: "2015-06-20",
+            job_title: "Manager",
+            manager_id: null,
+            years_experience: 10,
+          },
+          {
+            id: 6,
+            name: "Fiona Green",
+            department: "Sales",
+            salary: 40000,
+            hire_date: "2020-01-10",
+            job_title: "Analyst",
+            manager_id: 1,
+            years_experience: 3,
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 11
-    {
-        id: "SQ11-1ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 40,
-        points: 20,
-        time_limit: 2,
-        title: "Employees hired before 2010",
-        description: "Retrieve all employees who were hired before 2010.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT * FROM employees WHERE hire_date < '2010-01-01';",
-                expectedRowCount: 1,
-                expectedData: [
-                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 }
-                ]
-            }
-        ]
-    },
+  // Problem 11
+  {
+    id: "SQ11-1ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 40,
+    points: 20,
+    time_limit: 2,
+    title: "Employees hired before 2010",
+    description: "Retrieve all employees who were hired before 2010.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT * FROM employees WHERE hire_date < '2010-01-01';",
+        expectedRowCount: 0,
+        expectedData: [],
+      },
+    ],
+  },
 
-    // Problem 12
-    {
-        id: "SQ12-2ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 40,
-        points: 20,
-        time_limit: 2,
-        title: "Departments with more than 5 employees",
-        description: "List all departments with more than 5 employees.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT department FROM employees GROUP BY department HAVING COUNT(*) > 5;",
-                expectedRowCount: 0,
-                expectedData: [] // No department has more than 5 employees in the mock data
-            }
-        ]
-    },
+  // Problem 12
+  {
+    id: "SQ12-2ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 40,
+    points: 20,
+    time_limit: 2,
+    title: "Departments with more than 5 employees",
+    description: "List all departments with more than 5 employees.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query:
+          "SELECT department FROM employees GROUP BY department HAVING COUNT(*) > 5;",
+        expectedRowCount: 0,
+        expectedData: [], // No department has more than 5 employees in the mock data
+      },
+    ],
+  },
 
-    // Problem 13
-    {
-        id: "SQ13-3ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 40,
-        points: 20,
-        time_limit: 3,
-        title: "Maximum salary per department",
-        description: "Display the maximum salary in each department.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT department, MAX(salary) AS max_salary FROM employees GROUP BY department;",
-                expectedRowCount: 5,
-                expectedData: [
-                    { department: 'Sales', max_salary: 60000 },
-                    { department: 'IT', max_salary: 80000 },
-                    { department: 'HR', max_salary: 55000 },
-                    { department: 'Finance', max_salary: 75000 },
-                    { department: 'Marketing', max_salary: 62000 }
-                ]
-            }
-        ]
-    },
+  // Problem 13
+  {
+    id: "SQ13-3ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 40,
+    points: 20,
+    time_limit: 3,
+    title: "Maximum salary per department",
+    description: "Display the maximum salary in each department.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query:
+          "SELECT department, MAX(salary) AS max_salary FROM employees GROUP BY department;",
+        expectedRowCount: 5,
+        expectedData: [
+          {
+            department: "Finance",
+            max_salary: 75000,
+          },
+          {
+            department: "HR",
+            max_salary: 55000,
+          },
+          {
+            department: "IT",
+            max_salary: 80000,
+          },
+          {
+            department: "Marketing",
+            max_salary: 62000,
+          },
+          {
+            department: "Sales",
+            max_salary: 60000,
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 14
-    {
-        id: "SQ14-4ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 45,
-        points: 25,
-        time_limit: 4,
-        title: "Employees with name containing 'John'",
-        description: "Find employees whose name contains the substring 'John'.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT * FROM employees WHERE name LIKE '%John%';",
-                expectedRowCount: 1,
-                expectedData: [
-                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 }
-                ]
-            }
-        ]
-    },
+  // Problem 14
+  {
+    id: "SQ14-4ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 45,
+    points: 25,
+    time_limit: 4,
+    title: "Employees with name containing 'John'",
+    description: "Find employees whose name contains the substring 'John'.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT * FROM employees WHERE name LIKE '%John%';",
+        expectedRowCount: 1,
+        expectedData: [
+          {
+            id: 1,
+            name: "Alice Johnson",
+            department: "Sales",
+            salary: 60000,
+            hire_date: "2015-06-20",
+            job_title: "Manager",
+            manager_id: null,
+            years_experience: 10,
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 15
-    {
-        id: "SQ15-5ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 45,
-        points: 20,
-        time_limit: 4,
-        title: "Employees sorted by salary (desc)",
-        description: "Retrieve records sorted by the salary column in descending order.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT * FROM employees ORDER BY salary DESC;",
-                expectedRowCount: 10,
-                expectedData: [
-                    { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
-                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
-                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
-                    { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 },
-                    { id: 9, name: 'Ivan Young', department: 'Finance', salary: 70000, hire_date: '2016-09-29', job_title: 'Manager', manager_id: 4, years_experience: 10 },
-                    { id: 10, name: 'Julia Thomas', department: 'Marketing', salary: 54000, hire_date: '2014-04-05', job_title: 'Executive', manager_id: 5, years_experience: 6 },
-                    { id: 3, name: 'Charlie Brown', department: 'HR', salary: 55000, hire_date: '2012-11-03', job_title: 'Analyst', manager_id: 1, years_experience: 8 },
-                    { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 },
-                    { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 },
-                    { id: 8, name: 'Hannah Lee', department: 'HR', salary: 45000, hire_date: '2019-05-23', job_title: 'Consultant', manager_id: 3, years_experience: 4 }
-                ]
-            }
-        ]
-    },
-    
-    // Problem 16
-    {
-        id: "SQ16-6ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 45,
-        points: 25,
-        time_limit: 4,
-        title: "Top 10 highest-paid employees",
-        description: "Get the top 10 highest-paid employees.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT * FROM employees ORDER BY salary DESC LIMIT 10;",
-                expectedRowCount: 10,
-                expectedData: [
-                    { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
-                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
-                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
-                    { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 },
-                    { id: 9, name: 'Ivan Young', department: 'Finance', salary: 70000, hire_date: '2016-09-29', job_title: 'Manager', manager_id: 4, years_experience: 10 },
-                    { id: 10, name: 'Julia Thomas', department: 'Marketing', salary: 54000, hire_date: '2014-04-05', job_title: 'Executive', manager_id: 5, years_experience: 6 },
-                    { id: 3, name: 'Charlie Brown', department: 'HR', salary: 55000, hire_date: '2012-11-03', job_title: 'Analyst', manager_id: 1, years_experience: 8 },
-                    { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 },
-                    { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 },
-                    { id: 8, name: 'Hannah Lee', department: 'HR', salary: 45000, hire_date: '2019-05-23', job_title: 'Consultant', manager_id: 3, years_experience: 4 }
-                ]
-            }
-        ]
-    },
+  // Problem 15
+  {
+    id: "SQ15-5ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 45,
+    points: 20,
+    time_limit: 4,
+    title: "Employees sorted by salary (desc)",
+    description:
+      "Retrieve records sorted by the salary column in descending order.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT * FROM employees ORDER BY salary DESC;",
+        expectedRowCount: 10,
+        expectedData: [
+          {
+            id: 7,
+            name: "George Harris",
+            department: "IT",
+            salary: 80000,
+            hire_date: "2013-07-22",
+            job_title: "Developer",
+            manager_id: null,
+            years_experience: 12,
+          },
+          {
+            id: 4,
+            name: "Daisy Carter",
+            department: "Finance",
+            salary: 75000,
+            hire_date: "2010-09-17",
+            job_title: "Executive",
+            manager_id: null,
+            years_experience: 15,
+          },
+          {
+            id: 1,
+            name: "Alice Johnson",
+            department: "Sales",
+            salary: 60000,
+            hire_date: "2015-06-20",
+            job_title: "Manager",
+            manager_id: null,
+            years_experience: 10,
+          },
+          {
+            id: 5,
+            name: "Edward Davis",
+            department: "Marketing",
+            salary: 62000,
+            hire_date: "2017-12-11",
+            job_title: "Consultant",
+            manager_id: 2,
+            years_experience: 7,
+          },
+          {
+            id: 9,
+            name: "Ivan Young",
+            department: "Finance",
+            salary: 70000,
+            hire_date: "2016-09-29",
+            job_title: "Manager",
+            manager_id: 4,
+            years_experience: 10,
+          },
+          {
+            id: 10,
+            name: "Julia Thomas",
+            department: "Marketing",
+            salary: 54000,
+            hire_date: "2014-04-05",
+            job_title: "Executive",
+            manager_id: 5,
+            years_experience: 6,
+          },
+          {
+            id: 3,
+            name: "Charlie Brown",
+            department: "HR",
+            salary: 55000,
+            hire_date: "2012-11-03",
+            job_title: "Analyst",
+            manager_id: 1,
+            years_experience: 8,
+          },
+          {
+            id: 2,
+            name: "Adam Smith",
+            department: "IT",
+            salary: 50000,
+            hire_date: "2018-03-15",
+            job_title: "Developer",
+            manager_id: 1,
+            years_experience: 5,
+          },
+          {
+            id: 6,
+            name: "Fiona Green",
+            department: "Sales",
+            salary: 40000,
+            hire_date: "2020-01-10",
+            job_title: "Analyst",
+            manager_id: 1,
+            years_experience: 3,
+          },
+          {
+            id: 8,
+            name: "Hannah Lee",
+            department: "HR",
+            salary: 45000,
+            hire_date: "2019-05-23",
+            job_title: "Consultant",
+            manager_id: 3,
+            years_experience: 4,
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 17
-    {
-        id: "SQ17-7ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 45,
-        points: 25,
-        time_limit: 4,
-        title: "Employees with salaries between 40000 and 60000",
-        description: "Count the number of employees with salaries between 40000 and 60000.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT COUNT(*) AS count FROM employees WHERE salary BETWEEN 40000 AND 60000;",
-                expectedRowCount: 1,
-                expectedData: [
-                    { count: 7 }
-                ]
-            }
-        ]
-    },
+  // Problem 16
+  {
+    id: "SQ16-6ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 45,
+    points: 25,
+    time_limit: 4,
+    title: "Top 10 highest-paid employees",
+    description: "Get the top 10 highest-paid employees.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT * FROM employees ORDER BY salary DESC LIMIT 10;",
+        expectedRowCount: 10,
+        expectedData: [
+          {
+            id: 7,
+            name: "George Harris",
+            department: "IT",
+            salary: 80000,
+            hire_date: "2013-07-22",
+            job_title: "Developer",
+            manager_id: null,
+            years_experience: 12,
+          },
+          {
+            id: 4,
+            name: "Daisy Carter",
+            department: "Finance",
+            salary: 75000,
+            hire_date: "2010-09-17",
+            job_title: "Executive",
+            manager_id: null,
+            years_experience: 15,
+          },
+          {
+            id: 9,
+            name: "Ivan Young",
+            department: "Finance",
+            salary: 70000,
+            hire_date: "2016-09-29",
+            job_title: "Manager",
+            manager_id: 4,
+            years_experience: 10,
+          },
+          {
+            id: 5,
+            name: "Edward Davis",
+            department: "Marketing",
+            salary: 62000,
+            hire_date: "2017-12-11",
+            job_title: "Consultant",
+            manager_id: 2,
+            years_experience: 7,
+          },
+          {
+            id: 1,
+            name: "Alice Johnson",
+            department: "Sales",
+            salary: 60000,
+            hire_date: "2015-06-20",
+            job_title: "Manager",
+            manager_id: null,
+            years_experience: 10,
+          },
+          {
+            id: 3,
+            name: "Charlie Brown",
+            department: "HR",
+            salary: 55000,
+            hire_date: "2012-11-03",
+            job_title: "Analyst",
+            manager_id: 1,
+            years_experience: 8,
+          },
+          {
+            id: 10,
+            name: "Julia Thomas",
+            department: "Marketing",
+            salary: 54000,
+            hire_date: "2014-04-05",
+            job_title: "Executive",
+            manager_id: 5,
+            years_experience: 6,
+          },
+          {
+            id: 2,
+            name: "Adam Smith",
+            department: "IT",
+            salary: 50000,
+            hire_date: "2018-03-15",
+            job_title: "Developer",
+            manager_id: 1,
+            years_experience: 5,
+          },
+          {
+            id: 8,
+            name: "Hannah Lee",
+            department: "HR",
+            salary: 45000,
+            hire_date: "2019-05-23",
+            job_title: "Consultant",
+            manager_id: 3,
+            years_experience: 4,
+          },
+          {
+            id: 6,
+            name: "Fiona Green",
+            department: "Sales",
+            salary: 40000,
+            hire_date: "2020-01-10",
+            job_title: "Analyst",
+            manager_id: 1,
+            years_experience: 3,
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 18
-    {
-        id: "SQ18-8ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 45,
-        points: 25,
-        time_limit: 5,
-        title: "Employees without a department",
-        description: "Retrieve employee records without a department value.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT * FROM employees WHERE department IS NULL;",
-                expectedRowCount: 0,
-                expectedData: [] // All employees in mock data have a department value
-            }
-        ]
-    },
+  // Problem 17
+  {
+    id: "SQ17-7ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 45,
+    points: 25,
+    time_limit: 4,
+    title: "Employees with salaries between 40000 and 60000",
+    description:
+      "Count the number of employees with salaries between 40000 and 60000.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query:
+          "SELECT COUNT(*) AS count FROM employees WHERE salary BETWEEN 40000 AND 60000;",
+        expectedRowCount: 1,
+        expectedData: [{ count: 6 }],
+      },
+    ],
+  },
 
-    // Problem 19
-    {
-        id: "SQ19-9ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 50,
-        points: 25,
-        time_limit: 5,
-        title: "Employees and department names",
-        description: "Display employees and their department names, ordered by department.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT * FROM employees ORDER BY department;",
-                expectedRowCount: 10,
-                expectedData: [
-                    { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 },
-                    { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
-                    { id: 3, name: 'Charlie Brown', department: 'HR', salary: 55000, hire_date: '2012-11-03', job_title: 'Analyst', manager_id: 1, years_experience: 8 },
-                    { id: 8, name: 'Hannah Lee', department: 'HR', salary: 45000, hire_date: '2019-05-23', job_title: 'Consultant', manager_id: 3, years_experience: 4 },
-                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
-                    { id: 9, name: 'Ivan Young', department: 'Finance', salary: 70000, hire_date: '2016-09-29', job_title: 'Manager', manager_id: 4, years_experience: 10 },
-                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 },
-                    { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 },
-                    { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 },
-                    { id: 10, name: 'Julia Thomas', department: 'Marketing', salary: 54000, hire_date: '2014-04-05', job_title: 'Executive', manager_id: 5, years_experience: 6 }
-                ]
-            }
-        ]
-    },
+  // Problem 18
+  {
+    id: "SQ18-8ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 45,
+    points: 25,
+    time_limit: 5,
+    title: "Employees without a department",
+    description: "Retrieve employee records without a department value.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT * FROM employees WHERE department IS NULL;",
+        expectedRowCount: 0,
+        expectedData: [], // All employees in mock data have a department value
+      },
+    ],
+  },
 
-    // Problem 20
-    {
-        id: "SQ20-0ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Easy",
-        base_price: 55,
-        points: 30,
-        time_limit: 5,
-        title: "Employees who joined in the last 5 years",
-        description: "Find all employees who joined in the last 5 years.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT * FROM employees WHERE hire_date >= DATE_SUB(CURDATE(), INTERVAL 5 YEAR);",
-                expectedRowCount: 4,
-                expectedData: [
-                    { id: 6, name: 'Fiona Green', department: 'Sales', salary: 40000, hire_date: '2020-01-10', job_title: 'Analyst', manager_id: 1, years_experience: 3 },
-                    { id: 8, name: 'Hannah Lee', department: 'HR', salary: 45000, hire_date: '2019-05-23', job_title: 'Consultant', manager_id: 3, years_experience: 4 },
-                    { id: 2, name: 'Adam Smith', department: 'IT', salary: 50000, hire_date: '2018-03-15', job_title: 'Developer', manager_id: 1, years_experience: 5 },
-                    { id: 5, name: 'Edward Davis', department: 'Marketing', salary: 62000, hire_date: '2017-12-11', job_title: 'Consultant', manager_id: 2, years_experience: 7 }
-                ]
-            }
-        ]
-    },
+  // Problem 19
+  {
+    id: "SQ19-9ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Easy",
+    base_price: 50,
+    points: 25,
+    time_limit: 5,
+    title: "Employees and department names",
+    description:
+      "Display employees and their department names, ordered by department.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT * FROM employees ORDER BY department;",
+        expectedRowCount: 10,
+        expectedData: [
+          {
+            id: 4,
+            name: "Daisy Carter",
+            department: "Finance",
+            salary: 75000,
+            hire_date: "2010-09-17",
+            job_title: "Executive",
+            manager_id: null,
+            years_experience: 15,
+          },
+          {
+            id: 9,
+            name: "Ivan Young",
+            department: "Finance",
+            salary: 70000,
+            hire_date: "2016-09-29",
+            job_title: "Manager",
+            manager_id: 4,
+            years_experience: 10,
+          },
+          {
+            id: 3,
+            name: "Charlie Brown",
+            department: "HR",
+            salary: 55000,
+            hire_date: "2012-11-03",
+            job_title: "Analyst",
+            manager_id: 1,
+            years_experience: 8,
+          },
+          {
+            id: 8,
+            name: "Hannah Lee",
+            department: "HR",
+            salary: 45000,
+            hire_date: "2019-05-23",
+            job_title: "Consultant",
+            manager_id: 3,
+            years_experience: 4,
+          },
+          {
+            id: 2,
+            name: "Adam Smith",
+            department: "IT",
+            salary: 50000,
+            hire_date: "2018-03-15",
+            job_title: "Developer",
+            manager_id: 1,
+            years_experience: 5,
+          },
+          {
+            id: 7,
+            name: "George Harris",
+            department: "IT",
+            salary: 80000,
+            hire_date: "2013-07-22",
+            job_title: "Developer",
+            manager_id: null,
+            years_experience: 12,
+          },
+          {
+            id: 5,
+            name: "Edward Davis",
+            department: "Marketing",
+            salary: 62000,
+            hire_date: "2017-12-11",
+            job_title: "Consultant",
+            manager_id: 2,
+            years_experience: 7,
+          },
+          {
+            id: 10,
+            name: "Julia Thomas",
+            department: "Marketing",
+            salary: 54000,
+            hire_date: "2014-04-05",
+            job_title: "Executive",
+            manager_id: 5,
+            years_experience: 6,
+          },
+          {
+            id: 1,
+            name: "Alice Johnson",
+            department: "Sales",
+            salary: 60000,
+            hire_date: "2015-06-20",
+            job_title: "Manager",
+            manager_id: null,
+            years_experience: 10,
+          },
+          {
+            id: 6,
+            name: "Fiona Green",
+            department: "Sales",
+            salary: 40000,
+            hire_date: "2020-01-10",
+            job_title: "Analyst",
+            manager_id: 1,
+            years_experience: 3,
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 21
-    {
-        id: "SQ21-1ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Medium",
-        base_price: 60,
-        points: 30,
-        time_limit: 5,
-        title: "Highest salary in each department",
-        description: "Find the employee with the highest salary in each department.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT department, name, salary FROM employees WHERE (department, salary) IN (SELECT department, MAX(salary) FROM employees GROUP BY department);",
-                expectedRowCount: 5,
-                expectedData: [
-                    { department: 'IT', name: 'George Harris', salary: 80000 },
-                    { department: 'Finance', name: 'Daisy Carter', salary: 75000 },
-                    { department: 'Marketing', name: 'Edward Davis', salary: 62000 },
-                    { department: 'Sales', name: 'Alice Johnson', salary: 60000 },
-                    { department: 'HR', name: 'Charlie Brown', salary: 55000 }
-                ]
-            }
-        ]
-    },
+  // Problem 21
+  {
+    id: "SQ21-1ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Medium",
+    base_price: 60,
+    points: 30,
+    time_limit: 5,
+    title: "Highest salary in each department",
+    description:
+      "Find the employee with the highest salary in each department.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query:
+          "SELECT department, name, salary FROM employees WHERE (department, salary) IN (SELECT department, MAX(salary) FROM employees GROUP BY department);",
+        expectedRowCount: 5,
+        expectedData: [
+          {
+            department: "Sales",
+            name: "Alice Johnson",
+            salary: 60000,
+          },
+          {
+            department: "HR",
+            name: "Charlie Brown",
+            salary: 55000,
+          },
+          {
+            department: "Finance",
+            name: "Daisy Carter",
+            salary: 75000,
+          },
+          {
+            department: "Marketing",
+            name: "Edward Davis",
+            salary: 62000,
+          },
+          {
+            department: "IT",
+            name: "George Harris",
+            salary: 80000,
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 22
-    {
-        id: "SQ22-2ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Medium",
-        base_price: 60,
-        points: 30,
-        time_limit: 5,
-        title: "Departments with average salary above 50000",
-        description: "Retrieve departments with an average salary above 50000.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT department FROM employees GROUP BY department HAVING AVG(salary) > 50000;",
-                expectedRowCount: 4,
-                expectedData: [
-                    { department: 'Sales' },
-                    { department: 'Finance' },
-                    { department: 'Marketing' },
-                    { department: 'IT' }
-                ]
-            }
-        ]
-    },
+  // Problem 22
+  {
+    id: "SQ22-2ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Medium",
+    base_price: 60,
+    points: 30,
+    time_limit: 5,
+    title: "Departments with average salary above 50000",
+    description: "Retrieve departments with an average salary above 50000.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query:
+          "SELECT department FROM employees GROUP BY department HAVING AVG(salary) > 50000;",
+        expectedRowCount: 3,
+        expectedData: [
+          {
+            department: "Finance",
+          },
+          {
+            department: "IT",
+          },
+          {
+            department: "Marketing",
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 23
-    {
-        id: "SQ23-3ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Medium",
-        base_price: 65,
-        points: 30,
-        time_limit: 6,
-        title: "Employees with more than 10 years experience",
-        description: "Find employees who have worked for more than 10 years.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT * FROM employees WHERE years_experience > 10;",
-                expectedRowCount: 3,
-                expectedData: [
-                    { id: 4, name: 'Daisy Carter', department: 'Finance', salary: 75000, hire_date: '2010-09-17', job_title: 'Executive', manager_id: null, years_experience: 15 },
-                    { id: 7, name: 'George Harris', department: 'IT', salary: 80000, hire_date: '2013-07-22', job_title: 'Developer', manager_id: null, years_experience: 12 },
-                    { id: 1, name: 'Alice Johnson', department: 'Sales', salary: 60000, hire_date: '2015-06-20', job_title: 'Manager', manager_id: null, years_experience: 10 }
-                ]
-            }
-        ]
-    },
+  // Problem 23
+  {
+    id: "SQ23-3ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Medium",
+    base_price: 65,
+    points: 30,
+    time_limit: 6,
+    title: "Employees with more than 10 years experience",
+    description: "Find employees who have worked for more than 10 years.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query: "SELECT * FROM employees WHERE years_experience > 10;",
+        expectedRowCount: 2,
+        expectedData: [
+          {
+            id: 4,
+            name: "Daisy Carter",
+            department: "Finance",
+            salary: 75000,
+            hire_date: "2010-09-17",
+            job_title: "Executive",
+            manager_id: null,
+            years_experience: 15,
+          },
+          {
+            id: 7,
+            name: "George Harris",
+            department: "IT",
+            salary: 80000,
+            hire_date: "2013-07-22",
+            job_title: "Developer",
+            manager_id: null,
+            years_experience: 12,
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 24
-    {
-        id: "SQ24-4ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Medium",
-        base_price: 65,
-        points: 30,
-        time_limit: 6,
-        title: "Employees with same job title in multiple departments",
-        description: "List employees with the same job title in multiple departments.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT job_title FROM employees GROUP BY job_title HAVING COUNT(DISTINCT department) > 1;",
-                expectedRowCount: 1,
-                expectedData: [
-                    { job_title: 'Consultant' }
-                ]
-            }
-        ]
-    },
+  // Problem 24
+  {
+    id: "SQ24-4ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Medium",
+    base_price: 65,
+    points: 30,
+    time_limit: 6,
+    title: "Employees with same job title in multiple departments",
+    description:
+      "List employees with the same job title in multiple departments.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query:
+          "SELECT job_title FROM employees GROUP BY job_title HAVING COUNT(DISTINCT department) > 1;",
+        expectedRowCount: 4,
+        expectedData: [
+          {
+            job_title: "Analyst",
+          },
+          {
+            job_title: "Consultant",
+          },
+          {
+            job_title: "Executive",
+          },
+          {
+            job_title: "Manager",
+          },
+        ],
+      },
+    ],
+  },
 
-    // Problem 25
-    {
-        id: "SQ25-5ASFJLS0KCLNXJ",
-        category: "SQL",
-        difficulty: "Medium",
-        base_price: 65,
-        points: 35,
-        time_limit: 6,
-        title: "Total salary expense for each department",
-        description: "Calculate the total salary expense for each department.",
-        existingCode: "-- Write your SQL query here",
-        testCases: [
-            {
-                query: "SELECT department, SUM(salary) AS total_salary FROM employees GROUP BY department;",
-                expectedRowCount: 5,
-                expectedData: [
-                    { department: 'Sales', total_salary: 100000 },
-                    { department: 'Finance', total_salary: 145000 },
-                    { department: 'Marketing', total_salary: 116000 },
-                    { department: 'IT', total_salary: 130000 },
-                    { department: 'HR', total_salary: 100000 }
-                ]
-            }
-        ]
-    },
+  // Problem 25
+  {
+    id: "SQ25-5ASFJLS0KCLNXJ",
+    category: "SQL",
+    difficulty: "Medium",
+    base_price: 65,
+    points: 35,
+    time_limit: 6,
+    title: "Total salary expense for each department",
+    description: "Calculate the total salary expense for each department.",
+    existingCode: "-- Write your SQL query here",
+    testCases: [
+      {
+        query:
+          "SELECT department, SUM(salary) AS total_salary FROM employees GROUP BY department;",
+        expectedRowCount: 5,
+        expectedData: [
+          {
+            department: "Finance",
+            total_salary: 145000,
+          },
+          {
+            department: "HR",
+            total_salary: 100000,
+          },
+          {
+            department: "IT",
+            total_salary: 130000,
+          },
+          {
+            department: "Marketing",
+            total_salary: 116000,
+          },
+          {
+            department: "Sales",
+            total_salary: 100000,
+          },
+        ],
+      },
+    ],
+  },
 
     // Problem 26
     {
