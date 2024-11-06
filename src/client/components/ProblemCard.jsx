@@ -59,7 +59,7 @@ const ProblemCard = ({ problem, team }) => {
     <div className="bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow relative flex flex-col justify-between min-h-[300px]">
       {/* Timer or Status Indicator */}
       {problem.status === 'unsolved' && timeLeft > 0 && (
-        <div className="absolute top-4 right-4 bg-indigo-500 text-gray-100 font-semibold px-3 py-1 rounded-full text-xs">
+        <div className="absolute -top-3 -right-3 bg-indigo-500 text-gray-100 font-semibold px-3 py-1 rounded-full text-xs">
           {formatTime(timeLeft)}
         </div>
       )}

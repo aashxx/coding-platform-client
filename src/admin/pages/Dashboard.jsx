@@ -3,6 +3,7 @@ import { Chart as ChartJS, ArcElement, BarElement, CategoryScale, LinearScale, T
 import { MdAssignment, MdAccessTime, MdClear, MdStar, MdAccountBalance } from 'react-icons/md';
 import { Bar, Pie, Doughnut } from 'react-chartjs-2';
 import { TeamsContext } from '../contexts/TeamsContext';
+import { ALL_PROBLEMS } from '@/lib/constants';
 
 ChartJS.register(ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
@@ -23,7 +24,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (teams.length > 0) {
-      let totalProblems = 0;
+      let totalProblems = ALL_PROBLEMS.length;
       let totalAllotted = 0;
       let totalNotSolved = 0;
       let topper = { name: '', points: 0 };
@@ -43,7 +44,6 @@ const Dashboard = () => {
         const problemsBidded = Object.keys(biddedQuestions).length;
         const problemsSolved = Object.keys(solvedQuestions).length;
 
-        totalProblems += problemsBidded;
         totalAllotted += problemsBidded;
         totalNotSolved += problemsBidded - problemsSolved;
 

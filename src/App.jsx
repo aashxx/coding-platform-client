@@ -15,35 +15,43 @@ import Home from './client/pages/Home';
 import { Toaster } from 'react-hot-toast';
 import TeamsState from './admin/contexts/TeamsContext';
 import ProtectedAdmin from './admin/components/ProtectedAdmin';
+import AddProblems from './admin/pages/AddProblems';
+import AllProblemsState from './admin/contexts/AllProblemsContext';
+import AllProblems from './admin/pages/AllProblems';
 
 const App = () => {
+
     return (
         <Router>
             <TeamsState>
-                <ProblemsState>
-                    <div className="flex min-h-screen">
-                        <AdminLayout>
-                            <Routes>
-                                <Route path='/' element={<Home />} />
-                                {/* Admin Routes */}
-                                <Route path="/admin/dashboard" element={<ProtectedAdmin><Dashboard /></ProtectedAdmin>} />
-                                <Route path="/admin/allot-problems" element={<ProtectedAdmin><ProblemAllotment /></ProtectedAdmin>} />
-                                <Route path="/admin/leaderboard" element={<ProtectedAdmin><Leaderboard /></ProtectedAdmin>} />
-                                <Route path="/admin/participants" element={<ProtectedAdmin><Participants /></ProtectedAdmin>} />
+                <AllProblemsState>
+                    <ProblemsState>
+                        <div className="flex min-h-screen">
+                            <AdminLayout>
+                                <Routes>
+                                    <Route path='/' element={<Home />} />
+                                    {/* Admin Routes */}
+                                    <Route path="/admin/dashboard" element={<ProtectedAdmin><Dashboard /></ProtectedAdmin>} />
+                                    <Route path="/admin/allot-problems" element={<ProtectedAdmin><ProblemAllotment /></ProtectedAdmin>} />
+                                    <Route path="/admin/add-problems" element={<ProtectedAdmin><AddProblems /></ProtectedAdmin>} />
+                                    <Route path="/admin/leaderboard" element={<ProtectedAdmin><Leaderboard /></ProtectedAdmin>} />
+                                    <Route path="/admin/participants" element={<ProtectedAdmin><Participants /></ProtectedAdmin>} />
+                                    <Route path='/admin/all-problems' element={<ProtectedAdmin><AllProblems /></ProtectedAdmin>} />
 
-                                {/* Client Routes */}
-                                <Route path="/editor/:team" element={<Problems />} />
+                                    {/* Client Routes */}
+                                    <Route path="/editor/:team" element={<Problems />} />
 
-                                {/* Dynamic IDE Routes */}
-                                <Route path="/editor/:team/dsa/:problemId" element={<DSAIDE />} />
-                                <Route path="/editor/:team/debugging/:problemId" element={<DebuggingIDE />} />
-                                <Route path="/editor/:team/sql/:problemId" element={<SQLIDE />} />
-                                <Route path="/editor/:team/web/:problemId" element={<WebProgrammingIDE />} />
-                            </Routes>
-                        </AdminLayout>
-                    </div>
-                    <Toaster />
-                </ProblemsState>
+                                    {/* Dynamic IDE Routes */}
+                                    <Route path="/editor/:team/dsa/:problemId" element={<DSAIDE />} />
+                                    <Route path="/editor/:team/debugging/:problemId" element={<DebuggingIDE />} />
+                                    <Route path="/editor/:team/sql/:problemId" element={<SQLIDE />} />
+                                    <Route path="/editor/:team/web/:problemId" element={<WebProgrammingIDE />} />
+                                </Routes>
+                            </AdminLayout>
+                        </div>
+                        <Toaster />
+                    </ProblemsState>
+                </AllProblemsState>
             </TeamsState>
         </Router>
     );

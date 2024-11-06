@@ -32,6 +32,12 @@ const Sidebar = () => {
                     isActive={isActive('/admin/allot-problems')}
                 />
                 <SidebarLink
+                    to="/admin/all-problems"
+                    label="All Problems"
+                    icon={<MdList />}
+                    isActive={isActive('/admin/all-problems') || isActive('/admin/add-problems')}
+                />
+                <SidebarLink
                     to="/admin/leaderboard"
                     label="Leaderboard"
                     icon={<MdLeaderboard />}
