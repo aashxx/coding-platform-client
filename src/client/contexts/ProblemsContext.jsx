@@ -10,7 +10,8 @@ const ProblemsState = ({ children }) => {
   const [allotments, setAllotments] = useState({
     teamName: "",
     balance: "",
-    biddedProblems: []
+    biddedProblems: [],
+    disqualify: false
   });
 
   const fetchBiddedQuestions = (team) => {
@@ -34,13 +35,15 @@ const ProblemsState = ({ children }) => {
         setAllotments({
           teamName: data.teamName,
           balance,
-          biddedProblems
+          biddedProblems,
+          disqualify: data.disqualify
         });
       } else {
         setAllotments({
           teamName: "",
           balance: "",
-          biddedProblems: []
+          biddedProblems: [],
+          disqualify: false
         }); 
       }
     });
