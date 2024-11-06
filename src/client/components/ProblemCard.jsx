@@ -30,14 +30,14 @@ const ProblemCard = ({ problem, team }) => {
     return () => clearInterval(timer);
   }, [problem.status, problem.id]);
 
-  // useEffect(() => {
-  //   if (timeLeft <= 0) {
-  //     // Update the status to "time up" if the timer runs out
-  //     update(ref(realDb, `allotments/${team}/biddedQuestions/${problem.id}`), {
-  //       status: "time up",
-  //     });
-  //   }
-  // }, [timeLeft, problem.id, team]);
+  useEffect(() => {
+    if (timeLeft <= 0) {
+      // Update the status to "time up" if the timer runs out
+      update(ref(realDb, `allotments/${team}/biddedQuestions/${problem.id}`), {
+        status: "time up",
+      });
+    }
+  }, [timeLeft, problem.id, team]);
 
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
