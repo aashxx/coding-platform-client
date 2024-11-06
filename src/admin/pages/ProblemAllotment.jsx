@@ -116,40 +116,43 @@ const ProblemAllotment = () => {
 
             {/* Display Problems as Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
-                {filteredProblems.map((problem, idx) => (
-                    <div key={idx} className="bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-5 hover:shadow-xl transition-shadow">
-                        {/* Title */}
-                        <h3 className="text-xl font-bold text-gray-100 mb-4">{problem.title}</h3>
-                        
-                        {/* Details */}
-                        <div className="space-y-3">
-                            <div className="flex items-center text-gray-400 text-sm">
-                                <MdCategory className="text-indigo-500 mr-2" />
-                                <span><strong>Category:</strong> {problem.category}</span>
-                            </div>
-                            <div className="flex items-center text-gray-400 text-sm">
-                                <MdAccessTime className="text-indigo-500 mr-2" />
-                                <span><strong>Time Limit:</strong> {problem.time_limit} minutes</span>
-                            </div>
-                            <div className="flex items-center text-gray-400 text-sm">
-                                <MdBarChart className="text-indigo-500 mr-2" />
-                                <span><strong>Difficulty:</strong> {problem.difficulty}</span>
-                            </div>
-                        </div>
-                        
-                        {/* Divider */}
-                        <hr className="border-gray-700 my-4" />
-                    
-                        {/* Allot Button */}
-                        <button 
-                            className="mt-2 w-full bg-indigo-600 text-gray-100 font-semibold py-2 px-4 rounded hover:bg-indigo-700 transition-colors"
-                            onClick={() => openModal(problem)}
-                        >
-                            Allot
-                        </button>
-                    </div>
-                ))}
+      {filteredProblems.map((problem, idx) => (
+        <div 
+          key={idx} 
+          className="bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow min-h-[300px] flex flex-col justify-between"
+        >
+          {/* Problem Title */}
+          <h3 className="text-xl font-semibold text-gray-100 mb-3">{problem.title}</h3>
+
+          {/* Problem Details */}
+          <div className="space-y-2">
+            <div className="flex items-center text-gray-400 text-sm">
+              <MdCategory className="text-indigo-500 mr-2" />
+              <span><strong>Category:</strong> {problem.category}</span>
             </div>
+            <div className="flex items-center text-gray-400 text-sm">
+              <MdAccessTime className="text-indigo-500 mr-2" />
+              <span><strong>Time Limit:</strong> {problem.time_limit} minutes</span>
+            </div>
+            <div className="flex items-center text-gray-400 text-sm">
+              <MdBarChart className="text-indigo-500 mr-2" />
+              <span><strong>Difficulty:</strong> {problem.difficulty}</span>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <hr className="border-gray-700 my-4" />
+
+          {/* Allot Button */}
+          <button 
+            className="w-full bg-indigo-600 text-gray-100 font-semibold py-2 px-4 rounded hover:bg-indigo-700 transition-colors"
+            onClick={() => openModal(problem)}
+          >
+            Allot
+          </button>
+        </div>
+      ))}
+    </div>
 
             {/* Modal */}
             {isModalOpen && (
