@@ -1,67 +1,145 @@
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Chart as ChartJS, ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
-import { MdAssignment, MdAccessTime, MdClear, MdStar, MdAccountBalance, MdGroups } from 'react-icons/md';
+import { MdAssignment, MdAccessTime, MdClear, MdStar, MdAccountBalance } from 'react-icons/md';
 import { Bar, Pie, Doughnut } from 'react-chartjs-2';
+import { TeamsContext } from '../contexts/TeamsContext';
 
-// Register Chart.js components
 ChartJS.register(ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const Dashboard = () => {
-  // Placeholder data
-  const totalProblems = 200;
-  const totalAllotted = 150;
-  const totalNotSolved = 30;
-  const topper = { name: 'Team Alpha', points: 2500 };
-  const highestBalanceTeam = { name: 'Team Omega', balance: 1200 };
-  const fastestTeam = { name: 'Team Beta', time: '3h 25m' }; // New metric for fastest team
-  const totalTeams = 12;
+  const { teams } = useContext(TeamsContext);
+  const [dashboardData, setDashboardData] = useState({
+    totalProblems: 0,
+    totalAllotted: 0,
+    totalNotSolved: 0,
+    topper: { name: '', points: 0 },
+    highestBalanceTeam: { name: '', balance: 0 },
+    fastestTeam: { name: '', time: '' },
+    totalTeams: 0,
+    problemsStatusData: null,
+    leaderboardData: null,
+    teamBalancesData: null,
+  });
 
-  // Chart Data
-  const problemsStatusData = {
-    labels: ['Allotted', 'Solved', 'Not Solved'],
-    datasets: [
-      {
-        label: 'Problems Status',
-        data: [totalAllotted, totalProblems - totalNotSolved, totalNotSolved],
-        backgroundColor: ['#f59e0b', '#10b981', '#ef4444'],
-      },
-    ],
-  };
+  useEffect(() => {
+    if (teams.length > 0) {
+      let totalProblems = 0;
+      let totalAllotted = 0;
+      let totalNotSolved = 0;
+      let topper = { name: '', points: 0 };
+      let highestBalanceTeam = { name: '', balance: 0 };
+      let fastestTeam = { name: '', time: Number.MAX_SAFE_INTEGER };
+      const leaderboardPoints = [];
+      const teamBalances = [];
+      const teamNames = [];
+      const problemStatuses = { allotted: 0, solved: 0, notSolved: 0 };
 
-  const leaderboardData = {
-    labels: ['Team Alpha', 'Team Beta', 'Team Gamma', 'Team Delta'],
-    datasets: [
-      {
-        label: 'Leaderboard Points',
-        data: [2500, 2200, 2100, 1800],
-        backgroundColor: ['#6366f1', '#ec4899', '#10b981', '#f59e0b'],
-      },
-    ],
-  };
+      teams.forEach((team) => {
+        const biddedQuestions = team.biddedQuestions || {};
+        const solvedQuestions = team.solved || {};
 
-  const teamBalancesData = {
-    labels: ['Team Alpha', 'Team Beta', 'Team Gamma', 'Team Delta'],
-    datasets: [
-      {
-        label: 'Team Balances',
-        data: [1200, 1100, 950, 875],
-        backgroundColor: ['#6366f1', '#ec4899', '#10b981', '#f59e0b'],
-      },
-    ],
+        const totalPoints = Object.values(solvedQuestions).reduce((acc, item) => acc + (item.points || 0), 0);
+        const totalSolvingTime = Object.values(solvedQuestions).reduce((acc, item) => acc + (item.timeTaken || 0), 0);
+        const problemsBidded = Object.keys(biddedQuestions).length;
+        const problemsSolved = Object.keys(solvedQuestions).length;
+
+        totalProblems += problemsBidded;
+        totalAllotted += problemsBidded;
+        totalNotSolved += problemsBidded - problemsSolved;
+
+        // Update topper
+        if (totalPoints > topper.points) {
+          topper = { name: team.teamName, points: totalPoints };
+        }
+
+        // Update highest balance team
+        if (team.balance > highestBalanceTeam.balance) {
+          highestBalanceTeam = { name: team.teamName, balance: team.balance };
+        }
+
+        // Update fastest team
+        if (problemsSolved > 0 && totalSolvingTime < fastestTeam.time) {
+          fastestTeam = { name: team.teamName, time: totalSolvingTime };
+        }
+
+        // Populate data for charts
+        teamNames.push(team.teamName);
+        leaderboardPoints.push(totalPoints);
+        teamBalances.push(team.balance);
+
+        // Problems status data
+        problemStatuses.allotted += problemsBidded;
+        problemStatuses.solved += problemsSolved;
+        problemStatuses.notSolved += problemsBidded - problemsSolved;
+      });
+
+      // Prepare data for charts
+      const problemsStatusData = {
+        labels: ['Allotted', 'Solved', 'Not Solved'],
+        datasets: [
+          {
+            label: 'Problems Status',
+            data: [problemStatuses.allotted, problemStatuses.solved, problemStatuses.notSolved],
+            backgroundColor: ['#f59e0b', '#10b981', '#ef4444'],
+          },
+        ],
+      };
+
+      const leaderboardData = {
+        labels: teamNames,
+        datasets: [
+          {
+            label: 'Leaderboard Points',
+            data: leaderboardPoints,
+            backgroundColor: ['#6366f1', '#ec4899', '#10b981', '#f59e0b'],
+          },
+        ],
+      };
+
+      const teamBalancesData = {
+        labels: teamNames,
+        datasets: [
+          {
+            label: 'Team Balances',
+            data: teamBalances,
+            backgroundColor: ['#6366f1', '#ec4899', '#10b981', '#f59e0b'],
+          },
+        ],
+      };
+
+      setDashboardData({
+        totalProblems,
+        totalAllotted,
+        totalNotSolved,
+        topper,
+        highestBalanceTeam,
+        fastestTeam: { name: fastestTeam.name, time: formatTime(fastestTeam.time) },
+        totalTeams: teams.length,
+        problemsStatusData,
+        leaderboardData,
+        teamBalancesData,
+      });
+    }
+  }, [teams]);
+
+  const formatTime = (seconds) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    return `${hours}h ${minutes}m`;
   };
 
   return (
-    <div className="p-6 bg-gray-900 min-h-screen text-gray-100 font-poppins lg:pl-64 2xl:pl-[350px]">
+    <div className="p-6 bg-gray-900 min-h-screen text-gray-100 font-poppins lg:pl-64">
       <h2 className="text-3xl font-bold mb-8 text-gray-100">Dashboard</h2>
       
       {/* Metrics Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-        <MetricCard icon={<MdAssignment className="text-indigo-500 text-4xl" />} label="Total Problems" value={totalProblems} />
-        <MetricCard icon={<MdAssignment className="text-yellow-500 text-4xl" />} label="Total Allotted" value={totalAllotted} />
-        <MetricCard icon={<MdClear className="text-red-500 text-4xl" />} label="Not Solved" value={totalNotSolved} />
-        <MetricCard icon={<MdStar className="text-blue-500 text-4xl" />} label="Topper" value={`${topper.name} - ${topper.points} pts`} />
-        <MetricCard icon={<MdAccountBalance className="text-purple-500 text-4xl" />} label="Highest Balance" value={`${highestBalanceTeam.name} - $${highestBalanceTeam.balance}`} />
-        <MetricCard icon={<MdAccessTime className="text-green-500 text-4xl" />} label="Fastest Team" value={`${fastestTeam.name} - ${fastestTeam.time}`} />
+        <MetricCard icon={<MdAssignment className="text-indigo-500 text-4xl" />} label="Total Problems" value={dashboardData.totalProblems} />
+        <MetricCard icon={<MdAssignment className="text-yellow-500 text-4xl" />} label="Total Allotted" value={dashboardData.totalAllotted} />
+        <MetricCard icon={<MdClear className="text-red-500 text-4xl" />} label="Not Solved" value={dashboardData.totalNotSolved} />
+        <MetricCard icon={<MdStar className="text-blue-500 text-4xl" />} label="Topper" value={`${dashboardData.topper.name} - ${dashboardData.topper.points} pts`} />
+        <MetricCard icon={<MdAccountBalance className="text-purple-500 text-4xl" />} label="Highest Balance" value={`${dashboardData.highestBalanceTeam.name} - $${dashboardData.highestBalanceTeam.balance}`} />
+        <MetricCard icon={<MdAccessTime className="text-green-500 text-4xl" />} label="Fastest Team" value={`${dashboardData.fastestTeam.name} - ${dashboardData.fastestTeam.time}`} />
       </div>
 
       {/* Charts Section */}
@@ -69,19 +147,19 @@ const Dashboard = () => {
         {/* Problems Status Chart */}
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
           <h3 className="text-lg font-semibold mb-4 text-gray-100">Problems Status</h3>
-          <Doughnut data={problemsStatusData} />
+          {dashboardData.problemsStatusData && <Doughnut data={dashboardData.problemsStatusData} />}
         </div>
 
         {/* Leaderboard Points Distribution */}
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
           <h3 className="text-lg font-semibold mb-4 text-gray-100">Leaderboard Points</h3>
-          <Bar data={leaderboardData} />
+          {dashboardData.leaderboardData && <Bar data={dashboardData.leaderboardData} />}
         </div>
 
         {/* Team Balances Chart */}
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
           <h3 className="text-lg font-semibold mb-4 text-gray-100">Team Balances</h3>
-          <Pie data={teamBalancesData} />
+          {dashboardData.teamBalancesData && <Pie data={dashboardData.teamBalancesData} />}
         </div>
       </div>
     </div>

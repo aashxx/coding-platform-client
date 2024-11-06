@@ -14,6 +14,7 @@ import WebProgrammingIDE from './client/pages/ide/WebProgrammingIDE';
 import Home from './client/pages/Home';
 import { Toaster } from 'react-hot-toast';
 import TeamsState from './admin/contexts/TeamsContext';
+import ProtectedAdmin from './admin/components/ProtectedAdmin';
 
 const App = () => {
     return (
@@ -25,10 +26,10 @@ const App = () => {
                             <Routes>
                                 <Route path='/' element={<Home />} />
                                 {/* Admin Routes */}
-                                <Route path="/admin/dashboard" element={<Dashboard />} />
-                                <Route path="/admin/allot-problems" element={<ProblemAllotment />} />
-                                <Route path="/admin/leaderboard" element={<Leaderboard />} />
-                                <Route path="/admin/participants" element={<Participants />} />
+                                <Route path="/admin/dashboard" element={<ProtectedAdmin><Dashboard /></ProtectedAdmin>} />
+                                <Route path="/admin/allot-problems" element={<ProtectedAdmin><ProblemAllotment /></ProtectedAdmin>} />
+                                <Route path="/admin/leaderboard" element={<ProtectedAdmin><Leaderboard /></ProtectedAdmin>} />
+                                <Route path="/admin/participants" element={<ProtectedAdmin><Participants /></ProtectedAdmin>} />
 
                                 {/* Client Routes */}
                                 <Route path="/editor/:team" element={<Problems />} />
