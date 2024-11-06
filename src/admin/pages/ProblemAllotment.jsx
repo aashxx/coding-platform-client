@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ALL_PROBLEMS } from '@/lib/constants';
 import { ref, get, update, set } from 'firebase/database';
 import { realDb } from '@/lib/firebase';
 import { MdCategory, MdAccessTime, MdBarChart } from 'react-icons/md'
+import { TeamsContext } from '../contexts/TeamsContext';
 
 const ProblemAllotment = () => {
+
+    const { teams } = useContext(TeamsContext);
 
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -162,18 +165,11 @@ const ProblemAllotment = () => {
                             className="w-full p-2 bg-gray-700 text-gray-100 border border-gray-600 rounded mb-4"
                         >
                             <option value="">Select a team</option>
-                            <option value="H4_n7Zb2">Microsoft</option>
-                            <option value="K6m_8B7q">Google</option>
-                            <option value="L7z_9Xq3">Apple</option>
-                            <option value="P9k_2Z8j">Amazon</option>
-                            <option value="Q9_L5y7n">Meta</option>
-                            <option value="R1y_4P8q">OpenAI</option>
-                            <option value="T5x_J9m2">Oracle</option>
-                            <option value="Z4_xj7N8">Intel</option>
-                            <option value="j2_N4xq5">Nvidia</option>
-                            <option value="m8_B6z9X">Netflix</option>
-                            <option value="q2_K8z9N">AMD</option>
-                            <option value="x5_L9n7z">Adobe</option>
+                            {teams.map((team) => (
+                                <option key={team.teamId} value={team.teamId}>
+                                    {team.teamName}
+                                </option>
+                            ))}
                         </select>
 
                         {/* Price Input */}

@@ -1,4 +1,3 @@
-// File: App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Dashboard from './admin/pages/Dashboard';
@@ -12,32 +11,39 @@ import DSAIDE from './client/pages/ide/DSAIDE';
 import DebuggingIDE from './client/pages/ide/DebuggingIDE';
 import SQLIDE from './client/pages/ide/SQLIDE';
 import WebProgrammingIDE from './client/pages/ide/WebProgrammingIDE';
+import Home from './client/pages/Home';
+import { Toaster } from 'react-hot-toast';
+import TeamsState from './admin/contexts/TeamsContext';
 
 const App = () => {
     return (
         <Router>
-            <ProblemsState>
-                <div className="flex min-h-screen">
-                    <AdminLayout>
-                        <Routes>
-                            {/* Admin Routes */}
-                            <Route path="/admin/dashboard" element={<Dashboard />} />
-                            <Route path="/admin/allot-problems" element={<ProblemAllotment />} />
-                            <Route path="/admin/leaderboard" element={<Leaderboard />} />
-                            <Route path="/admin/participants" element={<Participants />} />
+            <TeamsState>
+                <ProblemsState>
+                    <div className="flex min-h-screen">
+                        <AdminLayout>
+                            <Routes>
+                                <Route path='/' element={<Home />} />
+                                {/* Admin Routes */}
+                                <Route path="/admin/dashboard" element={<Dashboard />} />
+                                <Route path="/admin/allot-problems" element={<ProblemAllotment />} />
+                                <Route path="/admin/leaderboard" element={<Leaderboard />} />
+                                <Route path="/admin/participants" element={<Participants />} />
 
-                            {/* Client Routes */}
-                            <Route path="/editor/:team" element={<Problems />} />
+                                {/* Client Routes */}
+                                <Route path="/editor/:team" element={<Problems />} />
 
-                            {/* Dynamic IDE Routes */}
-                            <Route path="/editor/:team/dsa/:problemId" element={<DSAIDE />} />
-                            <Route path="/editor/:team/debugging/:problemId" element={<DebuggingIDE />} />
-                            <Route path="/editor/:team/sql/:problemId" element={<SQLIDE />} />
-                            <Route path="/editor/:team/web/:problemId" element={<WebProgrammingIDE />} />
-                        </Routes>
-                    </AdminLayout>
-                </div>
-            </ProblemsState>
+                                {/* Dynamic IDE Routes */}
+                                <Route path="/editor/:team/dsa/:problemId" element={<DSAIDE />} />
+                                <Route path="/editor/:team/debugging/:problemId" element={<DebuggingIDE />} />
+                                <Route path="/editor/:team/sql/:problemId" element={<SQLIDE />} />
+                                <Route path="/editor/:team/web/:problemId" element={<WebProgrammingIDE />} />
+                            </Routes>
+                        </AdminLayout>
+                    </div>
+                    <Toaster />
+                </ProblemsState>
+            </TeamsState>
         </Router>
     );
 };
