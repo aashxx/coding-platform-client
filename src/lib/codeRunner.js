@@ -3,7 +3,7 @@ import axios from 'axios';
 // Function to run a web programming problem
 export const runWebProgramCode = async (html, css = '', js = '', questionId) => {
   try {
-    const response = await axios.post('http://localhost:5002/api/web-program/run', {
+    const response = await axios.post('https://coding-platform-server-zeta.vercel.app/api/web-program/run', {
       html,
       css,
       js,
@@ -19,7 +19,7 @@ export const runWebProgramCode = async (html, css = '', js = '', questionId) => 
 // Function to run an SQL problem
 export const runSQLProblem = async (query, testCases) => {
   try {
-    const response = await axios.post('http://localhost:5002/api/sql/run', {
+    const response = await axios.post('https://coding-platform-server-zeta.vercel.app/api/sql/run', {
       query,
       testCases,
     });
@@ -33,7 +33,7 @@ export const runSQLProblem = async (query, testCases) => {
 // Function to run a DSA problem
 export const runDSAProblem = async (code, language, testCases) => {
   try {
-    const response = await axios.post('http://localhost:5002/api/dsa/run', {
+    const response = await axios.post('https://coding-platform-server-zeta.vercel.app/api/dsa/run', {
       code,
       language,
       testCases,
@@ -49,7 +49,7 @@ export const runDSAProblem = async (code, language, testCases) => {
 export const runDebuggingProblem = async (code, language, testCases) => {
   try {
     console.log("esnter");
-    const response = await axios.post('http://localhost:5002/api/debugging/run', {
+    const response = await axios.post('https://coding-platform-server-zeta.vercel.app/api/debugging/run', {
       code,
       language,
       testCases,
