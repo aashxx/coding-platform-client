@@ -5,28 +5,27 @@ import { ref, update } from 'firebase/database';
 import { realDb } from '@/lib/firebase';
 
 const ProblemCard = ({ problem, team }) => {
-
+  
   const defaultTimeLimit = problem.time_limit ? problem.time_limit * 60 : 0;
-  const storageKey = `timer-${problem.id}-${team}`; 
-  const initialTime = localStorage.getItem(storageKey) || defaultTimeLimit;
+  const initialTime = localStorage.getItem(`timer-${problem.id}`) || defaultTimeLimit;
   const [timeLeft, setTimeLeft] = useState(parseInt(initialTime, 10) || defaultTimeLimit);
 
   useEffect(() => {
     if (problem.status === 'solved' || problem.status === 'time up') {
-      localStorage.removeItem(storageKey);
+      localStorage.removeItem(`timer-${problem.id}`);
       return;
     }
 
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => {
         const newTime = prevTime - 1;
-        localStorage.setItem(storageKey, newTime); 
+        localStorage.setItem(`timer-${problem.id}`, newTime);
         return newTime;
       });
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [problem.status, storageKey]);
+  }, [problem.status, problem.id]);
 
   useEffect(() => {
     if (timeLeft <= 0) {
