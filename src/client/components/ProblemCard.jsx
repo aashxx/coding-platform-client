@@ -5,35 +5,40 @@ import { ref, update } from 'firebase/database';
 import { realDb } from '@/lib/firebase';
 
 const ProblemCard = ({ problem, team }) => {
-  
   const defaultTimeLimit = problem.time_limit ? problem.time_limit * 60 : 0;
-  const initialTime = localStorage.getItem(`timer-${problem.id}`) || defaultTimeLimit;
-  const [timeLeft, setTimeLeft] = useState(parseInt(initialTime, 10) || defaultTimeLimit);
+  
+  const initialStartTime = parseInt(localStorage.getItem(`startTime-${problem.id}`), 10);
+  const [timeLeft, setTimeLeft] = useState(() => {
+    const elapsed = initialStartTime ? Math.floor((Date.now() - initialStartTime) / 1000) : 0;
+    return Math.max(defaultTimeLimit - elapsed, 0);
+  });
 
   useEffect(() => {
     if (problem.status === 'solved' || problem.status === 'time up') {
-      localStorage.removeItem(`timer-${problem.id}`);
+      localStorage.removeItem(`startTime-${problem.id}`);
       return;
+    }
+
+    if (!initialStartTime) {
+      localStorage.setItem(`startTime-${problem.id}`, Date.now()); // Save the current time as the start time
     }
 
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => {
-        const newTime = prevTime - 1;
-        localStorage.setItem(`timer-${problem.id}`, newTime);
-        return newTime;
+        if (prevTime <= 1) {
+          clearInterval(timer);
+          localStorage.removeItem(`startTime-${problem.id}`);
+          update(ref(realDb, `allotments/${team}/biddedQuestions/${problem.id}`), {
+            status: "time up",
+          });
+          return 0;
+        }
+        return prevTime - 1;
       });
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [problem.status, problem.id]);
-
-  useEffect(() => {
-    if (timeLeft <= 0) {
-      update(ref(realDb, `allotments/${team}/biddedQuestions/${problem.id}`), {
-        status: "time up",
-      });
-    }
-  }, [timeLeft, problem.id, team]);
+  }, [problem.status, problem.id, team, initialStartTime]);
 
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
@@ -58,14 +63,12 @@ const ProblemCard = ({ problem, team }) => {
 
   return (
     <div className="bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow relative flex flex-col justify-between min-h-[300px]">
-      {/* Timer or Status Indicator */}
       {problem.status === 'unsolved' && timeLeft > 0 && (
         <div className="absolute -top-3 -right-3 bg-indigo-500 text-gray-100 font-semibold px-3 py-1 rounded-full text-xs">
           {formatTime(timeLeft)}
         </div>
       )}
 
-      {/* Problem Details */}
       <div>
         <h3 className="text-xl font-semibold text-gray-100 mb-3">{problem.title}</h3>
         <div className="space-y-2">
@@ -84,10 +87,8 @@ const ProblemCard = ({ problem, team }) => {
         </div>
       </div>
 
-      {/* Divider */}
       <hr className="border-gray-700 my-4" />
 
-      {/* Action Button */}
       <div>
         {problem.status === 'solved' ? (
           <button className="w-full bg-green-600 text-gray-100 font-semibold py-2 px-4 rounded cursor-not-allowed" disabled>

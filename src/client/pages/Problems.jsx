@@ -13,7 +13,7 @@ const Problems = () => {
     if (team) {
       fetchBiddedQuestions(team);
     }
-  }, [team, fetchBiddedQuestions]);
+  }, [team]);
 
   // useEffect(() => {
   //   const handleVisibilityChange = () => {
@@ -64,8 +64,8 @@ const Problems = () => {
           {/* Display each bidded problem */}
           {allotments.biddedProblems && allotments.biddedProblems.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {allotments.biddedProblems.map((problem, idx) => (
-                <ProblemCard key={idx} problem={problem} team={team} />
+              {allotments.biddedProblems.map((problem) => (
+                <ProblemCard key={problem.id} problem={problem} team={team} />
               ))}
             </div>
           ) : (

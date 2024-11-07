@@ -25,39 +25,45 @@ const SQLIDE = () => {
   const problem = ALL_PROBLEMS.find((p) => p.id === problemId);
 
   const [query, setQuery] = useState(problem.existingCode || '-- Write your SQL query here');
-  const [timeLeft, setTimeLeft] = useState(() => {
-    const storedTime = localStorage.getItem(`timer-${problemId}`);
-    return storedTime ? parseInt(storedTime, 10) : problem.time_limit * 60;
-  });
   const [testCaseResults, setTestCaseResults] = useState([]);
   const [testCasesPassed, setTestCasesPassed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showDBModal, setShowDBModal] = useState(false);
 
   // Timer Countdown and Local Storage Synchronization
+  const [timeLeft, setTimeLeft] = useState(() => {
+    const storedStartTime = localStorage.getItem(`startTime-${problemId}`);
+    const defaultTimeLimit = problem.time_limit * 60;
+    
+    if (storedStartTime) {
+      const elapsed = Math.floor((Date.now() - parseInt(storedStartTime, 10)) / 1000);
+      return Math.max(defaultTimeLimit - elapsed, 0);
+    } else {
+      localStorage.setItem(`startTime-${problemId}`, Date.now());
+      return defaultTimeLimit;
+    }
+  });
+  
   useEffect(() => {
     if (timeLeft <= 0) return;
-
+  
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => {
         const newTime = prevTime - 1;
-        localStorage.setItem(`timer-${problemId}`, newTime);
+        if (newTime <= 0) {
+          clearInterval(timer);
+          localStorage.removeItem(`startTime-${problemId}`);
+          update(ref(realDb, `allotments/${team}/biddedQuestions/${problemId}`), {
+            status: 'time up'
+          });
+          navigate(`/editor/${team}`);
+        }
         return newTime;
       });
     }, 1000);
-
+  
     return () => clearInterval(timer);
-  }, [timeLeft, problemId]);
-
-  // Handle timeout
-  useEffect(() => {
-    if (timeLeft === 0) {
-      update(ref(realDb, `allotments/${team}/biddedQuestions/${problemId}`), {
-        status: 'time up'
-      });
-      navigate(`/editor/${team}`);
-    }
-  }, [timeLeft, navigate, problemId, team]);
+  }, [timeLeft, problemId, team, navigate]);  
 
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
