@@ -129,7 +129,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-900 min-h-screen text-gray-100 font-poppins lg:pl-64">
+    <div className="p-6 bg-gray-900 min-h-screen text-gray-100 font-poppins lg:pl-64 2xl:pl-[350px]">
       <h2 className="text-3xl font-bold mb-8 text-gray-100">Dashboard</h2>
       
       {/* Metrics Section */}
