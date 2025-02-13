@@ -57,7 +57,7 @@ const Problems = () => {
         <div className="flex flex-col items-center py-10">
           <div className="flex items-center space-x-4 mb-8">
             <h2 className="text-3xl font-bold text-center">
-              Bidded Problems for Team {allotments.teamName || "Loading..."}
+              Bidded Problems for {allotments.teamName || "Loading..."}
             </h2>
           </div>
 
@@ -70,7 +70,7 @@ const Problems = () => {
             </div>
           ) : (
             <p className="text-gray-400 text-center mt-10">
-              {allotments.biddedProblems ? "No bidded problems found for this team." : "Loading bidded problems..."}
+              {allotments.biddedProblems ? "No bidded problems found for this participant." : "Loading bidded problems..."}
             </p>
           )}
         </div>

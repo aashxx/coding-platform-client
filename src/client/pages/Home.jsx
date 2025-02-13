@@ -77,7 +77,7 @@ const Home = () => {
         <div className="w-full max-w-md flex flex-col items-center space-y-4">
           <input
             type="text"
-            placeholder="Enter Team Name"
+            placeholder="Enter Your Name"
             value={teamName}
             onChange={handleInputChange}
             className="w-full p-3 text-lg text-gray-900 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-600"

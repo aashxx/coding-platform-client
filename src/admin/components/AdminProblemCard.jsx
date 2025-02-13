@@ -39,13 +39,13 @@ const AdminProblemCard = ({ problem }) => {
         <p><strong>Time Limit:</strong> {problem.time_limit} minutes</p>
       </div>
       <div className="flex justify-end gap-3 mt-auto">
-        <button 
+        {/* <button 
           onClick={handleEdit} 
           className="text-blue-500 hover:text-blue-700 transition-colors"
           title="Edit Problem"
         >
           <MdEdit size={24} />
-        </button>
+        </button> */}
         <button 
           onClick={handleDelete} 
           className="text-red-500 hover:text-red-700 transition-colors"
